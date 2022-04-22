@@ -16,7 +16,6 @@ public class Agencia {
     
     private Agencia() 
     {	
-	    println ("Hola");
     }
     
     public static Agencia getInstancia()
