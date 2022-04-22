@@ -2,6 +2,7 @@ package client;
 
 public class CargaHoraria extends Matriz{
 	
+	
 	public CargaHoraria() {
 		
 		
