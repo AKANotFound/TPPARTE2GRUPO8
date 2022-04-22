@@ -16,6 +16,7 @@ public class Agencia {
     
     private Agencia() 
     {	
+	    System.out.println("probando el pull");
     }
     
     public static Agencia getInstancia()
