@@ -2,6 +2,11 @@ package client;
 
 public class Locacion_Indistinto extends Locacion {
 	
+	@Override
+	public double comparaCon(Locacion locacion) {
+		return locacion.comparaConIndistinto();
+	}
+	
     	@Override
 	  public double comparaConPresencial() {
 	  	return -1;
