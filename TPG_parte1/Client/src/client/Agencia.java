@@ -44,18 +44,22 @@ public class Agencia {
 			this.logins.add(this.cuentas.get(usuario));
 		return aux;
 	}
+	
 		public void addEmpleado (Persona_EmpleadoPretenso empleado)
 	{
 		this.empleadosPretensos.add(empleado);
 	}
+		
 	public void addEmpleador (Persona_Empleador empleador)
 	{
 		this.empleadores.add(empleador);
 	}
+	
 	public void removeEmpleado (Persona_EmpleadoPretenso empleado)
 	{
 		this.empleadosPretensos.remove(empleado);
 	}
+	
 	public void removeEmpleador (Persona_Empleador empleador)
 	{
 		this.empleadores.remove(empleador);
