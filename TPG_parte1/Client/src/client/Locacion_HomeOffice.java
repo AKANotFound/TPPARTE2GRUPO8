@@ -1,6 +1,12 @@
 package client;
 
 public class Locacion_HomeOffice extends Locacion {
+	
+	@Override
+	public double comparaCon(Locacion locacion) {
+		return locacion.comparaConHomeOffice();
+	}
+	
   	@Override
 	public double comparaConPresencial() {
 		return -1;
