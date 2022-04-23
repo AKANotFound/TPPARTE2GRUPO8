@@ -6,14 +6,14 @@ import java.util.HashMap;
 public abstract class Persona implements IPersona{
     private Cuenta cuenta;
     private int puntaje;
-    private ArrayList<Ticket> tickets = new ArrayList<Ticket>();
+    private Ticket ticket;
     private double costoServicio;     
     
-    public Persona(Cuenta cuenta, int puntaje, ArrayList<Ticket> tickets, double costoServicio) {
+    public Persona(Cuenta cuenta, int puntaje, Ticket ticket, double costoServicio) {
 		super();
 		this.cuenta = cuenta;
 		this.puntaje = puntaje;
-		this.tickets = tickets;
+		this.ticket = ticket;
 		this.costoServicio = costoServicio;
 	}
 
@@ -26,7 +26,17 @@ public abstract class Persona implements IPersona{
     	Agencia.getInstancia().login(usuario, contrasena);	
     }
 
-    public void visualizarLista() {
+    
+    
+    public Ticket getTicket() {
+		return ticket;
+	}
+
+	public void setTicket(Ticket ticket) {
+		this.ticket = ticket;
+	}
+
+	public void visualizarLista() {
     }
     
 }

@@ -8,8 +8,8 @@ public class Persona_EmpleadoPretenso extends Persona {
     private int edad;
     private ArrayList<Persona_Empleador> empleadoresPotenciales = new ArrayList<Persona_Empleador>();
 	
-    public Persona_EmpleadoPretenso(Cuenta cuenta, int puntaje, ArrayList<Ticket> tickets, double costoServicio) {
-		super(cuenta, puntaje, tickets, costoServicio);
+    public Persona_EmpleadoPretenso(Cuenta cuenta, int puntaje, Ticket ticket, double costoServicio) {
+		super(cuenta, puntaje, ticket, costoServicio);
 		// TODO Auto-generated constructor stub
 	}
     

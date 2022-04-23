@@ -26,6 +26,9 @@ public class Ticket implements ITicket{
 		// TODO Auto-generated method stub
 		
 	}
+	public FormularioDeBusqueda getFormularioDeBusqueda() {
+		return formularioDeBusqueda;
+	}
 
-
+	
 }

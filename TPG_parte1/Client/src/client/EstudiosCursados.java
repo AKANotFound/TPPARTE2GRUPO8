@@ -1,6 +1,6 @@
 package client;
 
-public abstract class EstudiosCursados extends Requisitos {
+public abstract class EstudiosCursados  {
 	
 	public abstract double comparaCon (EstudiosCursados estudios);
 	public abstract double comparaConPrimario();
