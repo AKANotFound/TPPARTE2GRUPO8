@@ -1,7 +1,7 @@
 package client;
 
 import java.util.ArrayList;
-import java.util.HashMap;
+
 
 public abstract class Persona implements IPersona{
     private Cuenta cuenta;

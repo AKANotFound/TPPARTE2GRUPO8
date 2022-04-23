@@ -27,8 +27,10 @@ public class Ticket implements ITicket{
 		
 	}
 	public FormularioDeBusqueda getFormularioDeBusqueda() {
+		
 		return formularioDeBusqueda;
 	}
+	
 
 	
 }
