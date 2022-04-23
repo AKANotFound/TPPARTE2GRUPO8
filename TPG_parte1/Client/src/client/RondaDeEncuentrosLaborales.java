@@ -6,7 +6,7 @@ public class RondaDeEncuentrosLaborales {
 	
 	private ArrayList <Persona_Empleador>empleadores =  Agencia.getInstancia().empleadores;
 	private ArrayList <Persona_EmpleadoPretenso> empleadosPretensos =  Agencia.getInstancia().empleadosPretensos;
-	
+	//probando
 	
 	public void generaListaAsignaciones ()
 	{
