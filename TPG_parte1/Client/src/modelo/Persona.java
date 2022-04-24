@@ -10,6 +10,7 @@ public abstract class Persona implements IPersona{
     private Ticket ticket;
     private double costoServicio;     
     private GregorianCalendar fechaListaAsignacion = null;
+    private ArrayList<PersonaAsignada> listaDeAsignacion = new ArrayList<PersonaAsignada>();
     
     public Persona(Cuenta cuenta, int puntaje, Ticket ticket, double costoServicio) {
 		super();
@@ -58,5 +59,11 @@ public abstract class Persona implements IPersona{
 	}
 	public void finalizarTicket() {
 		this.ticket.finalizar();
-	}//
+	}
+
+	public ArrayList<PersonaAsignada> getListaDeAsignacion() {
+		return listaDeAsignacion;
+	}
+	
+	
 }

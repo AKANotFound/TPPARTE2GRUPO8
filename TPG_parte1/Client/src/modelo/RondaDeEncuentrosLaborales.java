@@ -12,7 +12,7 @@ public class RondaDeEncuentrosLaborales {
 
 	public void generaListaAsignaciones ()
 	{
-		double calificacion = 0;
+		int calificacion = 0;
 		Persona_Empleador empleador = null;
 		Persona_EmpleadoPretenso empleadoP=null;
 		FormularioDeBusqueda formularioEmpleador=null;
@@ -40,14 +40,21 @@ public class RondaDeEncuentrosLaborales {
 				calificacion+=empleador.getPuntajeAspectos()[5]*formularioEmpleador.getExperienciaPrevia().comparaCon(formularioEmpleadoP.getExperienciaPrevia());
 				calificacion+=empleador.getPuntajeAspectos()[6]*formularioEmpleador.getEstudiosCursados().comparaCon(formularioEmpleadoP.getEstudiosCursados());
 				
+				empleadoP.getListaDeAsignacion().add(new PersonaAsignada(empleador,calificacion));
 				arbolOrdenadoDelEmpleador.add(new PersonaAsignada(empleadoP,calificacion));
 			}
-			empleador.getEmpleadosPotenciales().addAll(arbolOrdenadoDelEmpleador);
+			empleador.getListaDeAsignacion().addAll(arbolOrdenadoDelEmpleador);
 		}
-		arbolOrdenadoDelEmpleadoP.add(empleador);
-		//generar listas de acuerdo a la puntuacion, tanto de los empleados pretensos como de los empleadores (investigar coleccion lista ordenada)
+		arbolOrdenadoDelEmpleadoP.add(new PersonaAsignada(empleador,calificacion));
+		
 	}
 	
-	
+	public ArrayList<PersonaAsignada> ordenaLista(Persona_EmpleadoPretenso empleadoP)
+	{
+		for (int i=0;i<empleadoP.getListaDeAsignacion().size();i++)
+		{
+			arbolOrdenadoDelEmpleadoP.add(new PersonaAsignada(empleadoP,calificacion));
+		}
+	}
 	
 }

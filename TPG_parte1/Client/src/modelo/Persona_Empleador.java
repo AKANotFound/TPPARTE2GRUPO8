@@ -7,7 +7,6 @@ public class Persona_Empleador extends Persona {
 	private String razonSocial;
     private boolean personaFisica;
     private Rubro rubro;
-    private ArrayList<Persona_EmpleadoPretenso> empleadosPotenciales = new ArrayList<Persona_EmpleadoPretenso>();
     private double puntajeAspectos[]=new double[7];
     
     
@@ -45,4 +44,8 @@ public class Persona_Empleador extends Persona {
 	public void primerEmpleador() {
 		this.puntaje += 10;
 	}//
+
+	
+	
+	
 }
