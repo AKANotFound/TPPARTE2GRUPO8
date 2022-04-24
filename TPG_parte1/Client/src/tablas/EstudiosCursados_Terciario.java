@@ -1,9 +1,9 @@
 package tablas;
 
-public class EstudiosCursados_Terciario extends EstudiosCursados {
+public class EstudiosCursados_Terciario implements IEstudiosCursados {
 
 	@Override
-	public double comparaCon(EstudiosCursados estudios) {
+	public double comparaCon(IEstudiosCursados estudios) {
 		return estudios.comparaConTerciario();
 	}
 

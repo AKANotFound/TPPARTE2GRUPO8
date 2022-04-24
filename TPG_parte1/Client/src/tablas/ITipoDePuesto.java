@@ -1,8 +1,8 @@
 package tablas;
 
-public abstract class TipoDePuesto {
+public interface ITipoDePuesto {
 	
-	public abstract double comparaCon (TipoDePuesto t);
+	public abstract double comparaCon (ITipoDePuesto t);
 	public abstract double comparaConJunior();
 	public abstract double comparaConSenior();
 	public abstract double comparaConManagment();

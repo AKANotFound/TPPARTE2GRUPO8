@@ -1,8 +1,8 @@
 package tablas;
 
-public abstract class ExperienciaPrevia {
+public interface IExperienciaPrevia {
 	
-	public abstract double comparaCon (ExperienciaPrevia e);
+	public abstract double comparaCon (IExperienciaPrevia e);
 	public abstract double comparaConNada();
 	public abstract double comparaConMedia();
 	public abstract double comparaConMucha();

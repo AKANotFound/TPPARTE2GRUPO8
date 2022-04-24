@@ -18,6 +18,7 @@ public class RondaDeEncuentrosLaborales {
 		
 		for (int i=0; i<empleadores.size(); i++)
 		{
+			calificacion = 0;
 			empleador = empleadores.get(i);
 			formularioEmpleador=empleador.getTicket().getFormularioDeBusqueda();
 			for (int j=0; j < empleadosPretensos.size(); j++)
@@ -31,9 +32,10 @@ public class RondaDeEncuentrosLaborales {
 				calificacion+=empleador.getPuntajeAspectos()[4]*formularioEmpleador.getRangoEtario().comparaCon(formularioEmpleadoP.getRangoEtario());
 				calificacion+=empleador.getPuntajeAspectos()[5]*formularioEmpleador.getExperienciaPrevia().comparaCon(formularioEmpleadoP.getExperienciaPrevia());
 				calificacion+=empleador.getPuntajeAspectos()[6]*formularioEmpleador.getEstudiosCursados().comparaCon(formularioEmpleadoP.getEstudiosCursados());
-				
 			}
-		}		
+		}
+		
+		//generar listas de acuerdo a la puntuacion, tanto de los empleados pretensos como de los empleadores (investigar coleccion lista ordenada)
 	}
 	
 	

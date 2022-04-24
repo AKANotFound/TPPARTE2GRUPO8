@@ -1,9 +1,9 @@
 package tablas;
 
-public class Remuneracion_EntreV1V2 extends Remuneracion {
+public class Remuneracion_EntreV1V2 implements IRemuneracion {
 
 	@Override
-	public double comparaCon(Remuneracion r) {
+	public double comparaCon(IRemuneracion r) {
 		return r.comparaConEntreV1V2();
 	}
 

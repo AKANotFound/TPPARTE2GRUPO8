@@ -1,25 +1,25 @@
 package modelo;
 
-import tablas.CargaHoraria;
-import tablas.EstudiosCursados;
-import tablas.ExperienciaPrevia;
-import tablas.Locacion;
-import tablas.RangoEtario;
-import tablas.Remuneracion;
-import tablas.TipoDePuesto;
+import tablas.ICargaHoraria;
+import tablas.IEstudiosCursados;
+import tablas.IExperienciaPrevia;
+import tablas.ILocacion;
+import tablas.IRangoEtario;
+import tablas.IRemuneracion;
+import tablas.ITipoDePuesto;
 
 public class FormularioDeBusqueda {
-    private Locacion locacion;
-    private Remuneracion remuneracion;
-    private CargaHoraria cargaHoraria;
-    private TipoDePuesto tipoDePuesto;
-    private RangoEtario rangoEtario;
-    private ExperienciaPrevia experienciaPrevia;
-    private EstudiosCursados estudiosCursados;
+    private ILocacion locacion;
+    private IRemuneracion remuneracion;
+    private ICargaHoraria cargaHoraria;
+    private ITipoDePuesto tipoDePuesto;
+    private IRangoEtario rangoEtario;
+    private IExperienciaPrevia experienciaPrevia;
+    private IEstudiosCursados estudiosCursados;
     
-	public FormularioDeBusqueda(Locacion locacion, Remuneracion remuneracion, CargaHoraria cargaHoraria,
-			TipoDePuesto tipoDePuesto, RangoEtario rangoEtario, ExperienciaPrevia experienciaPrevia,
-			EstudiosCursados estudiosCursados) 
+	public FormularioDeBusqueda(ILocacion locacion, IRemuneracion remuneracion, ICargaHoraria cargaHoraria,
+			ITipoDePuesto tipoDePuesto, IRangoEtario rangoEtario, IExperienciaPrevia experienciaPrevia,
+			IEstudiosCursados estudiosCursados) 
 	{
 		this.locacion = locacion;
 		this.remuneracion = remuneracion;
@@ -31,31 +31,31 @@ public class FormularioDeBusqueda {
 	}
 	
 	
-    	public Locacion getLocacion() {
+    	public ILocacion getLocacion() {
 		return locacion;
 	}
 
-	public Remuneracion getRemuneracion() {
+	public IRemuneracion getRemuneracion() {
 		return remuneracion;
 	}
 
-	public CargaHoraria getCargaHoraria() {
+	public ICargaHoraria getCargaHoraria() {
 		return cargaHoraria;
 	}
 
-	public TipoDePuesto getTipoDePuesto() {
+	public ITipoDePuesto getTipoDePuesto() {
 		return tipoDePuesto;
 	}
 
-	public RangoEtario getRangoEtario() {
+	public IRangoEtario getRangoEtario() {
 		return rangoEtario;
 	}
 
-	public ExperienciaPrevia getExperienciaPrevia() {
+	public IExperienciaPrevia getExperienciaPrevia() {
 		return experienciaPrevia;
 	}
 
-	public EstudiosCursados getEstudiosCursados() {
+	public IEstudiosCursados getEstudiosCursados() {
 		return estudiosCursados;
 	}
     

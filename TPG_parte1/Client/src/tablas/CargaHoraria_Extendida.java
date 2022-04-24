@@ -1,9 +1,9 @@
 package tablas;
 
-public class CargaHoraria_Extendida extends CargaHoraria {
+public class CargaHoraria_Extendida implements ICargaHoraria {
 
 	@Override
-	public double comparaCon(CargaHoraria c) {
+	public double comparaCon(ICargaHoraria c) {
 		
 		return c.comparaConExtendida();
 	}

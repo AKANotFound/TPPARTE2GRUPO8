@@ -1,9 +1,9 @@
 package tablas;
 
-public class RangoEtario_MasDe50 extends RangoEtario {
+public class RangoEtario_MasDe50 implements IRangoEtario {
 
 	@Override
-	public double comparaCon(RangoEtario r) {
+	public double comparaCon(IRangoEtario r) {
 		return r.comparaConMasDe50();
 	}
 

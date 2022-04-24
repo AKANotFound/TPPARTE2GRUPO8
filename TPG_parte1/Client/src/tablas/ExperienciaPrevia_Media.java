@@ -1,9 +1,9 @@
 package tablas;
 
-public class ExperienciaPrevia_Media extends ExperienciaPrevia {
+public class ExperienciaPrevia_Media implements IExperienciaPrevia {
 
 	@Override
-	public double comparaCon(ExperienciaPrevia e) {
+	public double comparaCon(IExperienciaPrevia e) {
 		return e.comparaConMedia();
 	}
 
