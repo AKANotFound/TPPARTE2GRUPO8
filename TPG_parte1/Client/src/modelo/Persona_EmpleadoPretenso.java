@@ -43,3 +43,4 @@ public class Persona_EmpleadoPretenso extends Persona {
 		this.puntaje += 5;
 	}
 }
+//
