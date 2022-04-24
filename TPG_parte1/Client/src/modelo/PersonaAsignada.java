@@ -1,12 +1,11 @@
 package modelo;
 
-import java.util.GregorianCalendar;
 
-public class PersonaAsignada {
+public class PersonaAsignada implements Comparable<PersonaAsignada>{
 	private Persona persona;
 	private int puntaje;
 	
-	public PersonaAsignada(Persona persona, int puntaje, GregorianCalendar fecha) {
+	public PersonaAsignada(Persona persona, int puntaje) {
 		super();
 		this.persona = persona;
 		this.puntaje = puntaje;
@@ -16,7 +15,13 @@ public class PersonaAsignada {
 		return persona;
 	}
 
-	public int getPuntaje() {
+	public double getPuntaje() {
 		return puntaje;
+	}
+
+	@Override
+	public int compareTo(PersonaAsignada o) {
+		
+		return this.puntaje-o.puntaje;
 	}
 }

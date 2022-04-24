@@ -1,6 +1,8 @@
 package modelo;
 
 import java.util.ArrayList;
+import java.util.SortedSet;
+import java.util.TreeSet;
 
 public class RondaDeEncuentrosLaborales {
 	
@@ -15,6 +17,11 @@ public class RondaDeEncuentrosLaborales {
 		Persona_EmpleadoPretenso empleadoP=null;
 		FormularioDeBusqueda formularioEmpleador=null;
 		FormularioDeBusqueda formularioEmpleadoP=null;
+		ArrayList<PersonaAsignada>ListaDelEmpleador=new ArrayList<PersonaAsignada>();
+		ArrayList<PersonaAsignada>ListaDelEmpleadoP=new ArrayList<PersonaAsignada>();
+		SortedSet<PersonaAsignada> arbolOrdenadoDelEmpleador= new TreeSet<PersonaAsignada>();
+		SortedSet<PersonaAsignada> arbolOrdenadoDelEmpleadoP= new TreeSet<PersonaAsignada>();
+		PersonaAsignada personaAsignada;
 		
 		for (int i=0; i<empleadores.size(); i++)
 		{
@@ -32,9 +39,12 @@ public class RondaDeEncuentrosLaborales {
 				calificacion+=empleador.getPuntajeAspectos()[4]*formularioEmpleador.getRangoEtario().comparaCon(formularioEmpleadoP.getRangoEtario());
 				calificacion+=empleador.getPuntajeAspectos()[5]*formularioEmpleador.getExperienciaPrevia().comparaCon(formularioEmpleadoP.getExperienciaPrevia());
 				calificacion+=empleador.getPuntajeAspectos()[6]*formularioEmpleador.getEstudiosCursados().comparaCon(formularioEmpleadoP.getEstudiosCursados());
+				
+				arbolOrdenadoDelEmpleador.add(new PersonaAsignada(empleadoP,calificacion));
 			}
+			empleador.getEmpleadosPotenciales().addAll(arbolOrdenadoDelEmpleador);
 		}
-		
+		arbolOrdenadoDelEmpleadoP.add(empleador);
 		//generar listas de acuerdo a la puntuacion, tanto de los empleados pretensos como de los empleadores (investigar coleccion lista ordenada)
 	}
 	
