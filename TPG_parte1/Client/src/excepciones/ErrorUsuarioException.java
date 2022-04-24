@@ -4,7 +4,7 @@ public class ErrorUsuarioException extends Exception {
 	private String usuarioIngresado;
 
 	public ErrorUsuarioException(String usuarioIngresado) {
-		super();
+		super("el nombre de usuario es incorrecto");
 		this.usuarioIngresado = usuarioIngresado;
 	}
 	
