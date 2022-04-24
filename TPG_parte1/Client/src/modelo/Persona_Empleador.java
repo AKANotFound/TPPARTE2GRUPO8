@@ -32,4 +32,17 @@ public class Persona_Empleador extends Persona {
 		// TODO Auto-generated method stub
 		
 	}
+
+	@Override
+	public void finalizarTicket() {
+		super.finalizarTicket();
+		this.puntaje += 50;
+	}
+	
+	public void noElegido() {
+		this.puntaje -= 20;
+	}
+	public void primerEmpleador() {
+		this.puntaje += 10;
+	}
 }

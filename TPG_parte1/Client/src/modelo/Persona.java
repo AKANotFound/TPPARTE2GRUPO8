@@ -6,7 +6,7 @@ import java.util.GregorianCalendar;
 
 public abstract class Persona implements IPersona{
     private Cuenta cuenta;
-    private int puntaje;
+    protected int puntaje;
     private Ticket ticket;
     private double costoServicio;     
     private GregorianCalendar fechaListaAsignacion = null;
@@ -46,4 +46,19 @@ public abstract class Persona implements IPersona{
 	public void setFechaListaAsignacion(GregorianCalendar fecha) {
 		this.fechaListaAsignacion = fecha;
 	}
+	
+	public void activarTicket() {
+		this.ticket.activar();
+	}
+	public void suspenderTicket() {
+		this.ticket.suspender();
+	}
+	public void cancelarTicket() {
+		this.ticket.cancelar();
+	}
+	public void finalizarTicket() {
+		this.ticket.finalizar();
+	}
+	
+	
 }
