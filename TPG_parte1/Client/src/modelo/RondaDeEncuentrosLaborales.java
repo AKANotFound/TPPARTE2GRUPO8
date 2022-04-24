@@ -1,8 +1,8 @@
 package modelo;
 
 import java.util.ArrayList;
-import java.util.SortedSet;
-import java.util.TreeSet;
+import java.util.Collections;
+
 
 public class RondaDeEncuentrosLaborales {
 	
@@ -17,12 +17,6 @@ public class RondaDeEncuentrosLaborales {
 		Persona_EmpleadoPretenso empleadoP=null;
 		FormularioDeBusqueda formularioEmpleador=null;
 		FormularioDeBusqueda formularioEmpleadoP=null;
-		ArrayList<PersonaAsignada>ListaDelEmpleador=new ArrayList<PersonaAsignada>();
-		ArrayList<PersonaAsignada>ListaDelEmpleadoP=new ArrayList<PersonaAsignada>();
-		SortedSet<PersonaAsignada> arbolOrdenadoDelEmpleador= new TreeSet<PersonaAsignada>();
-		SortedSet<PersonaAsignada> arbolOrdenadoDelEmpleadoP= new TreeSet<PersonaAsignada>();
-		PersonaAsignada personaAsignada;
-		
 		for (int i=0; i<empleadores.size(); i++)
 		{
 			calificacion = 0;
@@ -39,22 +33,17 @@ public class RondaDeEncuentrosLaborales {
 				calificacion+=empleador.getPuntajeAspectos()[4]*formularioEmpleador.getRangoEtario().comparaCon(formularioEmpleadoP.getRangoEtario());
 				calificacion+=empleador.getPuntajeAspectos()[5]*formularioEmpleador.getExperienciaPrevia().comparaCon(formularioEmpleadoP.getExperienciaPrevia());
 				calificacion+=empleador.getPuntajeAspectos()[6]*formularioEmpleador.getEstudiosCursados().comparaCon(formularioEmpleadoP.getEstudiosCursados());
-				
 				empleadoP.getListaDeAsignacion().add(new PersonaAsignada(empleador,calificacion));
-				arbolOrdenadoDelEmpleador.add(new PersonaAsignada(empleadoP,calificacion));
+				empleador.getListaDeAsignacion().add(new PersonaAsignada(empleadoP,calificacion));	
 			}
-			empleador.getListaDeAsignacion().addAll(arbolOrdenadoDelEmpleador);
+			Collections.sort(empleador.getListaDeAsignacion()); //una vez completa, ordena la lista del empleador	
 		}
-		arbolOrdenadoDelEmpleadoP.add(new PersonaAsignada(empleador,calificacion));
+		for (int i=0;i<empleadosPretensos.size();i++)
+			Collections.sort(empleadosPretensos.get(i).getListaDeAsignacion());//ordena lista de empleados pretensos
+		
 		
 	}
 	
-	public ArrayList<PersonaAsignada> ordenaLista(Persona_EmpleadoPretenso empleadoP)
-	{
-		for (int i=0;i<empleadoP.getListaDeAsignacion().size();i++)
-		{
-			arbolOrdenadoDelEmpleadoP.add(new PersonaAsignada(empleadoP,calificacion));
-		}
-	}
+	
 	
 }
