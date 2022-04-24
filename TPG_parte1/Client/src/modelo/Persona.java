@@ -58,5 +58,5 @@ public abstract class Persona implements IPersona{
 	}
 	public void finalizarTicket() {
 		this.ticket.finalizar();
-	}
+	}//
 }

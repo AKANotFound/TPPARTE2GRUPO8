@@ -41,5 +41,5 @@ public class Persona_EmpleadoPretenso extends Persona {
 	}
 	public void primerEmpleado() {
 		this.puntaje += 5;
-	}
+	}//
 }
