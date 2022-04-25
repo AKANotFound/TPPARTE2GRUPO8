@@ -5,12 +5,12 @@ import java.util.HashMap;
 
 
 public class Agencia {
-    ArrayList<Persona_Empleador> empleadores = new ArrayList<Persona_Empleador>();
-    ArrayList<Persona_EmpleadoPretenso> empleadosPretensos = new ArrayList<Persona_EmpleadoPretenso>();
-    ArrayList<Ticket_BusquedaEmpleo> ticketsEmpleado = new ArrayList<Ticket_BusquedaEmpleo>();
-    ArrayList<Ticket_BusquedaEmpleado> ticketsEmpleo = new ArrayList<Ticket_BusquedaEmpleado>();
-    ArrayList<Cuenta> logins = new ArrayList<Cuenta>();
-    HashMap <String, Cuenta> cuentas = new HashMap <>();
+    private ArrayList<Persona> empleadores = new ArrayList<Persona>();
+    private ArrayList<Persona> empleadosPretensos = new ArrayList<Persona>();
+    private ArrayList<Ticket_BusquedaEmpleo> ticketsEmpleado = new ArrayList<Ticket_BusquedaEmpleo>();
+    private ArrayList<Ticket_BusquedaEmpleado> ticketsEmpleo = new ArrayList<Ticket_BusquedaEmpleado>();
+    private ArrayList<Cuenta> logins = new ArrayList<Cuenta>();
+    private HashMap <String, Cuenta> cuentas = new HashMap <>();
     private static Agencia instancia = null;
   
     
@@ -45,24 +45,33 @@ public class Agencia {
 		return aux;
 	}
 	
-		public void addEmpleado (Persona_EmpleadoPretenso empleado)
+		public void addEmpleado (Persona persona)
 	{
-		this.empleadosPretensos.add(empleado);
+		this.empleadosPretensos.add(persona);
 	}
 		
-	public void addEmpleador (Persona_Empleador empleador)
+	public void addEmpleador (Persona empleador)
 	{
 		this.empleadores.add(empleador);
 	}
 	
-	public void removeEmpleado (Persona_EmpleadoPretenso empleado)
+	public void removeEmpleado (Persona empleado)
 	{
 		this.empleadosPretensos.remove(empleado);
 	}
 	
-	public void removeEmpleador (Persona_Empleador empleador)
+	public void removeEmpleador (Persona empleador)
 	{
 		this.empleadores.remove(empleador);
 	}
+
+	public ArrayList<Persona> getEmpleadores() {
+		return empleadores;
+	}
+
+	public ArrayList<Persona> getEmpleadosPretensos() {
+		return empleadosPretensos;
+	}
+	
 	
 }

@@ -10,9 +10,8 @@ public class Persona_Empleador extends Persona {
     private double puntajeAspectos[]=new double[7];
     
     
-    public Persona_Empleador(Cuenta cuenta, int puntaje, Ticket ticket, double costoServicio,double puntajeAspectos[]) {
-		super(cuenta, puntaje, ticket, costoServicio);
-		this.puntajeAspectos=puntajeAspectos;
+    public Persona_Empleador(Cuenta cuenta) {
+		super(cuenta);
 	}
 
 	public double[] getPuntajeAspectos() {

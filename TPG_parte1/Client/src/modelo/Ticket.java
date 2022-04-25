@@ -2,7 +2,7 @@ package modelo;
 
 public class Ticket implements ITicket{
     private String fechaAlta;
-    private String estado;
+    protected String estado;
     private FormularioDeBusqueda formularioDeBusqueda;
     
 	@Override

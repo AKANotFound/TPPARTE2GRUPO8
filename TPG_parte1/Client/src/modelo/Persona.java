@@ -12,15 +12,16 @@ public abstract class Persona implements IPersona{
     private GregorianCalendar fechaListaAsignacion = null;
     private ArrayList<PersonaAsignada> listaDeAsignacion = new ArrayList<PersonaAsignada>();
     
-    public Persona(Cuenta cuenta, int puntaje, Ticket ticket, double costoServicio) {
+    public Persona(Cuenta cuenta) {
 		super();
 		this.cuenta = cuenta;
-		this.puntaje = puntaje;
-		this.ticket = ticket;
-		this.costoServicio = costoServicio;
+		this.puntaje = 0;
+		this.ticket = null;
+		this.costoServicio = 0;
 	}
 
-	public void registrarse(Cuenta cuenta) { //trata excepcion
+	public void registrarse(String usuario, String contrasena) { //trata excepcion
+		funcPersona.registrarse(usuario, contrasena);
     	this.cuenta = cuenta;
     	Agencia.getInstancia().agregarCuenta(cuenta);
     }
@@ -64,6 +65,8 @@ public abstract class Persona implements IPersona{
 	public ArrayList<PersonaAsignada> getListaDeAsignacion() {
 		return listaDeAsignacion;
 	}
-	
-	
+
+	public Cuenta getCuenta() {
+		return cuenta;
+	}
 }

@@ -7,8 +7,8 @@ public class Persona_EmpleadoPretenso extends Persona {
     private String telefono;
     private int edad;
 	
-    public Persona_EmpleadoPretenso(Cuenta cuenta, int puntaje, Ticket ticket, double costoServicio) {
-		super(cuenta, puntaje, ticket, costoServicio);
+    public Persona_EmpleadoPretenso(Cuenta cuenta) {
+		super(cuenta);
 		// TODO Auto-generated constructor stub
 	}
     
