@@ -16,7 +16,6 @@ public class Agencia {
     
     private Agencia() 
     {	
-    	System.out.println("hola xd");
     }
     
     public static Agencia getInstancia()
