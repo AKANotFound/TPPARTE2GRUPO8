@@ -30,10 +30,7 @@ public class Cuenta {
 		this.contrasena = contrasena;
 	}
 	
-	public boolean verificaLogin (String contrasena)
-	{
-		return this.contrasena.equals(contrasena);
-	}
+	
 	
 	
 	

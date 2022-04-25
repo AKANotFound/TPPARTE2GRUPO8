@@ -24,9 +24,21 @@ public class FPersona {
 		ArrayList<Persona> empleados = Agencia.getInstancia().getEmpleadosPretensos();
 		int i = 0;
 		
-		while(i < empleadores.size() && empleadores.get(i).getCuenta().getUsuario()) {
-			i++;
+		while(i < empleadores.size() && empleadores.get(i).getCuenta().getUsuario()!=usuario) 
+				i++;
+		if (i==empleadores.size())
+		{
+			i=0;
+			while(i < empleados.size() && empleados.get(i).getCuenta().getUsuario()!=usuario) 
+				i++;
+			if (i<empleados.size())
+				Agencia.getInstancia().addLogins(empleados.get(i).getCuenta());
+			else
+				System.out.println("no se encontro usuario"); //HACER EXCEPCION
 		}
+		else
+			Agencia.getInstancia().addLogins(empleadores.get(i).getCuenta());
+		
 	}
 
 	public void eleccion() {

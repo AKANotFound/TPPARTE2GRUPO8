@@ -36,15 +36,6 @@ public class Agencia {
 		this.cuentas.remove(cuenta.getUsuario());
 	}
 	
-	public boolean login (String usuario, String contrasena) //Excepcion a chequear
-	{														// pre condicion : el usuario no se logee 2 veces
-		boolean aux;
-		aux = this.cuentas.get(usuario).verificaLogin(contrasena);
-		if(aux == true)
-			this.logins.add(this.cuentas.get(usuario));
-		return aux;
-	}
-	
 		public void addEmpleado (Persona persona)
 	{
 		this.empleadosPretensos.add(persona);
@@ -73,5 +64,7 @@ public class Agencia {
 		return empleadosPretensos;
 	}
 	
-	
+	public void addLogins(Cuenta cuenta) {
+		logins.add(cuenta);
+	}
 }

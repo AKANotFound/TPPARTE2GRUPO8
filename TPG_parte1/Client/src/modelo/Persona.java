@@ -11,6 +11,7 @@ public abstract class Persona implements IPersona{
     private double costoServicio;     
     private GregorianCalendar fechaListaAsignacion = null;
     private ArrayList<PersonaAsignada> listaDeAsignacion = new ArrayList<PersonaAsignada>();
+    private FPersona funcPersona;
     
     public Persona(Cuenta cuenta) {
 		super();
@@ -20,14 +21,14 @@ public abstract class Persona implements IPersona{
 		this.costoServicio = 0;
 	}
 
-	public void registrarse(String usuario, String contrasena) { //trata excepcion
-		funcPersona.registrarse(usuario, contrasena);
+	public void registrarse(String tipo,String usuario, String contrasena) { //trata excepcion
+		funcPersona.registrarse(tipo,usuario, contrasena);
     	this.cuenta = cuenta;
     	Agencia.getInstancia().agregarCuenta(cuenta);
     }
 
     public void login(String usuario, String contrasena) {
-    	Agencia.getInstancia().login(usuario, contrasena);	
+    	funcPersona.login(usuario, contrasena);
     }
     
     public Ticket getTicket() {
