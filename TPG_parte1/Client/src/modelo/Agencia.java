@@ -84,10 +84,13 @@ public class Agencia {
 	}
 	
 	public void login(String usuario,String contrasena) {
-        if(this.cuentas.get(usuario) != null) { //EXCEPCION
-        	if(this.cuentas.get(usuario).confirmaContrasena(contrasena)) {//EXCEPCION
-        		this.logins.add(this.cuentas.get(usuario));
-        	}
+		Cuenta cuenta = this.cuentas.get(usuario);
+		
+        if(cuenta != null) { //EXCEPCION mal el usuario
+        	if(!(this.logins.contains(cuenta)))
+        		if(cuenta.confirmaContrasena(contrasena)) {//EXCEPCION mal contraseña
+        			this.logins.add(this.cuentas.get(usuario));
+        		}
         }
     }
 }
