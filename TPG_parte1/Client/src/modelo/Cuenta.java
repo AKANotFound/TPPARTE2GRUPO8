@@ -30,9 +30,7 @@ public class Cuenta {
 		this.contrasena = contrasena;
 	}
 	
-	
-	
-	
-	
-
+	public boolean confirmaContrasena(String constrasena) {
+        return this.contrasena.equals(constrasena);
+    }
 }

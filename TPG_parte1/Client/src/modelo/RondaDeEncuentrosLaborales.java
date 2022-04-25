@@ -6,8 +6,8 @@ import java.util.Collections;
 
 public class RondaDeEncuentrosLaborales {
 	
-	private ArrayList <Persona>empleadores =  Agencia.getInstancia().getEmpleadores();
-	private ArrayList <Persona> empleadosPretensos =  Agencia.getInstancia().getEmpleadosPretensos();
+	private ArrayList <Persona_Empleador> empleadores =  Agencia.getInstancia().getEmpleadores();
+	private ArrayList <Persona_EmpleadoPretenso> empleadosPretensos =  Agencia.getInstancia().getEmpleadosPretensos();
 //hola
 
 	public void generaListaAsignaciones ()
@@ -22,7 +22,7 @@ public class RondaDeEncuentrosLaborales {
 		{
 			
 			calificacion = 0;
-			empleador = (Persona_Empleador) empleadores.get(i);
+			empleador = empleadores.get(i);
 			empleador.setListaDeAsignacion(new ArrayList<PersonaAsignada>());
 			formularioEmpleador=empleador.getTicket().getFormularioDeBusqueda();
 			for (int j=0; j < empleadosPretensos.size(); j++)
@@ -44,10 +44,5 @@ public class RondaDeEncuentrosLaborales {
 		}
 		for (int i=0;i<empleadosPretensos.size();i++)
 			Collections.sort(empleadosPretensos.get(i).getListaDeAsignacion());//ordena lista de empleados pretensos
-		
-		
 	}
-	
-	
-	
 }

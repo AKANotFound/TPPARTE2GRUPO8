@@ -4,14 +4,13 @@ import java.util.ArrayList;
 import java.util.GregorianCalendar;
 
 
-public abstract class Persona implements IPersona{
+public abstract class Persona {
     private Cuenta cuenta;
     protected int puntaje;
     private Ticket ticket;
     private double costoServicio;     
     private GregorianCalendar fechaListaAsignacion = null;
     private ArrayList<PersonaAsignada> listaDeAsignacion =null;
-    private FPersona funcPersona;
     
     public Persona(Cuenta cuenta) {
 		super();
@@ -20,18 +19,8 @@ public abstract class Persona implements IPersona{
 		this.ticket = null;
 		this.costoServicio = 0;
 	}
-
-	public void registrarse(String tipo,String usuario, String contrasena) { //trata excepcion
-		funcPersona.registrarse(tipo,usuario, contrasena);
-    	this.cuenta = cuenta;
-    	Agencia.getInstancia().agregarCuenta(cuenta);
-    }
-
-    public void login(String usuario, String contrasena) {
-    	funcPersona.login(usuario, contrasena);
-    }
     
-    public Ticket getTicket() {
+	public Ticket getTicket() {
 		return ticket;
 	}
 
@@ -39,9 +28,6 @@ public abstract class Persona implements IPersona{
 		this.ticket = ticket;
 	}
 
-	public void visualizarLista() {
-    }
-    
 	public GregorianCalendar getFechaListaAsignacion() {
 		return fechaListaAsignacion;
 	}
@@ -63,6 +49,10 @@ public abstract class Persona implements IPersona{
 		this.ticket.finalizar();
 	}
 
+	public void setListaDeAsignacion(ArrayList<PersonaAsignada> listaDeAsignacion) {
+		this.listaDeAsignacion = listaDeAsignacion;
+	}
+	
 	public ArrayList<PersonaAsignada> getListaDeAsignacion() {
 		return listaDeAsignacion;
 	}
@@ -71,10 +61,24 @@ public abstract class Persona implements IPersona{
 		return cuenta;
 	}
 
-	public void setListaDeAsignacion(ArrayList<PersonaAsignada> listaDeAsignacion) {
-		this.listaDeAsignacion = listaDeAsignacion;
+	public void registrarse(String usuario, String contrasena) {
+		// TODO Auto-generated method stub
+		
 	}
-	
-	
+
+	public void login(String usuario, String contrasena) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void eleccion() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void visualizarLista() {
+		// TODO Auto-generated method stub
+		
+	}	
 }
 
