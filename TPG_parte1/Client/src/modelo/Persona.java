@@ -10,7 +10,7 @@ public abstract class Persona implements IPersona{
     private Ticket ticket;
     private double costoServicio;     
     private GregorianCalendar fechaListaAsignacion = null;
-    private ArrayList<PersonaAsignada> listaDeAsignacion = new ArrayList<PersonaAsignada>();
+    private ArrayList<PersonaAsignada> listaDeAsignacion =null;
     private FPersona funcPersona;
     
     public Persona(Cuenta cuenta) {
@@ -70,4 +70,11 @@ public abstract class Persona implements IPersona{
 	public Cuenta getCuenta() {
 		return cuenta;
 	}
+
+	public void setListaDeAsignacion(ArrayList<PersonaAsignada> listaDeAsignacion) {
+		this.listaDeAsignacion = listaDeAsignacion;
+	}
+	
+	
 }
+

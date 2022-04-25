@@ -6,8 +6,8 @@ import java.util.Collections;
 
 public class RondaDeEncuentrosLaborales {
 	
-	private ArrayList <Persona_Empleador>empleadores =  Agencia.getInstancia().getEmpleadores();
-	private ArrayList <Persona_EmpleadoPretenso> empleadosPretensos =  Agencia.getInstancia().getEmpleadosPretensos();
+	private ArrayList <Persona>empleadores =  Agencia.getInstancia().getEmpleadores();
+	private ArrayList <Persona> empleadosPretensos =  Agencia.getInstancia().getEmpleadosPretensos();
 
 
 	public void generaListaAsignaciones ()
@@ -22,13 +22,13 @@ public class RondaDeEncuentrosLaborales {
 		{
 			
 			calificacion = 0;
-			empleador = empleadores.get(i);
-			empleador.getListaDeAsignacion()=new ArrayList<PersonaAsignada>();
+			empleador = (Persona_Empleador) empleadores.get(i);
+			empleador.setListaDeAsignacion(new ArrayList<PersonaAsignada>());
 			formularioEmpleador=empleador.getTicket().getFormularioDeBusqueda();
 			for (int j=0; j < empleadosPretensos.size(); j++)
 			{
-				empleadoP = empleadosPretensos.get(j);
-				empleadoP.getListaDeAsignacion()=new ArrayList<PersonaAsignada>();
+				empleadoP = (Persona_EmpleadoPretenso) empleadosPretensos.get(j);
+				empleadoP.setListaDeAsignacion(new ArrayList<PersonaAsignada>());
 				formularioEmpleadoP=empleadoP.getTicket().getFormularioDeBusqueda();
 				calificacion+=empleador.getPuntajeAspectos()[0]*formularioEmpleador.getLocacion().comparaCon(formularioEmpleadoP.getLocacion());
 				calificacion+=empleador.getPuntajeAspectos()[1]*formularioEmpleador.getRemuneracion().comparaCon(formularioEmpleadoP.getRemuneracion());
