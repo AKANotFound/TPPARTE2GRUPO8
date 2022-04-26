@@ -8,6 +8,7 @@ public class Persona_Empleador extends Persona {
     private boolean personaFisica;
     private Rubro rubro;
     private double puntajeAspectos[]=new double[7];
+    private ArrayList<PersonaAsignada> elegidos = new ArrayList<PersonaAsignada>();
     
     
     public Persona_Empleador(Cuenta cuenta) {
@@ -18,7 +19,10 @@ public class Persona_Empleador extends Persona {
 		return puntajeAspectos;
 	}
 
-
+	public void agregaElegidos (Persona_EmpleadoPretenso empleadoPretenso)
+	{
+		this.elegidos.add(empleadoPretenso);
+	}
 	@Override
 	public void eleccion() {
 		// TODO Auto-generated method stub
