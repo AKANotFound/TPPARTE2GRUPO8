@@ -30,19 +30,29 @@ public class RondaDeEncuentrosLaborales {
 				empleadoP = (Persona_EmpleadoPretenso) empleadosPretensos.get(j);
 				empleadoP.setListaDeAsignacion(new ArrayList<PersonaAsignada>());
 				formularioEmpleadoP=empleadoP.getTicket().getFormularioDeBusqueda();
-				calificacion+=empleador.getPuntajeAspectos()[0]*formularioEmpleador.getLocacion().comparaCon(formularioEmpleadoP.getLocacion());
-				calificacion+=empleador.getPuntajeAspectos()[1]*formularioEmpleador.getRemuneracion().comparaCon(formularioEmpleadoP.getRemuneracion());
-				calificacion+=empleador.getPuntajeAspectos()[2]*formularioEmpleador.getCargaHoraria().comparaCon(formularioEmpleadoP.getCargaHoraria());
-				calificacion+=empleador.getPuntajeAspectos()[3]*formularioEmpleador.getTipoDePuesto().comparaCon(formularioEmpleadoP.getTipoDePuesto());
-				calificacion+=empleador.getPuntajeAspectos()[4]*formularioEmpleador.getRangoEtario().comparaCon(formularioEmpleadoP.getRangoEtario());
-				calificacion+=empleador.getPuntajeAspectos()[5]*formularioEmpleador.getExperienciaPrevia().comparaCon(formularioEmpleadoP.getExperienciaPrevia());
-				calificacion+=empleador.getPuntajeAspectos()[6]*formularioEmpleador.getEstudiosCursados().comparaCon(formularioEmpleadoP.getEstudiosCursados());
+				calificacion+=empleador.getPuntajeAspectos()[0]*formularioEmpleador.getLocacion().comparaCon(formularioEmpleadoP.getLocacion())
+							+empleador.getPuntajeAspectos()[1]*formularioEmpleador.getRemuneracion().comparaCon(formularioEmpleadoP.getRemuneracion())
+							+empleador.getPuntajeAspectos()[2]*formularioEmpleador.getCargaHoraria().comparaCon(formularioEmpleadoP.getCargaHoraria())
+							+empleador.getPuntajeAspectos()[3]*formularioEmpleador.getTipoDePuesto().comparaCon(formularioEmpleadoP.getTipoDePuesto())
+							+empleador.getPuntajeAspectos()[4]*formularioEmpleador.getRangoEtario().comparaCon(formularioEmpleadoP.getRangoEtario())
+							+empleador.getPuntajeAspectos()[5]*formularioEmpleador.getExperienciaPrevia().comparaCon(formularioEmpleadoP.getExperienciaPrevia())
+							+empleador.getPuntajeAspectos()[6]*formularioEmpleador.getEstudiosCursados().comparaCon(formularioEmpleadoP.getEstudiosCursados());
 				empleadoP.getListaDeAsignacion().add(new PersonaAsignada(empleador,calificacion));
 				empleador.getListaDeAsignacion().add(new PersonaAsignada(empleadoP,calificacion));	
 			}
 			Collections.sort(empleador.getListaDeAsignacion()); //una vez completa, ordena la lista del empleador	
+			empleadoP = (Persona_EmpleadoPretenso) empleador.getListaDeAsignacion().get(0).getPersona();
+			empleadoP.primerEmpleado();
+			empleadoP = (Persona_EmpleadoPretenso) empleador.getListaDeAsignacion().get(empleador.getListaDeAsignacion().size()-1).getPersona();
+			empleadoP.ultimoEmpleado();
 		}
 		for (int i=0;i<empleadosPretensos.size();i++)
+		{
 			Collections.sort(empleadosPretensos.get(i).getListaDeAsignacion());//ordena lista de empleados pretensos
+			empleador = (Persona_Empleador) empleadosPretensos.get(i).getListaDeAsignacion().get(0).getPersona();
+			empleador.primerEmpleador();
+		}
+			
+		
 	}
 }

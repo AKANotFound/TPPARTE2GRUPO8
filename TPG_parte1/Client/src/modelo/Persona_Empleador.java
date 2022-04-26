@@ -26,23 +26,15 @@ public class Persona_Empleador extends Persona {
 	}
 
 	@Override
-	public void registrarse(String usuario, String contrasena) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
 	public void finalizarTicket() {
 		super.finalizarTicket();
 		this.puntaje += 50;
 	}
-	
-	public void noElegido() {
-		this.puntaje -= 20;
-	}
 	public void primerEmpleador() {
 		this.puntaje += 10;
-	}//
+	}
+	
+//
 
 	
 	

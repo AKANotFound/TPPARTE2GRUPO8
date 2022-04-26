@@ -19,12 +19,6 @@ public class Persona_EmpleadoPretenso extends Persona {
 	}
 
 	@Override
-	public void registrarse(String usuario, String contrasena) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
 	public void cancelarTicket() {
 		super.cancelarTicket();
 		this.puntaje -= 1;
@@ -38,6 +32,7 @@ public class Persona_EmpleadoPretenso extends Persona {
 	public void ultimoEmpleado() {
 		this.puntaje -= 5;
 	}
+	
 	public void primerEmpleado() {
 		this.puntaje += 5;
 	}//

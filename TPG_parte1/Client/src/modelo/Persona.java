@@ -61,16 +61,6 @@ public abstract class Persona {
 		return cuenta;
 	}
 
-	public void registrarse(String usuario, String contrasena) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	public void login(String usuario, String contrasena) {
-		// TODO Auto-generated method stub
-		
-	}
-
 	public void eleccion() {
 		// TODO Auto-generated method stub
 		
