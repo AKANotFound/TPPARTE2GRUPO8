@@ -24,4 +24,6 @@ public class PersonaAsignada implements Comparable<PersonaAsignada>{
 		
 		return this.puntaje-o.puntaje;
 	}
+	
+	
 }

@@ -24,19 +24,19 @@ public class RondaDeElecciones {
 			ticket_empleador = (Ticket_BusquedaEmpleado) empleador.getTicket();
 			cantSolicitados = ticket_empleador.getCantEmpleadosSolicitados();
 			
-			while (cantActual < empleador.getListaDeAsignacion().size() && cantActual < cantSolicitados)
+			while (cantActual < empleador.getListaDeAsignacion().getLista().size() && cantActual < cantSolicitados)
 			{
-				//empleadoPretenso = (Persona_EmpleadoPretenso) empleador.getListaDeAsignacion().get(cantActual).getPersona();
-				//empleador.agregaElegidos(empleadoPretenso);
-				empleador.agregaElegidos(empleador.getListaDeAsignacion().get(cantActual));
+				int empleadoElegido=(int)(Math.random()*empleador.getListaDeAsignacion().getLista().size());
+				empleador.agregaElegidos(empleador.getListaDeAsignacion().getLista().get(empleadoElegido));
 				cantActual ++;
 			}
 		}
 		for (i = 0; i<empleadosPretensos.size(); i++)
 		{
 			empleadoPretenso = empleadosPretensos.get(i);
-			int empleadorElegido = (int)(Math.random()*empleadoPretenso.getListaDeAsignacion().size());;
-			empleadoPretenso.setElegido(empleadoPretenso.getListaDeAsignacion().get(empleadorElegido));  
+			int empleadorElegido = (int)(Math.random()*empleadoPretenso.getListaDeAsignacion().getLista().size());
+			if (empleadoPretenso.getListaDeAsignacion().getLista()!=null)
+			empleadoPretenso.setElegido(empleadoPretenso.getListaDeAsignacion().getLista().get(empleadorElegido));  
 		}
 	}
 }
