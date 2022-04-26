@@ -6,12 +6,12 @@ import java.util.Collections;
 
 public class RondaDeEncuentrosLaborales {
 	
-	private ArrayList <Persona_Empleador> empleadores =  Agencia.getInstancia().getEmpleadores();
-	private ArrayList <Persona_EmpleadoPretenso> empleadosPretensos =  Agencia.getInstancia().getEmpleadosPretensos();
+	
 
-
-	public void generaListaAsignaciones ()
+	public static void generaListaAsignaciones ()
 	{
+		 ArrayList <Persona_Empleador> empleadores =  Agencia.getInstancia().getEmpleadores();
+		 ArrayList <Persona_EmpleadoPretenso> empleadosPretensos =  Agencia.getInstancia().getEmpleadosPretensos();
 		int calificacion = 0;
 		Persona_Empleador empleador = null;
 		Persona_EmpleadoPretenso empleadoP=null;

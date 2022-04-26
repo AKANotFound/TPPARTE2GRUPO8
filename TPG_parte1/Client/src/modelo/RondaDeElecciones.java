@@ -5,17 +5,17 @@ import java.util.random.*;
 
 public class RondaDeElecciones {
 	
-	private ArrayList <Persona_Empleador> empleadores =  Agencia.getInstancia().getEmpleadores();
-	private ArrayList <Persona_EmpleadoPretenso> empleadosPretensos =  Agencia.getInstancia().getEmpleadosPretensos();
 	
-	public void iniciaRondaDeElecciones ()
+	
+	public static void iniciaRondaDeElecciones ()
 	{
+		 ArrayList <Persona_Empleador> empleadores =  Agencia.getInstancia().getEmpleadores();
+		 ArrayList <Persona_EmpleadoPretenso> empleadosPretensos =  Agencia.getInstancia().getEmpleadosPretensos();
 		Ticket_BusquedaEmpleado ticket_empleador;
 		int cantSolicitados=0;
 		Persona_Empleador empleador;
 		Persona_EmpleadoPretenso empleadoPretenso;
 		int i;
-		
 		
 		for (i=0; i<empleadores.size(); i++)
 		{

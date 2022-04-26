@@ -1,31 +1,20 @@
 package modelo;
 
+import java.util.GregorianCalendar;
+
 public class Ticket implements ITicket{
-    private String fechaAlta;
+    private GregorianCalendar fechaAlta;
     protected String estado;
     private FormularioDeBusqueda formularioDeBusqueda;
     
-	@Override
-	public void activar() {
-		this.estado = "Activo";		
+	
+    
+    public Ticket(FormularioDeBusqueda formularioDeBusqueda) {
+		super();
+		this.formularioDeBusqueda = formularioDeBusqueda;
+		this.fechaAlta=new GregorianCalendar();
 	}
-	@Override
-	public void suspender() {
-		this.estado = "Suspendido";
-	}
-	@Override
-	public void cancelar() {
-		this.estado = "Cancelado";
-	}
-	@Override
-	public void finalizar() {
-		this.estado = "Finalizado";
-	}
-	@Override
-	public void modificarBusqueda(FormularioDeBusqueda form) {
-		// TODO Auto-generated method stub
-		
-	}
+	
 	public FormularioDeBusqueda getFormularioDeBusqueda() {
 		
 		return formularioDeBusqueda;

@@ -25,36 +25,24 @@ public class Agencia {
     	return instancia;
     }
     
-	public void agregarCuenta (Cuenta cuenta) ///tira excepcion
-	{
-		if (cuentas.putIfAbsent(cuenta.getUsuario(), cuenta) == null) //me devuelve null si no hay ningun elemento con este nombre
-			this.cuentas.put(cuenta.getUsuario(), cuenta);
+    
+	public ArrayList<Ticket_BusquedaEmpleo> getTicketsEmpleado() {
+		return ticketsEmpleado;
 	}
+
+	public ArrayList<Ticket_BusquedaEmpleado> getTicketsEmpleo() {
+		return ticketsEmpleo;
+	}
+
+	public ArrayList<Cuenta> getLogins() {
+		return logins;
+	}
+
+	public HashMap<String, Cuenta> getCuentas() {
+		return cuentas;
+	}
+
 	
-	public void eliminarCuenta (Cuenta cuenta)
-	{
-		this.cuentas.remove(cuenta.getUsuario());
-	}
-	
-		public void addEmpleado (Persona_EmpleadoPretenso persona)
-	{
-		this.empleadosPretensos.add(persona);
-	}
-		
-	public void addEmpleador (Persona_Empleador empleador)
-	{
-		this.empleadores.add(empleador);
-	}
-	
-	public void removeEmpleado (Persona_EmpleadoPretenso empleado)
-	{
-		this.empleadosPretensos.remove(empleado);
-	}
-	
-	public void removeEmpleador (Persona_Empleador empleador)
-	{
-		this.empleadores.remove(empleador);
-	}
 
 	public ArrayList<Persona_Empleador> getEmpleadores() {
 		return empleadores;
@@ -64,33 +52,7 @@ public class Agencia {
 		return empleadosPretensos;
 	}
 	
-	public void addLogins(Cuenta cuenta) {
-		logins.add(cuenta);
-	}
 	
-	public static Persona registrarse(String tipo,String usuario, String contrasena) {
-		Persona persona = null;
-		
-		if(tipo.equals("empleado")) {
-			persona = new Persona_EmpleadoPretenso(new Cuenta(usuario, contrasena));
-			Agencia.getInstancia().addEmpleado((Persona_EmpleadoPretenso)persona);
-		}
-		else if(tipo.equals("empleador")) {
-			persona = new Persona_Empleador(new Cuenta(usuario, contrasena));
-			Agencia.getInstancia().addEmpleador((Persona_Empleador)persona);
-		}
-		
-		return persona;
-	}
 	
-	public void login(String usuario,String contrasena) {
-		Cuenta cuenta = this.cuentas.get(usuario);
-		
-        if(cuenta != null) { //EXCEPCION mal el usuario
-        	if(!(this.logins.contains(cuenta)))
-        		if(cuenta.confirmaContrasena(contrasena)) {//EXCEPCION mal contraseña
-        			this.logins.add(this.cuentas.get(usuario));
-        		}
-        }
-    }
+	
 }
