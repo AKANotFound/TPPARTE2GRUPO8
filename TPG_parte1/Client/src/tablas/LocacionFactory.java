@@ -2,18 +2,18 @@ package tablas;
 
 public class LocacionFactory {
 	
-	public static Locacion getLocacion(String tipo) {
-		Locacion locacion = null;
+	public static ILocacion getLocacion(String tipo) {
+		ILocacion ilocacion = null;
 		
 		if(tipo.equals("HomeOffice")) 
-			locacion = new Locacion_HomeOffice();
+			ilocacion =  new Locacion_HomeOffice();
 		else
 			if(tipo.equals("Presencial"))
-				locacion = new Locacion_Presencial();
+				ilocacion =  new Locacion_Presencial();
 			else
 				if(tipo.equals("Indistinto"))
-					locacion = new Locacion_Indistinto();
+					ilocacion = new Locacion_Indistinto();
 		
-		return locacion;
+		return ilocacion;
 	}
 }
