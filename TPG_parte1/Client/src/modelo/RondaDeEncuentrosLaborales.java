@@ -42,15 +42,15 @@ public class RondaDeEncuentrosLaborales {
 			}
 			Collections.sort(empleador.getListaDeAsignacion()); //una vez completa, ordena la lista del empleador	
 			empleadoP = (Persona_EmpleadoPretenso) empleador.getListaDeAsignacion().get(0).getPersona();
-			empleadoP.primerEmpleado();
+			empleadoP.getPuntajeUsuario().primerEmpleadoPretenso();;
 			empleadoP = (Persona_EmpleadoPretenso) empleador.getListaDeAsignacion().get(empleador.getListaDeAsignacion().size()-1).getPersona();
-			empleadoP.ultimoEmpleado();
+			empleadoP.getPuntajeUsuario().ultimoEmpleadoPretenso();;
 		}
 		for (int i=0;i<empleadosPretensos.size();i++)
 		{
 			Collections.sort(empleadosPretensos.get(i).getListaDeAsignacion());//ordena lista de empleados pretensos
 			empleador = (Persona_Empleador) empleadosPretensos.get(i).getListaDeAsignacion().get(0).getPersona();
-			empleador.primerEmpleador();
+			empleador.getPuntajeUsuario().primerEmpleador();
 		}
 			
 		

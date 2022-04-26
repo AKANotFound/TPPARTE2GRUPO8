@@ -15,6 +15,11 @@ public class Persona_Empleador extends Persona {
 		super(cuenta);
 	}
 
+    @Override
+	public void eleccion() {
+		// TODO Auto-generated method stub
+	}	
+    
 	public double[] getPuntajeAspectos() {
 		return puntajeAspectos;
 	}
@@ -23,24 +28,4 @@ public class Persona_Empleador extends Persona {
 	{
 		this.elegidos.add(personaAsignada);
 	}
-	@Override
-	public void eleccion() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void finalizarTicket() {
-		super.finalizarTicket();
-		this.puntaje += 50;
-	}
-	public void primerEmpleador() {
-		this.puntaje += 10;
-	}
-	
-//
-
-	
-	
-	
 }
