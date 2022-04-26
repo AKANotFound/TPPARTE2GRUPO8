@@ -20,9 +20,14 @@ public class PersonaAsignada implements Comparable<PersonaAsignada>{
 	}
 
 	@Override
-	public int compareTo(PersonaAsignada o) {
+	public int compareTo(PersonaAsignada o) { //CAMBIAR PARA QUE SEA DOUBLE
 		
 		return this.puntaje-o.puntaje;
+	}
+
+	@Override
+	public String toString() {
+		return "PersonaAsignada [persona=" + persona + ", puntaje=" + puntaje + "]";
 	}
 	
 	

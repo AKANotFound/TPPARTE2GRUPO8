@@ -24,10 +24,7 @@ public abstract class Persona_Empleador extends Persona {
 	}
 
 
-    @Override
-	public void eleccion() {
-		// TODO Auto-generated method stub
-	}	
+    	
     
 	public double[] getPuntajeAspectos() {
 		return puntajeAspectos;
@@ -44,4 +41,9 @@ public abstract class Persona_Empleador extends Persona {
 		this.elegidos.add(personaAsignada);
 	}
 
+	public ArrayList<PersonaAsignada> getElegidos() {
+		return elegidos;
+	}
+
+	
 }

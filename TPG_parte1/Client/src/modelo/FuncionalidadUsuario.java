@@ -19,6 +19,18 @@ public class FuncionalidadUsuario {
 		ticket.estado = "Finalizado";
 	}
 	
+	public void modificarBusqueda(Ticket ticket,FormularioDeBusqueda form)
+	{
+		ticket.setFormularioDeBusqueda(form);
+	}
+	public void VisualizarListaDeAsignacion(Persona persona)
+	{
+		System.out.println(persona.getListaDeAsignacion());
+	}
 	
+	public void iniciaRondaDeElecciones()
+	{
+		RondaDeElecciones.iniciaRondaDeElecciones();
+	}
 
 }

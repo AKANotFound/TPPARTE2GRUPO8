@@ -2,9 +2,22 @@ package modelo;
 
 public class Sistema {
 	
-	FuncionalidadAgencia funcionalidadAgencia;
-	FuncionalidadUsuario funcionaldadUsuario;
+	private static Sistema Instancia=null;
+	private FuncionalidadAgencia funcionalidadAgencia;
+	private FuncionalidadUsuario funcionaldadUsuario;
 	
+	private Sistema() {
+		
+	}
+
+	public static Sistema getInstancia() {
+		if (Instancia==null)
+			Instancia=new Sistema();
+		return Instancia;
+	}
+
+
+
 	public void agregarCuenta (Cuenta cuenta) ///tira excepcion
 	{
 		funcionalidadAgencia.agregarCuenta(cuenta);
@@ -100,5 +113,31 @@ public class Sistema {
 		funcionalidadAgencia.IniciaRondaDeContrataciones();
 	}
 	
-
+	public void activar(Ticket ticket) {
+		funcionaldadUsuario.activar(ticket);	
+	}
+	
+	public void suspender(Ticket ticket) {
+		funcionaldadUsuario.suspender(ticket);
+	}
+	
+	public void cancelar(Ticket ticket) {
+		funcionaldadUsuario.cancelar(ticket);
+	}
+	
+	public void finalizar(Ticket ticket) {
+		funcionaldadUsuario.finalizar(ticket);
+	}
+	
+	public void modificarBusqueda(Ticket ticket,FormularioDeBusqueda form)
+	{
+		funcionaldadUsuario.modificarBusqueda(ticket, form);
+	}
+	public void VisualizarListaDeAsignacion(Persona persona)
+	{
+		funcionaldadUsuario.VisualizarListaDeAsignacion(persona);
+	}
+	
+	
+	
 }

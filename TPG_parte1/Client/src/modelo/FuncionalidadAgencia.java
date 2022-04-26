@@ -117,7 +117,7 @@ public class FuncionalidadAgencia {
 	public void IniciaRondaDeEncuentrosLaborales()
 	{
 		RondaDeEncuentrosLaborales.generaListaAsignaciones();
-		RondaDeElecciones.iniciaRondaDeElecciones();
+		
 	}
 	
 	public void IniciaRondaDeContrataciones()

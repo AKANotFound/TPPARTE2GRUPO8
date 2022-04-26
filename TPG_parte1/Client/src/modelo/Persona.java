@@ -10,6 +10,7 @@ public abstract class Persona {
     private Ticket ticket;
     private double costoServicio;     
     private ListaDeAsignacion listaDeAsignacion;
+    private boolean eligio;
     
     
     public Persona(Cuenta cuenta) {
@@ -18,6 +19,7 @@ public abstract class Persona {
 		this.puntajeUsuario = new PuntajeUsuario();
 		this.ticket = null;
 		this.costoServicio = 0;
+		this.eligio=false;
 	}
     
 	public PuntajeUsuario getPuntajeUsuario() {
@@ -32,7 +34,6 @@ public abstract class Persona {
 		this.ticket = ticket;
 	}
 
-	
 
 	public ListaDeAsignacion getListaDeAsignacion() {
 		return listaDeAsignacion;
@@ -46,14 +47,14 @@ public abstract class Persona {
 		return cuenta;
 	}
 
-	public void eleccion() {
-		// TODO Auto-generated method stub
-		
+	public boolean isEligio() {
+		return eligio;
 	}
 
-	public void visualizarLista() {
-		// TODO Auto-generated method stub
-		
+	public void setEligio(boolean eligio) {
+		this.eligio = eligio;
 	}	
+	
+	
 }
 

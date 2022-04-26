@@ -19,7 +19,11 @@ public class Ticket implements ITicket{
 		
 		return formularioDeBusqueda;
 	}
-	
 
+	public void setFormularioDeBusqueda(FormularioDeBusqueda formularioDeBusqueda) {
+		this.formularioDeBusqueda = formularioDeBusqueda;
+	}
+	
+	
 	
 }

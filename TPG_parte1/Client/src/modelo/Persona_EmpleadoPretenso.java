@@ -13,11 +13,7 @@ public class Persona_EmpleadoPretenso extends Persona {
 		// TODO Auto-generated constructor stub
 	}
     
-    @Override
-	public void eleccion() {
-		// TODO Auto-generated method stub
-		
-	}
+   
     
 	public PersonaAsignada getElegido() {
 		return elegido;
