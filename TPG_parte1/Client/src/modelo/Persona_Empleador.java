@@ -19,9 +19,9 @@ public class Persona_Empleador extends Persona {
 		return puntajeAspectos;
 	}
 
-	public void agregaElegidos (Persona_EmpleadoPretenso empleadoPretenso)
+	public void agregaElegidos (PersonaAsignada personaAsignada)
 	{
-		this.elegidos.add(empleadoPretenso);
+		this.elegidos.add(personaAsignada);
 	}
 	@Override
 	public void eleccion() {

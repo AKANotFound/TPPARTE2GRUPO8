@@ -20,14 +20,15 @@ public class RondaDeElecciones {
 		for (i=0; i<empleadores.size(); i++)
 		{
 			empleador = empleadores.get(i);
-			int cantActual = 0; //atributo para verificar que no se supere el tamañno de la lista de asignacion
+			int cantActual = 0; //atributo para verificar que no se supere el tamaï¿½no de la lista de asignacion
 			ticket_empleador = (Ticket_BusquedaEmpleado) empleador.getTicket();
 			cantSolicitados = ticket_empleador.getCantEmpleadosSolicitados();
 			
 			while (cantActual < empleador.getListaDeAsignacion().size() && cantActual < cantSolicitados)
 			{
-				empleadoPretenso = (Persona_EmpleadoPretenso) empleador.getListaDeAsignacion().get(cantActual).getPersona();
-				empleador.agregaElegidos(empleadoPretenso);
+				//empleadoPretenso = (Persona_EmpleadoPretenso) empleador.getListaDeAsignacion().get(cantActual).getPersona();
+				//empleador.agregaElegidos(empleadoPretenso);
+				empleador.agregaElegidos(empleador.getListaDeAsignacion().get(cantActual));
 				cantActual ++;
 			}
 		}
