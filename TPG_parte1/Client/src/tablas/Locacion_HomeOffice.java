@@ -1,6 +1,6 @@
 package tablas;
 
-public class Locacion_HomeOffice implements ILocacion {
+public class Locacion_HomeOffice extends Locacion {
 	
 	@Override
 	public double comparaCon(ILocacion locacion) {
