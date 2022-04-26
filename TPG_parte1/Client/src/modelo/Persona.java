@@ -9,8 +9,8 @@ public abstract class Persona {
     private PuntajeUsuario puntajeUsuario;
     private Ticket ticket;
     private double costoServicio;     
-    private GregorianCalendar fechaListaAsignacion = null;
-    private ArrayList<PersonaAsignada> listaDeAsignacion =null;
+    private ListaDeAsignacion listaDeAsignacion;
+    
     
     public Persona(Cuenta cuenta) {
 		super();
@@ -32,20 +32,14 @@ public abstract class Persona {
 		this.ticket = ticket;
 	}
 
-	public GregorianCalendar getFechaListaAsignacion() {
-		return fechaListaAsignacion;
-	}
 	
-	public void setFechaListaAsignacion(GregorianCalendar fecha) {
-		this.fechaListaAsignacion = fecha;
+
+	public ListaDeAsignacion getListaDeAsignacion() {
+		return listaDeAsignacion;
 	}
 
-	public void setListaDeAsignacion(ArrayList<PersonaAsignada> listaDeAsignacion) {
+	public void setListaDeAsignacion(ListaDeAsignacion listaDeAsignacion) {
 		this.listaDeAsignacion = listaDeAsignacion;
-	}
-	
-	public ArrayList<PersonaAsignada> getListaDeAsignacion() {
-		return listaDeAsignacion;
 	}
 
 	public Cuenta getCuenta() {
