@@ -2,7 +2,7 @@ package modelo;
 
 import java.util.GregorianCalendar;
 
-public class Ticket implements ITicket{
+public class Ticket {
     private GregorianCalendar fechaAlta;
     protected String estado;
     private FormularioDeBusqueda formularioDeBusqueda;

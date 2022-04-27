@@ -1,5 +1,7 @@
 package modelo;
 
+import java.util.ArrayList;
+
 public class RondaDeContrataciones {
 	
 	public void calculoCoincidencias ()
@@ -16,7 +18,8 @@ public class RondaDeContrataciones {
 				{
 					Ticket_BusquedaEmpleado ticket = (Ticket_BusquedaEmpleado) empleador.getTicket();
 					ticket.setCantEmpleadosObtenidos(ticket.getCantEmpleadosObtenidos()+1);
-					empleadoElegido.getTicket().finalizar();
+					Sistema.getInstancia().finalizar(empleadoElegido.getTicket());
+					
 				}
 			}
 		}

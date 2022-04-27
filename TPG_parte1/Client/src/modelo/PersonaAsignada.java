@@ -3,9 +3,9 @@ package modelo;
 
 public class PersonaAsignada implements Comparable<PersonaAsignada>{
 	private Persona persona;
-	private int puntaje;
+	private double puntaje;
 	
-	public PersonaAsignada(Persona persona, int puntaje) {
+	public PersonaAsignada(Persona persona, double puntaje) {
 		super();
 		this.persona = persona;
 		this.puntaje = puntaje;
@@ -20,9 +20,15 @@ public class PersonaAsignada implements Comparable<PersonaAsignada>{
 	}
 
 	@Override
-	public int compareTo(PersonaAsignada o) { //CAMBIAR PARA QUE SEA DOUBLE
+	public int compareTo(PersonaAsignada o) { 
 		
-		return this.puntaje-o.puntaje;
+		int respuesta=0;
+		if (o.puntaje<=this.puntaje)
+			respuesta=1;
+		else
+			respuesta=0;
+		
+		return respuesta;
 	}
 
 	@Override

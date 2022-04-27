@@ -12,7 +12,7 @@ public class RondaDeEncuentrosLaborales {
 	{
 		 ArrayList <Persona_Empleador> empleadores =  Agencia.getInstancia().getEmpleadores();
 		 ArrayList <Persona_EmpleadoPretenso> empleadosPretensos =  Agencia.getInstancia().getEmpleadosPretensos();
-		int calificacion = 0;
+		double calificacion = 0;
 		Persona_Empleador empleador = null;
 		Persona_EmpleadoPretenso empleadoP=null;
 		FormularioDeBusqueda formularioEmpleador=null;
