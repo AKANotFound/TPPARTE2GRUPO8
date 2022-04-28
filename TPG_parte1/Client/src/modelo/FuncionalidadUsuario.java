@@ -1,6 +1,6 @@
 package modelo;
 
-public class FuncionalidadUsuario {
+public abstract class FuncionalidadUsuario {
 	
 	
 	public void activar(Persona persona) {
@@ -17,6 +17,7 @@ public class FuncionalidadUsuario {
 	
 	public void finalizar(Persona persona) {
 		persona.getTicket().estado = "Finalizado";
+		finalizarPuntaje(persona);
 		
 	}
 	
@@ -34,27 +35,7 @@ public class FuncionalidadUsuario {
 		RondaDeElecciones.iniciaRondaDeElecciones();
 	}
 
-	public void finalizarPuntaje(Persona_Empleador persona) {
-		persona.setPuntaje(50);
-	}
+	public abstract void finalizarPuntaje(Persona persona);
 	
-	public void finalizarPuntaje(Persona_EmpleadoPretenso persona) {
-		persona.setPuntaje(10);
-	}
-	
-	public void primerEmpleador(Persona_Empleador persona) {
-		persona.setPuntaje(10);
-	}
-	
-	public void cancelarTicket(Persona_EmpleadoPretenso persona) {
-		persona.setPuntaje(-1);
-	}
-	
-	public void ultimoEmpleadoPretenso(Persona_EmpleadoPretenso persona) {
-		persona.setPuntaje(-5);
-	}
-	
-	public void primerEmpleadoPretenso(Persona_EmpleadoPretenso persona) {
-		persona.setPuntaje(5);
-	}
+	public abstract void primerPersona(Persona persona);	
 }

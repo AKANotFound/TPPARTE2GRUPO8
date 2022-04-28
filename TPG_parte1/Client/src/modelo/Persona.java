@@ -6,7 +6,6 @@ import java.util.GregorianCalendar;
 
 public abstract class Persona {
     private Cuenta cuenta;
-    private PuntajeUsuario puntajeUsuario;
     private Ticket ticket;
     private double costoServicio;     
     private ListaDeAsignacion listaDeAsignacion;
@@ -16,15 +15,10 @@ public abstract class Persona {
     public Persona(Cuenta cuenta) {
 		super();
 		this.cuenta = cuenta;
-		this.puntajeUsuario = new PuntajeUsuario();
 		this.ticket = null;
 		this.costoServicio = 0;
 		this.eligio=false;
 		this.puntaje = 0;
-	}
-    
-	public PuntajeUsuario getPuntajeUsuario() {
-		return puntajeUsuario;
 	}
 
 	public Ticket getTicket() {

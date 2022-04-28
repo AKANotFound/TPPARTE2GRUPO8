@@ -137,24 +137,14 @@ public class Sistema {
 	{
 		funcionaldadUsuario.VisualizarListaDeAsignacion(persona);
 	}
-	public void finalizarPuntaje(Persona persona) {
-		funcionaldadUsuario.finalizar(persona);
-	}	
-	public void primerEmpleador(Persona_Empleador persona) {
-		persona.setPuntaje(10);
-	}
 	
-	public void cancelarTicket(Persona_EmpleadoPretenso persona) {
-		persona.setPuntaje(-1);
+	
+	public void primerPersona(Persona persona) {
+		funcionaldadUsuario.primerPersona(persona);
 	}
 	
 	public void ultimoEmpleadoPretenso(Persona_EmpleadoPretenso persona) {
 		persona.setPuntaje(-5);
-	}
-	
-	public void primerEmpleadoPretenso(Persona_EmpleadoPretenso persona) {
-		persona.setPuntaje(5);
-	}
-	
+	}	
 	
 }
