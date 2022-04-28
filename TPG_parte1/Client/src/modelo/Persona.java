@@ -11,7 +11,7 @@ public abstract class Persona {
     private double costoServicio;     
     private ListaDeAsignacion listaDeAsignacion;
     private boolean eligio;
-    
+    private int puntaje;
     
     public Persona(Cuenta cuenta) {
 		super();
@@ -20,6 +20,7 @@ public abstract class Persona {
 		this.ticket = null;
 		this.costoServicio = 0;
 		this.eligio=false;
+		this.puntaje = 0;
 	}
     
 	public PuntajeUsuario getPuntajeUsuario() {
@@ -53,8 +54,10 @@ public abstract class Persona {
 
 	public void setEligio(boolean eligio) {
 		this.eligio = eligio;
-	}	
-	
-	
+	}
+
+	public void setPuntaje(int puntaje) {
+		this.puntaje += puntaje;
+	}
 }
 

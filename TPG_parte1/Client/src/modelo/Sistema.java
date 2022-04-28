@@ -113,31 +113,48 @@ public class Sistema {
 		funcionalidadAgencia.IniciaRondaDeContrataciones();
 	}
 	
-	public void activar(Ticket ticket) {
-		funcionaldadUsuario.activar(ticket);	
+	public void activar(Persona persona) {
+		funcionaldadUsuario.activar(persona);	
 	}
 	
-	public void suspender(Ticket ticket) {
-		funcionaldadUsuario.suspender(ticket);
+	public void suspender(Persona persona) {
+		funcionaldadUsuario.suspender(persona);
 	}
 	
-	public void cancelar(Ticket ticket) {
-		funcionaldadUsuario.cancelar(ticket);
+	public void cancelar(Persona persona) {
+		funcionaldadUsuario.cancelar(persona);
 	}
 	
-	public void finalizar(Ticket ticket) {
-		funcionaldadUsuario.finalizar(ticket);
+	public void finalizar(Persona persona) {
+		funcionaldadUsuario.finalizar(persona);
 	}
 	
-	public void modificarBusqueda(Ticket ticket,FormularioDeBusqueda form)
+	public void modificarBusqueda(Persona persona,FormularioDeBusqueda form)
 	{
-		funcionaldadUsuario.modificarBusqueda(ticket, form);
+		funcionaldadUsuario.modificarBusqueda(persona, form);
 	}
 	public void VisualizarListaDeAsignacion(Persona persona)
 	{
 		funcionaldadUsuario.VisualizarListaDeAsignacion(persona);
 	}
+	public void finalizarPuntaje(Persona persona) {
+		funcionaldadUsuario.finalizar(persona);
+	}	
+	public void primerEmpleador(Persona_Empleador persona) {
+		persona.setPuntaje(10);
+	}
 	
+	public void cancelarTicket(Persona_EmpleadoPretenso persona) {
+		persona.setPuntaje(-1);
+	}
+	
+	public void ultimoEmpleadoPretenso(Persona_EmpleadoPretenso persona) {
+		persona.setPuntaje(-5);
+	}
+	
+	public void primerEmpleadoPretenso(Persona_EmpleadoPretenso persona) {
+		persona.setPuntaje(5);
+	}
 	
 	
 }

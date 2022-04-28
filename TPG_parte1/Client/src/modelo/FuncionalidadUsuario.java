@@ -3,25 +3,26 @@ package modelo;
 public class FuncionalidadUsuario {
 	
 	
-	public void activar(Ticket ticket) {
-		ticket.estado = "Activo";		
+	public void activar(Persona persona) {
+		persona.getTicket().estado = "Activo";		
 	}
 	
-	public void suspender(Ticket ticket) {
-		ticket.estado = "Suspendido";
+	public void suspender(Persona persona) {
+		persona.getTicket().estado = "Suspendido";
 	}
 	
-	public void cancelar(Ticket ticket) {
-		ticket.estado = "Cancelado";
+	public void cancelar(Persona persona) {
+		persona.getTicket().estado = "Cancelado";
 	}
 	
-	public void finalizar(Ticket ticket) {
-		ticket.estado = "Finalizado";
+	public void finalizar(Persona persona) {
+		persona.getTicket().estado = "Finalizado";
+		
 	}
 	
-	public void modificarBusqueda(Ticket ticket,FormularioDeBusqueda form)
+	public void modificarBusqueda(Persona persona,FormularioDeBusqueda form)
 	{
-		ticket.setFormularioDeBusqueda(form);
+		persona.getTicket().setFormularioDeBusqueda(form);
 	}
 	public void VisualizarListaDeAsignacion(Persona persona)
 	{
@@ -33,4 +34,27 @@ public class FuncionalidadUsuario {
 		RondaDeElecciones.iniciaRondaDeElecciones();
 	}
 
+	public void finalizarPuntaje(Persona_Empleador persona) {
+		persona.setPuntaje(50);
+	}
+	
+	public void finalizarPuntaje(Persona_EmpleadoPretenso persona) {
+		persona.setPuntaje(10);
+	}
+	
+	public void primerEmpleador(Persona_Empleador persona) {
+		persona.setPuntaje(10);
+	}
+	
+	public void cancelarTicket(Persona_EmpleadoPretenso persona) {
+		persona.setPuntaje(-1);
+	}
+	
+	public void ultimoEmpleadoPretenso(Persona_EmpleadoPretenso persona) {
+		persona.setPuntaje(-5);
+	}
+	
+	public void primerEmpleadoPretenso(Persona_EmpleadoPretenso persona) {
+		persona.setPuntaje(5);
+	}
 }
