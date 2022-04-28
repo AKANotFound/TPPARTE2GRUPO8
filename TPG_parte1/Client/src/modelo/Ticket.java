@@ -23,6 +23,10 @@ public class Ticket {
 	public void setFormularioDeBusqueda(FormularioDeBusqueda formularioDeBusqueda) {
 		this.formularioDeBusqueda = formularioDeBusqueda;
 	}
+
+	public String getEstado() {
+		return estado;
+	}
 	
 	
 	

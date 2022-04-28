@@ -10,8 +10,8 @@ public class RondaDeEncuentrosLaborales {
 
 	public static void generaListaAsignaciones ()
 	{
-		 ArrayList <Persona_Empleador> empleadores =  Agencia.getInstancia().getEmpleadores();
-		 ArrayList <Persona_EmpleadoPretenso> empleadosPretensos =  Agencia.getInstancia().getEmpleadosPretensos();
+		ArrayList <Persona_Empleador> empleadores =  Agencia.getInstancia().getEmpleadores();
+		ArrayList <Persona_EmpleadoPretenso> empleadosPretensos =  Agencia.getInstancia().getEmpleadosPretensos();
 		double calificacion = 0;
 		Persona_Empleador empleador = null;
 		Persona_EmpleadoPretenso empleadoP=null;
@@ -23,15 +23,20 @@ public class RondaDeEncuentrosLaborales {
 			
 			calificacion = 0;
 			empleador = empleadores.get(i);
+			if(empleador.getTicket().getEstado().equals("Activo")) {
+				
 			empleador.getListaDeAsignacion().setLista(new ArrayList<PersonaAsignada>());
 			empleador.getListaDeAsignacion().setFechaDeCreacion(null); //PONER FECHA DE CREACION
 			formularioEmpleador=empleador.getTicket().getFormularioDeBusqueda();
 			for (int j=0; j < empleadosPretensos.size(); j++)
 			{
 				empleadoP = (Persona_EmpleadoPretenso) empleadosPretensos.get(j);
+				
 				empleadoP.getListaDeAsignacion().setLista(new ArrayList<PersonaAsignada>());
 				empleadoP.getListaDeAsignacion().setFechaDeCreacion(null);//PONER FECHA DE CREACION
-				
+				if(empleadoP.getTicket().getEstado().equals("Activo")) {
+					
+				}
 				formularioEmpleadoP=empleadoP.getTicket().getFormularioDeBusqueda();
 				calificacion+=empleador.getPuntajeAspectos()[0]*formularioEmpleador.getLocacion().comparaCon(formularioEmpleadoP.getLocacion())
 							+empleador.getPuntajeAspectos()[1]*formularioEmpleador.getRemuneracion().comparaCon(formularioEmpleadoP.getRemuneracion())
@@ -49,13 +54,12 @@ public class RondaDeEncuentrosLaborales {
 			empleadoP = (Persona_EmpleadoPretenso) empleador.getListaDeAsignacion().getLista().get(empleador.getListaDeAsignacion().getLista().size()-1).getPersona();
 			empleadoP.getPuntajeUsuario().ultimoEmpleadoPretenso();;
 		}
+		}
 		for (int i=0;i<empleadosPretensos.size();i++)
 		{
 			Collections.sort(empleadosPretensos.get(i).getListaDeAsignacion().getLista());//ordena lista de empleados pretensos
 			empleador = (Persona_Empleador) empleadosPretensos.get(i).getListaDeAsignacion().getLista().get(0).getPersona();
 			empleador.getPuntajeUsuario().primerEmpleador();
 		}
-			
-		
 	}
 }

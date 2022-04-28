@@ -9,17 +9,19 @@ public class RondaDeElecciones {
 	
 	public static void iniciaRondaDeElecciones ()
 	{
-		 ArrayList <Persona_Empleador> empleadores =  Agencia.getInstancia().getEmpleadores();
-		 ArrayList <Persona_EmpleadoPretenso> empleadosPretensos =  Agencia.getInstancia().getEmpleadosPretensos();
+		ArrayList <Persona_Empleador> empleadores =  Agencia.getInstancia().getEmpleadores();
+		ArrayList <Persona_EmpleadoPretenso> empleadosPretensos =  Agencia.getInstancia().getEmpleadosPretensos();
 		Ticket_BusquedaEmpleado ticket_empleador;
 		int cantSolicitados=0;
 		Persona_Empleador empleador;
 		Persona_EmpleadoPretenso empleadoPretenso;
 		int i;
 		
+		
 		for (i=0; i<empleadores.size(); i++)
 		{
 			empleador = empleadores.get(i);
+			//empleador.getElegidos().clear(); // saca todos los elementos de la lista, en el caso de que no guardemos los tickets no finalizados para las otras rondas de elecciones
 			int cantActual = 0; //atributo para verificar que no se supere el tama�no de la lista de asignacion
 			ticket_empleador = (Ticket_BusquedaEmpleado) empleador.getTicket();
 			cantSolicitados = ticket_empleador.getCantEmpleadosSolicitados();
