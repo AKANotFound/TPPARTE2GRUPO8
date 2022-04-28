@@ -2,7 +2,7 @@ package modelo;
 
 import java.util.ArrayList;
 
-public abstract class Persona_Empleador extends Persona {
+public class Persona_Empleador extends Persona {
 
 	private String razonSocial;
     private Rubro rubro;

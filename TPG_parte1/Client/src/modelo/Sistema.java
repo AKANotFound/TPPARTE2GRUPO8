@@ -3,8 +3,9 @@ package modelo;
 public class Sistema {
 	
 	private static Sistema Instancia=null;
-	private FuncionalidadAgencia funcionalidadAgencia;
-	private FuncionalidadUsuario funcionaldadUsuario;
+	private FuncionalidadAgencia funcionalidadAgencia = new FuncionalidadAgencia();
+	private FuncionalidadUsuario funcionaldadEmpleador = new FuncionalidadEmpleador();
+	private FuncionalidadUsuario funcionaldadEmpleadoPretenso = new FuncionalidadEmpleadoPretenso();
 	
 	private Sistema() {
 		
@@ -113,25 +114,25 @@ public class Sistema {
 		funcionalidadAgencia.IniciaRondaDeContrataciones();
 	}
 	
-	public void activar(Ticket ticket) {
-		funcionaldadUsuario.activar(ticket);	
+	public void activar(Persona persona) {
+		funcionaldadUsuario.activar(persona);	
 	}
 	
-	public void suspender(Ticket ticket) {
-		funcionaldadUsuario.suspender(ticket);
+	public void suspender(Persona persona) {
+		funcionaldadUsuario.suspender(persona);
 	}
 	
-	public void cancelar(Ticket ticket) {
-		funcionaldadUsuario.cancelar(ticket);
+	public void cancelar(Persona persona) {
+		funcionaldadUsuario.cancelar(persona);
 	}
 	
-	public void finalizar(Ticket ticket) {
-		funcionaldadUsuario.finalizar(ticket);
+	public void finalizar(Persona persona) {
+		funcionaldadUsuario.finalizar(persona);
 	}
 	
-	public void modificarBusqueda(Ticket ticket,FormularioDeBusqueda form)
+	public void modificarBusqueda(Persona persona,FormularioDeBusqueda form)
 	{
-		funcionaldadUsuario.modificarBusqueda(ticket, form);
+		funcionaldadUsuario.modificarBusqueda(persona, form);
 	}
 	public void VisualizarListaDeAsignacion(Persona persona)
 	{
@@ -139,5 +140,12 @@ public class Sistema {
 	}
 	
 	
+	public void primerPersona(Persona persona) {
+		funcionaldadUsuario.primerPersona(persona);
+	}
+	
+	public void ultimoEmpleadoPretenso(Persona_EmpleadoPretenso persona) {
+		persona.setPuntaje(-5);
+	}	
 	
 }

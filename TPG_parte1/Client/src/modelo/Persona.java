@@ -6,24 +6,19 @@ import java.util.GregorianCalendar;
 
 public abstract class Persona {
     private Cuenta cuenta;
-    private PuntajeUsuario puntajeUsuario;
     private Ticket ticket;
     private double costoServicio;     
     private ListaDeAsignacion listaDeAsignacion;
     private boolean eligio;
-    
+    private int puntaje;
     
     public Persona(Cuenta cuenta) {
 		super();
 		this.cuenta = cuenta;
-		this.puntajeUsuario = new PuntajeUsuario();
 		this.ticket = null;
 		this.costoServicio = 0;
 		this.eligio=false;
-	}
-    
-	public PuntajeUsuario getPuntajeUsuario() {
-		return puntajeUsuario;
+		this.puntaje = 0;
 	}
 
 	public Ticket getTicket() {
@@ -53,8 +48,10 @@ public abstract class Persona {
 
 	public void setEligio(boolean eligio) {
 		this.eligio = eligio;
-	}	
-	
-	
+	}
+
+	public void setPuntaje(int puntaje) {
+		this.puntaje += puntaje;
+	}
 }
 
