@@ -18,6 +18,11 @@ public class Ticket_BusquedaEmpleado extends Ticket {
 	public int getCantEmpleadosObtenidos() {
 		return cantEmpleadosObtenidos;
 	}
+
+	public void setCantEmpleadosObtenidos(int cantEmpleadosObtenidos) {
+		this.cantEmpleadosObtenidos = cantEmpleadosObtenidos;
+	}
     
+	
     
 }
