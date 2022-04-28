@@ -3,8 +3,9 @@ package modelo;
 public class Sistema {
 	
 	private static Sistema Instancia=null;
-	private FuncionalidadAgencia funcionalidadAgencia;
-	private FuncionalidadUsuario funcionaldadUsuario;
+	private FuncionalidadAgencia funcionalidadAgencia = new FuncionalidadAgencia();
+	private FuncionalidadUsuario funcionaldadEmpleador = new FuncionalidadEmpleador();
+	private FuncionalidadUsuario funcionaldadEmpleadoPretenso = new FuncionalidadEmpleadoPretenso();
 	
 	private Sistema() {
 		
