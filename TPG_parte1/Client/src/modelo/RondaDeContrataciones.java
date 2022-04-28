@@ -19,7 +19,6 @@ public class RondaDeContrataciones {
 					Ticket_BusquedaEmpleado ticket = (Ticket_BusquedaEmpleado) empleador.getTicket();
 					ticket.setCantEmpleadosObtenidos(ticket.getCantEmpleadosObtenidos()+1);
 					Sistema.getInstancia().finalizar(empleadoElegido.getTicket());
-					
 				}
 			}
 		}

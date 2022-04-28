@@ -11,7 +11,7 @@ public class FuncionalidadAgencia {
     private ArrayList<Ticket_BusquedaEmpleado> ticketsEmpleo = Agencia.getInstancia().getTicketsEmpleo();
     private ArrayList<Cuenta> logins = Agencia.getInstancia().getLogins();
     private HashMap <String, Cuenta> cuentas = Agencia.getInstancia().getCuentas();
-	
+    private ArrayList<Contrato> contratos = Agencia.getInstancia().getContratos();
 	
 	public void agregarCuenta (Cuenta cuenta) ///tira excepcion
 	{
@@ -125,6 +125,9 @@ public class FuncionalidadAgencia {
 		//HACER
 	}
 	
-	
+	public void addContrato(Contrato contrato) 
+	{
+		this.contratos.add(contrato);
+	}
 
 }
