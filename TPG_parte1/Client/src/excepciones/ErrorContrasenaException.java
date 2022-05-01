@@ -1,11 +1,11 @@
 package excepciones;
 
-public class ErrorContrasenaException extends Exception {
-	private String contrasenaIngresada;
+public class ErrorContrasenaException extends DatoIngresadoInvalidoException {
+	
 
-	public ErrorContrasenaException(String contrasenaIngresada) {
-		super("la contrasena ingresada es incorrecta");
-		this.contrasenaIngresada = contrasenaIngresada;
+	public ErrorContrasenaException(String datoInvalido) {
+		super("contrasena", datoInvalido);
+		
 	}
 	
 	

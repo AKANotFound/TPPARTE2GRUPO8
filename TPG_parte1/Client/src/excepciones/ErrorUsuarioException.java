@@ -1,11 +1,11 @@
 package excepciones;
 
-public class ErrorUsuarioException extends Exception {
-	private String usuarioIngresado;
+public class ErrorUsuarioException extends DatoIngresadoInvalidoException {
+	
 
-	public ErrorUsuarioException(String usuarioIngresado) {
-		super("el nombre de usuario es incorrecto");
-		this.usuarioIngresado = usuarioIngresado;
+	public ErrorUsuarioException(String datoInvalido) {
+		super("usuario", datoInvalido);
+		
 	}
 	
 	

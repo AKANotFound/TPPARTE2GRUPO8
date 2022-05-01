@@ -1,7 +1,5 @@
-/modelo/
-/tablas/
-/sistema/
-/func/
-/funcionalidades/
-/factory/
 /entidades/
+/excepciones/
+/sistema/
+/tablas/
+/prueba/

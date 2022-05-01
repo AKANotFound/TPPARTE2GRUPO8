@@ -2,6 +2,7 @@ package sistema;
 
 import entidades.FormularioDeBusqueda;
 import entidades.Persona;
+import excepciones.ListaNoGeneradaException;
 
 public abstract class FuncionalidadPersona {
 	
@@ -23,8 +24,11 @@ public abstract class FuncionalidadPersona {
 	
 	public abstract void iniciarRondaEleccion(Persona persona);
 	
-	public void visualizarListaAsignacion(Persona persona) {
-		System.out.println(persona.getListaDeAsignacion());
+	public void visualizarListaAsignacion(Persona persona) throws ListaNoGeneradaException {
+		if (!persona.getListaDeAsignacion().getLista().isEmpty())
+		  System.out.println(persona.getListaDeAsignacion());
+		else
+			throw new ListaNoGeneradaException();
 	}
 	
 	public void visualizarCostoServicio(Persona persona) {

@@ -12,37 +12,50 @@ import entidades.Persona;
 import entidades.Persona_EmpleadoPretenso;
 import entidades.Persona_Empleador;
 import entidades.Ticket_EmpleadoPretenso;
+import excepciones.DatoIngresadoInvalidoException;
+import excepciones.EdadInvalidaException;
+import excepciones.ErrorContrasenaException;
+import excepciones.ErrorUsuarioException;
+import excepciones.TipoPersonaInvalidoException;
 
 public abstract class Sistema {
 	
-	public static FuncionalidadAdministrador agencia = new FuncionalidadAdministrador();
+	public static FuncionalidadAdministrador administrador = new FuncionalidadAdministrador();
 	public static FuncionalidadEmpleador empleador = new FuncionalidadEmpleador();
 	public static FuncionalidadEmpleadoPretenso empleadoPretenso = new FuncionalidadEmpleadoPretenso();
-	
 	private static ArrayList<Persona_EmpleadoPretenso> empleadosPretensos = Agencia.getInstancia().getEmpleadosPretensos();
 	private static ArrayList<Persona_Empleador> empleadores = Agencia.getInstancia().getEmpleadores();
 	private static ArrayList<Cuenta> logins = Agencia.getInstancia().getLogins();
 	private static HashMap <String, Cuenta> cuentas = Agencia.getInstancia().getCuentas();
 	private static ArrayList<Contrato> contratos = Agencia.getInstancia().getContratos();
 	
-	public static void login(String usuario,String contrasena) {
+	public static void login(String usuario,String contrasena) throws ErrorContrasenaException,ErrorUsuarioException 
+	{
 		Cuenta cuenta = Agencia.getInstancia().getCuentas().get(usuario);
 		
-        if(cuenta != null) { //EXCEPCION mal el usuario
+        if(cuenta != null) { 
         	if(!(logins.contains(cuenta)))
-        		if(cuenta.confirmaContrasena(contrasena)) {//EXCEPCION mal contraseña
+        		if(cuenta.confirmaContrasena(contrasena)) {
         			logins.add(cuentas.get(usuario));
         		}
+        		else
+        			throw new ErrorContrasenaException(contrasena);
         }
+        else
+        	throw new ErrorUsuarioException(usuario);
     }
 	
-	public static void registrarEmpleador(String usuario, String contrasena, String razonSocial, String tipoPersona, IRubro rubro) {
+	public static void registrarEmpleador(String usuario, String contrasena, String razonSocial, String tipoPersona, IRubro rubro) throws TipoPersonaInvalidoException {
+		if (!tipoPersona.equalsIgnoreCase("fisica") && !tipoPersona.equalsIgnoreCase("juridica"))
+			throw new TipoPersonaInvalidoException(tipoPersona);
 		Persona_Empleador empleador = (Persona_Empleador) PersonaFactory.getEmpleador(usuario, contrasena,razonSocial, tipoPersona, rubro);
 		empleadores.add(empleador);
 		Sistema.agregarCuenta(empleador.getCuenta());
 	}
 	
-	public static void registrarEmpleadoPretenso(String usuario, String contrasena, String nya, String telefono, int edad) {
+	public static void registrarEmpleadoPretenso(String usuario, String contrasena, String nya, String telefono, int edad) throws EdadInvalidaException {
+		if (edad<16)
+			throw new EdadInvalidaException(Integer.toString(edad));
 		Persona_EmpleadoPretenso empleadoPretenso = (Persona_EmpleadoPretenso) PersonaFactory.getEmpleadoPretenso(usuario, contrasena, telefono, telefono, edad);
 		empleadosPretensos.add(empleadoPretenso) ;
 		Sistema.agregarCuenta(empleadoPretenso.getCuenta());
@@ -60,8 +73,8 @@ public abstract class Sistema {
 		contratos.add(new Contrato(empleador,empleadosPretensos));
 	}
 	
-	private static void agregarCuenta (Cuenta cuenta) { //tira excepcion
-		if (cuentas.putIfAbsent(cuenta.getUsuario(), cuenta) == null) //me devuelve null si no hay ningun elemento con este nombre
+	private static void agregarCuenta (Cuenta cuenta) { 
+		if (cuentas.putIfAbsent(cuenta.getUsuario(), cuenta) == null) 
 			cuentas.put(cuenta.getUsuario(), cuenta);
 	}
 	
