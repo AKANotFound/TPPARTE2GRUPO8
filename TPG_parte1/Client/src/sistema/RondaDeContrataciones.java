@@ -17,24 +17,34 @@ abstract class RondaDeContrataciones {
 		for (int i = 0; i< empleadores.size(); i++)
 		{
 			ArrayList<PersonaAsignada> elegidos = empleadores.get(i).getElegidos();
-			ArrayList<Persona_EmpleadoPretenso> empleadosPretensos = new ArrayList<Persona_EmpleadoPretenso>();
+			ArrayList<Persona_EmpleadoPretenso> empleadosPretensosContrato = new ArrayList<Persona_EmpleadoPretenso>();
 			Persona_Empleador empleador = empleadores.get(i);
+			Ticket_Empleador ticketEmpleador = (Ticket_Empleador) empleador.getTicket();
 			for (int j=0; j<elegidos.size();j++) 
 			{
 				Persona_EmpleadoPretenso empleadoElegido = (Persona_EmpleadoPretenso) elegidos.get(j).getPersona();
 				Ticket ticketEmpleadoElegido = (Ticket_EmpleadoPretenso) empleadoElegido.getTicket();
 				if (empleador.equals(empleadoElegido.getElegido().getPersona())) {
-					empleadosPretensos.add(empleadoElegido);
-					Ticket_Empleador ticket = (Ticket_Empleador) empleador.getTicket();
-					ticket.setCantEmpleadosObtenidos(ticket.getCantEmpleadosObtenidos()+1);
+					empleadosPretensosContrato.add(empleadoElegido);
+					ticketEmpleador.setCantEmpleadosObtenidos(ticketEmpleador.getCantEmpleadosObtenidos()+1);
 					Sistema.finalizarTicket(empleadoElegido);
+					Sistema.calculaComision(empleadoElegido);
 					Sistema.empleadoPretenso.resultadoExito(empleadoElegido);
 				}
 				else if(ticketEmpleadoElegido.getEstado().equals("en proceso")) {
 					Sistema.empleadoPretenso.resultadoFracaso(empleadoElegido);
 				}
 			}
-			Sistema.agregarContrato(empleador, empleadosPretensos);
+			
+			if(ticketEmpleador.getCantEmpleadosObtenidos() == ticketEmpleador.getCantEmpleadosSolicitados()) {
+				Sistema.finalizarTicket(empleador);
+				Sistema.calculaComision(empleador);
+			}
+			
+			if(!empleadosPretensosContrato.isEmpty())
+				Sistema.agregarContrato(empleador, empleadosPretensosContrato);
+			else
+				Sistema.puntajeNoElegido(empleador);
 		}
 	}
 }

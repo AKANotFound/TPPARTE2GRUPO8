@@ -3,7 +3,7 @@ package entidades;
 
 public abstract class Persona {
     private Cuenta cuenta;
-    private Ticket ticket;
+    protected Ticket ticket;
     private double costoServicio;    
     private ListaDeAsignacion listaDeAsignacion;
     private boolean eligio;
@@ -26,7 +26,13 @@ public abstract class Persona {
 		this.ticket = ticket;
 	}
 
-
+	public double getRemuneracion() {
+		if(this.ticket == null)
+			return 0;
+		else
+			return this.ticket.getFormularioDeBusqueda().getRemuneracion().getRemuneracion();
+	}
+	
 	public ListaDeAsignacion getListaDeAsignacion() {
 		return listaDeAsignacion;
 	}

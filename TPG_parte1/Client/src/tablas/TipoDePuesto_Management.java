@@ -21,4 +21,9 @@ public class TipoDePuesto_Management implements ITipoDePuesto {
 	public double comparaConManagment() {
 		return -0.5;
 	}
+
+	@Override
+	public String getTipoDePuesto() {
+		return "management";
+	}
 }

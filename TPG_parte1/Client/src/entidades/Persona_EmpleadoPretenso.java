@@ -25,6 +25,10 @@ public class Persona_EmpleadoPretenso extends Persona {
 	public void setTelefono(String telefono) {
 		this.telefono = telefono;
 	}
+	
+	public String getTipoDePuesto() {
+		return this.ticket.getFormularioDeBusqueda().getTipoDePuesto().getTipoDePuesto();
+	}
 
 	@Override
 	public String toString() {

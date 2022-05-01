@@ -21,4 +21,9 @@ public class Remuneracion_90mil implements IRemuneracion {
 	public double comparaConMasV2() {
 		return 1;
 	}
+
+	@Override
+	public double getRemuneracion() {
+		return 90000;
+	}
 }

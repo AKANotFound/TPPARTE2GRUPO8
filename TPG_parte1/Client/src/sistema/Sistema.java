@@ -7,6 +7,7 @@ import entidades.Agencia;
 import entidades.Contrato;
 import entidades.Cuenta;
 import entidades.FormularioDeBusqueda;
+import entidades.IRubro;
 import entidades.Persona;
 import entidades.Persona_EmpleadoPretenso;
 import entidades.Persona_Empleador;
@@ -35,8 +36,8 @@ public abstract class Sistema {
         }
     }
 	
-	public static void registrarEmpleador(String usuario, String contrasena, String razonSocial, String tipoRubro, double sueldoOfrecido) {
-		Persona_Empleador empleador = (Persona_Empleador) PersonaFactory.getEmpleador(usuario, contrasena, tipoRubro, tipoRubro, sueldoOfrecido);
+	public static void registrarEmpleador(String usuario, String contrasena, String razonSocial, String tipoPersona, IRubro rubro) {
+		Persona_Empleador empleador = (Persona_Empleador) PersonaFactory.getEmpleador(usuario, contrasena,razonSocial, tipoPersona, rubro);
 		empleadores.add(empleador);
 		Sistema.agregarCuenta(empleador.getCuenta());
 	}
@@ -65,11 +66,36 @@ public abstract class Sistema {
 	}
 	
 	static void calculaComision(Persona_Empleador empleador) {
+		String tipoPersona = empleador.getTipoPersona();
+		IRubro rubro = empleador.getRubro();
+		double remuneracion = empleador.getRemuneracion();
+		double comision = 0;
 		
+		if(tipoPersona.equalsIgnoreCase("fisica"))
+			comision = rubro.calculaComisionPersonaFisica(remuneracion);
+		else if(tipoPersona.equalsIgnoreCase("juridica"))
+			comision = rubro.calculaComisionPersonaJuridica(remuneracion);
+		
+		comision *= (100 - empleador.getPuntaje())/100;
+		
+		empleador.setCostoServicio(comision);
 	}
 	
 	static void calculaComision(Persona_EmpleadoPretenso empleadoPretenso) {
+		String tipoDePuesto = empleadoPretenso.getTipoDePuesto();
+		double remuneracion = empleadoPretenso.getRemuneracion();
+		double comision = 0;
 		
+		if(tipoDePuesto.equalsIgnoreCase("junior"))
+			comision = remuneracion * 0.8;
+		else if(tipoDePuesto.equalsIgnoreCase("junior"))
+			comision = remuneracion * 0.9;
+		else if(tipoDePuesto.equalsIgnoreCase("junior"))
+			comision = remuneracion;
+		
+		comision *= (100 - empleadoPretenso.getPuntaje())/100;
+		
+		empleadoPretenso.setCostoServicio(comision);
 	}
 	
 	static void finalizarTicket(Persona_Empleador empleador) {

@@ -2,8 +2,9 @@ package tablas;
 
 public interface ITipoDePuesto {
 	
-	public abstract double comparaCon (ITipoDePuesto t);
-	public abstract double comparaConJunior();
-	public abstract double comparaConSenior();
-	public abstract double comparaConManagment();
+	public double comparaCon (ITipoDePuesto t);
+	public double comparaConJunior();
+	public double comparaConSenior();
+	public double comparaConManagment();
+	public String getTipoDePuesto();
 }

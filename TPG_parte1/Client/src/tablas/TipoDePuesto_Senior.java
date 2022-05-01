@@ -21,4 +21,9 @@ public class TipoDePuesto_Senior implements ITipoDePuesto {
 	public double comparaConManagment() {
 		return -0.5;
 	}
+
+	@Override
+	public String getTipoDePuesto() {
+		return "senior";
+	}
 }

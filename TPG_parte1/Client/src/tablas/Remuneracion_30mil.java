@@ -1,7 +1,7 @@
 package tablas;
 
 public class Remuneracion_30mil implements IRemuneracion {
-
+	
 	@Override
 	public double comparaCon(IRemuneracion r) {
 		return r.comparaConHastaV1();
@@ -20,5 +20,10 @@ public class Remuneracion_30mil implements IRemuneracion {
 	@Override
 	public double comparaConMasV2() {
 		return -1;
+	}
+	
+	@Override
+	public double getRemuneracion(){
+		return 30000;
 	}
 }
