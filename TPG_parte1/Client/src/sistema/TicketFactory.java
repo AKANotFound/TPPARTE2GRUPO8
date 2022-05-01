@@ -1,4 +1,4 @@
-package factory;
+package sistema;
 
 import entidades.FormularioDeBusqueda;
 import entidades.Persona_EmpleadoPretenso;
@@ -7,13 +7,13 @@ import entidades.Ticket;
 import entidades.Ticket_EmpleadoPretenso;
 import entidades.Ticket_Empleador;
 
-public abstract class TicketFactory {
+abstract class TicketFactory {
 
-	public static Ticket crearTicket(Persona_Empleador empleador, FormularioDeBusqueda formulario, int cantEmpleadosSolicitados) {
+	static Ticket crearTicket(Persona_Empleador empleador, FormularioDeBusqueda formulario, int cantEmpleadosSolicitados) {
 		return new Ticket_Empleador(formulario, cantEmpleadosSolicitados);
 	}
 	
-	public static Ticket crearTicket(Persona_EmpleadoPretenso empleadoPretenso, FormularioDeBusqueda formulario) {
+	static Ticket crearTicket(Persona_EmpleadoPretenso empleadoPretenso, FormularioDeBusqueda formulario) {
 		return new Ticket_EmpleadoPretenso(formulario);
 	}
 }

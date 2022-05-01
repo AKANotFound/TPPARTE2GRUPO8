@@ -26,4 +26,8 @@ public abstract class FuncionalidadPersona {
 	public void visualizarListaAsignacion(Persona persona) {
 		System.out.println(persona.getListaDeAsignacion());
 	}
+	
+	public void visualizarCostoServicio(Persona persona) {
+		System.out.println(persona.getCostoServicio());
+	}
 }

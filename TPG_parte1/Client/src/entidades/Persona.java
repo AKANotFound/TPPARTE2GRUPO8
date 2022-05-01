@@ -4,7 +4,7 @@ package entidades;
 public abstract class Persona {
     private Cuenta cuenta;
     private Ticket ticket;
-    private double costoServicio;     
+    private double costoServicio;    
     private ListaDeAsignacion listaDeAsignacion;
     private boolean eligio;
     private int puntaje;
@@ -53,6 +53,14 @@ public abstract class Persona {
 
 	public void setPuntaje(int puntaje) {
 		this.puntaje = puntaje;
+	}
+	
+	public double getCostoServicio() {
+		return costoServicio;
+	}
+
+	public void setCostoServicio(double costoServicio) {
+		this.costoServicio = costoServicio;
 	}
 }
 

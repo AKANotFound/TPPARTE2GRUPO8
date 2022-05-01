@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Persona_Empleador extends Persona {
 
 	private String razonSocial;
-    private Rubro rubro;
+    private String rubro;
     private double puntajeAspectos[]=new double[7];
     private ArrayList<PersonaAsignada> elegidos = new ArrayList<PersonaAsignada>();
     private double sueldoOfrecido;
@@ -15,16 +15,13 @@ public class Persona_Empleador extends Persona {
     	super(cuenta);
     }
     
-    public Persona_Empleador(Cuenta cuenta, String razonSocial, Rubro rubro, double sueldoOfrecido) 
+    public Persona_Empleador(Cuenta cuenta, String razonSocial, String rubro, double sueldoOfrecido) 
     {
 		super(cuenta);
 		this.razonSocial = razonSocial;
 		this.rubro = rubro;
 		this.sueldoOfrecido = sueldoOfrecido;
 	}
-
-
-    	
     
 	public double[] getPuntajeAspectos() {
 		return puntajeAspectos;
@@ -45,5 +42,8 @@ public class Persona_Empleador extends Persona {
 		return elegidos;
 	}
 
-	
+	@Override
+	public String toString() {
+		return "Persona_Empleador [razonSocial=" + razonSocial + ", rubro=" + rubro + "]";
+	}
 }

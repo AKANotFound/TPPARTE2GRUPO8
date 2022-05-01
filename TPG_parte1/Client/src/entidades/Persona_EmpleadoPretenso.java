@@ -20,5 +20,14 @@ public class Persona_EmpleadoPretenso extends Persona {
 
 	public void setElegido(PersonaAsignada elegido) {
 		this.elegido = elegido;
-	}	
+	}
+
+	public void setTelefono(String telefono) {
+		this.telefono = telefono;
+	}
+
+	@Override
+	public String toString() {
+		return "Persona_EmpleadoPretenso [nya=" + nya + ", telefono=" + telefono + ", edad=" + edad + "]";
+	}
 }

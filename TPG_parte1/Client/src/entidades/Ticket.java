@@ -3,7 +3,7 @@ package entidades;
 import java.util.GregorianCalendar;
 
 public abstract class Ticket {
-    private GregorianCalendar fechaAlta;
+    private GregorianCalendar fechaAlta; //tener en cuenta para visual
     protected String estado;
     private FormularioDeBusqueda formularioDeBusqueda;
     
@@ -29,7 +29,4 @@ public abstract class Ticket {
 	public String getEstado() {
 		return estado;
 	}
-	
-	
-	
 }

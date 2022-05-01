@@ -2,8 +2,8 @@ package entidades;
 
 public class Ticket_Empleador extends Ticket {
 	
-	private int cantEmpleadosSolicitados;
-    private int cantEmpleadosObtenidos;
+	private int cantEmpleadosSolicitados; //tener en cuenta para visual
+    private int cantEmpleadosObtenidos; //tener en cuenta para visual
     
     public Ticket_Empleador(FormularioDeBusqueda formularioDeBusqueda,int cantEmpleadosSolicitados) {
 		super(formularioDeBusqueda);

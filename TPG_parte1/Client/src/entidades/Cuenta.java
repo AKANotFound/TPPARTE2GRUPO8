@@ -18,14 +18,6 @@ public class Cuenta {
 	public String getContrasena() {
 		return contrasena;
 	}
-
-	protected void setUsuario(String usuario) {
-		this.usuario = usuario;
-	}
-
-	protected void setContrasena(String contrasena) {
-		this.contrasena = contrasena;
-	}
 	
 	public boolean confirmaContrasena(String constrasena) {
         return this.contrasena.equals(constrasena);

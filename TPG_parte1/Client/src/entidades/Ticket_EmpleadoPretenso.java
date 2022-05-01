@@ -1,7 +1,7 @@
 package entidades;
 
 public class Ticket_EmpleadoPretenso extends Ticket {
-	private String resultado;
+	private String resultado; //tener en cuenta para visual
 	
 	public Ticket_EmpleadoPretenso(FormularioDeBusqueda formularioDeBusqueda) {
 		super(formularioDeBusqueda);

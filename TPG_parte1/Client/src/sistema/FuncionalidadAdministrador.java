@@ -1,5 +1,7 @@
 package sistema;
 
+import entidades.Agencia;
+
 public class FuncionalidadAdministrador {
 	
 	public void iniciaRondaEncuentrosLaborales() {

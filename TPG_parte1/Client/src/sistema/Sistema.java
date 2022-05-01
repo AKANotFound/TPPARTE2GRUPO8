@@ -3,6 +3,7 @@ package sistema;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import entidades.Agencia;
 import entidades.Contrato;
 import entidades.Cuenta;
 import entidades.FormularioDeBusqueda;
@@ -10,8 +11,6 @@ import entidades.Persona;
 import entidades.Persona_EmpleadoPretenso;
 import entidades.Persona_Empleador;
 import entidades.Ticket_EmpleadoPretenso;
-import factory.PersonaFactory;
-import factory.TicketFactory;
 
 public abstract class Sistema {
 	
@@ -37,19 +36,23 @@ public abstract class Sistema {
     }
 	
 	public static void registrarEmpleador(String usuario, String contrasena, String razonSocial, String tipoRubro, double sueldoOfrecido) {
-		Persona_Empleador empleador = (Persona_Empleador) PersonaFactory.registrarEmpleador(usuario, contrasena, tipoRubro, tipoRubro, sueldoOfrecido);
+		Persona_Empleador empleador = (Persona_Empleador) PersonaFactory.getEmpleador(usuario, contrasena, tipoRubro, tipoRubro, sueldoOfrecido);
 		empleadores.add(empleador);
 		Sistema.agregarCuenta(empleador.getCuenta());
 	}
 	
 	public static void registrarEmpleadoPretenso(String usuario, String contrasena, String nya, String telefono, int edad) {
-		Persona_EmpleadoPretenso empleadoPretenso = (Persona_EmpleadoPretenso) PersonaFactory.registrarEmpleadoPretenso(usuario, contrasena, telefono, telefono, edad);
+		Persona_EmpleadoPretenso empleadoPretenso = (Persona_EmpleadoPretenso) PersonaFactory.getEmpleadoPretenso(usuario, contrasena, telefono, telefono, edad);
 		empleadosPretensos.add(empleadoPretenso) ;
 		Sistema.agregarCuenta(empleadoPretenso.getCuenta());
 	}
 	
 	static void crearTicket(Persona_Empleador empleador, FormularioDeBusqueda formulario, int cantEmpleadosSolicitados) {
 		empleador.setTicket(TicketFactory.crearTicket(empleador, formulario, cantEmpleadosSolicitados));
+	}
+	
+	static void crearTicket(Persona_EmpleadoPretenso empleadoPretenso, FormularioDeBusqueda formulario) {
+		empleadoPretenso.setTicket(TicketFactory.crearTicket(empleadoPretenso, formulario));
 	}
 	
 	static void agregarContrato(Persona_Empleador empleador, ArrayList<Persona_EmpleadoPretenso> empleadosPretensos) {
@@ -112,7 +115,7 @@ public abstract class Sistema {
 		ticketEmpleadoPretenso.setResultado(resultado);
 	}
 
-	public static void visualizarListaAsignacion(Persona persona) {
+	static void visualizarListaAsignacion(Persona persona) {
 		System.out.println(persona.getListaDeAsignacion());
 	}
 }

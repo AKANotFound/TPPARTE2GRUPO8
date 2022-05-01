@@ -1,16 +1,9 @@
-package sistema;
+package entidades;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import entidades.Contrato;
-import entidades.Cuenta;
-import entidades.Persona_EmpleadoPretenso;
-import entidades.Persona_Empleador;
-import entidades.Ticket_EmpleadoPretenso;
-import entidades.Ticket_Empleador;
-
-class Agencia {
+public class Agencia {
 	private ArrayList<Persona_Empleador> empleadores = new ArrayList<Persona_Empleador>();
 	private ArrayList<Persona_EmpleadoPretenso> empleadosPretensos = new ArrayList<Persona_EmpleadoPretenso>();
 	private ArrayList<Ticket_EmpleadoPretenso> ticketsEmpleadosPretensos = new ArrayList<Ticket_EmpleadoPretenso>();
@@ -22,31 +15,31 @@ class Agencia {
 	
 	private Agencia() {}
 	
-	static Agencia getInstancia() {
+	public static Agencia getInstancia() {
     	if (instancia == null)
     		instancia = new Agencia();
     	return instancia;
     }
 	
-	ArrayList<Persona_Empleador> getEmpleadores() {
+	public ArrayList<Persona_Empleador> getEmpleadores() {
 		return empleadores;
 	}
-	ArrayList<Persona_EmpleadoPretenso> getEmpleadosPretensos() {
+	public ArrayList<Persona_EmpleadoPretenso> getEmpleadosPretensos() {
 		return empleadosPretensos;
 	}
-	ArrayList<Ticket_EmpleadoPretenso> getTicketsEmpleadosPretensos() {
+	public ArrayList<Ticket_EmpleadoPretenso> getTicketsEmpleadosPretensos() {
 		return ticketsEmpleadosPretensos;
 	}
-	ArrayList<Ticket_Empleador> getTicketsEmpleadores() {
+	public ArrayList<Ticket_Empleador> getTicketsEmpleadores() {
 		return ticketsEmpleadores;
 	}
-	ArrayList<Cuenta> getLogins() {
+	public ArrayList<Cuenta> getLogins() {
 		return logins;
 	}
-	HashMap<String, Cuenta> getCuentas() {
+	public HashMap<String, Cuenta> getCuentas() {
 		return cuentas;
 	}
-	ArrayList<Contrato> getContratos() {
+	public ArrayList<Contrato> getContratos() {
 		return contratos;
 	}
 }

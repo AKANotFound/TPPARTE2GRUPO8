@@ -3,6 +3,7 @@ package sistema;
 import java.util.ArrayList;
 import java.util.Collections;
 
+import entidades.Agencia;
 import entidades.FormularioDeBusqueda;
 import entidades.PersonaAsignada;
 import entidades.Persona_EmpleadoPretenso;
@@ -10,7 +11,7 @@ import entidades.Persona_Empleador;
 
 abstract class RondaDeEncuentrosLaborales {
 
-	public static void iniciaRondaDeEncuentrosLaborales ()
+	static void iniciaRondaDeEncuentrosLaborales ()
 	{
 		ArrayList <Persona_Empleador> empleadores =  Agencia.getInstancia().getEmpleadores();
 		ArrayList <Persona_EmpleadoPretenso> empleadosPretensos =  Agencia.getInstancia().getEmpleadosPretensos();
