@@ -2,7 +2,7 @@ package sistema;
 
 import entidades.Agencia;
 
-public class FuncionalidadAdministrador {
+public class FuncionalidadAdministrador extends FuncionalidadUsuario{
 	
 	public void iniciaRondaEncuentrosLaborales() {
 		RondaDeEncuentrosLaborales.iniciaRondaDeEncuentrosLaborales();

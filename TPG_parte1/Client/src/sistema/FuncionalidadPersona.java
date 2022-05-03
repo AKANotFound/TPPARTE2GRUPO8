@@ -4,8 +4,13 @@ import entidades.FormularioDeBusqueda;
 import entidades.Persona;
 import excepciones.ListaNoGeneradaException;
 
-public abstract class FuncionalidadPersona {
+public abstract class FuncionalidadPersona extends FuncionalidadUsuario{
+	protected Persona persona;
 	
+	public FuncionalidadPersona(Persona persona) {
+		this.persona = persona;
+	}
+
 	public void activarTicket(Persona persona) {
 		persona.getTicket().setEstado("activado");
 	}

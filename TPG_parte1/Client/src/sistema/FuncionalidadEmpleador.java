@@ -6,7 +6,11 @@ import entidades.Persona_Empleador;
 
 public class FuncionalidadEmpleador extends FuncionalidadPersona {
 	
-	public void crearTicket(Persona_Empleador empleador, FormularioDeBusqueda formulario, int cantEmpleadosSolicitados) {
+	public FuncionalidadEmpleador(Persona persona) {
+		super(persona);
+	}
+
+	public void crearTicket(//Persona_Empleador empleador, FormularioDeBusqueda formulario, int cantEmpleadosSolicitados) {
 		Sistema.crearTicket(empleador, formulario, cantEmpleadosSolicitados);
 	}
 

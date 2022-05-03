@@ -19,26 +19,31 @@ import excepciones.TipoPersonaInvalidoException;
 
 public abstract class Sistema {
 	
-	public static FuncionalidadAdministrador administrador = new FuncionalidadAdministrador();
-	public static FuncionalidadEmpleador empleador = new FuncionalidadEmpleador();
-	public static FuncionalidadEmpleadoPretenso empleadoPretenso = new FuncionalidadEmpleadoPretenso();
 	private static ArrayList<Persona_EmpleadoPretenso> empleadosPretensos = Agencia.getInstancia().getEmpleadosPretensos();
 	private static ArrayList<Persona_Empleador> empleadores = Agencia.getInstancia().getEmpleadores();
 	private static ArrayList<Cuenta> logins = Agencia.getInstancia().getLogins();
 	private static HashMap <String, Persona> usuarioPersona = Agencia.getInstancia().getUsuarioPersona();
 	private static ArrayList<Contrato> contratos = Agencia.getInstancia().getContratos();//
 	
-	public static void login(String usuario,String contrasena) throws ErrorContrasenaException,ErrorUsuarioException 
+	public static FuncionalidadUsuario login(String usuario,String contrasena) throws ErrorContrasenaException,ErrorUsuarioException 
 	{
-		Cuenta cuenta = Agencia.getInstancia().getUsuarioPersona().get(usuario).getCuenta();
+		Persona persona = Agencia.getInstancia().getUsuarioPersona().get(usuario);
+		Cuenta cuenta = persona.getCuenta();
 		
-        if(cuenta != null) { 
-        	if(!(logins.contains(cuenta)))
-        		if(cuenta.confirmaContrasena(contrasena)) {
+        if(cuenta != null) {
+        	if(cuenta.confirmaContrasena(contrasena)) {
+        		if(!(logins.contains(cuenta)))
         			logins.add(cuenta);
-        		}
+        		if(cuenta.getTipoUsuario().equals("empleador"))
+        			return new FuncionalidadEmpleador(persona);
+        		else if(cuenta.getTipoUsuario().equals("empleadoPretenso"))
+        			return new FuncionalidadEmpleadoPretenso(persona);
         		else
-        			throw new ErrorContrasenaException(contrasena);
+        			return new FuncionalidadAdministrador();
+        		
+        	}
+        	else
+        		throw new ErrorContrasenaException(contrasena);
         }
         else
         	throw new ErrorUsuarioException(usuario);
@@ -60,7 +65,7 @@ public abstract class Sistema {
 		Sistema.agregarUsuarioPersona(empleadoPretenso);
 	}
 	
-	static void crearTicket(Persona_Empleador empleador, FormularioDeBusqueda formulario, int cantEmpleadosSolicitados) {
+	static void crearTicket(//Persona_Empleador empleador, FormularioDeBusqueda formulario, int cantEmpleadosSolicitados) {
 		empleador.setTicket(TicketFactory.crearTicket(empleador, formulario, cantEmpleadosSolicitados));
 	}
 	

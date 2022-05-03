@@ -8,6 +8,10 @@ import entidades.Ticket_EmpleadoPretenso;
 
 public class FuncionalidadEmpleadoPretenso extends FuncionalidadPersona {
 
+	public FuncionalidadEmpleadoPretenso(Persona persona) {
+		super(persona);
+	}
+
 	public void crearTicket(Persona_EmpleadoPretenso empleadoPretenso, FormularioDeBusqueda formulario) {
 		Sistema.crearTicket(empleadoPretenso, formulario);
 	}
