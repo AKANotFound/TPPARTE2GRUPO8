@@ -9,7 +9,7 @@ public class Agencia {
 	private ArrayList<Ticket_EmpleadoPretenso> ticketsEmpleadosPretensos = new ArrayList<Ticket_EmpleadoPretenso>();
 	private ArrayList<Ticket_Empleador> ticketsEmpleadores = new ArrayList<Ticket_Empleador>();
 	private ArrayList<Cuenta> logins = new ArrayList<Cuenta>();
-	private HashMap <String, Cuenta> cuentas = new HashMap <>();
+	private HashMap <String, Persona> usuarioPersona = new HashMap <>();
 	private ArrayList<Contrato> contratos = new ArrayList<Contrato>();
 	private static Agencia instancia = null;
 	
@@ -36,8 +36,8 @@ public class Agencia {
 	public ArrayList<Cuenta> getLogins() {
 		return logins;
 	}
-	public HashMap<String, Cuenta> getCuentas() {
-		return cuentas;
+	public HashMap<String, Persona> getUsuarioPersona() {
+		return usuarioPersona;
 	}
 	public ArrayList<Contrato> getContratos() {
 		return contratos;

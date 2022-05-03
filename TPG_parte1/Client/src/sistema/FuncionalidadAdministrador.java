@@ -29,7 +29,7 @@ public class FuncionalidadAdministrador {
 	}
 	
 	public void visualizarCuentas() {
-		System.out.println(Agencia.getInstancia().getCuentas());
+		System.out.println(Agencia.getInstancia().getUsuarioPersona());
 	}
 	
 	public void visualizarLogins() {

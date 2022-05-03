@@ -12,7 +12,6 @@ import entidades.Persona;
 import entidades.Persona_EmpleadoPretenso;
 import entidades.Persona_Empleador;
 import entidades.Ticket_EmpleadoPretenso;
-import excepciones.DatoIngresadoInvalidoException;
 import excepciones.EdadInvalidaException;
 import excepciones.ErrorContrasenaException;
 import excepciones.ErrorUsuarioException;
@@ -26,17 +25,17 @@ public abstract class Sistema {
 	private static ArrayList<Persona_EmpleadoPretenso> empleadosPretensos = Agencia.getInstancia().getEmpleadosPretensos();
 	private static ArrayList<Persona_Empleador> empleadores = Agencia.getInstancia().getEmpleadores();
 	private static ArrayList<Cuenta> logins = Agencia.getInstancia().getLogins();
-	private static HashMap <String, Cuenta> cuentas = Agencia.getInstancia().getCuentas();
-	private static ArrayList<Contrato> contratos = Agencia.getInstancia().getContratos();
+	private static HashMap <String, Persona> usuarioPersona = Agencia.getInstancia().getUsuarioPersona();
+	private static ArrayList<Contrato> contratos = Agencia.getInstancia().getContratos();//
 	
 	public static void login(String usuario,String contrasena) throws ErrorContrasenaException,ErrorUsuarioException 
 	{
-		Cuenta cuenta = Agencia.getInstancia().getCuentas().get(usuario);
+		Cuenta cuenta = Agencia.getInstancia().getUsuarioPersona().get(usuario).getCuenta();
 		
         if(cuenta != null) { 
         	if(!(logins.contains(cuenta)))
         		if(cuenta.confirmaContrasena(contrasena)) {
-        			logins.add(cuentas.get(usuario));
+        			logins.add(cuenta);
         		}
         		else
         			throw new ErrorContrasenaException(contrasena);
@@ -50,7 +49,7 @@ public abstract class Sistema {
 			throw new TipoPersonaInvalidoException(tipoPersona);
 		Persona_Empleador empleador = (Persona_Empleador) PersonaFactory.getEmpleador(usuario, contrasena,razonSocial, tipoPersona, rubro);
 		empleadores.add(empleador);
-		Sistema.agregarCuenta(empleador.getCuenta());
+		Sistema.agregarUsuarioPersona(empleador);
 	}
 	
 	public static void registrarEmpleadoPretenso(String usuario, String contrasena, String nya, String telefono, int edad) throws EdadInvalidaException {
@@ -58,7 +57,7 @@ public abstract class Sistema {
 			throw new EdadInvalidaException(Integer.toString(edad));
 		Persona_EmpleadoPretenso empleadoPretenso = (Persona_EmpleadoPretenso) PersonaFactory.getEmpleadoPretenso(usuario, contrasena, telefono, telefono, edad);
 		empleadosPretensos.add(empleadoPretenso) ;
-		Sistema.agregarCuenta(empleadoPretenso.getCuenta());
+		Sistema.agregarUsuarioPersona(empleadoPretenso);
 	}
 	
 	static void crearTicket(Persona_Empleador empleador, FormularioDeBusqueda formulario, int cantEmpleadosSolicitados) {
@@ -73,9 +72,9 @@ public abstract class Sistema {
 		contratos.add(new Contrato(empleador,empleadosPretensos));
 	}
 	
-	private static void agregarCuenta (Cuenta cuenta) { 
-		if (cuentas.putIfAbsent(cuenta.getUsuario(), cuenta) == null) 
-			cuentas.put(cuenta.getUsuario(), cuenta);
+	private static void agregarUsuarioPersona (Persona persona) { 
+		if (usuarioPersona.putIfAbsent(persona.getCuenta().getUsuario(), persona) == null) 
+			usuarioPersona.put(persona.getCuenta().getUsuario(), persona);
 	}
 	
 	static void calculaComision(Persona_Empleador empleador) {
