@@ -17,6 +17,11 @@ public class Prueba {
 	public static void main(String[] args) {
 		
 		FuncionalidadEmpleadoPretenso saimonmdp = null;
+		FuncionalidadEmpleadoPretenso hamilton = null;
+		FuncionalidadEmpleadoPretenso ElKeizy = null;
+		FuncionalidadEmpleadoPretenso LifeIsMusic = null;
+		FuncionalidadEmpleador gesi = null;
+		FuncionalidadEmpleador carrefour = null;
 		
 		//REGISTRO EMPLEADOS Y EMPLEADORES
 		try {
@@ -69,35 +74,35 @@ public class Prueba {
 		}
 
 		try {
-			FuncionalidadEmpleadoPretenso hamilton = (FuncionalidadEmpleadoPretenso) Sistema.loginEmpleadoPretenso("hamilton", "abc123");
+			hamilton = (FuncionalidadEmpleadoPretenso) Sistema.loginEmpleadoPretenso("hamilton", "abc123");
 		} catch (ErrorContrasenaException | ErrorUsuarioException e) {
 			System.out.println(e.getMessage());
 			e.printStackTrace();
 		}
 		
 		try {
-			FuncionalidadEmpleadoPretenso ElKeizy = (FuncionalidadEmpleadoPretenso) Sistema.loginEmpleadoPretenso("ElKeizy", "contraseniajeje");
+			ElKeizy = (FuncionalidadEmpleadoPretenso) Sistema.loginEmpleadoPretenso("ElKeizy", "contraseniajeje");
 		} catch (ErrorContrasenaException | ErrorUsuarioException e) {
 			System.out.println(e.getMessage());
 			e.printStackTrace();
 		}
 		
 		try {
-			FuncionalidadEmpleadoPretenso LifeIsMusic = (FuncionalidadEmpleadoPretenso) Sistema.loginEmpleadoPretenso("LifeIsMusic", "vossabras");
+			LifeIsMusic = (FuncionalidadEmpleadoPretenso) Sistema.loginEmpleadoPretenso("LifeIsMusic", "vossabras");
 		} catch (ErrorContrasenaException | ErrorUsuarioException e) {
 			System.out.println(e.getMessage());
 			e.printStackTrace();
 		}
 		
 		try {
-			FuncionalidadEmpleador gesi = (FuncionalidadEmpleador) Sistema.loginEmpleador("gesi", "empresajaja");
+			gesi = (FuncionalidadEmpleador) Sistema.loginEmpleador("gesi", "empresajaja");
 		} catch (ErrorContrasenaException | ErrorUsuarioException e) {
 			System.out.println(e.getMessage());
 			e.printStackTrace();
 		}
 		
 		try {
-			FuncionalidadEmpleador carrefour = (FuncionalidadEmpleador) Sistema.loginEmpleador("carrefour", "empresaurio");
+			carrefour = (FuncionalidadEmpleador) Sistema.loginEmpleador("carrefour", "empresaurio");
 		} catch (ErrorContrasenaException | ErrorUsuarioException e) {
 			System.out.println(e.getMessage());
 			e.printStackTrace();
@@ -105,7 +110,6 @@ public class Prueba {
 		
 		//CREO TICKET DE EMPLEADOS Y EMPLEADORES
 		
-
 	}
 
 }

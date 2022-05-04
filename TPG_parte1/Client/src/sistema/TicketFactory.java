@@ -7,7 +7,7 @@ import entidades.Ticket;
 import entidades.Ticket_EmpleadoPretenso;
 import entidades.Ticket_Empleador;
 
-abstract class TicketFactory {
+public abstract class TicketFactory {
 
 	static Ticket crearTicket(Persona_Empleador empleador, FormularioDeBusqueda formulario, int cantEmpleadosSolicitados) {
 		return new Ticket_Empleador(formulario, cantEmpleadosSolicitados);
