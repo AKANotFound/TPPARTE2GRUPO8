@@ -28,32 +28,6 @@ public abstract class Sistema {
 	private static HashMap <String, Usuario> usuarios = Agencia.getInstancia().getUsuarios();
 	private static Administrador administrador = Administrador.getInstancia();
 	
-	public static FuncionalidadUsuario login(String nombreUsuario,String contrasena) throws ErrorContrasenaException,ErrorUsuarioException 
-	{
-		Usuario usuario = usuarios.get(nombreUsuario);
-		Cuenta cuenta = usuario.getCuenta();
-		FuncionalidadUsuario funcionalidadUsuario = null;
-		
-        if(cuenta!= null) {
-        	if(cuenta.confirmaContrasena(contrasena)) {
-        		if(!(logins.contains(cuenta)))
-        			logins.add(cuenta);
-        		if(cuenta.getTipoUsuario().equals("empleador"))
-        			funcionalidadUsuario = new FuncionalidadEmpleador((Persona_Empleador) usuario);
-        		else if(cuenta.getTipoUsuario().equals("empleadoPretenso"))
-        			funcionalidadUsuario = new FuncionalidadEmpleadoPretenso((Persona_EmpleadoPretenso) usuario);        		
-        	}
-        	else
-        		throw new ErrorContrasenaException(contrasena);
-        }
-        else if(nombreUsuario.equals(administrador.getCuenta().getUsuario()) && contrasena.equals(administrador.getCuenta().getContrasena()))
-        	funcionalidadUsuario = new FuncionalidadAdministrador(usuario);
-        else
-        	throw new ErrorUsuarioException(nombreUsuario);
-        
-		return funcionalidadUsuario;
-    }
-	
 	public static FuncionalidadEmpleador loginEmpleador(String nombreUsuario,String contrasena) throws ErrorContrasenaException,ErrorUsuarioException 
 	{
 		Usuario usuario = usuarios.get(nombreUsuario);
