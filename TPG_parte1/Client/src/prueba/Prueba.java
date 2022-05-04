@@ -109,7 +109,8 @@ public class Prueba {
 		}
 		
 		//CREO TICKET DE EMPLEADOS Y EMPLEADORES
-		
+		FormularioDeBusqueda form1 = new FormularioDeBusqueda (LocacionFactory.getLocacion("Home Office"), new Remuneracion_60mil(), new CargaHoraria_Extendida(), new TipoDePuesto_Junior(), new RangoEtario_MasDe50(), new ExperienciaPrevia_Mucha(), new EstudiosCursados_Secundario());
+		saimonmdp.crearTicket(form1);
 	}
 
 }
