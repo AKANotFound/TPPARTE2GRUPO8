@@ -1,9 +1,15 @@
 package sistema;
 
 import entidades.Agencia;
+import entidades.Usuario;
 
 public class FuncionalidadAdministrador extends FuncionalidadUsuario{
 	
+	public FuncionalidadAdministrador(Usuario usuario) {
+		super(usuario);
+		// TODO Auto-generated constructor stub
+	}
+
 	public void iniciaRondaEncuentrosLaborales() {
 		RondaDeEncuentrosLaborales.iniciaRondaDeEncuentrosLaborales();
 	}
@@ -29,7 +35,7 @@ public class FuncionalidadAdministrador extends FuncionalidadUsuario{
 	}
 	
 	public void visualizarCuentas() {
-		System.out.println(Agencia.getInstancia().getUsuarioPersona());
+		System.out.println(Agencia.getInstancia().getUsuarios());
 	}
 	
 	public void visualizarLogins() {

@@ -3,15 +3,17 @@ package sistema;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import entidades.Administrador;
 import entidades.Agencia;
 import entidades.Contrato;
 import entidades.Cuenta;
-import entidades.FormularioDeBusqueda;
 import entidades.IRubro;
 import entidades.Persona;
 import entidades.Persona_EmpleadoPretenso;
 import entidades.Persona_Empleador;
+import entidades.Ticket;
 import entidades.Ticket_EmpleadoPretenso;
+import entidades.Usuario;
 import excepciones.EdadInvalidaException;
 import excepciones.ErrorContrasenaException;
 import excepciones.ErrorUsuarioException;
@@ -22,31 +24,34 @@ public abstract class Sistema {
 	private static ArrayList<Persona_EmpleadoPretenso> empleadosPretensos = Agencia.getInstancia().getEmpleadosPretensos();
 	private static ArrayList<Persona_Empleador> empleadores = Agencia.getInstancia().getEmpleadores();
 	private static ArrayList<Cuenta> logins = Agencia.getInstancia().getLogins();
-	private static HashMap <String, Persona> usuarioPersona = Agencia.getInstancia().getUsuarioPersona();
-	private static ArrayList<Contrato> contratos = Agencia.getInstancia().getContratos();//
+	private static ArrayList<Contrato> contratos = Agencia.getInstancia().getContratos();
+	private static HashMap <String, Usuario> usuarios = Agencia.getInstancia().getUsuarios();
+	private static Administrador administrador = Administrador.getInstancia();
 	
-	public static FuncionalidadUsuario login(String usuario,String contrasena) throws ErrorContrasenaException,ErrorUsuarioException 
+	public static FuncionalidadUsuario login(String nombreUsuario,String contrasena) throws ErrorContrasenaException,ErrorUsuarioException 
 	{
-		Persona persona = Agencia.getInstancia().getUsuarioPersona().get(usuario);
-		Cuenta cuenta = persona.getCuenta();
+		Usuario usuario = usuarios.get(nombreUsuario);
+		Cuenta cuenta = usuario.getCuenta();
+		FuncionalidadUsuario funcionalidadUsuario = null;
 		
-        if(cuenta != null) {
+        if(usuario != null) {
         	if(cuenta.confirmaContrasena(contrasena)) {
         		if(!(logins.contains(cuenta)))
         			logins.add(cuenta);
         		if(cuenta.getTipoUsuario().equals("empleador"))
-        			return new FuncionalidadEmpleador(persona);
+        			funcionalidadUsuario = new FuncionalidadEmpleador((Persona_Empleador) usuario);
         		else if(cuenta.getTipoUsuario().equals("empleadoPretenso"))
-        			return new FuncionalidadEmpleadoPretenso(persona);
-        		else
-        			return new FuncionalidadAdministrador();
-        		
+        			funcionalidadUsuario = new FuncionalidadEmpleadoPretenso((Persona_EmpleadoPretenso) usuario);        		
         	}
         	else
         		throw new ErrorContrasenaException(contrasena);
         }
+        else if(nombreUsuario.equals(administrador.getCuenta().getUsuario()) && contrasena.equals(administrador.getCuenta().getContrasena()))
+        	funcionalidadUsuario = new FuncionalidadAdministrador(usuario);
         else
-        	throw new ErrorUsuarioException(usuario);
+        	throw new ErrorUsuarioException(nombreUsuario);
+        
+		return funcionalidadUsuario;
     }
 	
 	public static void registrarEmpleador(String usuario, String contrasena, String razonSocial, String tipoPersona, IRubro rubro) throws TipoPersonaInvalidoException {
@@ -54,7 +59,7 @@ public abstract class Sistema {
 			throw new TipoPersonaInvalidoException(tipoPersona);
 		Persona_Empleador empleador = (Persona_Empleador) PersonaFactory.getEmpleador(usuario, contrasena,razonSocial, tipoPersona, rubro);
 		empleadores.add(empleador);
-		Sistema.agregarUsuarioPersona(empleador);
+		Sistema.agregarUsuario(empleador);
 	}
 	
 	public static void registrarEmpleadoPretenso(String usuario, String contrasena, String nya, String telefono, int edad) throws EdadInvalidaException {
@@ -62,24 +67,20 @@ public abstract class Sistema {
 			throw new EdadInvalidaException(Integer.toString(edad));
 		Persona_EmpleadoPretenso empleadoPretenso = (Persona_EmpleadoPretenso) PersonaFactory.getEmpleadoPretenso(usuario, contrasena, telefono, telefono, edad);
 		empleadosPretensos.add(empleadoPretenso) ;
-		Sistema.agregarUsuarioPersona(empleadoPretenso);
+		Sistema.agregarUsuario(empleadoPretenso);
 	}
 	
-	static void crearTicket(//Persona_Empleador empleador, FormularioDeBusqueda formulario, int cantEmpleadosSolicitados) {
-		empleador.setTicket(TicketFactory.crearTicket(empleador, formulario, cantEmpleadosSolicitados));
-	}
-	
-	static void crearTicket(Persona_EmpleadoPretenso empleadoPretenso, FormularioDeBusqueda formulario) {
-		empleadoPretenso.setTicket(TicketFactory.crearTicket(empleadoPretenso, formulario));
+	public static void agregarCuenta(Cuenta cuenta) {
+		
 	}
 	
 	static void agregarContrato(Persona_Empleador empleador, ArrayList<Persona_EmpleadoPretenso> empleadosPretensos) {
 		contratos.add(new Contrato(empleador,empleadosPretensos));
 	}
 	
-	private static void agregarUsuarioPersona (Persona persona) { 
-		if (usuarioPersona.putIfAbsent(persona.getCuenta().getUsuario(), persona) == null) 
-			usuarioPersona.put(persona.getCuenta().getUsuario(), persona);
+	private static void agregarUsuario (Usuario usuario) { 
+		if (usuarios.putIfAbsent(usuario.getCuenta().getUsuario(), usuario) == null) 
+			usuarios.put(usuario.getCuenta().getUsuario(), usuario);
 	}
 	
 	static void calculaComision(Persona_Empleador empleador) {
@@ -160,5 +161,15 @@ public abstract class Sistema {
 
 	static void visualizarListaAsignacion(Persona persona) {
 		System.out.println(persona.getListaDeAsignacion());
+	}
+	
+	static void resultadoExito(Persona_EmpleadoPretenso empleadoPretenso) {
+		Ticket ticket = (Ticket_EmpleadoPretenso) empleadoPretenso.getTicket();
+		ticket.setEstado("exito");
+	}
+	
+	static void resultadoFracaso(Persona_EmpleadoPretenso empleadoPretenso) {
+		Ticket ticket = (Ticket_EmpleadoPretenso) empleadoPretenso.getTicket();
+		ticket.setEstado("fracaso");
 	}
 }

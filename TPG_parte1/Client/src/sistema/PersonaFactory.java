@@ -12,7 +12,7 @@ abstract class PersonaFactory {
 		Persona persona = null;
 		Cuenta cuenta = null;
 		
-		cuenta = new Cuenta(usuario, contrasena);
+		cuenta = new Cuenta(usuario, contrasena, "empleador");
 		persona = new Persona_Empleador(cuenta,razonSocial,tipoPersona,rubro);
 		
 		return persona;
@@ -22,7 +22,7 @@ abstract class PersonaFactory {
 		Persona persona = null;
 		Cuenta cuenta = null;
 		
-		cuenta = new Cuenta(usuario, contrasena);
+		cuenta = new Cuenta(usuario, contrasena, "empleadoPretenso");
 		persona = new Persona_EmpleadoPretenso(cuenta,nya,telefono,edad);
 		
 		return persona;

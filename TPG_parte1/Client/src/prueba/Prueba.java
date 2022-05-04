@@ -7,12 +7,17 @@ import excepciones.EdadInvalidaException;
 import excepciones.ErrorContrasenaException;
 import excepciones.ErrorUsuarioException;
 import excepciones.TipoPersonaInvalidoException;
+import sistema.FuncionalidadEmpleadoPretenso;
+import sistema.FuncionalidadEmpleador;
+import sistema.FuncionalidadUsuario;
 import sistema.Sistema;
 
 public class Prueba {
 
 	public static void main(String[] args) {
-
+		
+		FuncionalidadEmpleadoPretenso saimonmdp = null;
+		
 		//REGISTRO EMPLEADOS Y EMPLEADORES
 		try {
 			Sistema.registrarEmpleadoPretenso("saimonmdp", "123abc", "Juan Simon Facal", "2235276920", 22);
@@ -44,72 +49,61 @@ public class Prueba {
 		try {
 			Sistema.registrarEmpleador("gesi", "empresajaja", "Grupo ESI", "juridica", new Rubro_ComercioLocal());
 		} catch (TipoPersonaInvalidoException e) {
-
+			System.out.println(e.getMessage());
 			e.printStackTrace();
 		}
 
 		try {
-			Sistema.registrarEmpleador("carrefour", "empresaurio", "Carrefour", "fisica",
-					new Rubro_ComercioInternacional());
+			Sistema.registrarEmpleador("carrefour", "empresaurio", "Carrefour", "fisica", new Rubro_ComercioInternacional());
 		} catch (TipoPersonaInvalidoException e) {
-
+			System.out.println(e.getMessage());
 			e.printStackTrace();
 		}
 
 		//LOGEO EMPLEADOS Y EMPRESARIOS
 		try {
-			Sistema.login("saimonmdp", "123abc");
+			saimonmdp = (FuncionalidadEmpleadoPretenso) Sistema.login("saimonmdp", "123abc");
 		} catch (ErrorContrasenaException | ErrorUsuarioException e) {
 			System.out.println(e.getMessage());
 			e.printStackTrace();
 		}
 
 		try {
-			Sistema.login("hamilton", "abc123");
+			FuncionalidadEmpleadoPretenso hamilton = (FuncionalidadEmpleadoPretenso) Sistema.login("hamilton", "abc123");
 		} catch (ErrorContrasenaException | ErrorUsuarioException e) {
 			System.out.println(e.getMessage());
 			e.printStackTrace();
 		}
 		
 		try {
-			Sistema.login("ElKeizy", "contraseniajeje");
+			FuncionalidadEmpleadoPretenso ElKeizy = (FuncionalidadEmpleadoPretenso) Sistema.login("ElKeizy", "contraseniajeje");
 		} catch (ErrorContrasenaException | ErrorUsuarioException e) {
 			System.out.println(e.getMessage());
 			e.printStackTrace();
 		}
 		
 		try {
-			Sistema.login("LifeIsMusic", "vossabras");
+			FuncionalidadEmpleadoPretenso LifeIsMusic = (FuncionalidadEmpleadoPretenso) Sistema.login("LifeIsMusic", "vossabras");
 		} catch (ErrorContrasenaException | ErrorUsuarioException e) {
 			System.out.println(e.getMessage());
 			e.printStackTrace();
 		}
 		
 		try {
-			Sistema.login("hamilton", "abc123");
+			FuncionalidadEmpleador gesi = (FuncionalidadEmpleador) Sistema.login("gesi", "empresajaja");
 		} catch (ErrorContrasenaException | ErrorUsuarioException e) {
 			System.out.println(e.getMessage());
 			e.printStackTrace();
 		}
 		
 		try {
-			Sistema.login("gesi", "empresajaja");
-		} catch (ErrorContrasenaException | ErrorUsuarioException e) {
-			System.out.println(e.getMessage());
-			e.printStackTrace();
-		}
-		
-		try {
-			Sistema.login("carrefour", "empresaurio");
+			FuncionalidadEmpleador carrefour = (FuncionalidadEmpleador) Sistema.login("carrefour", "empresaurio");
 		} catch (ErrorContrasenaException | ErrorUsuarioException e) {
 			System.out.println(e.getMessage());
 			e.printStackTrace();
 		}
 		
 		//CREO TICKET DE EMPLEADOS Y EMPLEADORES
-		
-		Sistema.empleadoPretenso.crearTicket();
-
 	}
 
 }

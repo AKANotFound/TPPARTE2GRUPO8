@@ -29,10 +29,10 @@ abstract class RondaDeContrataciones {
 					ticketEmpleador.setCantEmpleadosObtenidos(ticketEmpleador.getCantEmpleadosObtenidos()+1);
 					Sistema.finalizarTicket(empleadoElegido);
 					Sistema.calculaComision(empleadoElegido);
-					Sistema.empleadoPretenso.resultadoExito(empleadoElegido);
+					Sistema.resultadoExito(empleadoElegido);
 				}
 				else if(ticketEmpleadoElegido.getEstado().equals("en proceso")) {
-					Sistema.empleadoPretenso.resultadoFracaso(empleadoElegido);
+					Sistema.resultadoFracaso(empleadoElegido);
 				}
 			}
 			

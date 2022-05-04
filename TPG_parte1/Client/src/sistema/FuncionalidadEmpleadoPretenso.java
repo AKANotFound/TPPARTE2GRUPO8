@@ -3,17 +3,16 @@ package sistema;
 import entidades.FormularioDeBusqueda;
 import entidades.Persona;
 import entidades.Persona_EmpleadoPretenso;
-import entidades.Ticket;
-import entidades.Ticket_EmpleadoPretenso;
+import entidades.Usuario;
 
 public class FuncionalidadEmpleadoPretenso extends FuncionalidadPersona {
 
-	public FuncionalidadEmpleadoPretenso(Persona persona) {
-		super(persona);
+	public FuncionalidadEmpleadoPretenso(Usuario usuario) {
+		super(usuario);
 	}
 
-	public void crearTicket(Persona_EmpleadoPretenso empleadoPretenso, FormularioDeBusqueda formulario) {
-		Sistema.crearTicket(empleadoPretenso, formulario);
+	public void crearTicket(FormularioDeBusqueda formulario) {
+		((Persona) usuario).setTicket(TicketFactory.crearTicket((Persona_EmpleadoPretenso) usuario, formulario));
 	}
 	
 	public void cancelarTicket(Persona persona) {
@@ -27,15 +26,5 @@ public class FuncionalidadEmpleadoPretenso extends FuncionalidadPersona {
 	}
 	public void modificarTelefono(Persona_EmpleadoPretenso empleadoPretenso, String telefono) {
 		empleadoPretenso.setTelefono(telefono);
-	}
-	
-	void resultadoExito(Persona_EmpleadoPretenso empleadoPretenso) {
-		Ticket ticket = (Ticket_EmpleadoPretenso) empleadoPretenso.getTicket();
-		ticket.setEstado("exito");
-	}
-	
-	void resultadoFracaso(Persona_EmpleadoPretenso empleadoPretenso) {
-		Ticket ticket = (Ticket_EmpleadoPretenso) empleadoPretenso.getTicket();
-		ticket.setEstado("fracaso");
 	}
 }

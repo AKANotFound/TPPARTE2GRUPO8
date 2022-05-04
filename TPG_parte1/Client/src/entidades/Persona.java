@@ -1,8 +1,7 @@
 package entidades;
 
 
-public abstract class Persona {
-    private Cuenta cuenta;
+public abstract class Persona extends Usuario {
     protected Ticket ticket;
     private double costoServicio;    
     private ListaDeAsignacion listaDeAsignacion;
@@ -10,8 +9,7 @@ public abstract class Persona {
     private int puntaje;
     
     public Persona(Cuenta cuenta) {
-		super();
-		this.cuenta = cuenta;
+		super(cuenta);
 		this.ticket = null;
 		this.costoServicio = 0;
 		this.eligio=false;
@@ -39,10 +37,6 @@ public abstract class Persona {
 
 	public void setListaDeAsignacion(ListaDeAsignacion listaDeAsignacion) {
 		this.listaDeAsignacion = listaDeAsignacion;
-	}
-
-	public Cuenta getCuenta() {
-		return cuenta;
 	}
 
 	public boolean isEligio() {

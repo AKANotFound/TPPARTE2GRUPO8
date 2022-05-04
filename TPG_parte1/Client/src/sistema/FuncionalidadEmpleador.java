@@ -3,15 +3,16 @@ package sistema;
 import entidades.FormularioDeBusqueda;
 import entidades.Persona;
 import entidades.Persona_Empleador;
+import entidades.Usuario;
 
 public class FuncionalidadEmpleador extends FuncionalidadPersona {
-	
-	public FuncionalidadEmpleador(Persona persona) {
-		super(persona);
+
+	public FuncionalidadEmpleador(Usuario usuario) {
+		super(usuario);
 	}
 
-	public void crearTicket(//Persona_Empleador empleador, FormularioDeBusqueda formulario, int cantEmpleadosSolicitados) {
-		Sistema.crearTicket(empleador, formulario, cantEmpleadosSolicitados);
+	public void crearTicket(FormularioDeBusqueda formulario, int cantEmpleadosSolicitados) {
+		((Persona) usuario).setTicket(TicketFactory.crearTicket((Persona_Empleador) usuario, formulario, cantEmpleadosSolicitados));
 	}
 
 	@Override

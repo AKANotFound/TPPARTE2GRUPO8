@@ -2,13 +2,13 @@ package sistema;
 
 import entidades.FormularioDeBusqueda;
 import entidades.Persona;
+import entidades.Usuario;
 import excepciones.ListaNoGeneradaException;
 
 public abstract class FuncionalidadPersona extends FuncionalidadUsuario{
-	protected Persona persona;
-	
-	public FuncionalidadPersona(Persona persona) {
-		this.persona = persona;
+
+	public FuncionalidadPersona(Usuario usuario) {
+		super(usuario);
 	}
 
 	public void activarTicket(Persona persona) {
