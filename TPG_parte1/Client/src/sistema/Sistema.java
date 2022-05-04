@@ -34,7 +34,7 @@ public abstract class Sistema {
 		Cuenta cuenta = usuario.getCuenta();
 		FuncionalidadUsuario funcionalidadUsuario = null;
 		
-        if(usuario != null) {
+        if(cuenta!= null) {
         	if(cuenta.confirmaContrasena(contrasena)) {
         		if(!(logins.contains(cuenta)))
         			logins.add(cuenta);
@@ -53,6 +53,70 @@ public abstract class Sistema {
         
 		return funcionalidadUsuario;
     }
+	
+	public static FuncionalidadEmpleador loginEmpleador(String nombreUsuario,String contrasena) throws ErrorContrasenaException,ErrorUsuarioException 
+	{
+		Usuario usuario = usuarios.get(nombreUsuario);
+		Cuenta cuenta = usuario.getCuenta();
+		FuncionalidadEmpleador funcionalidadUsuario = null;
+		
+        if(cuenta!= null) {
+        	if(cuenta.confirmaContrasena(contrasena)) {
+        		if(!(logins.contains(cuenta)))
+        			logins.add(cuenta);
+        		funcionalidadUsuario = new FuncionalidadEmpleador((Persona_Empleador) usuario);		       		
+        	}
+        	else
+        		throw new ErrorContrasenaException(contrasena);
+        }
+        else
+        	throw new ErrorUsuarioException(nombreUsuario);
+        
+		return funcionalidadUsuario;
+    }
+	
+	public static FuncionalidadEmpleadoPretenso loginEmpleadoPretenso(String nombreUsuario,String contrasena) throws ErrorContrasenaException,ErrorUsuarioException 
+	{
+		Usuario usuario = usuarios.get(nombreUsuario);
+		Cuenta cuenta = usuario.getCuenta();
+		FuncionalidadEmpleadoPretenso funcionalidadUsuario = null;
+		
+        if(cuenta!= null) {
+        	if(cuenta.confirmaContrasena(contrasena)) {
+        		if(!(logins.contains(cuenta)))
+        			logins.add(cuenta);
+        		funcionalidadUsuario = new FuncionalidadEmpleadoPretenso((Persona_EmpleadoPretenso) usuario);		       		
+        	}
+        	else
+        		throw new ErrorContrasenaException(contrasena);
+        }
+        else
+        	throw new ErrorUsuarioException(nombreUsuario);
+        
+		return funcionalidadUsuario;
+    }
+	
+	public static FuncionalidadAdministrador loginAdmin(String nombreUsuario,String contrasena) throws ErrorContrasenaException,ErrorUsuarioException 
+	{
+		Usuario usuario = usuarios.get(nombreUsuario);
+		Cuenta cuenta = usuario.getCuenta();
+		FuncionalidadAdministrador funcionalidadUsuario = null;
+		
+        if(cuenta!= null) {
+        	if(cuenta.confirmaContrasena(contrasena)) {
+        		if(!(logins.contains(cuenta)))
+        			logins.add(cuenta);
+        		funcionalidadUsuario = new FuncionalidadAdministrador(usuario);		       		
+        	}
+        	else
+        		throw new ErrorContrasenaException(contrasena);
+        }
+        else
+        	throw new ErrorUsuarioException(nombreUsuario);
+        
+		return funcionalidadUsuario;
+    }
+	
 	
 	public static void registrarEmpleador(String usuario, String contrasena, String razonSocial, String tipoPersona, IRubro rubro) throws TipoPersonaInvalidoException {
 		if (!tipoPersona.equalsIgnoreCase("fisica") && !tipoPersona.equalsIgnoreCase("juridica"))
