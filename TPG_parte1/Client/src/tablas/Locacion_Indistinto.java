@@ -21,4 +21,9 @@ public class Locacion_Indistinto implements ILocacion {
   	public double comparaConIndistinto() {
   		return 1;
   	}
+	
+	@Override
+	public String toString() {
+		return " indistinto";
+	}
 }
