@@ -29,9 +29,8 @@ public class FormularioDeBusqueda {
 		this.experienciaPrevia = experienciaPrevia;
 		this.estudiosCursados = estudiosCursados;
 	}
-	
-	
-    	public ILocacion getLocacion() {
+	 
+    public ILocacion getLocacion() {
 		return locacion;
 	}
 
@@ -58,5 +57,14 @@ public class FormularioDeBusqueda {
 	public IEstudiosCursados getEstudiosCursados() {
 		return estudiosCursados;
 	}
+
+
+	@Override
+	public String toString() {
+		return " [locacion = " + locacion.toString() + ", remuneracion = " + remuneracion.getRemuneracion() + ", carga horaria = "
+				+ cargaHoraria.toString() + ", tipoDePuesto = " + tipoDePuesto.toString() + ", rango etario = " + rangoEtario.toString()
+				+ ", experiencia previa = " + experienciaPrevia.toString() + ", estudios cursados = " + estudiosCursados.toString() + "]";
+	}
+	
     
 }
