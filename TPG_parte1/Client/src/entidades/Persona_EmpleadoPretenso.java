@@ -1,5 +1,9 @@
 package entidades;
 
+import sistema.FuncionalidadEmpleadoPretenso;
+import sistema.FuncionalidadEmpleador;
+import sistema.FuncionalidadPersona;
+
 public class Persona_EmpleadoPretenso extends Persona {
 	private String nya;
     private String telefono;
@@ -14,6 +18,10 @@ public class Persona_EmpleadoPretenso extends Persona {
 		this.elegido = null;
 	}
     
+    
+    /*public void setFuncionalidad(FuncionalidadEmpleadoPretenso funcionalidad) {
+		this.funcionalidad = funcionalidad;
+	}*/
 	public PersonaAsignada getElegido() {
 		return elegido;
 	}
@@ -27,11 +35,11 @@ public class Persona_EmpleadoPretenso extends Persona {
 	}
 	
 	public String getTipoDePuesto() {
-		return this.ticket.getFormularioDeBusqueda().getTipoDePuesto().getTipoDePuesto();
+		return this.ticket.getFormularioDeBusqueda().getTipoDePuesto().toString();
 	}
-
+ 
 	@Override
 	public String toString() {
-		return "Persona_EmpleadoPretenso [nya=" + nya + ", telefono=" + telefono + ", edad=" + edad + "]";
+		return "Empleado Pretenso [nombre y apellido = " + nya + ", telefono = " + telefono + ", edad = " + edad + ", "+super.toString()+"]";
 	}
 }
