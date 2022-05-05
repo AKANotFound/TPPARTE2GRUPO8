@@ -7,8 +7,11 @@ public class ListaDeAsignacion {
 	private GregorianCalendar fechaDeCreacion = null;
 	private ArrayList<PersonaAsignada> lista =null;
 	
-	public GregorianCalendar getFechaDeCreacion() {
-		return fechaDeCreacion;
+	public String getFechaDeCreacion() {
+		if (fechaDeCreacion == null)
+			return "null";
+		else
+		    return fechaDeCreacion.getTime().toLocaleString();
 	}
 	public void setFechaDeCreacion(GregorianCalendar fechaDeCreacion) {
 		this.fechaDeCreacion = fechaDeCreacion;
@@ -16,13 +19,14 @@ public class ListaDeAsignacion {
 	public ArrayList<PersonaAsignada> getLista() {
 		return lista;
 	}
-	public void setLista(ArrayList<PersonaAsignada> listaDeAsignacion) {
-		this.lista = listaDeAsignacion;
+	public void setLista(ArrayList<PersonaAsignada> lista) {
+		this.lista = lista;
 	}
 	
 	@Override
 	public String toString() {
-		return "ListaDeAsignacion [fechaDeCreacion=" + fechaDeCreacion + ", lista=" + lista + "]";
+		return "Lista de Asignacion = [fecha de creacion = " + this.getFechaDeCreacion() + ", lista = " + lista + "]";
 	}
 	
 }
+ 
