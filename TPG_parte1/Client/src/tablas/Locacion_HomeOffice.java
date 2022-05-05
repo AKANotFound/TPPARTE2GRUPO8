@@ -21,4 +21,9 @@ public class Locacion_HomeOffice implements ILocacion {
 	public double comparaConIndistinto() {
 		return 1;
 	}
+	
+	@Override
+	public String toString() {
+		return "home office";
+	}
 }
