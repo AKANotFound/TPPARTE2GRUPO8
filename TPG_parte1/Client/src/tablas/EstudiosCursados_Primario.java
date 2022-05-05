@@ -21,4 +21,9 @@ public class EstudiosCursados_Primario implements IEstudiosCursados {
 	public double comparaConTerciario() {
 		return 2;
 	}
+	
+	@Override
+	public String toString() {
+		return " primario";
+	}
 }
