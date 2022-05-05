@@ -21,4 +21,9 @@ public class ExperienciaPrevia_Media implements IExperienciaPrevia {
 	public double comparaConMucha() {
 		return 1.5;
 	}
+	
+	@Override
+	public String toString() {
+		return " media";
+	}
 }
