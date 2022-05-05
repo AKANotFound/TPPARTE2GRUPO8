@@ -5,8 +5,12 @@ import entidades.Usuario;
 
 public class FuncionalidadAdministrador extends FuncionalidadUsuario{
 	
-	public FuncionalidadAdministrador(Usuario usuario) {
+	/*public FuncionalidadAdministrador(Usuario usuario) {
 		super(usuario);
+		// TODO Auto-generated constructor stub
+	}*/
+ 
+	public FuncionalidadAdministrador() {
 		// TODO Auto-generated constructor stub
 	}
 
@@ -19,11 +23,18 @@ public class FuncionalidadAdministrador extends FuncionalidadUsuario{
 	}
 	
 	public void visualizarEmpleadores() {
-		System.out.println(Agencia.getInstancia().getEmpleadores());
+		for (int i=0; i<Agencia.getInstancia().getEmpleadores().size(); i++)
+		{
+			System.out.println (Agencia.getInstancia().getEmpleadores().get(i));
+		}
 	}
 	
 	public void visualizarEmpleadosPretensos() {
-		System.out.println(Agencia.getInstancia().getEmpleadosPretensos());
+		for (int i=0; i<Agencia.getInstancia().getEmpleadosPretensos().size() ; i++)
+		{
+			System.out.println (Agencia.getInstancia().getEmpleadosPretensos().get(i));
+		}
+		
 	}
 	
 	public void visualizarTicketsEmpleadores() {
