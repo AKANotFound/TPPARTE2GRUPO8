@@ -3,6 +3,12 @@ package entidades;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import sistema.FuncionalidadAdministrador;
+/**
+ * @author grupoxd <br>
+ * Clase singleton que contiene la informaci�n de todo el sistema, incluyendo a los empleadores, empleados, con sus respectivos tickets y contratos.
+ * <br> Patron aplicado: Singleton.
+ */
 public class Agencia {
 	private ArrayList<Persona_Empleador> empleadores = new ArrayList<Persona_Empleador>();
 	private ArrayList<Persona_EmpleadoPretenso> empleadosPretensos = new ArrayList<Persona_EmpleadoPretenso>();
@@ -12,15 +18,25 @@ public class Agencia {
 	private HashMap <String, Usuario> usuarios = new HashMap <>();
 	private ArrayList<Contrato> contratos = new ArrayList<Contrato>();
 	private static Agencia instancia = null;
-	
+	private FuncionalidadAdministrador funcionalidad = new FuncionalidadAdministrador();
+	 
 	private Agencia() {}
-	
+	 
 	public static Agencia getInstancia() {
     	if (instancia == null)
     		instancia = new Agencia();
     	return instancia;
     }
+	 
 	
+	public FuncionalidadAdministrador getFuncionalidad() {
+		return funcionalidad;
+	}
+
+	public void setFuncionalidad(FuncionalidadAdministrador funcionalidad) {
+		this.funcionalidad = funcionalidad;
+	}
+ 
 	public ArrayList<Persona_Empleador> getEmpleadores() {
 		return empleadores;
 	}
