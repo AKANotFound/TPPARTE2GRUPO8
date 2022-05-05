@@ -6,4 +6,5 @@ public interface ITipoDePuesto {
 	public double comparaConJunior();
 	public double comparaConSenior();
 	public double comparaConManagment();
+	public String getTipoDePuesto();
 }

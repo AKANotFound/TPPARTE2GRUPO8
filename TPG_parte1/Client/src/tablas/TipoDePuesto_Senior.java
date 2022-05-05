@@ -26,4 +26,9 @@ public class TipoDePuesto_Senior implements ITipoDePuesto {
 	public String toString() {
 		return " senior";
 	}
+
+	@Override
+	public String getTipoDePuesto() {
+		return " senior";
+	}
 }

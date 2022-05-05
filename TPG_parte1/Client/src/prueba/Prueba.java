@@ -2,8 +2,6 @@ package prueba;
 
 import entidades.Agencia;
 import entidades.FormularioDeBusqueda;
-import entidades.Persona_EmpleadoPretenso;
-import entidades.Persona_Empleador;
 import entidades.Rubro_ComercioInternacional;
 import entidades.Rubro_ComercioLocal;
 import excepciones.EdadInvalidaException;
@@ -12,6 +10,7 @@ import excepciones.ErrorUsuarioException;
 import excepciones.TipoPersonaInvalidoException;
 import sistema.FuncionalidadEmpleadoPretenso;
 import sistema.FuncionalidadEmpleador;
+import sistema.LocacionFactory;
 import sistema.Sistema;
 import tablas.CargaHoraria_Completa;
 import tablas.CargaHoraria_Extendida;
@@ -22,7 +21,6 @@ import tablas.EstudiosCursados_Terciario;
 import tablas.ExperienciaPrevia_Media;
 import tablas.ExperienciaPrevia_Mucha;
 import tablas.ExperienciaPrevia_Nada;
-import tablas.LocacionFactory;
 import tablas.RangoEtario_MasDe50;
 import tablas.RangoEtario_MenosDe40;
 import tablas.Remuneracion_30mil;
@@ -32,8 +30,7 @@ import tablas.TipoDePuesto_Junior;
 import tablas.TipoDePuesto_Management;
 import tablas.TipoDePuesto_Senior;
 
-public class Prueba2 {
-
+public class Prueba {
 	public static void main(String[] args) {
 		
 		FuncionalidadEmpleadoPretenso saimonmdp = null;
