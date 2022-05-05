@@ -23,17 +23,20 @@ public class PersonaAsignada implements Comparable<PersonaAsignada>{
 	public int compareTo(PersonaAsignada o) { 
 		
 		int respuesta=0;
-		if (o.puntaje<=this.puntaje)
+		if (this.puntaje<o.puntaje)
 			respuesta=1;
 		else
-			respuesta=0;
+			if (this.puntaje > o.puntaje)
+				respuesta=-1;
+			else
+				respuesta = 0;
 		
 		return respuesta;
 	}
 
 	@Override
 	public String toString() {
-		return "PersonaAsignada [persona=" + persona + ", puntaje=" + puntaje + "]";
+		return persona + ", puntaje=" + puntaje + "]";
 	}
 	
 	
