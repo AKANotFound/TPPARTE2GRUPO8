@@ -21,4 +21,9 @@ public class RangoEtario_MenosDe40 implements IRangoEtario {
 	public double comparaConMasDe50() {
 		return -1;
 	}
+	
+	@Override
+	public String toString() {
+		return " menos de 40";
+	}
 }
