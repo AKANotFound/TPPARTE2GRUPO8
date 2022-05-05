@@ -80,7 +80,7 @@ public abstract class Sistema {
         	if(cuenta.confirmaContrasena(contrasena)) {
         		if(!(logins.contains(cuenta)))
         			logins.add(cuenta);
-        		funcionalidadUsuario = new FuncionalidadAdministrador(usuario);		       		
+        		funcionalidadUsuario = new FuncionalidadAdministrador();		       		
         	}
         	else
         		throw new ErrorContrasenaException(contrasena);
@@ -90,7 +90,19 @@ public abstract class Sistema {
         
 		return funcionalidadUsuario;
     }
+	 
+	//---------------------------
 	
+	/**
+	 * Crea un empleador y su cuenta, lo agrega en la lista donde se preservan a todos los empleadores. Se llama el metodo que agrega la cuenta al hashmap de usuarios. <br>
+	 * <b>Pre: </b> usuario debe ser distinto de null <br>
+	 * <b>Pre: </b> contrasena debe ser distinto de null <br> 
+	 * <b>Pre: </b> razonSocial debe ser distinto de null <br>
+	 * tipoPersona si es un tipo de persona invalido, lanza la excepcion TipoPersonaInvalidoException <br>
+	 * <b>Pre: </b> rubro	debe ser distinto de null <br>
+	 * <b>Post: </b> Crea un empleador y su cuenta, lo agrega en la lista donde se preservan a todos los empleadores. Se llama el metodo que agrega la cuenta al hashmap de usuarios.
+	 * @throws TipoPersonaInvalidoException <br>
+	 */
 	
 	public static void registrarEmpleador(String usuario, String contrasena, String razonSocial, String tipoPersona, IRubro rubro) throws TipoPersonaInvalidoException {
 		if (!tipoPersona.equalsIgnoreCase("fisica") && !tipoPersona.equalsIgnoreCase("juridica"))
@@ -103,10 +115,30 @@ public abstract class Sistema {
 	public static void registrarEmpleadoPretenso(String usuario, String contrasena, String nya, String telefono, int edad) throws EdadInvalidaException {
 		if (edad<16)
 			throw new EdadInvalidaException(Integer.toString(edad));
-		Persona_EmpleadoPretenso empleadoPretenso = (Persona_EmpleadoPretenso) PersonaFactory.getEmpleadoPretenso(usuario, contrasena, telefono, telefono, edad);
+		Persona_EmpleadoPretenso empleadoPretenso = (Persona_EmpleadoPretenso) PersonaFactory.getEmpleadoPretenso(usuario, contrasena, nya, telefono, edad);
 		empleadosPretensos.add(empleadoPretenso) ;
 		Sistema.agregarUsuario(empleadoPretenso);
+		
+	} 
+	
+	//-------------------------------------------
+	/*public static Persona_Empleador registrarEmpleador(String usuario, String contrasena, String razonSocial, String tipoPersona, IRubro rubro) throws TipoPersonaInvalidoException {
+		if (!tipoPersona.equalsIgnoreCase("fisica") && !tipoPersona.equalsIgnoreCase("juridica"))
+			throw new TipoPersonaInvalidoException(tipoPersona);
+		Persona_Empleador empleador = (Persona_Empleador) PersonaFactory.getEmpleador(usuario, contrasena,razonSocial, tipoPersona, rubro);
+		empleadores.add(empleador);
+		Sistema.agregarUsuario(empleador);
+		return empleador;
 	}
+	
+	public static Persona_EmpleadoPretenso registrarEmpleadoPretenso(String usuario, String contrasena, String nya, String telefono, int edad) throws EdadInvalidaException {
+		if (edad<16)
+			throw new EdadInvalidaException(Integer.toString(edad));
+		Persona_EmpleadoPretenso empleadoPretenso = (Persona_EmpleadoPretenso) PersonaFactory.getEmpleadoPretenso(usuario, contrasena, nya, telefono, edad);
+		empleadosPretensos.add(empleadoPretenso) ;
+		Sistema.agregarUsuario(empleadoPretenso);
+		return empleadoPretenso;
+	}*/
 	
 	public static void agregarCuenta(Cuenta cuenta) {
 		
@@ -197,7 +229,7 @@ public abstract class Sistema {
 		ticketEmpleadoPretenso.setResultado(resultado);
 	}
 
-	static void visualizarListaAsignacion(Persona persona) {
+	public static void visualizarListaAsignacion(Persona persona) {
 		System.out.println(persona.getListaDeAsignacion());
 	}
 	
@@ -209,5 +241,14 @@ public abstract class Sistema {
 	static void resultadoFracaso(Persona_EmpleadoPretenso empleadoPretenso) {
 		Ticket ticket = (Ticket_EmpleadoPretenso) empleadoPretenso.getTicket();
 		ticket.setEstado("fracaso");
+	}
+	public static void muestra (Persona persona)
+	{
+		System.out.println(persona);
+	}
+	
+	public static void visualizarContratos() {
+		for(int i=0;i<contratos.size();i++)
+			System.out.println("Empleador: "+contratos.get(i).getEmpleador().getCuenta().getUsuario()+"Empleados: "+contratos.get(i).getEmpleadosPretensos());
 	}
 }
