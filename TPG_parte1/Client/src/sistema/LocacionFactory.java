@@ -5,9 +5,9 @@ import tablas.Locacion_HomeOffice;
 import tablas.Locacion_Indistinto;
 import tablas.Locacion_Presencial;
 
-abstract class LocacionFactory {
+public abstract class LocacionFactory {
 
-	static ILocacion getLocacion (String tipo) {
+	public static ILocacion getLocacion (String tipo) {
 		ILocacion locacion = null;
 		
 		if(tipo.equalsIgnoreCase("home office"))

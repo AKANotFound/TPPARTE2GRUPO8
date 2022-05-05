@@ -1,5 +1,6 @@
 package prueba;
 
+import entidades.FormularioDeBusqueda;
 import entidades.Rubro_ComercioInternacional;
 import entidades.Rubro_ComercioLocal;
 import excepciones.DatoIngresadoInvalidoException;
@@ -10,7 +11,26 @@ import excepciones.TipoPersonaInvalidoException;
 import sistema.FuncionalidadEmpleadoPretenso;
 import sistema.FuncionalidadEmpleador;
 import sistema.FuncionalidadUsuario;
+import sistema.LocacionFactory;
 import sistema.Sistema;
+import tablas.CargaHoraria_Completa;
+import tablas.CargaHoraria_Extendida;
+import tablas.CargaHoraria_Media;
+import tablas.EstudiosCursados_Primario;
+import tablas.EstudiosCursados_Secundario;
+import tablas.EstudiosCursados_Terciario;
+import tablas.ExperienciaPrevia_Media;
+import tablas.ExperienciaPrevia_Mucha;
+import tablas.ExperienciaPrevia_Nada;
+import tablas.RangoEtario_De40A50;
+import tablas.RangoEtario_MasDe50;
+import tablas.RangoEtario_MenosDe40;
+import tablas.Remuneracion_30mil;
+import tablas.Remuneracion_60mil;
+import tablas.Remuneracion_90mil;
+import tablas.TipoDePuesto_Junior;
+import tablas.TipoDePuesto_Management;
+import tablas.TipoDePuesto_Senior;
 
 public class Prueba {
 
@@ -109,8 +129,23 @@ public class Prueba {
 		}
 		
 		//CREO TICKET DE EMPLEADOS Y EMPLEADORES
-		FormularioDeBusqueda form1 = new FormularioDeBusqueda (LocacionFactory.getLocacion("Home Office"), new Remuneracion_60mil(), new CargaHoraria_Extendida(), new TipoDePuesto_Junior(), new RangoEtario_MasDe50(), new ExperienciaPrevia_Mucha(), new EstudiosCursados_Secundario());
+		FormularioDeBusqueda form1 = new FormularioDeBusqueda (LocacionFactory.getLocacion("Home Office"), new Remuneracion_90mil(), new CargaHoraria_Extendida(), new TipoDePuesto_Management(), new RangoEtario_MasDe50(), new ExperienciaPrevia_Mucha(), new EstudiosCursados_Terciario());
+		FormularioDeBusqueda form2 = new FormularioDeBusqueda (LocacionFactory.getLocacion("Presencial"), new Remuneracion_60mil(), new CargaHoraria_Completa(), new TipoDePuesto_Senior(), new RangoEtario_MenosDe40(), new ExperienciaPrevia_Media(), new EstudiosCursados_Secundario());
+		FormularioDeBusqueda form3 = new FormularioDeBusqueda (LocacionFactory.getLocacion("Indistinto"), new Remuneracion_30mil(), new CargaHoraria_Media(), new TipoDePuesto_Junior(), new RangoEtario_De40A50(), new ExperienciaPrevia_Nada(), new EstudiosCursados_Primario());
+		FormularioDeBusqueda form4 = new FormularioDeBusqueda (LocacionFactory.getLocacion("Indistinto"), new Remuneracion_60mil(), new CargaHoraria_Media(), new TipoDePuesto_Junior(), new RangoEtario_MenosDe40(), new ExperienciaPrevia_Mucha(), new EstudiosCursados_Secundario());
+		FormularioDeBusqueda form5 = new FormularioDeBusqueda (LocacionFactory.getLocacion("Presencial"), new Remuneracion_90mil(), new CargaHoraria_Extendida(), new TipoDePuesto_Senior(), new RangoEtario_De40A50(), new ExperienciaPrevia_Media(), new EstudiosCursados_Terciario());
+		FormularioDeBusqueda form6 = new FormularioDeBusqueda (LocacionFactory.getLocacion("Home Office"), new Remuneracion_30mil(), new CargaHoraria_Completa(), new TipoDePuesto_Management(), new RangoEtario_MasDe50(), new ExperienciaPrevia_Media(), new EstudiosCursados_Terciario());
 		saimonmdp.crearTicket(form1);
+		hamilton.crearTicket(form2);
+		LifeIsMusic.crearTicket(form3);
+		ElKeizy.crearTicket(form4);
+		gesi.crearTicket(form5, 3);
+		carrefour.crearTicket(form6, 2);
+		
+	
+		
+		
+		
 	}
 
 }
