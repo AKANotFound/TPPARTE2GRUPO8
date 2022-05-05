@@ -21,4 +21,9 @@ public class ExperienciaPrevia_Nada implements IExperienciaPrevia {
 	public double comparaConMucha() {
 		return 2;
 	}
+	
+	@Override
+	public String toString() {
+		return " nada";
+	}	
 }
