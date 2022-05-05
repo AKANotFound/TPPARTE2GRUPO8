@@ -8,7 +8,7 @@ abstract class RondaDeElecciones {
 	
 	static void iniciaRondaDeEleccionEmpleadoPretenso(Persona_EmpleadoPretenso empleadoPretenso) {
 		int seleccion=(int)(Math.random()*empleadoPretenso.getListaDeAsignacion().getLista().size());
-		Sistema.visualizarListaAsignacion(empleadoPretenso);
+		//Sistema.visualizarListaAsignacion(empleadoPretenso); //le muestra la lista al usuario
 		empleadoPretenso.setElegido(empleadoPretenso.getListaDeAsignacion().getLista().get(seleccion));
 		empleadoPretenso.setEligio(true);
 	}
@@ -19,14 +19,17 @@ abstract class RondaDeElecciones {
 		int cantSolicitados = ticketEmpleador.getCantEmpleadosSolicitados();
 		int seleccion;
 		int i = 0;
-		Sistema.visualizarListaAsignacion(empleador);
+		//Sistema.visualizarListaAsignacion(empleador); // le muestra la lista al usuario
 		while (i < empleador.getListaDeAsignacion().getLista().size() && cantObtenidos < cantSolicitados)
 		{
 			seleccion=(int)(Math.random()*empleador.getListaDeAsignacion().getLista().size());
+			while(empleador.getElegidos().contains(empleador.getListaDeAsignacion().getLista().get(seleccion)) )
+				seleccion=(int)(Math.random()*empleador.getListaDeAsignacion().getLista().size());
 			empleador.agregaElegidos(empleador.getListaDeAsignacion().getLista().get(seleccion));
 			i++;
 			cantObtenidos++;
 		}
 		empleador.setEligio(true);
-	}
+	} 
 }
+ 
