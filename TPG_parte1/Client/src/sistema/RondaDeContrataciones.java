@@ -25,16 +25,16 @@ abstract class RondaDeContrataciones {
 				Persona_EmpleadoPretenso empleadoElegido = (Persona_EmpleadoPretenso) elegidos.get(j).getPersona();
 				Ticket ticketEmpleadoElegido = (Ticket_EmpleadoPretenso) empleadoElegido.getTicket();
 				if (empleador.equals(empleadoElegido.getElegido().getPersona())) {
-					empleadosPretensosContrato.add(empleadoElegido);
 					ticketEmpleador.setCantEmpleadosObtenidos(ticketEmpleador.getCantEmpleadosObtenidos()+1);
 					Sistema.finalizarTicket(empleadoElegido);
 					Sistema.calculaComision(empleadoElegido);
 					Sistema.resultadoExito(empleadoElegido);
+					empleadosPretensosContrato.add(empleadoElegido);
 				}
 				else if(ticketEmpleadoElegido.getEstado().equals("en proceso")) {
 					Sistema.resultadoFracaso(empleadoElegido);
 				}
-			}
+			} 
 			
 			if(ticketEmpleador.getCantEmpleadosObtenidos() == ticketEmpleador.getCantEmpleadosSolicitados()) {
 				Sistema.finalizarTicket(empleador);
@@ -45,7 +45,7 @@ abstract class RondaDeContrataciones {
 				Sistema.agregarContrato(empleador, empleadosPretensosContrato);
 			else
 				Sistema.puntajeNoElegido(empleador);
-		}
+		} 
 	}
 }
 
