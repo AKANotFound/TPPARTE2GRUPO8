@@ -15,6 +15,7 @@ public abstract class Ticket {
 		super();
 		this.formularioDeBusqueda = formularioDeBusqueda;
 		this.fechaAlta=new GregorianCalendar();
+		this.estado = " activo";
 	}
 	
 	public FormularioDeBusqueda getFormularioDeBusqueda() {
@@ -28,5 +29,12 @@ public abstract class Ticket {
 
 	public String getEstado() {
 		return estado;
+	}
+
+	@SuppressWarnings("deprecation")
+	@Override
+	public String toString() {
+		return " [Fecha de alta = " + fechaAlta.getTime().toLocaleString() + ", estado=" + estado + ", formulario de busqueda="
+				+ formularioDeBusqueda+ "]";
 	}
 }
