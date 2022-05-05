@@ -128,6 +128,8 @@ public class Prueba {
 			e.printStackTrace();
 		}
 		
+		
+		
 		//CREO TICKET DE EMPLEADOS Y EMPLEADORES
 		FormularioDeBusqueda form1 = new FormularioDeBusqueda (LocacionFactory.getLocacion("Home Office"), new Remuneracion_90mil(), new CargaHoraria_Extendida(), new TipoDePuesto_Management(), new RangoEtario_MasDe50(), new ExperienciaPrevia_Mucha(), new EstudiosCursados_Terciario());
 		FormularioDeBusqueda form2 = new FormularioDeBusqueda (LocacionFactory.getLocacion("Presencial"), new Remuneracion_60mil(), new CargaHoraria_Completa(), new TipoDePuesto_Senior(), new RangoEtario_MenosDe40(), new ExperienciaPrevia_Media(), new EstudiosCursados_Secundario());
@@ -142,7 +144,7 @@ public class Prueba {
 		gesi.crearTicket(form5, 3);
 		carrefour.crearTicket(form6, 2);
 		
-	
+	    
 		
 		
 		
