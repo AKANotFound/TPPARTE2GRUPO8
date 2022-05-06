@@ -2,15 +2,12 @@ package entidades;
 
 import java.util.ArrayList;
 
-import sistema.FuncionalidadEmpleador;
-import sistema.FuncionalidadPersona;
-
 public class Persona_Empleador extends Persona {
 
 	private String razonSocial;
     private IRubro rubro;
     private double puntajeAspectos[]=new double[7];
-    private ArrayList<PersonaAsignada> elegidos = new ArrayList<PersonaAsignada>();
+    private ArrayList<PersonaElegida> empleadosElegidos = new ArrayList<PersonaElegida>();
     private String tipoPersona;
     private ArrayList<Persona_EmpleadoPretenso>empleadosContratados=new ArrayList<Persona_EmpleadoPretenso>();
     
@@ -52,13 +49,13 @@ public class Persona_Empleador extends Persona {
 		this.puntajeAspectos = puntajeAspectos;
 	}
 
-	public void agregaElegidos (PersonaAsignada personaAsignada)
+	public void agregaEmpleadosElegidos (PersonaElegida personaElegida)
 	{
-		this.elegidos.add(personaAsignada);
+		this.empleadosElegidos.add(personaElegida);
 	}
 
-	public ArrayList<PersonaAsignada> getElegidos() {
-		return elegidos;
+	public ArrayList<PersonaElegida> getEmpleadosElegidos() {
+		return empleadosElegidos;
 	}
 
 	public IRubro getRubro() {

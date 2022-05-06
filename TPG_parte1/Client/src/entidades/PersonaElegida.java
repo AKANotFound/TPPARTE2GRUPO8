@@ -1,11 +1,11 @@
 package entidades;
 
 
-public class PersonaAsignada implements Comparable<PersonaAsignada>{
+public class PersonaElegida implements Comparable<PersonaElegida>{
 	private Persona persona;
 	private double puntajeDeContratacion;
 	
-	public PersonaAsignada(Persona persona, double puntajeDeContratacion) {
+	public PersonaElegida(Persona persona, double puntajeDeContratacion) {
 		super();
 		this.persona = persona;
 		this.puntajeDeContratacion = puntajeDeContratacion;
@@ -20,7 +20,7 @@ public class PersonaAsignada implements Comparable<PersonaAsignada>{
 	}
 
 	@Override
-	public int compareTo(PersonaAsignada o) { 
+	public int compareTo(PersonaElegida o) { 
 		
 		int respuesta=0;
 		if (this.puntajeDeContratacion<o.puntajeDeContratacion)

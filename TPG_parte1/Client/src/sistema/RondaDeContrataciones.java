@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.GregorianCalendar;
 
 import entidades.Agencia;
-import entidades.PersonaAsignada;
+import entidades.PersonaElegida;
 import entidades.Persona_EmpleadoPretenso;
 import entidades.Persona_Empleador;
 import entidades.Ticket;
@@ -18,7 +18,7 @@ abstract class RondaDeContrataciones {
 		ArrayList <Persona_Empleador> empleadores = Agencia.getInstancia().getEmpleadores();
 		for (int i = 0; i< empleadores.size(); i++)
 		{
-			ArrayList<PersonaAsignada> elegidos = empleadores.get(i).getElegidos();
+			ArrayList<PersonaElegida> elegidos = empleadores.get(i).getEmpleadosElegidos();
 			ArrayList<Persona_EmpleadoPretenso> empleadosPretensosContrato = new ArrayList<Persona_EmpleadoPretenso>();
 			Persona_Empleador empleador = empleadores.get(i);
 			Ticket_Empleador ticketEmpleador = (Ticket_Empleador) empleador.getTicket();
@@ -26,7 +26,7 @@ abstract class RondaDeContrataciones {
 			{
 				Persona_EmpleadoPretenso empleadoElegido = (Persona_EmpleadoPretenso) elegidos.get(j).getPersona();
 				Ticket ticketEmpleadoElegido = (Ticket_EmpleadoPretenso) empleadoElegido.getTicket();
-				if (empleador.equals(empleadoElegido.getElegido().getPersona())) {
+				if (empleador.equals(empleadoElegido.getEmpleadorElegido().getPersona())) {
 					ticketEmpleador.setCantEmpleadosObtenidos(ticketEmpleador.getCantEmpleadosObtenidos()+1);
 					Sistema.finalizarTicket(empleadoElegido);
 					Sistema.calculaComision(empleadoElegido);

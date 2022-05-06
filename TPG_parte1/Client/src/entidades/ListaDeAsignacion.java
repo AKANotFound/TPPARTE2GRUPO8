@@ -5,7 +5,7 @@ import java.util.GregorianCalendar;
 
 public class ListaDeAsignacion {
 	private GregorianCalendar fechaDeCreacion = null;
-	private ArrayList<PersonaAsignada> lista =null;
+	private ArrayList<PersonaElegida> lista =null;
 	
 	public String getFechaDeCreacion() {
 		if (fechaDeCreacion == null)
@@ -16,10 +16,10 @@ public class ListaDeAsignacion {
 	public void setFechaDeCreacion(GregorianCalendar fechaDeCreacion) {
 		this.fechaDeCreacion = fechaDeCreacion;
 	}
-	public ArrayList<PersonaAsignada> getLista() {
+	public ArrayList<PersonaElegida> getLista() {
 		return lista;
 	}
-	public void setLista(ArrayList<PersonaAsignada> lista) {
+	public void setLista(ArrayList<PersonaElegida> lista) {
 		this.lista = lista;
 	}
 	

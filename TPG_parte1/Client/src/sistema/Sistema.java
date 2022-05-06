@@ -60,7 +60,7 @@ public abstract class Sistema {
 		Persona_EmpleadoPretenso empleadoPretenso = (Persona_EmpleadoPretenso) PersonaFactory.getEmpleadoPretenso(usuario, contrasena, nya, telefono, edad);
 		empleadosPretensos.add(empleadoPretenso) ;
 		Sistema.agregarUsuario(empleadoPretenso);
-	} 
+	}
 	
 	/**
 	 *  Si el usuario esta registrado en el sistema y la contrasenia es correcta, hace su login.
@@ -75,13 +75,13 @@ public abstract class Sistema {
 	{
 		Usuario usuario = usuarios.get(nombreUsuario);
 		Cuenta cuenta = usuario.getCuenta();
-		FuncionalidadEmpleador funcionalidadUsuario = null;
+		FuncionalidadEmpleador funcionalidadAdministrador = null;
 		
         if(cuenta!= null) {
         	if(cuenta.confirmaContrasena(contrasena)) {
         		if(!(logins.contains(cuenta)))
         			logins.add(cuenta);
-        		funcionalidadUsuario = new FuncionalidadEmpleador((Persona_Empleador) usuario);		       		
+        		funcionalidadAdministrador = new FuncionalidadEmpleador((Persona_Empleador) usuario);		       		
         	}
         	else
         		throw new ErrorContrasenaException(contrasena);
@@ -89,7 +89,7 @@ public abstract class Sistema {
         else
         	throw new ErrorUsuarioException(nombreUsuario);
         
-		return funcionalidadUsuario;
+		return funcionalidadAdministrador;
     }
 	
 	public static boolean isInicioRondaEncuentrosLaborales() {
@@ -104,13 +104,13 @@ public abstract class Sistema {
 	{
 		Usuario usuario = usuarios.get(nombreUsuario);
 		Cuenta cuenta = usuario.getCuenta();
-		FuncionalidadEmpleadoPretenso funcionalidadUsuario = null;
+		FuncionalidadEmpleadoPretenso funcionalidadEmpleadoPretenso = null;
 		
         if(cuenta!= null) {
         	if(cuenta.confirmaContrasena(contrasena)) {
         		if(!(logins.contains(cuenta)))
         			logins.add(cuenta);
-        		funcionalidadUsuario = new FuncionalidadEmpleadoPretenso((Persona_EmpleadoPretenso) usuario);		       		
+        		funcionalidadEmpleadoPretenso = new FuncionalidadEmpleadoPretenso((Persona_EmpleadoPretenso) usuario);		       		
         	}
         	else
         		throw new ErrorContrasenaException(contrasena);
@@ -118,20 +118,20 @@ public abstract class Sistema {
         else
         	throw new ErrorUsuarioException(nombreUsuario);
         
-		return funcionalidadUsuario;
+		return funcionalidadEmpleadoPretenso;
     }
 	
-	public static FuncionalidadAdministrador loginAdmin(String nombreUsuario,String contrasena) throws ErrorContrasenaException,ErrorUsuarioException 
-	{
+	public static FuncionalidadAdministrador loginAdministrador(String nombreUsuario,String contrasena) throws ErrorContrasenaException,ErrorUsuarioException {
+		Sistema.agregarUsuario(Administrador.getInstancia());
 		Usuario usuario = usuarios.get(nombreUsuario);
 		Cuenta cuenta = usuario.getCuenta();
-		FuncionalidadAdministrador funcionalidadUsuario = null;
+		FuncionalidadAdministrador funcionalidadAdministrador = null;
 		
         if(cuenta!= null) {
         	if(cuenta.confirmaContrasena(contrasena)) {
         		if(!(logins.contains(cuenta)))
         			logins.add(cuenta);
-        		funcionalidadUsuario = new FuncionalidadAdministrador();		       		
+        		funcionalidadAdministrador = new FuncionalidadAdministrador(usuario);		       		
         	}
         	else
         		throw new ErrorContrasenaException(contrasena);
@@ -139,7 +139,7 @@ public abstract class Sistema {
         else
         	throw new ErrorUsuarioException(nombreUsuario);
         
-		return funcionalidadUsuario;
+		return funcionalidadAdministrador;
     }
 	
 	static void agregarContrato(Persona_Empleador empleador, ArrayList<Persona_EmpleadoPretenso> empleadosPretensos,GregorianCalendar fechaDeCreacion) {
@@ -245,7 +245,7 @@ public abstract class Sistema {
 		ticketEmpleadoPretenso.setResultado(resultado);
 	}
 
-	public static void visualizarListaAsignacion(Persona persona) throws ListaNoGeneradaException
+	static void visualizarListaAsignacion(Persona persona) throws ListaNoGeneradaException
 	{
 		if(persona.getListaDeAsignacion() != null)
 			System.out.println(persona.getListaDeAsignacion());
@@ -262,10 +262,6 @@ public abstract class Sistema {
 	static void resultadoFracaso(Persona_EmpleadoPretenso empleadoPretenso) {
 		Ticket ticket = (Ticket_EmpleadoPretenso) empleadoPretenso.getTicket();
 		ticket.setEstado("fracaso");
-	}
-	public static void muestra (Persona persona)
-	{
-		System.out.println(persona);
 	}
 	
 	public static void visualizarContratos() {

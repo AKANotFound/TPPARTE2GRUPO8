@@ -7,7 +7,7 @@ import java.util.GregorianCalendar;
 import entidades.Agencia;
 import entidades.FormularioDeBusqueda;
 import entidades.ListaDeAsignacion;
-import entidades.PersonaAsignada;
+import entidades.PersonaElegida;
 import entidades.Persona_EmpleadoPretenso;
 import entidades.Persona_Empleador;
 
@@ -30,7 +30,7 @@ abstract class RondaDeEncuentrosLaborales {
 			empleador = empleadores.get(i);
 			if(empleador.getTicket().getEstado().equals(" activo")) {
 				empleador.setListaDeAsignacion(new ListaDeAsignacion());
-				empleador.getListaDeAsignacion().setLista(new ArrayList<PersonaAsignada>());
+				empleador.getListaDeAsignacion().setLista(new ArrayList<PersonaElegida>());
 				empleador.getListaDeAsignacion().setFechaDeCreacion(fecha); 
 				formularioEmpleador = empleador.getTicket().getFormularioDeBusqueda();
 				for (int j=0; j < empleadosPretensos.size(); j++)
@@ -39,7 +39,7 @@ abstract class RondaDeEncuentrosLaborales {
 					empleadoP = (Persona_EmpleadoPretenso) empleadosPretensos.get(j);	
 					if(empleadoP.getListaDeAsignacion() == null) {
 						empleadoP.setListaDeAsignacion(new ListaDeAsignacion());
-						empleadoP.getListaDeAsignacion().setLista(new ArrayList<PersonaAsignada>());
+						empleadoP.getListaDeAsignacion().setLista(new ArrayList<PersonaElegida>());
 						empleadoP.getListaDeAsignacion().setFechaDeCreacion(fecha);
 					}
 					if(empleadoP.getTicket().getEstado().equalsIgnoreCase(" activo")) {
@@ -52,8 +52,8 @@ abstract class RondaDeEncuentrosLaborales {
 									+empleador.getPuntajeAspectos()[5]*formularioEmpleador.getExperienciaPrevia().comparaCon(formularioEmpleadoP.getExperienciaPrevia())
 									+empleador.getPuntajeAspectos()[6]*formularioEmpleador.getEstudiosCursados().comparaCon(formularioEmpleadoP.getEstudiosCursados());
 						
-						empleador.getListaDeAsignacion().getLista().add(new PersonaAsignada(empleadoP,puntajeDeContratacion));
-						empleadoP.getListaDeAsignacion().getLista().add(new PersonaAsignada(empleador,puntajeDeContratacion));
+						empleador.getListaDeAsignacion().getLista().add(new PersonaElegida(empleadoP,puntajeDeContratacion));
+						empleadoP.getListaDeAsignacion().getLista().add(new PersonaElegida(empleador,puntajeDeContratacion));
 					}
 				}
 				Collections.sort(empleador.getListaDeAsignacion().getLista()); //una vez completa, ordena la lista del empleador	

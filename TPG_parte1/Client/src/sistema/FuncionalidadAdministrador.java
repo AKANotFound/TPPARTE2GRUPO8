@@ -5,12 +5,8 @@ import entidades.Usuario;
 
 public class FuncionalidadAdministrador extends FuncionalidadUsuario{
 	
-	/*public FuncionalidadAdministrador(Usuario usuario) {
+	public FuncionalidadAdministrador(Usuario usuario) {
 		super(usuario);
-		// TODO Auto-generated constructor stub
-	}*/
- 
-	public FuncionalidadAdministrador() {
 		// TODO Auto-generated constructor stub
 	}
 

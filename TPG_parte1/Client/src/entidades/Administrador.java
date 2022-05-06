@@ -10,7 +10,6 @@ public class Administrador extends Usuario{
 	public static Administrador getInstancia() {
 		if(Administrador.instancia == null) {
 			instancia = new Administrador();
-			
 		}
 		return instancia;
 	}	

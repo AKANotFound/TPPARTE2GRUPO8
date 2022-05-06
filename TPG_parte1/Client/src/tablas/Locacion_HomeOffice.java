@@ -24,7 +24,7 @@ public class Locacion_HomeOffice implements ILocacion {
 
 	@Override
 	public String toString() {
-		return "home office";
+		return " home office";
 	}
 	
 }

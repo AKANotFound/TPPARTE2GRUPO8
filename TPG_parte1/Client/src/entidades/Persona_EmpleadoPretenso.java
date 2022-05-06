@@ -1,40 +1,35 @@
 package entidades;
 
-import sistema.FuncionalidadEmpleadoPretenso;
-import sistema.FuncionalidadEmpleador;
-import sistema.FuncionalidadPersona;
-
 public class Persona_EmpleadoPretenso extends Persona {
 	private String nya;
     private String telefono;
     private int edad;
-	private PersonaAsignada elegido;
-	private Persona_Empleador EmpleadorActual=null;
+	private PersonaElegida empleadorElegido;
+	private Persona_Empleador empleadorActual=null;
 	
     public Persona_EmpleadoPretenso(Cuenta cuenta, String nya, String telefono, int edad) {
 		super(cuenta);
 		this.nya = nya;
 		this.telefono = telefono;
 		this.edad = edad;
-		this.elegido = null;
+		this.empleadorElegido = null;
 	}
     
-    
     public Persona_Empleador getEmpleadorActual() {
-		return EmpleadorActual;
+		return empleadorActual;
 	}
 
 
 	public void setEmpleadorActual(Persona_Empleador empleadorActual) {
-		EmpleadorActual = empleadorActual;
+		this.empleadorActual = empleadorActual;
 	}
 
-	public PersonaAsignada getElegido() {
-		return elegido;
+	public PersonaElegida getEmpleadorElegido() {
+		return empleadorElegido;
 	}
 
-	public void setElegido(PersonaAsignada elegido) {
-		this.elegido = elegido;
+	public void setEmpleadorElegido(PersonaElegida elegido) {
+		this.empleadorElegido = elegido;
 	}
 
 	public void setTelefono(String telefono) {

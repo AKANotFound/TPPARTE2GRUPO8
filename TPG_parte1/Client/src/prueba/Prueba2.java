@@ -1,9 +1,6 @@
 package prueba;
 
-import entidades.Agencia;
 import entidades.FormularioDeBusqueda;
-import entidades.Persona_EmpleadoPretenso;
-import entidades.Persona_Empleador;
 import entidades.Rubro_ComercioInternacional;
 import entidades.Rubro_ComercioLocal;
 import excepciones.EdadInvalidaException;
@@ -11,6 +8,7 @@ import excepciones.ErrorContrasenaException;
 import excepciones.ErrorUsuarioException;
 import excepciones.ListaNoGeneradaException;
 import excepciones.TipoPersonaInvalidoException;
+import sistema.FuncionalidadAdministrador;
 import sistema.FuncionalidadEmpleadoPretenso;
 import sistema.FuncionalidadEmpleador;
 import sistema.Sistema;
@@ -37,6 +35,7 @@ public class Prueba2 {
 
 	public static void main(String[] args) {
 		
+		FuncionalidadAdministrador admin = null;		
 		FuncionalidadEmpleadoPretenso saimonmdp = null;
 		FuncionalidadEmpleadoPretenso hamilton = null;
 		FuncionalidadEmpleadoPretenso ElKeizy = null;
@@ -91,7 +90,14 @@ public class Prueba2 {
 			e.printStackTrace();
 		}
 
-		//LOGEO EMPLEADOS Y EMPRESARIOS
+		//LOGEO DE USUARIOS
+		try {
+			admin = Sistema.loginAdministrador("admin", "1234");
+		} catch (ErrorContrasenaException | ErrorUsuarioException e) {
+			System.out.println(e.getMessage());
+			e.printStackTrace();
+		}
+		
 		try {
 			saimonmdp =Sistema.loginEmpleadoPretenso("saimonmdp", "123abc"); 
 		} catch (ErrorContrasenaException | ErrorUsuarioException e) {
@@ -152,7 +158,7 @@ public class Prueba2 {
 		//Agencia.getInstancia().getFuncionalidad().visualizarEmpleadores();
 		//Agencia.getInstancia().getFuncionalidad().visualizarEmpleadosPretensos();
 		
-		Agencia.getInstancia().getFuncionalidad().iniciaRondaEncuentrosLaborales();
+		admin.iniciaRondaEncuentrosLaborales();
 		
 		System.out.println("UNA VEZ TERMINADA LA RONDA DE ENCUENTROS LABORALES, CADA USUARIO VISUALIZA SU LISTA DE ASIGNACION \n");
 		
@@ -188,13 +194,13 @@ public class Prueba2 {
 			e.printStackTrace();
 		}
 		try {
-			Sistema.visualizarListaAsignacion(gesi.getEmpleador());
+			gesi.visualizarListaAsignacion();
 		} catch (ListaNoGeneradaException e) {
 			System.out.println(e.getMessage());
 			e.printStackTrace();
 		}
 		try {
-			Sistema.visualizarListaAsignacion(carrefour.getEmpleador());
+			carrefour.visualizarListaAsignacion();
 		} catch (ListaNoGeneradaException e) {
 			System.out.println(e.getMessage());
 			e.printStackTrace();
@@ -209,14 +215,14 @@ public class Prueba2 {
 		carrefour.iniciarRondaEleccion();
 		
 		System.out.println("UNA VEZ FINALIZADA LA RONDA DE ELECCIONES, SE MUESTRAN LAS ELECCIONES \n");
-		System.out.println("saimon eligio: "+saimonmdp.getEmpleado().getElegido().getPersona().getCuenta().getUsuario());
-		System.out.println("hamilton eligio: "+hamilton.getEmpleado().getElegido().getPersona().getCuenta().getUsuario());
-		System.out.println("Keizy eligio: "+ElKeizy.getEmpleado().getElegido().getPersona().getCuenta().getUsuario());
-		System.out.println("Music eligio: "+LifeIsMusic.getEmpleado().getElegido().getPersona().getCuenta().getUsuario());
-		System.out.println("gesi eligio:"+gesi.getEmpleador().getElegidos());
-		System.out.println("carrefour eligio:"+carrefour.getEmpleador().getElegidos());
+		System.out.println(saimonmdp.visualizarPersonasElegidas());
+		System.out.println(hamilton.visualizarPersonasElegidas());
+		System.out.println(ElKeizy.visualizarPersonasElegidas());
+		System.out.println(LifeIsMusic.visualizarPersonasElegidas());
+		System.out.println(gesi.visualizarPersonasElegidas());
+		System.out.println(carrefour.visualizarPersonasElegidas());
 		
-		Agencia.getInstancia().getFuncionalidad().iniciaRondaContratacion();
+		admin.iniciaRondaContratacion();
 		
 		System.out.println("VISUALIZACION DE CONTRATOS \n");
 		Sistema.visualizarContratos();
