@@ -46,15 +46,10 @@ public class Persona_Empleador extends Persona {
 	public double[] getPuntajeAspectos() {
 		return puntajeAspectos;
 	}
-	public void setPuntajeAspectos (double a, double b, double c, double d, double e, double f, double g)
-	{	
-		puntajeAspectos[0]=a;
-		puntajeAspectos[1]=b;
-		puntajeAspectos[2]=c;
-		puntajeAspectos[3]=d;
-		puntajeAspectos[4]=e;
-		puntajeAspectos[5]=f;
-		puntajeAspectos[6]=g;
+	
+
+	public void setPuntajeAspectos(double[] puntajeAspectos) {
+		this.puntajeAspectos = puntajeAspectos;
 	}
 
 	public void agregaElegidos (PersonaAsignada personaAsignada)

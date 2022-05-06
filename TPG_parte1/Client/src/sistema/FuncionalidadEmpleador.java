@@ -36,7 +36,6 @@ public class FuncionalidadEmpleador extends FuncionalidadPersona {
 	public void iniciarRondaEleccion() {
 		RondaDeElecciones.iniciaRondaDeEleccionEmpleador(this.empleador);
 	}
-	
 
 	@Override
 	public void visualizaResultado() {

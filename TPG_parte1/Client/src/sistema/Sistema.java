@@ -20,7 +20,11 @@ import excepciones.ErrorContrasenaException;
 import excepciones.ErrorUsuarioException;
 import excepciones.ListaNoGeneradaException;
 import excepciones.TipoPersonaInvalidoException;
-
+/**
+ * 
+ * @author Grupo 8 
+ * Clase que representa al sistema, encargada de instanciar personas, realizar los registros de usuarios y sus logins.
+ */
 public abstract class Sistema {
 	
 	private static ArrayList<Persona_EmpleadoPretenso> empleadosPretensos = Agencia.getInstancia().getEmpleadosPretensos();
@@ -66,9 +70,7 @@ public abstract class Sistema {
 	 * @throws ErrorContrasenaException	Excepcion que es lanzada cuando la contrasenia es incorrecta.
 	 * @throws ErrorUsuarioException Excepcion que es lanzada cuando la cuenta no existe, o el usuario es incorrecto.
 	 */
-	
-	
-	
+		
 	public static FuncionalidadEmpleador loginEmpleador(String nombreUsuario,String contrasena) throws ErrorContrasenaException,ErrorUsuarioException 
 	{
 		Usuario usuario = usuarios.get(nombreUsuario);

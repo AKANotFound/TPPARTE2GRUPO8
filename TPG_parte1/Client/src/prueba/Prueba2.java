@@ -229,9 +229,6 @@ public class Prueba2 {
 		gesi.visualizaResultado();
 		carrefour.visualizaResultado();
 		
-		
-		
-		
 	}
 
 }

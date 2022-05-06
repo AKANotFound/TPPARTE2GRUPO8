@@ -5,8 +5,8 @@ import java.util.HashMap;
 
 import sistema.FuncionalidadAdministrador;
 /**
- * @author grupo8 <br>
- * Clase singleton que contiene la informaci�n de todo el sistema, incluyendo a los empleadores, empleados, con sus respectivos tickets,contratos y logeos.
+ * @author Grupo 8 <br>
+ * Clase singleton que contiene la informacion de todo el sistema, incluyendo a los empleadores, empleados, con sus respectivos tickets,contratos y logeos.
  * <br> Patron aplicado: Singleton.
  */
 

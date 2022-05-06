@@ -29,10 +29,6 @@ public class Persona_EmpleadoPretenso extends Persona {
 		EmpleadorActual = empleadorActual;
 	}
 
-
-	/*public void setFuncionalidad(FuncionalidadEmpleadoPretenso funcionalidad) {
-		this.funcionalidad = funcionalidad;
-	}*/
 	public PersonaAsignada getElegido() {
 		return elegido;
 	}

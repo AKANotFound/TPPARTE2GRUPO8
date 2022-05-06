@@ -16,10 +16,6 @@ public class Contrato {
 		this.fechaDeCreacion=fechaDeCreacion;
 	}
 
-	
-	
-
-
 	public GregorianCalendar getFechaDeCreacion() {
 		return fechaDeCreacion;
 	}

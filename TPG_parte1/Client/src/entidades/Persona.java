@@ -5,8 +5,8 @@ import sistema.FuncionalidadPersona;
 
 
 /**
- * @author grupoxd <br>
- * Clase abstracta que representa una Persona, solo guarda informaci�n acerca de ella.
+ * @author Grupo 8 <br>
+ * Clase abstracta que representa una Persona, solo guarda informacion acerca de ella.
  */
 
 public abstract class Persona extends Usuario {
@@ -14,7 +14,6 @@ public abstract class Persona extends Usuario {
 	private double costoServicio;
 	private ListaDeAsignacion listaDeAsignacion;
 	private int puntaje;
-	//protected FuncionalidadPersona funcionalidad = null;
  
 	/**
 	 * Constructor con 1 parametro para setear la cuenta de la persona. Al resto de los atributos se los inicializa en el mismo constructor
