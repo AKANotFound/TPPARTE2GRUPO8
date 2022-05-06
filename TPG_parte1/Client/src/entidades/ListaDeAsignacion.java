@@ -27,6 +27,5 @@ public class ListaDeAsignacion {
 	public String toString() {
 		return "Lista de Asignacion = [fecha de creacion = " + this.getFechaDeCreacion() + ", lista = " + lista + "]";
 	}
-	
 }
  

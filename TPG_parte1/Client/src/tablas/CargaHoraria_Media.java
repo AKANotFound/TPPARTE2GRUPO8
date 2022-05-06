@@ -21,7 +21,6 @@ public class CargaHoraria_Media implements ICargaHoraria {
 	public double comparaConExtendida() {
 		return -1;
 	}
-	
 	@Override
 	public String toString() {
 		return " media";

@@ -37,4 +37,6 @@ public abstract class Ticket {
 		return " [Fecha de alta = " + fechaAlta.getTime().toLocaleString() + ", estado=" + estado + ", formulario de busqueda="
 				+ formularioDeBusqueda+ "]";
 	}
+	
+	
 }

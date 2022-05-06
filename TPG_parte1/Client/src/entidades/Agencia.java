@@ -5,10 +5,11 @@ import java.util.HashMap;
 
 import sistema.FuncionalidadAdministrador;
 /**
- * @author grupoxd <br>
- * Clase singleton que contiene la informaci�n de todo el sistema, incluyendo a los empleadores, empleados, con sus respectivos tickets y contratos.
+ * @author grupo8 <br>
+ * Clase singleton que contiene la informaci�n de todo el sistema, incluyendo a los empleadores, empleados, con sus respectivos tickets,contratos y logeos.
  * <br> Patron aplicado: Singleton.
  */
+
 public class Agencia {
 	private ArrayList<Persona_Empleador> empleadores = new ArrayList<Persona_Empleador>();
 	private ArrayList<Persona_EmpleadoPretenso> empleadosPretensos = new ArrayList<Persona_EmpleadoPretenso>();

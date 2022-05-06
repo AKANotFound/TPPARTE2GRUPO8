@@ -14,11 +14,24 @@ public class Contrato {
 		this.empleadosPretensos = empleadosPretensos;
 	}
 
+	
+	
+	public Persona_Empleador getEmpleador() {
+		return empleador;
+	}
+
+
+
+	public ArrayList<Persona_EmpleadoPretenso> getEmpleadosPretensos() {
+		return empleadosPretensos;
+	}
+
+
+
 	@Override
 	public String toString() {
 		return "Contrato [empleador=" + empleador + ", empleadosPretensos=" + empleadosPretensos
 				+ "]";
 	}
-	
-	
+	 
 }

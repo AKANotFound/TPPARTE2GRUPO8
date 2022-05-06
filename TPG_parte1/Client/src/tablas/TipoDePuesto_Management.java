@@ -23,11 +23,6 @@ public class TipoDePuesto_Management implements ITipoDePuesto {
 	}
 
 	@Override
-	public String getTipoDePuesto() {
-		return "management";
-	}
-	
-	@Override
 	public String toString() {
 		return " management";
 	}

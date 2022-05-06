@@ -21,7 +21,6 @@ public class RangoEtario_De40A50 implements IRangoEtario {
 	public double comparaConMasDe50() {
 		return -0.5;
 	}
-	
 	@Override
 	public String toString() {
 		return " entre 40 y 50";

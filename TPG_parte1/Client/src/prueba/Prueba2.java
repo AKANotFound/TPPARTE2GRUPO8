@@ -9,6 +9,7 @@ import entidades.Rubro_ComercioLocal;
 import excepciones.EdadInvalidaException;
 import excepciones.ErrorContrasenaException;
 import excepciones.ErrorUsuarioException;
+import excepciones.ListaNoGeneradaException;
 import excepciones.TipoPersonaInvalidoException;
 import sistema.FuncionalidadEmpleadoPretenso;
 import sistema.FuncionalidadEmpleador;
@@ -149,12 +150,42 @@ public class Prueba2 {
 		carrefour.getEmpleador().setPuntajeAspectos(10, 12, 0, 1, 3, -2, 1);
 		Agencia.getInstancia().getFuncionalidad().iniciaRondaEncuentrosLaborales();
 		
-		Sistema.visualizarListaAsignacion(saimonmdp.getEmpleado());
-		Sistema.visualizarListaAsignacion(hamilton.getEmpleado());
-		Sistema.visualizarListaAsignacion(ElKeizy.getEmpleado());
-		Sistema.visualizarListaAsignacion(LifeIsMusic.getEmpleado());
-		Sistema.visualizarListaAsignacion(gesi.getEmpleador());
-		Sistema.visualizarListaAsignacion(carrefour.getEmpleador());
+		try {
+			Sistema.visualizarListaAsignacion(saimonmdp.getEmpleado());
+		} catch (ListaNoGeneradaException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			Sistema.visualizarListaAsignacion(hamilton.getEmpleado());
+		} catch (ListaNoGeneradaException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			Sistema.visualizarListaAsignacion(ElKeizy.getEmpleado());
+		} catch (ListaNoGeneradaException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			Sistema.visualizarListaAsignacion(LifeIsMusic.getEmpleado());
+		} catch (ListaNoGeneradaException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			Sistema.visualizarListaAsignacion(gesi.getEmpleador());
+		} catch (ListaNoGeneradaException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		try {
+			Sistema.visualizarListaAsignacion(carrefour.getEmpleador());
+		} catch (ListaNoGeneradaException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		
 		saimonmdp.iniciarRondaEleccion();

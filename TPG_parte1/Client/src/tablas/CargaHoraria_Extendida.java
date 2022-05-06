@@ -21,7 +21,6 @@ public class CargaHoraria_Extendida implements ICargaHoraria {
 	public double comparaConExtendida() {
 		return -0.5; 
 	}
-	
 	@Override
 	public String toString() {
 		return " extendida";

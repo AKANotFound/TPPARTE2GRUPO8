@@ -21,7 +21,6 @@ public class Locacion_Presencial implements ILocacion {
 	public double comparaConIndistinto() {
 		return -1;
 	}
-	
 	@Override
 	public String toString() {
 		return " presencial";

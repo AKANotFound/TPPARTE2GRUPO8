@@ -21,9 +21,8 @@ public class RangoEtario_MasDe50 implements IRangoEtario {
 	public double comparaConMasDe50() {
 		return -0.5;
 	}
-	
 	@Override
 	public String toString() {
-		return " m√°s de 50";
+		return " m·s de 50";
 	}
 }

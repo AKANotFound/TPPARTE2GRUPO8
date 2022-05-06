@@ -26,4 +26,5 @@ public class Remuneracion_60mil implements IRemuneracion {
 	public double getRemuneracion() {
 		return 60000;
 	}
+	
 }

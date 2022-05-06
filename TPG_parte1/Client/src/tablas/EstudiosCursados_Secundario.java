@@ -21,7 +21,6 @@ public class EstudiosCursados_Secundario implements IEstudiosCursados {
 	public double comparaConTerciario() {
 		return 1.5;
 	}
-	
 	@Override
 	public String toString() {
 		return " secundario";

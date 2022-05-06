@@ -5,18 +5,19 @@ import tablas.Locacion_HomeOffice;
 import tablas.Locacion_Indistinto;
 import tablas.Locacion_Presencial;
 
-public abstract class LocacionFactory {
+public class LocacionFactory {
 
-	public static ILocacion getLocacion (String tipo) {
+	static ILocacion getLocacion (String tipo) {
 		ILocacion locacion = null;
 		
-		if(tipo.equalsIgnoreCase("home office"))
+		if(tipo.equalsIgnoreCase("Home Office"))
 			locacion = new Locacion_HomeOffice();
-		else if(tipo.equalsIgnoreCase("presencial"))
+		else if(tipo.equalsIgnoreCase("Presencial"))
 			locacion = new Locacion_Presencial();
-		else if(tipo.equalsIgnoreCase("indistinto"))
+		else if(tipo.equalsIgnoreCase("Indistinto"))
 			locacion = new Locacion_Indistinto();
 		
 		return locacion;
 	}
 }
+ 
