@@ -39,10 +39,10 @@ public abstract class Sistema {
 	 * @throws TipoPersonaInvalidoException <br>
 	 */
 	
-	public static void registrarEmpleador(String usuario, String contrasena, String razonSocial, String tipoPersona, IRubro rubro) throws TipoPersonaInvalidoException {
+	public static void registrarEmpleador(String usuario, String contrasena, String razonSocial, String tipoPersona, IRubro rubro,double[] puntajeAspectos) throws TipoPersonaInvalidoException {
 		if (!tipoPersona.equalsIgnoreCase("fisica") && !tipoPersona.equalsIgnoreCase("juridica"))
 			throw new TipoPersonaInvalidoException(tipoPersona);
-		Persona_Empleador empleador = (Persona_Empleador) PersonaFactory.getEmpleador(usuario, contrasena,razonSocial, tipoPersona, rubro);
+		Persona_Empleador empleador = (Persona_Empleador) PersonaFactory.getEmpleador(usuario, contrasena,razonSocial, tipoPersona, rubro,puntajeAspectos);
 		empleadores.add(empleador);
 		Sistema.agregarUsuario(empleador);
 	}

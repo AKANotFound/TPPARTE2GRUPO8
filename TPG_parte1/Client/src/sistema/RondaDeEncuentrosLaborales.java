@@ -18,7 +18,7 @@ abstract class RondaDeEncuentrosLaborales {
 		GregorianCalendar fecha = new GregorianCalendar();
 		ArrayList <Persona_Empleador> empleadores =  Agencia.getInstancia().getEmpleadores();
 		ArrayList <Persona_EmpleadoPretenso> empleadosPretensos =  Agencia.getInstancia().getEmpleadosPretensos();
-		double calificacion = 0;
+		double puntajeDeContratacion = 0;
 		Persona_Empleador empleador = null;
 		Persona_EmpleadoPretenso empleadoP=null;
 		FormularioDeBusqueda formularioEmpleador=null;
@@ -34,7 +34,7 @@ abstract class RondaDeEncuentrosLaborales {
 				formularioEmpleador = empleador.getTicket().getFormularioDeBusqueda();
 				for (int j=0; j < empleadosPretensos.size(); j++)
 				{
-					calificacion = 0;
+					puntajeDeContratacion = 0;
 					empleadoP = (Persona_EmpleadoPretenso) empleadosPretensos.get(j);	
 					if(empleadoP.getListaDeAsignacion() == null) {
 						empleadoP.setListaDeAsignacion(new ListaDeAsignacion());
@@ -43,7 +43,7 @@ abstract class RondaDeEncuentrosLaborales {
 					}
 					if(empleadoP.getTicket().getEstado().equalsIgnoreCase(" activo")) {
 						formularioEmpleadoP=empleadoP.getTicket().getFormularioDeBusqueda();
-						calificacion+=empleador.getPuntajeAspectos()[0]*formularioEmpleador.getLocacion().comparaCon(formularioEmpleadoP.getLocacion())
+						puntajeDeContratacion+=empleador.getPuntajeAspectos()[0]*formularioEmpleador.getLocacion().comparaCon(formularioEmpleadoP.getLocacion())
 									+empleador.getPuntajeAspectos()[1]*formularioEmpleador.getRemuneracion().comparaCon(formularioEmpleadoP.getRemuneracion())
 									+empleador.getPuntajeAspectos()[2]*formularioEmpleador.getCargaHoraria().comparaCon(formularioEmpleadoP.getCargaHoraria())
 									+empleador.getPuntajeAspectos()[3]*formularioEmpleador.getTipoDePuesto().comparaCon(formularioEmpleadoP.getTipoDePuesto())
@@ -51,8 +51,8 @@ abstract class RondaDeEncuentrosLaborales {
 									+empleador.getPuntajeAspectos()[5]*formularioEmpleador.getExperienciaPrevia().comparaCon(formularioEmpleadoP.getExperienciaPrevia())
 									+empleador.getPuntajeAspectos()[6]*formularioEmpleador.getEstudiosCursados().comparaCon(formularioEmpleadoP.getEstudiosCursados());
 						
-						empleador.getListaDeAsignacion().getLista().add(new PersonaAsignada(empleadoP,calificacion));
-						empleadoP.getListaDeAsignacion().getLista().add(new PersonaAsignada(empleador,calificacion));
+						empleador.getListaDeAsignacion().getLista().add(new PersonaAsignada(empleadoP,puntajeDeContratacion));
+						empleadoP.getListaDeAsignacion().getLista().add(new PersonaAsignada(empleador,puntajeDeContratacion));
 					}
 				}
 				Collections.sort(empleador.getListaDeAsignacion().getLista()); //una vez completa, ordena la lista del empleador	

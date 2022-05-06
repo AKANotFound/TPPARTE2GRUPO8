@@ -24,12 +24,12 @@ public abstract class PersonaFactory {
 	 * @param rubro Parametro de tipo IRubro que representa el rubro del empleador, en base al cual se le cobraran comisiones.
 	 * @return Retorna una instancia de un objeto de clase Persona.
 	 */
-	static Persona getEmpleador(String usuario, String contrasena, String razonSocial, String tipoPersona, IRubro rubro) {
+	static Persona getEmpleador(String usuario, String contrasena, String razonSocial, String tipoPersona, IRubro rubro,double[] puntajeAspectos) {
 		Persona persona = null;
 		Cuenta cuenta = null;
 		
 		cuenta = new Cuenta(usuario, contrasena, "empleador");
-		persona = new Persona_Empleador(cuenta,razonSocial,tipoPersona,rubro);
+		persona = new Persona_Empleador(cuenta,razonSocial,tipoPersona,rubro,puntajeAspectos);
 		
 		return persona;
 	}

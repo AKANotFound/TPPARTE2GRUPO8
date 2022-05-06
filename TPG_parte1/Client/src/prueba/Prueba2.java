@@ -72,15 +72,20 @@ public class Prueba2 {
 			e.printStackTrace();
 		}
 
+		
+		//Declaro los puntajes de los aspectos de los empleadores
+		double puntajeAspectosGesi[]= {1,1,1,1,1,1,3};
+		double puntajeAspectosCarrefour[]= {10,12,0,1,3,-2,1};
+		
 		try {
-			Sistema.registrarEmpleador("gesi", "empresajaja", "Grupo ESI", "juridica", new Rubro_ComercioLocal());
+			Sistema.registrarEmpleador("gesi", "empresajaja", "Grupo ESI", "juridica", new Rubro_ComercioLocal(),puntajeAspectosGesi);
 		} catch (TipoPersonaInvalidoException e) {
 			System.out.println(e.getMessage());
 			e.printStackTrace();
 		}
 
 		try {
-			Sistema.registrarEmpleador("carrefour", "empresaurio", "Carrefour", "fisica", new Rubro_ComercioInternacional());
+			Sistema.registrarEmpleador("carrefour", "empresaurio", "Carrefour", "fisica", new Rubro_ComercioInternacional(),puntajeAspectosCarrefour);
 		} catch (TipoPersonaInvalidoException e) {
 			System.out.println(e.getMessage());
 			e.printStackTrace();
@@ -146,8 +151,7 @@ public class Prueba2 {
 		 
 		//Agencia.getInstancia().getFuncionalidad().visualizarEmpleadores();
 		//Agencia.getInstancia().getFuncionalidad().visualizarEmpleadosPretensos();
-		gesi.getEmpleador().setPuntajeAspectos(1, 1, 1, 1, 1, 1, 3);	// poner en funcionalidad empleador
-		carrefour.getEmpleador().setPuntajeAspectos(10, 12, 0, 1, 3, -2, 1);
+		
 		Agencia.getInstancia().getFuncionalidad().iniciaRondaEncuentrosLaborales();
 		
 		try {

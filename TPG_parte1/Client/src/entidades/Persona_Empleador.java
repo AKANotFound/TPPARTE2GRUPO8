@@ -18,12 +18,13 @@ public class Persona_Empleador extends Persona {
     	super(cuenta);
     }
      
-    public Persona_Empleador(Cuenta cuenta, String razonSocial, String tipoPersona, IRubro rubro)
+    public Persona_Empleador(Cuenta cuenta, String razonSocial, String tipoPersona, IRubro rubro,double[] puntajeAspectos)
     {
 		super(cuenta);
 		this.razonSocial = razonSocial;
 		this.rubro = rubro;
 		this.tipoPersona = tipoPersona;
+		this.puntajeAspectos=puntajeAspectos;
 	}
     
 	public double[] getPuntajeAspectos() {
