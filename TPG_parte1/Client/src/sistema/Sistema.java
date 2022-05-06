@@ -22,8 +22,8 @@ import excepciones.ListaNoGeneradaException;
 import excepciones.TipoPersonaInvalidoException;
 /**
  * 
- * @author Grupo 8 
  * Clase que representa al sistema, encargada de instanciar personas, realizar los registros de usuarios y sus logins.
+ * @author Grupo 8 
  */
 public abstract class Sistema {
 	

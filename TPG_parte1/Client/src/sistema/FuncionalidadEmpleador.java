@@ -12,12 +12,8 @@ public class FuncionalidadEmpleador extends FuncionalidadPersona {
 	
 	public FuncionalidadEmpleador(Persona_Empleador empleador) {
 		super(empleador);
-		//this.empleador = empleador;
 	}
-	
-	/*public FuncionalidadEmpleador(Usuario usuario) {
-		super(usuario);
-	}*/
+
 	public FuncionalidadEmpleador() {
 		// TODO Auto-generated constructor stub
 	}
@@ -28,7 +24,6 @@ public class FuncionalidadEmpleador extends FuncionalidadPersona {
 	}
 
 	public void crearTicket(FormularioDeBusqueda formulario, int cantEmpleadosSolicitados) {
-		//((Persona) usuario).setTicket(TicketFactory.crearTicket((Persona_Empleador) usuario, formulario, cantEmpleadosSolicitados));
 		empleador.setTicket(TicketFactory.crearTicket(empleador, formulario, cantEmpleadosSolicitados));
 	}
 	

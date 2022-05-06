@@ -5,8 +5,8 @@ import sistema.FuncionalidadPersona;
 
 
 /**
+ * Clase abstracta que representa una Persona, solo guarda informacion acerca de ella.<br>
  * @author Grupo 8 <br>
- * Clase abstracta que representa una Persona, solo guarda informacion acerca de ella.
  */
 
 public abstract class Persona extends Usuario {
@@ -28,8 +28,6 @@ public abstract class Persona extends Usuario {
 		this.puntaje = 0;
 		this.listaDeAsignacion = null;
 	}
-  
-	
 
 	public Ticket getTicket() {
 		return ticket;
