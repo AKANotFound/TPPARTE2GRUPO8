@@ -23,9 +23,11 @@ public class ListaDeAsignacion {
 		this.lista = lista;
 	}
 	
+	
+	
 	@Override
 	public String toString() {
-		return "Lista de Asignacion = [fecha de creacion = " + this.getFechaDeCreacion() + ", lista = " + lista + "]";
+		return "ListadeAsignacion ="+ lista ;
 	}
 }
  

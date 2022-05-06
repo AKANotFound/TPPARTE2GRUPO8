@@ -15,6 +15,7 @@ abstract class RondaDeEncuentrosLaborales {
 
 	static void iniciaRondaDeEncuentrosLaborales ()
 	{
+		Sistema.setInicioRondaEncuentrosLaborales(true);
 		GregorianCalendar fecha = new GregorianCalendar();
 		ArrayList <Persona_Empleador> empleadores =  Agencia.getInstancia().getEmpleadores();
 		ArrayList <Persona_EmpleadoPretenso> empleadosPretensos =  Agencia.getInstancia().getEmpleadosPretensos();

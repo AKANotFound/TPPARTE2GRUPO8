@@ -36,7 +36,7 @@ public class PersonaAsignada implements Comparable<PersonaAsignada>{
 
 	@Override
 	public String toString() {
-		return persona + ", puntaje=" + puntajeDeContratacion + "]";
+		return persona + ", puntajeDeContratacion=" + puntajeDeContratacion;
 	}
 	
 	

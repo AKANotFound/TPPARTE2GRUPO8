@@ -10,7 +10,7 @@ abstract class RondaDeElecciones {
 		int seleccion=(int)(Math.random()*empleadoPretenso.getListaDeAsignacion().getLista().size());
 		//Sistema.visualizarListaAsignacion(empleadoPretenso); //le muestra la lista al usuario
 		empleadoPretenso.setElegido(empleadoPretenso.getListaDeAsignacion().getLista().get(seleccion));
-		empleadoPretenso.setEligio(true);
+		
 	}
 	
 	static void iniciaRondaDeEleccionEmpleador(Persona_Empleador empleador) {
@@ -29,7 +29,7 @@ abstract class RondaDeElecciones {
 			i++;
 			cantObtenidos++;
 		}
-		empleador.setEligio(true);
+		
 	} 
 }
  

@@ -1,6 +1,7 @@
 package sistema;
 
 import java.util.ArrayList;
+import java.util.GregorianCalendar;
 import java.util.HashMap;
 
 import entidades.Administrador;
@@ -27,6 +28,7 @@ public abstract class Sistema {
 	private static ArrayList<Cuenta> logins = Agencia.getInstancia().getLogins();
 	private static ArrayList<Contrato> contratos = Agencia.getInstancia().getContratos();
 	private static HashMap <String, Usuario> usuarios = Agencia.getInstancia().getUsuarios();
+	private static boolean InicioRondaEncuentrosLaborales=false;
 	
 	/**
 	 * Crea un empleador y su cuenta, lo agrega en la lista donde se preservan a todos los empleadores. Se llama el metodo que agrega la cuenta al hashmap de usuarios. <br>
@@ -35,6 +37,7 @@ public abstract class Sistema {
 	 * <b>Pre: </b> razonSocial debe ser distinto de null <br>
 	 * tipoPersona si es un tipo de persona invalido, lanza la excepcion TipoPersonaInvalidoException <br>
 	 * <b>Pre: </b> rubro	debe ser distinto de null <br>
+	 * <b>Pre: </b> puntajeAspectos debe ser distinto de null y que el array posea 7 elementos <br>
 	 * <b>Post: </b> Crea un empleador y su cuenta, lo agrega en la lista donde se preservan a todos los empleadores. Se llama el metodo que agrega la cuenta al hashmap de usuarios.
 	 * @throws TipoPersonaInvalidoException <br>
 	 */
@@ -56,13 +59,15 @@ public abstract class Sistema {
 	} 
 	
 	/**
-	 *  Si el usuario esta registrado en el sistema y la contraseña es correcta, hace su login.
+	 *  Si el usuario esta registrado en el sistema y la contrasenia es correcta, hace su login.
 	 * @param nombreUsuario Parametro de tipo String que representa el nombre de usuario de la persona.
-	 * @param contrasena	Parametro de tipo String que representa la contraseña del usuario.
+	 * @param contrasena	Parametro de tipo String que representa la contrasenia del usuario.
 	 * @return Retorna una instancia de Funcionalidad Empleador.
-	 * @throws ErrorContrasenaException	Excepcion que es lanzada cuando la contraseña es incorrecta.
+	 * @throws ErrorContrasenaException	Excepcion que es lanzada cuando la contrasenia es incorrecta.
 	 * @throws ErrorUsuarioException Excepcion que es lanzada cuando la cuenta no existe, o el usuario es incorrecto.
 	 */
+	
+	
 	
 	public static FuncionalidadEmpleador loginEmpleador(String nombreUsuario,String contrasena) throws ErrorContrasenaException,ErrorUsuarioException 
 	{
@@ -85,6 +90,14 @@ public abstract class Sistema {
 		return funcionalidadUsuario;
     }
 	
+	public static boolean isInicioRondaEncuentrosLaborales() {
+		return InicioRondaEncuentrosLaborales;
+	}
+
+	public static void setInicioRondaEncuentrosLaborales(boolean inicioRondaEncuentrosLaborales) {
+		InicioRondaEncuentrosLaborales = inicioRondaEncuentrosLaborales;
+	}
+
 	public static FuncionalidadEmpleadoPretenso loginEmpleadoPretenso(String nombreUsuario,String contrasena) throws ErrorContrasenaException,ErrorUsuarioException 
 	{
 		Usuario usuario = usuarios.get(nombreUsuario);
@@ -127,8 +140,8 @@ public abstract class Sistema {
 		return funcionalidadUsuario;
     }
 	
-	static void agregarContrato(Persona_Empleador empleador, ArrayList<Persona_EmpleadoPretenso> empleadosPretensos) {
-		contratos.add(new Contrato(empleador,empleadosPretensos));
+	static void agregarContrato(Persona_Empleador empleador, ArrayList<Persona_EmpleadoPretenso> empleadosPretensos,GregorianCalendar fechaDeCreacion) {
+		contratos.add(new Contrato(empleador,empleadosPretensos,fechaDeCreacion));
 	}
 	
 	private static void agregarUsuario (Usuario usuario) { 

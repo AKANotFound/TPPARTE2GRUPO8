@@ -13,7 +13,6 @@ public abstract class Persona extends Usuario {
 	protected Ticket ticket;
 	private double costoServicio;
 	private ListaDeAsignacion listaDeAsignacion;
-	private boolean eligio;
 	private int puntaje;
 	//protected FuncionalidadPersona funcionalidad = null;
  
@@ -27,7 +26,6 @@ public abstract class Persona extends Usuario {
 		super(cuenta);
 		this.ticket = null;
 		this.costoServicio = 0;
-		this.eligio = false;
 		this.puntaje = 0;
 		this.listaDeAsignacion = null;
 	}
@@ -57,14 +55,6 @@ public abstract class Persona extends Usuario {
 		this.listaDeAsignacion = listaDeAsignacion;
 	}
 
-	public boolean isEligio() {
-		return eligio;
-	}
- 
-	public void setEligio(boolean eligio) {
-		this.eligio = eligio;
-	}
-
 	public int getPuntaje() {
 		return puntaje;
 	}
@@ -83,7 +73,7 @@ public abstract class Persona extends Usuario {
 
 	@Override
 	public String toString() {
-		return ", eligio=" + eligio + ", puntaje=" + puntaje + "]";
+		return ", puntajeDeUsuario=" + puntaje;
 	}
 
 }

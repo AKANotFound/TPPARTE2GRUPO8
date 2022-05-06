@@ -154,40 +154,49 @@ public class Prueba2 {
 		
 		Agencia.getInstancia().getFuncionalidad().iniciaRondaEncuentrosLaborales();
 		
+		System.out.println("UNA VEZ TERMINADA LA RONDA DE ENCUENTROS LABORALES, CADA USUARIO VISUALIZA SU LISTA DE ASIGNACION \n");
+		
 		try {
-			Sistema.visualizarListaAsignacion(saimonmdp.getEmpleado());
+			saimonmdp.visualizarListaAsignacion();
+			
 		} catch (ListaNoGeneradaException e) {
-			// TODO Auto-generated catch block
+			
+			System.out.println(e.getMessage());
 			e.printStackTrace();
 		}
 		try {
-			Sistema.visualizarListaAsignacion(hamilton.getEmpleado());
+			hamilton.visualizarListaAsignacion();
+			
 		} catch (ListaNoGeneradaException e) {
-			// TODO Auto-generated catch block
+			
+			System.out.println(e.getMessage());
 			e.printStackTrace();
 		}
 		try {
-			Sistema.visualizarListaAsignacion(ElKeizy.getEmpleado());
+			ElKeizy.visualizarListaAsignacion();
 		} catch (ListaNoGeneradaException e) {
-			// TODO Auto-generated catch block
+			
+			System.out.println(e.getMessage());
 			e.printStackTrace();
 		}
 		try {
-			Sistema.visualizarListaAsignacion(LifeIsMusic.getEmpleado());
+			LifeIsMusic.visualizarListaAsignacion();
+			
 		} catch (ListaNoGeneradaException e) {
-			// TODO Auto-generated catch block
+			
+			System.out.println(e.getMessage());
 			e.printStackTrace();
 		}
 		try {
 			Sistema.visualizarListaAsignacion(gesi.getEmpleador());
-		} catch (ListaNoGeneradaException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
+		} catch (ListaNoGeneradaException e) {
+			System.out.println(e.getMessage());
+			e.printStackTrace();
 		}
 		try {
 			Sistema.visualizarListaAsignacion(carrefour.getEmpleador());
 		} catch (ListaNoGeneradaException e) {
-			// TODO Auto-generated catch block
+			System.out.println(e.getMessage());
 			e.printStackTrace();
 		}
 		
@@ -199,17 +208,29 @@ public class Prueba2 {
 		gesi.iniciarRondaEleccion();
 		carrefour.iniciarRondaEleccion();
 		
+		System.out.println("UNA VEZ FINALIZADA LA RONDA DE ELECCIONES, SE MUESTRAN LAS ELECCIONES \n");
 		System.out.println("saimon eligio: "+saimonmdp.getEmpleado().getElegido().getPersona().getCuenta().getUsuario());
 		System.out.println("hamilton eligio: "+hamilton.getEmpleado().getElegido().getPersona().getCuenta().getUsuario());
 		System.out.println("Keizy eligio: "+ElKeizy.getEmpleado().getElegido().getPersona().getCuenta().getUsuario());
 		System.out.println("Music eligio: "+LifeIsMusic.getEmpleado().getElegido().getPersona().getCuenta().getUsuario());
-		System.out.println("gesi "+gesi.getEmpleador().getElegidos());
-		System.out.println("carrefour "+carrefour.getEmpleador().getElegidos());
+		System.out.println("gesi eligio:"+gesi.getEmpleador().getElegidos());
+		System.out.println("carrefour eligio:"+carrefour.getEmpleador().getElegidos());
 		
 		Agencia.getInstancia().getFuncionalidad().iniciaRondaContratacion();
+		
+		System.out.println("VISUALIZACION DE CONTRATOS \n");
 		Sistema.visualizarContratos();
-		System.out.println(ElKeizy.getEmpleado().getPuntaje());
-		System.out.println(carrefour.getEmpleador().getPuntaje());
+		
+		System.out.println("VISUALIZACION DE RESULTADOS");
+		saimonmdp.visualizaResultado();
+		hamilton.visualizaResultado();
+		ElKeizy.visualizaResultado();
+		LifeIsMusic.visualizaResultado();
+		gesi.visualizaResultado();
+		carrefour.visualizaResultado();
+		
+		
+		
 		
 	}
 

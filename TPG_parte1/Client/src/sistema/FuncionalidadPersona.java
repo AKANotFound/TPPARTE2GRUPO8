@@ -4,46 +4,54 @@ import entidades.FormularioDeBusqueda;
 import entidades.Persona;
 import entidades.Usuario;
 import excepciones.ListaNoGeneradaException;
+import excepciones.ModificacionTicketInvalidaException;
 
 public abstract class FuncionalidadPersona extends FuncionalidadUsuario{
 
+	protected Persona persona;
 	public FuncionalidadPersona() {
 		super();
 	}
-	/*public FuncionalidadPersona(Usuario usuario) {
-		super(usuario);
-		// TODO Auto-generated constructor stub
-	}*/
+	public FuncionalidadPersona(Persona persona) {
+		this.persona=persona;
+	}
 
-	public void activarTicket(Persona persona) {
-		persona.getTicket().setEstado("activado");
+	public void activarTicket() {
+		this.persona.getTicket().setEstado("activado");
 	}
 	
-	public void suspenderTicket(Persona persona) {
-		persona.getTicket().setEstado("suspendido");
+	public void suspenderTicket() throws ModificacionTicketInvalidaException {
+		if (Sistema.isInicioRondaEncuentrosLaborales()==false)
+		  this.persona.getTicket().setEstado("suspendido");
+		else
+			throw new ModificacionTicketInvalidaException("no se puede suspender el ticket una vez iniciada la ronda de encuentros laborales");
 	}
 	
-	public void cancelarTicket(Persona persona) {
-		persona.getTicket().setEstado("cancelado");		
+	public void cancelarTicket() throws ModificacionTicketInvalidaException {
+		if (Sistema.isInicioRondaEncuentrosLaborales()==false)
+		 this.persona.getTicket().setEstado("cancelado");	
+		else
+			throw new ModificacionTicketInvalidaException("no se puede cancelar el ticket una vez iniciada la ronda de encuentros laborales");
 	}
 	
-	public void modificarTicket_Formulario(Persona persona,FormularioDeBusqueda form) {
-		persona.getTicket().setFormularioDeBusqueda(form);
+	public void modificarTicket_Formulario(FormularioDeBusqueda form) {
+		this.persona.getTicket().setFormularioDeBusqueda(form);
 	}
 	
 	public abstract void iniciarRondaEleccion();
 	
-	public void visualizarListaAsignacion(Persona persona) throws ListaNoGeneradaException {
-		if (!persona.getListaDeAsignacion().getLista().isEmpty())
+	public void visualizarListaAsignacion() throws ListaNoGeneradaException {
+		if (!this.persona.getListaDeAsignacion().getLista().isEmpty())
 		  System.out.println(persona.getListaDeAsignacion());
 		else
 			throw new ListaNoGeneradaException();
 	}
 	
-	public void visualizarCostoServicio(Persona persona) {
-		System.out.println(persona.getCostoServicio());
+	public void visualizarCostoServicio() {
+		System.out.println(this.persona.getCostoServicio());
 	}
-	@Override
-	public abstract String toString();
+	
+	
+	public abstract void visualizaResultado();
 	
 } 

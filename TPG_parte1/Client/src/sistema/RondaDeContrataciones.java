@@ -1,6 +1,7 @@
 package sistema;
 
 import java.util.ArrayList;
+import java.util.GregorianCalendar;
 
 import entidades.Agencia;
 import entidades.PersonaAsignada;
@@ -12,7 +13,8 @@ import entidades.Ticket_Empleador;
 
 abstract class RondaDeContrataciones {
 	
-	static void iniciaRondaDeContrataciones () {		
+	static void iniciaRondaDeContrataciones () {
+		GregorianCalendar fechaDeCreacion=new GregorianCalendar();
 		ArrayList <Persona_Empleador> empleadores = Agencia.getInstancia().getEmpleadores();
 		for (int i = 0; i< empleadores.size(); i++)
 		{
@@ -30,6 +32,8 @@ abstract class RondaDeContrataciones {
 					Sistema.calculaComision(empleadoElegido);
 					Sistema.resultadoExito(empleadoElegido);
 					empleadosPretensosContrato.add(empleadoElegido);
+					empleador.addEmpleadoContratado(empleadoElegido);
+					empleadoElegido.setEmpleadorActual(empleador);
 				}
 				else if(ticketEmpleadoElegido.getEstado().equals("en proceso")) {
 					Sistema.resultadoFracaso(empleadoElegido);
@@ -42,10 +46,11 @@ abstract class RondaDeContrataciones {
 			}
 			
 			if(!empleadosPretensosContrato.isEmpty())
-				Sistema.agregarContrato(empleador, empleadosPretensosContrato);
+				Sistema.agregarContrato(empleador, empleadosPretensosContrato,fechaDeCreacion);
 			else
 				Sistema.puntajeNoElegido(empleador);
 		} 
+		Sistema.setInicioRondaEncuentrosLaborales(false);
 	}
 }
 

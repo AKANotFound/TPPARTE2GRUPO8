@@ -9,6 +9,7 @@ public class Persona_EmpleadoPretenso extends Persona {
     private String telefono;
     private int edad;
 	private PersonaAsignada elegido;
+	private Persona_Empleador EmpleadorActual=null;
 	
     public Persona_EmpleadoPretenso(Cuenta cuenta, String nya, String telefono, int edad) {
 		super(cuenta);
@@ -19,7 +20,17 @@ public class Persona_EmpleadoPretenso extends Persona {
 	}
     
     
-    /*public void setFuncionalidad(FuncionalidadEmpleadoPretenso funcionalidad) {
+    public Persona_Empleador getEmpleadorActual() {
+		return EmpleadorActual;
+	}
+
+
+	public void setEmpleadorActual(Persona_Empleador empleadorActual) {
+		EmpleadorActual = empleadorActual;
+	}
+
+
+	/*public void setFuncionalidad(FuncionalidadEmpleadoPretenso funcionalidad) {
 		this.funcionalidad = funcionalidad;
 	}*/
 	public PersonaAsignada getElegido() {
@@ -40,6 +51,13 @@ public class Persona_EmpleadoPretenso extends Persona {
  
 	@Override
 	public String toString() {
-		return "Empleado Pretenso [nombre y apellido = " + nya + ", telefono = " + telefono + ", edad = " + edad + ", "+super.toString()+"]";
+		return "Empleado: " + nya +super.toString();
 	}
+
+
+	public String getNya() {
+		return nya;
+	}
+	
+	
 }
