@@ -29,8 +29,11 @@ public abstract class FuncionalidadPersona extends FuncionalidadUsuario{
 			throw new ModificacionTicketInvalidaException("no se puede cancelar el ticket una vez iniciada la ronda de encuentros laborales");
 	}
 	
-	public void modificarTicket_Formulario(FormularioDeBusqueda form) {
+	public void modificarTicket_Formulario(FormularioDeBusqueda form) throws ModificacionTicketInvalidaException {
+		if (!Sistema.isInicioRondaEncuentrosLaborales())
 		((Persona) usuario).getTicket().setFormularioDeBusqueda(form);
+		else
+			throw new ModificacionTicketInvalidaException("no se puede modificar el ticket una vez iniciada la ronda de encuentros laborales");
 	}
 	
 	public abstract void iniciarRondaEleccion();

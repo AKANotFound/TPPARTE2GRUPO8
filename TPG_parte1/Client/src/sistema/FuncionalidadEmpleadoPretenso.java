@@ -25,8 +25,9 @@ public class FuncionalidadEmpleadoPretenso extends FuncionalidadPersona {
 		RondaDeElecciones.iniciaRondaDeEleccionEmpleadoPretenso((Persona_EmpleadoPretenso) usuario);
 	}
 	
-	public void modificarTelefono(Persona_EmpleadoPretenso empleadoPretenso, String telefono) {
-		empleadoPretenso.setTelefono(telefono);
+	public void modificarTelefono(String telefono) {
+		((Persona_EmpleadoPretenso) usuario).setTelefono(telefono);
+		
 	}
 	
 
