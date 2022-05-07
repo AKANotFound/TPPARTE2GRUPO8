@@ -35,18 +35,20 @@ public abstract class FuncionalidadPersona extends FuncionalidadUsuario{
 	
 	public abstract void iniciarRondaEleccion();
 	
-	public void visualizarListaAsignacion() throws ListaNoGeneradaException {
+	public String visualizarListaAsignacion() throws ListaNoGeneradaException {
+		String str = null;
+		
 		if (((Persona) usuario).getListaDeAsignacion() != null)
-			System.out.println(((Persona) usuario).getListaDeAsignacion());
+			str = "" + ((Persona) usuario).getListaDeAsignacion();
 		else
 			throw new ListaNoGeneradaException();
+		return str;
 	}
 	
 	public void visualizarCostoServicio() {
 		System.out.println(((Persona) usuario).getCostoServicio());
 	}
 	
-	public abstract void visualizaResultado();
-	
+	public abstract String visualizaResultado();
 	public abstract String visualizarPersonasElegidas();
 } 

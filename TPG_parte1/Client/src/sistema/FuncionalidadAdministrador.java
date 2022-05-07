@@ -18,19 +18,20 @@ public class FuncionalidadAdministrador extends FuncionalidadUsuario{
 		RondaDeContrataciones.iniciaRondaDeContrataciones();
 	}
 	
-	public void visualizarEmpleadores() {
-		for (int i=0; i<Agencia.getInstancia().getEmpleadores().size(); i++)
-		{
-			System.out.println (Agencia.getInstancia().getEmpleadores().get(i));
+	public String visualizarEmpleadores() {
+		String str = null;
+		for (int i=0; i<Agencia.getInstancia().getEmpleadores().size(); i++) {
+			str = Agencia.getInstancia().getEmpleadores().get(i) + "\n";
 		}
+		return str;
 	}
 	
-	public void visualizarEmpleadosPretensos() {
-		for (int i=0; i<Agencia.getInstancia().getEmpleadosPretensos().size() ; i++)
-		{
-			System.out.println (Agencia.getInstancia().getEmpleadosPretensos().get(i));
+	public String visualizarEmpleadosPretensos() {
+		String str = null;
+		for (int i=0; i<Agencia.getInstancia().getEmpleadosPretensos().size() ; i++) {
+			str = Agencia.getInstancia().getEmpleadosPretensos().get(i) + "\n";
 		}
-		
+		return str;
 	}
 	
 	public void visualizarTicketsEmpleadores() {

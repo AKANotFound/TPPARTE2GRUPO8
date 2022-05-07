@@ -264,8 +264,10 @@ public abstract class Sistema {
 		ticket.setEstado("fracaso");
 	}
 	
-	public static void visualizarContratos() {
+	public static String visualizarContratos() {
+		String str = null;
 		for(int i=0;i<contratos.size();i++)
-			System.out.println("Empleador: "+contratos.get(i).getEmpleador().getCuenta().getUsuario()+"Empleados: "+contratos.get(i).getEmpleadosPretensos());
+			str = "Empleador: "+contratos.get(i).getEmpleador().getCuenta().getUsuario()+"Empleados: "+contratos.get(i).getEmpleadosPretensos();
+		return str;
 	}
 }

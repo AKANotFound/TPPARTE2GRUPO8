@@ -20,14 +20,16 @@ public class FuncionalidadEmpleador extends FuncionalidadPersona {
 	}
 
 	@Override
-	public void visualizaResultado() {
+	public String visualizaResultado() {
+		String str = null;
 		if (!((Persona_Empleador) usuario).getEmpleadosContratados().isEmpty()) {
-			System.out.println(((Persona_Empleador) usuario).getRazonSocial()+",contrataste a los siguientes empleados:");
+			str = ((Persona_Empleador) usuario).getRazonSocial()+",contrataste a los siguientes empleados:";
 			for (int i=0;i<((Persona_Empleador) usuario).getEmpleadosContratados().size();i++)
-				System.out.println(((Persona_Empleador) usuario).getEmpleadosContratados().get(i));
+				str = "" + ((Persona_Empleador) usuario).getEmpleadosContratados().get(i);
 		}
 		else
-			System.out.println("Lo sentimos "+((Persona_Empleador) usuario).getRazonSocial()+", no se ha podido generar ningun contrato");
+			str = "Lo sentimos "+((Persona_Empleador) usuario).getRazonSocial()+", no se ha podido generar ningun contrato";
+		return str;
 	}
 
 	@Override

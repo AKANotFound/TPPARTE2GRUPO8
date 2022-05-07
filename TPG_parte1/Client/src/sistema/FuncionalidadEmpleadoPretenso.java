@@ -31,11 +31,13 @@ public class FuncionalidadEmpleadoPretenso extends FuncionalidadPersona {
 	
 
 	@Override
-	public void visualizaResultado() {
+	public String visualizaResultado() {
+		String str = null;
 		if (((Persona_EmpleadoPretenso) usuario).getEmpleadorActual()!=null)
-			System.out.println(((Persona_EmpleadoPretenso) usuario).getNya()+", fuiste contratado por:"+((Persona_EmpleadoPretenso) usuario).getEmpleadorActual());
+			str = ((Persona_EmpleadoPretenso) usuario).getNya()+", fuiste contratado por:"+((Persona_EmpleadoPretenso) usuario).getEmpleadorActual();
 		else
-			System.out.println("lo sentimos "+((Persona_EmpleadoPretenso) usuario).getNya()+", no fuiste contratado por ninguna empresa");
+			str = "lo sentimos "+((Persona_EmpleadoPretenso) usuario).getNya()+", no fuiste contratado/a por ninguna empresa";
+		return str;
 	}
 
 	@Override

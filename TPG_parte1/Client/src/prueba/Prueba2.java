@@ -43,6 +43,10 @@ public class Prueba2 {
 		FuncionalidadEmpleador gesi = null;
 		FuncionalidadEmpleador carrefour = null;
 		
+		//Declaro los puntajes de los aspectos de los empleadores
+		double puntajeAspectosGesi[]= {1,1,1,1,1,1,3};
+		double puntajeAspectosCarrefour[]= {10,12,0,1,3,-2,1};
+		
 		//REGISTRO EMPLEADOS Y EMPLEADORES
 		try {
 			Sistema.registrarEmpleadoPretenso("saimonmdp", "123abc", "Juan Simon Facal", "2235276920", 22);
@@ -69,12 +73,7 @@ public class Prueba2 {
 		} catch (EdadInvalidaException e) {
 			System.out.println(e.getMessage());
 			e.printStackTrace();
-		}
-
-		
-		//Declaro los puntajes de los aspectos de los empleadores
-		double puntajeAspectosGesi[]= {1,1,1,1,1,1,3};
-		double puntajeAspectosCarrefour[]= {10,12,0,1,3,-2,1};
+		}		
 		
 		try {
 			Sistema.registrarEmpleador("gesi", "empresajaja", "Grupo ESI", "juridica", new Rubro_ComercioLocal(),puntajeAspectosGesi);
@@ -155,15 +154,15 @@ public class Prueba2 {
 		gesi.crearTicket(form5, 2);
 		carrefour.crearTicket(form6, 1);
 		 
-		//Agencia.getInstancia().getFuncionalidad().visualizarEmpleadores();
-		//Agencia.getInstancia().getFuncionalidad().visualizarEmpleadosPretensos();
+		System.out.println(admin.visualizarEmpleadores());
+		System.out.println(admin.visualizarEmpleadosPretensos());
 		
 		admin.iniciaRondaEncuentrosLaborales();
 		
 		System.out.println("UNA VEZ TERMINADA LA RONDA DE ENCUENTROS LABORALES, CADA USUARIO VISUALIZA SU LISTA DE ASIGNACION \n");
 		
 		try {
-			saimonmdp.visualizarListaAsignacion();
+			System.out.println(saimonmdp.visualizarListaAsignacion());
 			
 		} catch (ListaNoGeneradaException e) {
 			
@@ -171,7 +170,7 @@ public class Prueba2 {
 			e.printStackTrace();
 		}
 		try {
-			hamilton.visualizarListaAsignacion();
+			System.out.println(hamilton.visualizarListaAsignacion());
 			
 		} catch (ListaNoGeneradaException e) {
 			
@@ -179,14 +178,14 @@ public class Prueba2 {
 			e.printStackTrace();
 		}
 		try {
-			ElKeizy.visualizarListaAsignacion();
+			System.out.println(ElKeizy.visualizarListaAsignacion());
 		} catch (ListaNoGeneradaException e) {
 			
 			System.out.println(e.getMessage());
 			e.printStackTrace();
 		}
 		try {
-			LifeIsMusic.visualizarListaAsignacion();
+			System.out.println(LifeIsMusic.visualizarListaAsignacion());
 			
 		} catch (ListaNoGeneradaException e) {
 			
@@ -194,18 +193,17 @@ public class Prueba2 {
 			e.printStackTrace();
 		}
 		try {
-			gesi.visualizarListaAsignacion();
+			System.out.println(gesi.visualizarListaAsignacion());
 		} catch (ListaNoGeneradaException e) {
 			System.out.println(e.getMessage());
 			e.printStackTrace();
 		}
 		try {
-			carrefour.visualizarListaAsignacion();
+			System.out.println(carrefour.visualizarListaAsignacion());
 		} catch (ListaNoGeneradaException e) {
 			System.out.println(e.getMessage());
 			e.printStackTrace();
 		}
-		
 		
 		saimonmdp.iniciarRondaEleccion();
 		hamilton.iniciarRondaEleccion();
@@ -225,15 +223,15 @@ public class Prueba2 {
 		admin.iniciaRondaContratacion();
 		
 		System.out.println("VISUALIZACION DE CONTRATOS \n");
-		Sistema.visualizarContratos();
+		System.out.println(Sistema.visualizarContratos());
 		
 		System.out.println("VISUALIZACION DE RESULTADOS");
-		saimonmdp.visualizaResultado();
-		hamilton.visualizaResultado();
-		ElKeizy.visualizaResultado();
-		LifeIsMusic.visualizaResultado();
-		gesi.visualizaResultado();
-		carrefour.visualizaResultado();
+		System.out.println(saimonmdp.visualizaResultado());
+		System.out.println(hamilton.visualizaResultado());
+		System.out.println(ElKeizy.visualizaResultado());
+		System.out.println(LifeIsMusic.visualizaResultado());
+		System.out.println(gesi.visualizaResultado());
+		System.out.println(carrefour.visualizaResultado());
 		
 	}
 
