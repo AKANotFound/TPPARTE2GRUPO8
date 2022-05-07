@@ -3,6 +3,8 @@ package sistema;
 import entidades.FormularioDeBusqueda;
 import entidades.Persona;
 import entidades.Persona_Empleador;
+import entidades.Ticket;
+import excepciones.ModificacionTicketInvalidaException;
 
 public class FuncionalidadEmpleador extends FuncionalidadPersona {	
 	
@@ -21,11 +23,11 @@ public class FuncionalidadEmpleador extends FuncionalidadPersona {
 
 	@Override
 	public String visualizaResultado() {
-		String str = null;
+		String str = "";
 		if (!((Persona_Empleador) usuario).getEmpleadosContratados().isEmpty()) {
-			str = ((Persona_Empleador) usuario).getRazonSocial()+",contrataste a los siguientes empleados:";
+			str = ((Persona_Empleador) usuario).getRazonSocial()+", contrataste a los siguientes empleados: ";
 			for (int i=0;i<((Persona_Empleador) usuario).getEmpleadosContratados().size();i++)
-				str = "" + ((Persona_Empleador) usuario).getEmpleadosContratados().get(i);
+				str += ((Persona_Empleador) usuario).getEmpleadosContratados().get(i).getNya() + ", ";
 		}
 		else
 			str = "Lo sentimos "+((Persona_Empleador) usuario).getRazonSocial()+", no se ha podido generar ningun contrato";
@@ -34,6 +36,17 @@ public class FuncionalidadEmpleador extends FuncionalidadPersona {
 
 	@Override
 	public String visualizarPersonasElegidas() {
-		return usuario + " eligio a: " + ((Persona_Empleador) usuario).getEmpleadosElegidos();
+		return ((Persona_Empleador) usuario).getRazonSocial() + " eligio a: " + ((Persona_Empleador) usuario).getEmpleadosElegidos();
+	}
+
+	@Override
+	public String visualizarPersona() {
+		return ((Persona_Empleador) usuario).getRazonSocial();
+	}
+	
+	@Override
+	public void cancelarTicket() throws ModificacionTicketInvalidaException {
+		super.cancelarTicket();
+		Sistema.calculaComision((Persona_Empleador) usuario);
 	}
 }

@@ -2,6 +2,8 @@ package sistema;
 
 import entidades.FormularioDeBusqueda;
 import entidades.Persona;
+import entidades.Persona_Empleador;
+import entidades.Ticket;
 import excepciones.ListaNoGeneradaException;
 import excepciones.ModificacionTicketInvalidaException;
 
@@ -48,10 +50,15 @@ public abstract class FuncionalidadPersona extends FuncionalidadUsuario{
 		return str;
 	}
 	
-	public void visualizarCostoServicio() {
-		System.out.println(((Persona) usuario).getCostoServicio());
+	public String visualizarCostoServicio() {
+		Ticket ticket = ((Persona) usuario).getTicket();
+		if(ticket.getEstado().equals("finalizado") || ticket.getEstado().equals("cancelado"))
+			return "$" + ((Persona) usuario).getCostoServicio();
+		else
+			return "ticket no finalizado";
 	}
 	
+	public abstract String visualizarPersona();
 	public abstract String visualizaResultado();
 	public abstract String visualizarPersonasElegidas();
 } 

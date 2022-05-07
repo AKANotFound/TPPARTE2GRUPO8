@@ -15,6 +15,7 @@ public class FuncionalidadEmpleadoPretenso extends FuncionalidadPersona {
 		((Persona) usuario).setTicket(TicketFactory.crearTicket((Persona_EmpleadoPretenso) usuario, formulario));
 	}
 	
+	@Override
 	public void cancelarTicket() throws ModificacionTicketInvalidaException {
 		super.cancelarTicket();
 		Sistema.puntajeCancelar((Persona_EmpleadoPretenso) usuario);
@@ -35,7 +36,7 @@ public class FuncionalidadEmpleadoPretenso extends FuncionalidadPersona {
 	public String visualizaResultado() {
 		String str = null;
 		if (((Persona_EmpleadoPretenso) usuario).getEmpleadorActual()!=null)
-			str = ((Persona_EmpleadoPretenso) usuario).getNya()+", fuiste contratado por:"+((Persona_EmpleadoPretenso) usuario).getEmpleadorActual();
+			str = ((Persona_EmpleadoPretenso) usuario).getNya()+", fuiste contratado por: "+((Persona_EmpleadoPretenso) usuario).getEmpleadorActual().getRazonSocial();
 		else
 			str = "lo sentimos "+((Persona_EmpleadoPretenso) usuario).getNya()+", no fuiste contratado/a por ninguna empresa";
 		return str;
@@ -43,6 +44,11 @@ public class FuncionalidadEmpleadoPretenso extends FuncionalidadPersona {
 
 	@Override
 	public String visualizarPersonasElegidas() {
-		return usuario + " eligio a: " + ((Persona_EmpleadoPretenso) usuario).getEmpleadorElegido();
+		return ((Persona_EmpleadoPretenso) usuario).getNya() + " eligio a: [" + ((Persona_EmpleadoPretenso) usuario).getEmpleadorElegido() + "]";
+	}
+
+	@Override
+	public String visualizarPersona() {
+		return ((Persona_EmpleadoPretenso) usuario).getNya();
 	}	
 }

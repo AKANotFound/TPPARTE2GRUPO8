@@ -164,12 +164,14 @@ public abstract class Sistema {
 		double remuneracion = empleador.getRemuneracion();
 		double comision = 0;
 		
-		if(tipoPersona.equalsIgnoreCase("fisica"))
-			comision = rubro.calculaComisionPersonaFisica(remuneracion);
-		else if(tipoPersona.equalsIgnoreCase("juridica"))
-			comision = rubro.calculaComisionPersonaJuridica(remuneracion);
-		
-		comision *= (100 - empleador.getPuntaje())/100;
+		if(empleador.getPuntaje() < 100) {
+			if(tipoPersona.equalsIgnoreCase("fisica"))
+				comision = rubro.calculaComisionPersonaFisica(remuneracion);
+			else if(tipoPersona.equalsIgnoreCase("juridica"))
+				comision = rubro.calculaComisionPersonaJuridica(remuneracion);
+			
+			comision *= (double)(100 - empleador.getPuntaje())/100;
+		}
 		
 		empleador.setCostoServicio(comision);
 	}
@@ -185,14 +187,16 @@ public abstract class Sistema {
 		double remuneracion = empleadoPretenso.getRemuneracion();
 		double comision = 0;
 		
-		if(tipoDePuesto.equalsIgnoreCase("junior"))
-			comision = remuneracion * 0.8;
-		else if(tipoDePuesto.equalsIgnoreCase("senior"))
-			comision = remuneracion * 0.9;
-		else if(tipoDePuesto.equalsIgnoreCase("managment"))
-			comision = remuneracion;
+		if(empleadoPretenso.getPuntaje() < 100) {
+			if(tipoDePuesto.equalsIgnoreCase("junior"))
+				comision = remuneracion * 0.8;
+			else if(tipoDePuesto.equalsIgnoreCase("senior"))
+				comision = remuneracion * 0.9;
+			else if(tipoDePuesto.equalsIgnoreCase("managment"))
+				comision = remuneracion;
 		
-		comision *= (100 - empleadoPretenso.getPuntaje())/100;
+		comision *= (double)(100 - empleadoPretenso.getPuntaje())/100;
+		}
 		
 		empleadoPretenso.setCostoServicio(comision);
 	}
@@ -265,9 +269,12 @@ public abstract class Sistema {
 	}
 	
 	public static String visualizarContratos() {
-		String str = null;
-		for(int i=0;i<contratos.size();i++)
-			str = "Empleador: "+contratos.get(i).getEmpleador().getCuenta().getUsuario()+"Empleados: "+contratos.get(i).getEmpleadosPretensos();
+		String str = "";
+		if(!contratos.isEmpty())
+			for(int i=0;i<contratos.size();i++)
+				str += "Empleador: "+contratos.get(i).getEmpleador().getCuenta().getUsuario()+"Empleados: "+contratos.get(i).getEmpleadosPretensos();
+		else
+			str = "No se han podido generar contratos";
 		return str;
 	}
 }

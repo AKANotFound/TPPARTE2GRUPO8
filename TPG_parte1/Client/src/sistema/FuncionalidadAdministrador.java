@@ -19,17 +19,17 @@ public class FuncionalidadAdministrador extends FuncionalidadUsuario{
 	}
 	
 	public String visualizarEmpleadores() {
-		String str = null;
+		String str = "";
 		for (int i=0; i<Agencia.getInstancia().getEmpleadores().size(); i++) {
-			str = Agencia.getInstancia().getEmpleadores().get(i) + "\n";
+			str += Agencia.getInstancia().getEmpleadores().get(i) + "\n";
 		}
 		return str;
 	}
 	
 	public String visualizarEmpleadosPretensos() {
-		String str = null;
+		String str = "";
 		for (int i=0; i<Agencia.getInstancia().getEmpleadosPretensos().size() ; i++) {
-			str = Agencia.getInstancia().getEmpleadosPretensos().get(i) + "\n";
+			str += Agencia.getInstancia().getEmpleadosPretensos().get(i) + "\n";
 		}
 		return str;
 	}
