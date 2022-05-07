@@ -1,7 +1,10 @@
 package entidades;
 
 public class Administrador extends Usuario{
-	private static Administrador instancia = null;
+    /**
+     * @aggregation composite
+     */
+    private static Administrador instancia = null;
 
 	private Administrador() {
 		super(new Cuenta("admin","1234","administrador"));

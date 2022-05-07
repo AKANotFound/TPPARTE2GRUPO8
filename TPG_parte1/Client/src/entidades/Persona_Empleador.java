@@ -5,8 +5,16 @@ import java.util.ArrayList;
 public class Persona_Empleador extends Persona {
 
 	private String razonSocial;
+
+    /**
+     * @aggregation composite
+     */
     private IRubro rubro;
     private double puntajeAspectos[]=new double[7];
+
+    /**
+     * @aggregation shared
+     */
     private ArrayList<PersonaElegida> empleadosElegidos = new ArrayList<PersonaElegida>();
     private String tipoPersona;
     private ArrayList<Persona_EmpleadoPretenso>empleadosContratados=new ArrayList<Persona_EmpleadoPretenso>();

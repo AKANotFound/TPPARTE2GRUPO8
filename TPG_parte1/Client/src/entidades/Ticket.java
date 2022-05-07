@@ -5,6 +5,10 @@ import java.util.GregorianCalendar;
 public abstract class Ticket {
     private GregorianCalendar fechaAlta; //tener en cuenta para visual
     protected String estado;
+
+    /**
+     * @aggregation shared
+     */
     private FormularioDeBusqueda formularioDeBusqueda;
     
     public void setEstado(String estado) {

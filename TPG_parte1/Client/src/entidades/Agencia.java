@@ -9,14 +9,41 @@ import java.util.HashMap;
  */
 
 public class Agencia {
-	private ArrayList<Persona_Empleador> empleadores = new ArrayList<Persona_Empleador>();
-	private ArrayList<Persona_EmpleadoPretenso> empleadosPretensos = new ArrayList<Persona_EmpleadoPretenso>();
-	private ArrayList<Ticket_EmpleadoPretenso> ticketsEmpleadosPretensos = new ArrayList<Ticket_EmpleadoPretenso>();
-	private ArrayList<Ticket_Empleador> ticketsEmpleadores = new ArrayList<Ticket_Empleador>();
-	private ArrayList<Cuenta> logins = new ArrayList<Cuenta>();
+    /**
+     * @aggregation composite
+     */
+    private ArrayList<Persona_Empleador> empleadores = new ArrayList<Persona_Empleador>();
+
+    /**
+     * @aggregation composite
+     */
+    private ArrayList<Persona_EmpleadoPretenso> empleadosPretensos = new ArrayList<Persona_EmpleadoPretenso>();
+
+    /**
+     * @aggregation composite
+     */
+    private ArrayList<Ticket_EmpleadoPretenso> ticketsEmpleadosPretensos = new ArrayList<Ticket_EmpleadoPretenso>();
+
+    /**
+     * @aggregation composite
+     */
+    private ArrayList<Ticket_Empleador> ticketsEmpleadores = new ArrayList<Ticket_Empleador>();
+
+    /**
+     * @aggregation composite
+     */
+    private ArrayList<Cuenta> logins = new ArrayList<Cuenta>();
 	private HashMap <String, Usuario> usuarios = new HashMap <>();
-	private ArrayList<Contrato> contratos = new ArrayList<Contrato>();
-	private static Agencia instancia = null;
+
+    /**
+     * @aggregation composite
+     */
+    private ArrayList<Contrato> contratos = new ArrayList<Contrato>();
+
+    /**
+     * @aggregation composite
+     */
+    private static Agencia instancia = null;
 	 
 	private Agencia() {}
 	 

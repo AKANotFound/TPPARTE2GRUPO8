@@ -5,8 +5,16 @@ import java.util.GregorianCalendar;
 
 public class Contrato {
 	private GregorianCalendar fechaDeCreacion;
-	private Persona_Empleador empleador;
-	private ArrayList<Persona_EmpleadoPretenso> empleadosPretensos;
+
+    /**
+     * @aggregation composite
+     */
+    private Persona_Empleador empleador;
+
+    /**
+     * @aggregation composite
+     */
+    private ArrayList<Persona_EmpleadoPretenso> empleadosPretensos;
 	
 	
 	public Contrato(Persona_Empleador empleador, ArrayList<Persona_EmpleadoPretenso> empleadosPretensos,GregorianCalendar fechaDeCreacion) {

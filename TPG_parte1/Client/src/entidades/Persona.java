@@ -8,7 +8,11 @@ package entidades;
 public abstract class Persona extends Usuario {
 	protected Ticket ticket;
 	private double costoServicio;
-	private ListaDeAsignacion listaDeAsignacion;
+
+    /**
+     * @aggregation shared
+     */
+    private ListaDeAsignacion listaDeAsignacion;
 	private int puntaje;
  
 	/**

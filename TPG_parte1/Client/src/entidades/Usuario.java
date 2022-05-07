@@ -1,7 +1,10 @@
 package entidades;
 
 public abstract class Usuario {
-	private Cuenta cuenta;
+    /**
+     * @aggregation composite
+     */
+    private Cuenta cuenta;
 	
 	public Usuario(Cuenta cuenta) {
 		super();
