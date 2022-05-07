@@ -247,14 +247,6 @@ public class Prueba2 {
 		System.out.println(microsoft.visualizarPersona() + ": " + microsoft.visualizarCostoServicio());
 		System.out.println(carrefour.visualizarPersona() + ": " + carrefour.visualizarCostoServicio());
 		
-		System.out.println("EL ADMIN INICIA OTRA RONDA DE ENCUENTROS LABORALES");
-		admin.iniciaRondaEncuentrosLaborales();
-	    try {
-			jorge.cancelarTicket();
-		} catch (ModificacionTicketInvalidaException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 	     
 	}
 
