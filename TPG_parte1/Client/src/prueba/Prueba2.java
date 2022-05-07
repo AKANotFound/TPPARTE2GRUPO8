@@ -7,6 +7,7 @@ import excepciones.EdadInvalidaException;
 import excepciones.ErrorContrasenaException;
 import excepciones.ErrorUsuarioException;
 import excepciones.ListaNoGeneradaException;
+import excepciones.ModificacionTicketInvalidaException;
 import excepciones.TipoPersonaInvalidoException;
 import sistema.FuncionalidadAdministrador;
 import sistema.FuncionalidadEmpleadoPretenso;
@@ -161,6 +162,7 @@ public class Prueba2 {
 		System.out.println(admin.visualizarEmpleadores());
 		System.out.println(admin.visualizarEmpleadosPretensos());
 		
+		System.out.println("EL ADMIN INICIA LA RONDA DE ENCUENTROS LABORALES");
 		admin.iniciaRondaEncuentrosLaborales();
 		
 		System.out.println("UNA VEZ TERMINADA LA RONDA DE ENCUENTROS LABORALES, CADA USUARIO VISUALIZA SU LISTA DE ASIGNACION \n");
@@ -244,6 +246,16 @@ public class Prueba2 {
 		System.out.println(francoP.visualizarPersona() + ": " + francoP.visualizarCostoServicio());
 		System.out.println(microsoft.visualizarPersona() + ": " + microsoft.visualizarCostoServicio());
 		System.out.println(carrefour.visualizarPersona() + ": " + carrefour.visualizarCostoServicio());
+		
+		System.out.println("EL ADMIN INICIA OTRA RONDA DE ENCUENTROS LABORALES");
+		admin.iniciaRondaEncuentrosLaborales();
+	    try {
+			jorge.cancelarTicket();
+		} catch (ModificacionTicketInvalidaException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	     
 	}
 
 }
