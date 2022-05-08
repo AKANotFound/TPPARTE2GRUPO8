@@ -192,7 +192,7 @@ public abstract class Sistema {
 				comision = remuneracion * 0.8;
 			else if(tipoDePuesto.equalsIgnoreCase("senior"))
 				comision = remuneracion * 0.9;
-			else if(tipoDePuesto.equalsIgnoreCase("managment"))
+			else if(tipoDePuesto.equalsIgnoreCase("management"))
 				comision = remuneracion;
 		
 		comision *= (double)(100 - empleadoPretenso.getPuntaje())/100;
