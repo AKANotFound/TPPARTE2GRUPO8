@@ -5,7 +5,8 @@ public class Persona_EmpleadoPretenso extends Persona {
     private String telefono;
     private int edad;
 	private PersonaElegida empleadorElegido;
-	private Persona_Empleador empleadorActual=null;
+	private Persona_Empleador empleadorActual;
+	
 	
     public Persona_EmpleadoPretenso(Cuenta cuenta, String nya, String telefono, int edad) {
 		super(cuenta);
@@ -13,9 +14,11 @@ public class Persona_EmpleadoPretenso extends Persona {
 		this.telefono = telefono;
 		this.edad = edad;
 		this.empleadorElegido = null;
+		this.empleadorActual=null;
 	}
     
-    public Persona_Empleador getEmpleadorActual() {
+
+	public Persona_Empleador getEmpleadorActual() {
 		return empleadorActual;
 	}
 
@@ -23,6 +26,7 @@ public class Persona_EmpleadoPretenso extends Persona {
 	public void setEmpleadorActual(Persona_Empleador empleadorActual) {
 		this.empleadorActual = empleadorActual;
 	}
+
 
 	public PersonaElegida getEmpleadorElegido() {
 		return empleadorElegido;

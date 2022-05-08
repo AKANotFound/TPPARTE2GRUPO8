@@ -7,9 +7,12 @@ import entidades.Ticket_Empleador;
 abstract class RondaDeElecciones {	
 	
 	static void iniciaRondaDeEleccionEmpleadoPretenso(Persona_EmpleadoPretenso empleadoPretenso) {
-		int seleccion=(int)(Math.random()*empleadoPretenso.getListaDeAsignacion().getLista().size());
+		if (empleadoPretenso.getListaDeAsignacion()!=null)
+		{
+			int seleccion=(int)(Math.random()*empleadoPretenso.getListaDeAsignacion().getLista().size());
 		//Sistema.visualizarListaAsignacion(empleadoPretenso); //le muestra la lista al usuario
-		empleadoPretenso.setEmpleadorElegido(empleadoPretenso.getListaDeAsignacion().getLista().get(seleccion));
+			empleadoPretenso.setEmpleadorElegido(empleadoPretenso.getListaDeAsignacion().getLista().get(seleccion));
+		}
 		
 	}
 	
@@ -20,14 +23,17 @@ abstract class RondaDeElecciones {
 		int seleccion;
 		int i = 0;
 		//Sistema.visualizarListaAsignacion(empleador); // le muestra la lista al usuario
-		while (i < empleador.getListaDeAsignacion().getLista().size() && cantObtenidos < cantSolicitados)
+		if (empleador.getListaDeAsignacion()!=null)
 		{
-			seleccion=(int)(Math.random()*empleador.getListaDeAsignacion().getLista().size());
-			while(empleador.getEmpleadosElegidos().contains(empleador.getListaDeAsignacion().getLista().get(seleccion)) )
+			while (i < empleador.getListaDeAsignacion().getLista().size() && cantObtenidos < cantSolicitados)
+			{
 				seleccion=(int)(Math.random()*empleador.getListaDeAsignacion().getLista().size());
-			empleador.agregaEmpleadosElegidos(empleador.getListaDeAsignacion().getLista().get(seleccion));
-			i++;
-			cantObtenidos++;
+				while(empleador.getEmpleadosElegidos().contains(empleador.getListaDeAsignacion().getLista().get(seleccion)) )
+					seleccion=(int)(Math.random()*empleador.getListaDeAsignacion().getLista().size());
+				empleador.agregaEmpleadosElegidos(empleador.getListaDeAsignacion().getLista().get(seleccion));
+				i++;
+				cantObtenidos++;
+			}
 		}
 		
 	} 

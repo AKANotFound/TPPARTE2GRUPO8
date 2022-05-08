@@ -11,8 +11,14 @@ public class FuncionalidadEmpleadoPretenso extends FuncionalidadPersona {
 		super(empleado);
 	}
 
-	public void crearTicket(FormularioDeBusqueda formulario) {
+	public void crearTicket(FormularioDeBusqueda formulario)  {
 		((Persona) usuario).setTicket(TicketFactory.crearTicket((Persona_EmpleadoPretenso) usuario, formulario));
+		try {
+			this.activarTicket();
+		} catch (ModificacionTicketInvalidaException e) {
+			
+			e.printStackTrace();
+		}
 	}
 	
 	@Override
@@ -35,7 +41,8 @@ public class FuncionalidadEmpleadoPretenso extends FuncionalidadPersona {
 	@Override
 	public String visualizaResultado() {
 		String str = null;
-		if (((Persona_EmpleadoPretenso) usuario).getEmpleadorActual()!=null)
+		System.out.println(((Persona_EmpleadoPretenso) usuario).getTicket().getEstado());
+		if (((Persona_EmpleadoPretenso) usuario).getTicket().getEstado().equalsIgnoreCase("finalizado"))
 			str = ((Persona_EmpleadoPretenso) usuario).getNya()+", fuiste contratado por: "+((Persona_EmpleadoPretenso) usuario).getEmpleadorActual().getRazonSocial();
 		else
 			str = "lo sentimos "+((Persona_EmpleadoPretenso) usuario).getNya()+", no fuiste contratado/a por ninguna empresa";

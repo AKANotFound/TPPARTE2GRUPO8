@@ -11,4 +11,10 @@ public class Ticket_EmpleadoPretenso extends Ticket {
 	public void setResultado(String resultado) {
 		this.resultado = resultado;
 	}
+
+	public String getResultado() {
+		return resultado;
+	}
+	
+	
 }

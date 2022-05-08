@@ -151,7 +151,8 @@ public class Prueba2 {
 		FormularioDeBusqueda form4 = new FormularioDeBusqueda (LocacionFactory.getLocacion("HomeOffice"), new Remuneracion_30mil(), new CargaHoraria_Extendida(), new TipoDePuesto_Junior(), new RangoEtario_MasDe50(), new ExperienciaPrevia_Nada(), new EstudiosCursados_Primario());
 		FormularioDeBusqueda form5 = new FormularioDeBusqueda (LocacionFactory.getLocacion("HomeOffice"), new Remuneracion_90mil(), new CargaHoraria_Completa(), new TipoDePuesto_Senior(), new RangoEtario_MenosDe40(), new ExperienciaPrevia_Mucha(), new EstudiosCursados_Secundario());
 		FormularioDeBusqueda form6 = new FormularioDeBusqueda (LocacionFactory.getLocacion("Presencial"), new Remuneracion_30mil(), new CargaHoraria_Media(), new TipoDePuesto_Junior(), new RangoEtario_MenosDe40(), new ExperienciaPrevia_Nada(), new EstudiosCursados_Secundario());
-		//System.out.println(form1.getLocacion());
+		
+		
 		jorge.crearTicket(form1);
 		pablo.crearTicket(form2);
 		francoS.crearTicket(form3);

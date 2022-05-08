@@ -259,20 +259,20 @@ public abstract class Sistema {
 	
 	static void resultadoExito(Persona_EmpleadoPretenso empleadoPretenso) 
 	{ 
-		Ticket ticket = (Ticket_EmpleadoPretenso) empleadoPretenso.getTicket();
-		ticket.setEstado("exito");
+		Ticket_EmpleadoPretenso ticket = (Ticket_EmpleadoPretenso)empleadoPretenso.getTicket();
+		ticket.setResultado("exito");
 	}
 	
 	static void resultadoFracaso(Persona_EmpleadoPretenso empleadoPretenso) {
-		Ticket ticket = (Ticket_EmpleadoPretenso) empleadoPretenso.getTicket();
-		ticket.setEstado("fracaso");
+		Ticket_EmpleadoPretenso ticket = (Ticket_EmpleadoPretenso) empleadoPretenso.getTicket();
+		ticket.setResultado("fracaso");
 	}
 	
 	public static String visualizarContratos() {
 		String str = "";
 		if(!contratos.isEmpty())
 			for(int i=0;i<contratos.size();i++)
-				str += "Empleador: "+contratos.get(i).getEmpleador().getCuenta().getUsuario()+"Empleados: "+contratos.get(i).getEmpleadosPretensos();
+				str += "Empleador: "+contratos.get(i).getEmpleador().getCuenta().getUsuario()+", Empleados: "+contratos.get(i).getEmpleadosPretensos()+"\n";
 		else
 			str = "No se han podido generar contratos";
 		return str;
