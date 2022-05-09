@@ -3,7 +3,6 @@ package sistema;
 import entidades.FormularioDeBusqueda;
 import entidades.Persona;
 import entidades.Persona_Empleador;
-import entidades.Ticket;
 import excepciones.ModificacionTicketInvalidaException;
 
 public class FuncionalidadEmpleador extends FuncionalidadPersona {	

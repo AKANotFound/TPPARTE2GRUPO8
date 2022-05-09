@@ -5,7 +5,6 @@ import java.util.GregorianCalendar;
 
 public class ListaDeAsignacion {
 	private GregorianCalendar fechaDeCreacion = null;
-
     private ArrayList<PersonaElegida> lista =null;
 	
 	public String getFechaDeCreacion() {

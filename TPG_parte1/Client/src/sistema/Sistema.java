@@ -12,7 +12,6 @@ import entidades.IRubro;
 import entidades.Persona;
 import entidades.Persona_EmpleadoPretenso;
 import entidades.Persona_Empleador;
-import entidades.Ticket;
 import entidades.Ticket_EmpleadoPretenso;
 import entidades.Usuario;
 import excepciones.EdadInvalidaException;

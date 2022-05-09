@@ -7,7 +7,6 @@ import excepciones.EdadInvalidaException;
 import excepciones.ErrorContrasenaException;
 import excepciones.ErrorUsuarioException;
 import excepciones.ListaNoGeneradaException;
-import excepciones.ModificacionTicketInvalidaException;
 import excepciones.TipoPersonaInvalidoException;
 import sistema.FuncionalidadAdministrador;
 import sistema.FuncionalidadEmpleadoPretenso;
