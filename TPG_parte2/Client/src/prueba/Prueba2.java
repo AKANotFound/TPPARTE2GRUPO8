@@ -211,6 +211,7 @@ public class Prueba2 {
 			e.printStackTrace();
 		}
 		
+		
 		jorge.iniciarRondaEleccion();
 		pablo.iniciarRondaEleccion();
 		francoS.iniciarRondaEleccion();
