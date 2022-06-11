@@ -30,6 +30,8 @@ public class Agencia {
 
     
     private static Agencia instancia = null;
+    
+    private String codigoAdministrador="XAEA-12";
 	 
 	private Agencia() {}
 	 
@@ -60,4 +62,11 @@ public class Agencia {
 	public ArrayList<Contrato> getContratos() {
 		return contratos;
 	}
+
+	public String getCodigoAdministrador()
+	{
+		return codigoAdministrador;
+	}
+	
+	
 }

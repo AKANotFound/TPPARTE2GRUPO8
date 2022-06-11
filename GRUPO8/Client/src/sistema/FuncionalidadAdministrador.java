@@ -2,6 +2,7 @@ package sistema;
 
 import entidades.Agencia;
 import entidades.Usuario;
+import excepciones.RondaDeEncuentrosLaboralesNoIniciadaException;
 
 public class FuncionalidadAdministrador extends FuncionalidadUsuario{
 	
@@ -15,7 +16,14 @@ public class FuncionalidadAdministrador extends FuncionalidadUsuario{
 	}
 	
 	public void iniciaRondaContratacion() {
-		RondaDeContrataciones.iniciaRondaDeContrataciones();
+		try
+		{
+			RondaDeContrataciones.iniciaRondaDeContrataciones();
+		} catch (RondaDeEncuentrosLaboralesNoIniciadaException e)
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	public String visualizarEmpleadores() {
@@ -34,23 +42,24 @@ public class FuncionalidadAdministrador extends FuncionalidadUsuario{
 		return str;
 	}
 	
-	public void visualizarTicketsEmpleadores() {
-		System.out.println(Agencia.getInstancia().getTicketsEmpleadores());
+	public String visualizarTicketsEmpleadores() {
+		
+		return ""+Agencia.getInstancia().getTicketsEmpleadores();
 	}
 	
-	public void visualizarTicketsEmpleadosPretensos() {
-		System.out.println(Agencia.getInstancia().getEmpleadosPretensos());
+	public String visualizarTicketsEmpleadosPretensos() {
+		return ""+Agencia.getInstancia().getEmpleadosPretensos();
 	}
 	
-	public void visualizarCuentas() {
-		System.out.println(Agencia.getInstancia().getUsuarios());
+	public String visualizarCuentas() {
+		return ""+Agencia.getInstancia().getUsuarios();
 	}
 	
-	public void visualizarLogins() {
-		System.out.println(Agencia.getInstancia().getLogins());
+	public String visualizarLogins() {
+		return ""+Agencia.getInstancia().getLogins();
 	}
 	
-	public void visualizarContratos() {
-		System.out.println(Agencia.getInstancia().getContratos());
+	public String visualizarContratos() {
+		return ""+Agencia.getInstancia().getContratos();
 	}
 }

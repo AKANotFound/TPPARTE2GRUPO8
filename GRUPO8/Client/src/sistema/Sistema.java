@@ -15,6 +15,7 @@ import entidades.Persona_Empleador;
 import entidades.Ticket_EmpleadoPretenso;
 import entidades.Usuario;
 import excepciones.EdadInvalidaException;
+import excepciones.ErrorCodigoException;
 import excepciones.ErrorContrasenaException;
 import excepciones.ErrorUsuarioException;
 import excepciones.ListaNoGeneradaException;
@@ -61,6 +62,15 @@ public abstract class Sistema {
 		Sistema.agregarUsuario(empleadoPretenso);
 	}
 	
+	public static void registrarAdministrador(String usuario, String contrasena, String codigoAdministrador) throws ErrorCodigoException  {
+		
+		if (codigoAdministrador!=Agencia.getInstancia().getCodigoAdministrador())
+			throw new ErrorCodigoException("codigo erroneo",codigoAdministrador);
+		Administrador administrador=Administrador.getInstancia();
+		administrador.setCuenta(usuario, contrasena);
+		Sistema.agregarUsuario(administrador);
+	}
+	
 	/**
 	 *  Si el usuario esta registrado en el sistema y la contrasenia es correcta, hace su login.
 	 * @param nombreUsuario Parametro de tipo String que representa el nombre de usuario de la persona.
@@ -98,6 +108,7 @@ public abstract class Sistema {
 	public static void setInicioRondaEncuentrosLaborales(boolean inicioRondaEncuentrosLaborales) {
 		InicioRondaEncuentrosLaborales = inicioRondaEncuentrosLaborales;
 	}
+
 
 	public static FuncionalidadEmpleadoPretenso loginEmpleadoPretenso(String nombreUsuario,String contrasena) throws ErrorContrasenaException,ErrorUsuarioException 
 	{
@@ -248,13 +259,7 @@ public abstract class Sistema {
 		ticketEmpleadoPretenso.setResultado(resultado);
 	}
 
-	static void visualizarListaAsignacion(Persona persona) throws ListaNoGeneradaException
-	{
-		if(persona.getListaDeAsignacion() != null)
-			System.out.println(persona.getListaDeAsignacion());
-		else
-			throw new ListaNoGeneradaException();
-	}
+	
 	
 	static void resultadoExito(Persona_EmpleadoPretenso empleadoPretenso) 
 	{ 

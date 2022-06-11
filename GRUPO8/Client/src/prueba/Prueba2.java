@@ -4,6 +4,7 @@ import entidades.FormularioDeBusqueda;
 import entidades.Rubro_ComercioInternacional;
 import entidades.Rubro_ComercioLocal;
 import excepciones.EdadInvalidaException;
+import excepciones.ErrorCodigoException;
 import excepciones.ErrorContrasenaException;
 import excepciones.ErrorUsuarioException;
 import excepciones.ListaNoGeneradaException;
@@ -47,7 +48,18 @@ public class Prueba2 {
 		double puntajeAspectosGesi[]= {1,1,1,1,1,1,3};
 		double puntajeAspectosCarrefour[]= {10,12,0,1,3,-2,1};
 		
-		//REGISTRO EMPLEADOS Y EMPLEADORES
+		//REGISTRO ADMIN,EMPLEADOS Y EMPLEADORES
+		
+		try
+		{
+			Sistema.registrarAdministrador("admin","1234","XAEA-12");
+		} catch (ErrorCodigoException e1)
+		{
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
+		
 		try {
 			Sistema.registrarEmpleadoPretenso("jorge_perez", "123abc", "Jorge Adrian Perez", "2231111111", 32);
 		} catch (EdadInvalidaException e) {

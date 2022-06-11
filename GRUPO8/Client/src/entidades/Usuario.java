@@ -4,7 +4,7 @@ public abstract class Usuario {
     /**
      * @aggregation composite
      */
-    private Cuenta cuenta;
+    protected Cuenta cuenta;
 	
 	public Usuario(Cuenta cuenta) {
 		super();
@@ -14,4 +14,6 @@ public abstract class Usuario {
 	public Cuenta getCuenta() {
 		return cuenta;
 	}
+	
+	
 }

@@ -7,7 +7,7 @@ public class Administrador extends Usuario{
     private static Administrador instancia = null;
 
 	private Administrador() {
-		super(new Cuenta("admin","1234","administrador"));
+		super(new Cuenta(null,null,null));
 	}
 	
 	public static Administrador getInstancia() {
@@ -16,4 +16,10 @@ public class Administrador extends Usuario{
 		}
 		return instancia;
 	}	
+	
+	public void setCuenta(String usuario,String contrasena)
+	{
+		this.cuenta=new Cuenta(usuario,contrasena,"administrador");
+	}
+	
 }

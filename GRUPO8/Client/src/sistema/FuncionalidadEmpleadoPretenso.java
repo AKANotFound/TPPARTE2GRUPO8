@@ -41,7 +41,6 @@ public class FuncionalidadEmpleadoPretenso extends FuncionalidadPersona {
 	@Override
 	public String visualizaResultado() {
 		String str = null;
-		System.out.println(((Persona_EmpleadoPretenso) usuario).getTicket().getEstado());
 		if (((Persona_EmpleadoPretenso) usuario).getTicket().getEstado().equalsIgnoreCase("finalizado"))
 			str = ((Persona_EmpleadoPretenso) usuario).getNya()+", fuiste contratado por: "+((Persona_EmpleadoPretenso) usuario).getEmpleadorActual().getRazonSocial();
 		else

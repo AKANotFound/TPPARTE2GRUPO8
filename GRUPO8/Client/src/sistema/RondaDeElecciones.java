@@ -1,8 +1,10 @@
 package sistema;
 
+import entidades.Persona;
 import entidades.Persona_EmpleadoPretenso;
 import entidades.Persona_Empleador;
 import entidades.Ticket_Empleador;
+import excepciones.ListaNoGeneradaException;
 
 abstract class RondaDeElecciones {	
 	
@@ -37,5 +39,17 @@ abstract class RondaDeElecciones {
 		}
 		
 	} 
+	
+	//dejamos esta funcion para lo VISUAL
+	private static String visualizarListaAsignacion(Persona persona) throws ListaNoGeneradaException
+	{
+		String string=null;
+		if(persona.getListaDeAsignacion() != null)
+			string=""+persona.getListaDeAsignacion();
+			
+		else
+			throw new ListaNoGeneradaException();
+		return string;
+	}
 }
  
