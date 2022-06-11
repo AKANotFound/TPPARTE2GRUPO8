@@ -17,10 +17,6 @@ public class Agencia {
     private ArrayList<Cuenta> logins = new ArrayList<Cuenta>();
 	private HashMap <String, Usuario> usuarios = new HashMap <>(); 
     private ArrayList<Contrato> contratos = new ArrayList<Contrato>();
-    //BOLSA DE TRABAJO DE SIMULACION
-    private ArrayList<TicketSimplificado>bolsaDeTrabajo=new ArrayList<TicketSimplificado>();
-    
-
     
     private static Agencia instancia = null;
     
@@ -59,12 +55,5 @@ public class Agencia {
 	public String getCodigoAdministrador()
 	{
 		return codigoAdministrador;
-	}
-
-	public ArrayList<TicketSimplificado> getBolsaDeTrabajo()
-	{
-		return bolsaDeTrabajo;
-	}
-	
-	
+	}	
 }

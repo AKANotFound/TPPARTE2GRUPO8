@@ -14,9 +14,5 @@ public class TicketSimplificado
 		this.locacion = locacion;
 		this.rubro = rubro;
 		this.empleador = empleador;
-		Agencia.getInstancia().getBolsaDeTrabajo().add(this); //SE ANIADE TICKET A BOLSA DE TRABAJO
 	}
-	
-	
-	
 }

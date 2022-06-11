@@ -1,12 +1,13 @@
 package entidades;
 
-public class Persona_EmpleadoPretenso extends Persona {
+public class Persona_EmpleadoPretenso extends Persona implements Runnable {
 	private String nya;
     private String telefono;
     private int edad;
 	private PersonaElegida empleadorElegido;
 	private Persona_Empleador empleadorActual;
 	
+	private TicketSimplificado ticketSimplificado;
 	
     public Persona_EmpleadoPretenso(Cuenta cuenta, String nya, String telefono, int edad) {
 		super(cuenta);
@@ -52,6 +53,13 @@ public class Persona_EmpleadoPretenso extends Persona {
 
 	public String getNya() {
 		return nya;
+	}
+
+
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		
 	}
 	
 	
