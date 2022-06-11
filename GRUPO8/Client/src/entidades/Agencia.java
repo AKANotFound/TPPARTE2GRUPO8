@@ -11,22 +11,15 @@ import java.util.HashMap;
 public class Agencia {
     
     private ArrayList<Persona_Empleador> empleadores = new ArrayList<Persona_Empleador>();
-
-    
     private ArrayList<Persona_EmpleadoPretenso> empleadosPretensos = new ArrayList<Persona_EmpleadoPretenso>();
-
-    
     private ArrayList<Ticket_EmpleadoPretenso> ticketsEmpleadosPretensos = new ArrayList<Ticket_EmpleadoPretenso>();
-
-    
     private ArrayList<Ticket_Empleador> ticketsEmpleadores = new ArrayList<Ticket_Empleador>();
-
-    
     private ArrayList<Cuenta> logins = new ArrayList<Cuenta>();
-	private HashMap <String, Usuario> usuarios = new HashMap <>();
-
-    
+	private HashMap <String, Usuario> usuarios = new HashMap <>(); 
     private ArrayList<Contrato> contratos = new ArrayList<Contrato>();
+    //BOLSA DE TRABAJO DE SIMULACION
+    private ArrayList<TicketSimplificado>bolsaDeTrabajo=new ArrayList<TicketSimplificado>();
+    
 
     
     private static Agencia instancia = null;
@@ -66,6 +59,11 @@ public class Agencia {
 	public String getCodigoAdministrador()
 	{
 		return codigoAdministrador;
+	}
+
+	public ArrayList<TicketSimplificado> getBolsaDeTrabajo()
+	{
+		return bolsaDeTrabajo;
 	}
 	
 	
