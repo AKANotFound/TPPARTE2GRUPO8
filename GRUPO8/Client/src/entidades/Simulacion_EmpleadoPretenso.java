@@ -10,7 +10,7 @@ import util.Util;
 public class Simulacion_EmpleadoPretenso extends Persona_EmpleadoPretenso implements Runnable,Observer{
 	
 	private TicketSimplificado ticketSimplificado;
-	private BolsaDeTrabajo bolsaDeTrabajo;
+	private BolsaDeTrabajo bolsaDeTrabajo; //es el observado
 	private ArrayList<TicketSimplificado> ticketsSimplificadosIncompatibles = new ArrayList<TicketSimplificado>();
 	private ILocacion locacionElegida;
 	private IRubro rubroElegido;
@@ -44,11 +44,15 @@ public class Simulacion_EmpleadoPretenso extends Persona_EmpleadoPretenso implem
 		return rubroElegido;
 	}
 
+	public void setPuedeSacarTicket(boolean puedeSacarTicket) {
+		this.puedeSacarTicket = puedeSacarTicket;
+	}
+
 	@Override
 	public void run() {
 		int i = 0;
 		while(i < 10 && ticketSimplificado != null) {
-			while(!puedeSacarTicket) {
+			if(!puedeSacarTicket) {
 				try {
 					wait();
 				} catch (InterruptedException e) {
@@ -59,7 +63,7 @@ public class Simulacion_EmpleadoPretenso extends Persona_EmpleadoPretenso implem
 			bolsaDeTrabajo.sacaTicketSimplificado(this);
 			Util.espera(3000);
 			bolsaDeTrabajo.analizaTicketSimplificado(this);
-			puedeSacarTicket = false;
+			//puedeSacarTicket = false;
 			i++;
 		}
 	}

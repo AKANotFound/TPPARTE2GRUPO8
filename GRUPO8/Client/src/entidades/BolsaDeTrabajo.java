@@ -44,11 +44,15 @@ public class BolsaDeTrabajo extends Observable{
     		else
     			i++;
     	}
+    	if(i == bolsaDeTrabajo.size()) {
+    		empleadoPretenso.setPuedeSacarTicket(false);
+    	}
     }
     
     public synchronized void analizaTicketSimplificado(Simulacion_EmpleadoPretenso empleadoPretenso) {
     	if(!empleadoPretenso.getLocacionElegida().equals(empleadoPretenso.getTicketSimplificado().getLocacion())) { //si las locaciones son distintas
     		bolsaDeTrabajo.add(empleadoPretenso.getTicketSimplificado());
+    		empleadoPretenso.agregarTicketSimplificadoIncompatible(empleadoPretenso.getTicketSimplificado());
     		empleadoPretenso.setTicketSimplificado(null);
     	}
     	ocupado = false;
