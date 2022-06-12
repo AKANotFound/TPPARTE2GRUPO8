@@ -14,10 +14,16 @@ public class Simulacion_EmpleadoPretenso extends Persona_EmpleadoPretenso implem
 	private ArrayList<TicketSimplificado> ticketsSimplificadosIncompatibles = new ArrayList<TicketSimplificado>();
 	private ILocacion locacionElegida;
 	private IRubro rubroElegido;
-	private boolean puedeSacarTicket;
+	private boolean puedeSacarTicket=false;
 	
-	public Simulacion_EmpleadoPretenso(Cuenta cuenta, String nya, String telefono, int edad, ILocacion locacionElegida, IRubro rubroElegido) {
-		super(cuenta, nya, telefono, edad);
+	public void agregarObservable(BolsaDeTrabajo bolsaDeTrabajo)
+	{
+		bolsaDeTrabajo.addObserver(this);
+		this.bolsaDeTrabajo=bolsaDeTrabajo;
+	}
+	
+	public Simulacion_EmpleadoPretenso(String nya, ILocacion locacionElegida, IRubro rubroElegido) {
+		super(null, nya, null, 0);
 		this.locacionElegida = locacionElegida;
 		this.rubroElegido = rubroElegido;
 		this.ticketSimplificado = null;
@@ -51,7 +57,8 @@ public class Simulacion_EmpleadoPretenso extends Persona_EmpleadoPretenso implem
 	@Override
 	public void run() {
 		int i = 0;
-		while(i < 10 && ticketSimplificado != null) {
+		Util.espera(3000);
+		while(i < 10 && ticketSimplificado == null) {
 			if(!puedeSacarTicket) {
 				try {
 					wait();
@@ -63,7 +70,7 @@ public class Simulacion_EmpleadoPretenso extends Persona_EmpleadoPretenso implem
 			bolsaDeTrabajo.sacaTicketSimplificado(this);
 			Util.espera(3000);
 			bolsaDeTrabajo.analizaTicketSimplificado(this);
-			//puedeSacarTicket = false;
+			
 			i++;
 		}
 	}

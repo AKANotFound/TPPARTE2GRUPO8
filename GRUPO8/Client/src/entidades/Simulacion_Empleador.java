@@ -9,14 +9,14 @@ public class Simulacion_Empleador extends Persona_Empleador implements Runnable 
 	
 	private BolsaDeTrabajo bolsaDeTrabajo;
 
-	public Simulacion_Empleador(Cuenta cuenta, String razonSocial, String tipoPersona, IRubro rubro,
-			double[] puntajeAspectos) {
-		super(cuenta, razonSocial, tipoPersona, rubro, puntajeAspectos);
+	public Simulacion_Empleador( String razonSocial)
+    {
+		super(null, razonSocial, null, null, null);
 		bolsaDeTrabajo = BolsaDeTrabajo.getInstancia();
 	}
 
 	@Override
-	public void run() {
+	public  void run() {
 		TicketSimplificado ticketSimplificado = null;
 		ILocacion locacion = null;
 		IRubro rubro = null;
@@ -47,7 +47,7 @@ public class Simulacion_Empleador extends Persona_Empleador implements Runnable 
 			
 			ticketSimplificado = new TicketSimplificado(locacion, rubro, this);
 			
-			bolsaDeTrabajo.poneTicketSimplificado(ticketSimplificado);
+			bolsaDeTrabajo.poneTicketSimplificado(this,ticketSimplificado);
 		}
 	}
 }
