@@ -15,4 +15,12 @@ public class TicketSimplificado
 		this.rubro = rubro;
 		this.empleador = empleador;
 	}
+
+	public ILocacion getLocacion() {
+		return locacion;
+	}
+
+	public IRubro getRubro() {
+		return rubro;
+	}
 }

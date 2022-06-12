@@ -1,12 +1,13 @@
 package entidades;
 
 import java.util.ArrayList;
+import java.util.Observable;
 
-public class BolsaDeTrabajo {
+public class BolsaDeTrabajo extends Observable{
     private ArrayList<TicketSimplificado> bolsaDeTrabajo = new ArrayList<TicketSimplificado>();
     private static BolsaDeTrabajo instancia = null;
     
-    private boolean atendiendo = false;
+    private boolean ocupado = false;
     
     private BolsaDeTrabajo() {}
     
@@ -18,27 +19,39 @@ public class BolsaDeTrabajo {
     
     public synchronized void poneTicketSimplificado(TicketSimplificado ticketSimplificado) {
     	bolsaDeTrabajo.add(ticketSimplificado);
-    	notifyAll(); //ver si reemplazar por observador
+    	this.setChanged();
+    	this.notifyObservers();
     }
     
-    public synchronized void sacaTicketSimplificado(Persona_EmpleadoPretenso empleadoPretenso) {
-    	while(atendiendo) {
+    public synchronized void sacaTicketSimplificado(Simulacion_EmpleadoPretenso empleadoPretenso) {
+    	TicketSimplificado ticketElegido = empleadoPretenso.getTicketSimplificado();
+    	int i = 0;
+    	
+    	while(ocupado) {
     		try {
-    			wait();
-    		}
-    		catch () {
-    			
-    		}
+				wait();
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
     	}
-    	bolsaDeTrabajo.remove(ticketSimplificado);
+    	ocupado = true;
+    	while(i < bolsaDeTrabajo.size() && ticketElegido == null) {
+    		if(bolsaDeTrabajo.get(i).getRubro().equals(empleadoPretenso.getRubroElegido())) { //compara rubro, sobreescribir equals
+    			empleadoPretenso.setTicketSimplificado(bolsaDeTrabajo.get(i));
+    			bolsaDeTrabajo.remove(i);
+    		}
+    		else
+    			i++;
+    	}
     }
     
-    public synchronized void analizaTicketSimplificado(Persona_EmpleadoPretenso empleadoPretenso) {
-    	if(!=) { //si las locaciones son distintas
-    		poneTicketSimplificado(empleadoPretenso.getTicketSimplificado());
+    public synchronized void analizaTicketSimplificado(Simulacion_EmpleadoPretenso empleadoPretenso) {
+    	if(!empleadoPretenso.getLocacionElegida().equals(empleadoPretenso.getTicketSimplificado().getLocacion())) { //si las locaciones son distintas
+    		bolsaDeTrabajo.add(empleadoPretenso.getTicketSimplificado());
     		empleadoPretenso.setTicketSimplificado(null);
     	}
-    	atendiendo = false;
+    	ocupado = false;
     	notifyAll();
     }
 }

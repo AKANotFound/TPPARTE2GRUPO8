@@ -1,16 +1,11 @@
 package entidades;
 
-import util.Util;
-
-public class Persona_EmpleadoPretenso extends Persona implements Runnable {
+public class Persona_EmpleadoPretenso extends Persona {
 	private String nya;
     private String telefono;
     private int edad;
 	private PersonaElegida empleadorElegido;
 	private Persona_Empleador empleadorActual;
-	
-	private TicketSimplificado ticketSimplificado = null;
-	private BolsaDeTrabajo bolsaDeTrabajo = BolsaDeTrabajo.getInstancia();
 	
     public Persona_EmpleadoPretenso(Cuenta cuenta, String nya, String telefono, int edad) {
 		super(cuenta);
@@ -24,7 +19,6 @@ public class Persona_EmpleadoPretenso extends Persona implements Runnable {
 	public Persona_Empleador getEmpleadorActual() {
 		return empleadorActual;
 	}
-
 
 	public void setEmpleadorActual(Persona_Empleador empleadorActual) {
 		this.empleadorActual = empleadorActual;
@@ -51,20 +45,8 @@ public class Persona_EmpleadoPretenso extends Persona implements Runnable {
 	public String toString() {
 		return "Empleado: " + nya +super.toString();
 	}
-
-
+	
 	public String getNya() {
 		return nya;
 	}
-
-	@Override
-	public void run() {
-		int i = 0;
-		while(i < 10 && ticketSimplificado != null) {
-			Util.espera(3000);
-			bolsaDeTrabajo.sacaTicketSimplificado(this);
-		}
-	}
-	
-	
 }
