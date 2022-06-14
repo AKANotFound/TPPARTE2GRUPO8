@@ -1,33 +1,28 @@
 package entidades;
 
 import java.util.ArrayList;
-import java.util.Observable;
-import java.util.Observer;
 
 import tablas.ILocacion;
 import util.Util;
 
-public class Simulacion_EmpleadoPretenso extends Persona_EmpleadoPretenso implements Runnable,Observer{
+public class Simulacion_EmpleadoPretenso extends Persona_EmpleadoPretenso implements Runnable{
 	
 	private TicketSimplificado ticketSimplificado;
 	private BolsaDeTrabajo bolsaDeTrabajo; //es el observado
 	private ArrayList<TicketSimplificado> ticketsSimplificadosIncompatibles = new ArrayList<TicketSimplificado>();
 	private ILocacion locacionElegida;
 	private IRubro rubroElegido;
-	private boolean puedeSacarTicket=false;
 	
-	public void agregarObservable(BolsaDeTrabajo bolsaDeTrabajo)
-	{
-		bolsaDeTrabajo.addObserver(this);
-		this.bolsaDeTrabajo=bolsaDeTrabajo;
-	}
-	
-	public Simulacion_EmpleadoPretenso(String nya, ILocacion locacionElegida, IRubro rubroElegido) {
-		super(null, nya, null, 0);
+	public Simulacion_EmpleadoPretenso(Cuenta cuenta, String nya, String telefono, int edad, ILocacion locacionElegida, IRubro rubroElegido) {
+		super(cuenta, nya, telefono, edad);
 		this.locacionElegida = locacionElegida;
 		this.rubroElegido = rubroElegido;
 		this.ticketSimplificado = null;
 		bolsaDeTrabajo = BolsaDeTrabajo.getInstancia();
+	}
+	
+	public ArrayList<TicketSimplificado> getTicketsSimplificadosIncompatibles() {
+		return ticketsSimplificadosIncompatibles;
 	}
 
 	public void agregarTicketSimplificadoIncompatible(TicketSimplificado ticketSimplificado) {
@@ -50,35 +45,15 @@ public class Simulacion_EmpleadoPretenso extends Persona_EmpleadoPretenso implem
 		return rubroElegido;
 	}
 
-	public void setPuedeSacarTicket(boolean puedeSacarTicket) {
-		this.puedeSacarTicket = puedeSacarTicket;
-	}
-
 	@Override
 	public void run() {
 		int i = 0;
-		Util.espera(3000);
-		while(i < 10 && ticketSimplificado == null) {
-			if(!puedeSacarTicket) {
-				try {
-					wait();
-				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			}
+		while(i < 10 && ticketSimplificado != null) {
 			bolsaDeTrabajo.sacaTicketSimplificado(this);
 			Util.espera(3000);
-			bolsaDeTrabajo.analizaTicketSimplificado(this);
-			
+			if(ticketSimplificado != null)
+				bolsaDeTrabajo.analizaTicketSimplificado(this);
 			i++;
 		}
 	}
-	
-	@Override
-	public void update(Observable o, Object arg) {
-		puedeSacarTicket = true;
-		notifyAll();
-	}
-
 }

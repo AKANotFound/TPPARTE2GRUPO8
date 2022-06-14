@@ -2,6 +2,16 @@ package tablas;
 
 public class Locacion_Presencial implements ILocacion {
 	
+	private static Locacion_Presencial instancia = null;
+	
+	private Locacion_Presencial() {}
+	
+	public static Locacion_Presencial getInstancia() {
+		if(instancia == null)
+			instancia = new Locacion_Presencial();
+		return instancia;
+	}
+	
 	@Override
 	public double comparaCon(ILocacion locacion) {
 		return locacion.comparaConPresencial();

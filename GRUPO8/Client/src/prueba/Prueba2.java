@@ -3,6 +3,7 @@ package prueba;
 import entidades.FormularioDeBusqueda;
 import entidades.Rubro_ComercioInternacional;
 import entidades.Rubro_ComercioLocal;
+import entidades.Rubro_Salud;
 import excepciones.EdadInvalidaException;
 import excepciones.ErrorCodigoException;
 import excepciones.ErrorContrasenaException;
@@ -35,6 +36,10 @@ import tablas.TipoDePuesto_Senior;
 public class Prueba2 {
 
 	public static void main(String[] args) {
+		
+		Rubro_ComercioLocal rubro_ComercioLocal = Rubro_ComercioLocal.getInstancia();
+		Rubro_ComercioInternacional rubro_ComercioInternacional = Rubro_ComercioInternacional.getInstancia();
+		Rubro_Salud rubro_Salud = Rubro_Salud.getInstancia();
 		
 		FuncionalidadAdministrador admin = null;		
 		FuncionalidadEmpleadoPretenso jorge = null;
@@ -88,14 +93,14 @@ public class Prueba2 {
 		}		
 		
 		try {
-			Sistema.registrarEmpleador("microsoft", "159pep", "Microsoft", "juridica", new Rubro_ComercioLocal(),puntajeAspectosGesi);
+			Sistema.registrarEmpleador("microsoft", "159pep", "Microsoft", "juridica", rubro_ComercioLocal,puntajeAspectosGesi);
 		} catch (TipoPersonaInvalidoException e) {
 			System.out.println(e.getMessage());
 			e.printStackTrace();
 		}
 
 		try {
-			Sistema.registrarEmpleador("carrefour", "747ghi", "Carrefour", "fisica", new Rubro_ComercioInternacional(),puntajeAspectosCarrefour);
+			Sistema.registrarEmpleador("carrefour", "747ghi", "Carrefour", "fisica", rubro_ComercioInternacional,puntajeAspectosCarrefour);
 		} catch (TipoPersonaInvalidoException e) {
 			System.out.println(e.getMessage());
 			e.printStackTrace();
