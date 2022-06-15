@@ -6,8 +6,6 @@ public class BolsaDeTrabajo {
     private ArrayList<TicketSimplificado> bolsaDeTrabajo = new ArrayList<TicketSimplificado>();
     private static BolsaDeTrabajo instancia = null;
     
-    private boolean ocupado = false;
-    
     private BolsaDeTrabajo() {}
     
     public static BolsaDeTrabajo getInstancia() {
@@ -19,31 +17,36 @@ public class BolsaDeTrabajo {
     public synchronized void poneTicketSimplificado(Simulacion_Empleador empleador) {
     	bolsaDeTrabajo.add(empleador.getTicketSimplificado());
     	empleador.setTicketSimplificado(null);
-    	System.out.println();
+    	System.out.println("[" + empleador.getRazonSocial() + "] puso ticket en la bolsa");
     	//notificar observer parte visual
     	notifyAll();
     }
     
     public synchronized void sacaTicketSimplificado(Simulacion_EmpleadoPretenso empleadoPretenso) {
-    	TicketSimplificado ticketElegido = empleadoPretenso.getTicketSimplificado();
-    	int i = 0;
+    	System.out.println("[" + empleadoPretenso.getNya() + "] intenta sacar ticket de la bolsa");
     	
-    	while(ocupado) {
-    		try {
-				wait();
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-    	}
-    	ocupado = true;
-    	while(i < bolsaDeTrabajo.size() && ticketElegido == null) {
+    	int i = 0;
+    	while(i < bolsaDeTrabajo.size() && empleadoPretenso.getTicketSimplificado() == null) {
     		if(bolsaDeTrabajo.get(i).getRubro().equals(empleadoPretenso.getRubroElegido()) && !empleadoPretenso.getTicketsSimplificadosIncompatibles().contains(bolsaDeTrabajo.get(i))) { //compara rubro, sobreescribir equals
     			empleadoPretenso.setTicketSimplificado(bolsaDeTrabajo.get(i));
     			bolsaDeTrabajo.remove(i);
+    			System.out.println("[" + empleadoPretenso.getNya() + "] saco ticket de la bolsa");
     		}
-    		else
-    			i++;
+    		else 
+    		{
+    			if(i == bolsaDeTrabajo.size()-1) {
+    				try {
+    					System.out.println("[" + empleadoPretenso.getNya() + "] reviso toda la bolsa y no encontro ticket compatible (por el rubro), espera");
+						wait();
+						i = 0;
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+    			}
+    			else
+        			i++;
+    		}
     	}
     }
     
@@ -52,8 +55,8 @@ public class BolsaDeTrabajo {
     		bolsaDeTrabajo.add(empleadoPretenso.getTicketSimplificado());
     		empleadoPretenso.agregarTicketSimplificadoIncompatible(empleadoPretenso.getTicketSimplificado());
     		empleadoPretenso.setTicketSimplificado(null);
+    		System.out.println("[" + empleadoPretenso.getNya() + "] analizo el ticket y no es compatible (por la locacion), devuelve el ticket");
+    		notifyAll();
     	}
-    	ocupado = false;
-    	notifyAll();
     }
 }

@@ -10,9 +10,8 @@ public class Simulacion_Empleador extends Persona_Empleador implements Runnable 
 	private BolsaDeTrabajo bolsaDeTrabajo;
 	private TicketSimplificado ticketSimplificado;
 
-	public Simulacion_Empleador(Cuenta cuenta, String razonSocial, String tipoPersona, IRubro rubro,
-			double[] puntajeAspectos) {
-		super(cuenta, razonSocial, tipoPersona, rubro, puntajeAspectos);
+	public Simulacion_Empleador(String razonSocial) {
+		super(null, razonSocial, null, null, null);
 		bolsaDeTrabajo = BolsaDeTrabajo.getInstancia();
 		ticketSimplificado = null;
 	}

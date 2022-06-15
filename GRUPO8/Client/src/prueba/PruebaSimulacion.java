@@ -1,6 +1,5 @@
 package prueba;
 
-import entidades.BolsaDeTrabajo;
 import entidades.Rubro_ComercioInternacional;
 import entidades.Rubro_ComercioLocal;
 import entidades.Rubro_Salud;
@@ -13,27 +12,25 @@ import tablas.Locacion_Presencial;
 public class PruebaSimulacion
 {
 
-	public static void main(String[] args)
-	{
-		Simulacion_EmpleadoPretenso ep1=new Simulacion_EmpleadoPretenso("juan facal" ,new Locacion_HomeOffice(), new Rubro_ComercioLocal());
-		Simulacion_EmpleadoPretenso ep2=new Simulacion_EmpleadoPretenso("milton sanchez" ,new Locacion_HomeOffice(), new Rubro_ComercioInternacional());
-		Simulacion_EmpleadoPretenso ep3=new Simulacion_EmpleadoPretenso("ivan gonzalez meier" ,new Locacion_Presencial(), new Rubro_ComercioLocal());
-		Simulacion_EmpleadoPretenso ep4=new Simulacion_EmpleadoPretenso("franco palmeiras" ,new Locacion_Presencial(), new Rubro_Salud());
-		Simulacion_EmpleadoPretenso ep5=new Simulacion_EmpleadoPretenso("tomas palmitano" ,new Locacion_Indistinto(), new Rubro_Salud());
-		Simulacion_EmpleadoPretenso ep6=new Simulacion_EmpleadoPretenso("franco sosa" ,new Locacion_Indistinto(), new Rubro_ComercioInternacional());
+	public static void main(String[] args)                                                                                                          
+	{                                                                                                                                               
+		Rubro_ComercioLocal rubro_ComercioLocal = Rubro_ComercioLocal.getInstancia();                                                               
+		Rubro_ComercioInternacional rubro_ComercioInternacional = Rubro_ComercioInternacional.getInstancia();                                       
+		Rubro_Salud rubro_Salud = Rubro_Salud.getInstancia();                                                                                       
+		                                                                                                                                            
+		Locacion_HomeOffice locacion_HomeOffice = Locacion_HomeOffice.getInstancia();                                                               
+		Locacion_Presencial locacion_Presencial = Locacion_Presencial.getInstancia();
+		Locacion_Indistinto locacion_Indistinto = Locacion_Indistinto.getInstancia();
+		
+		Simulacion_EmpleadoPretenso ep1=new Simulacion_EmpleadoPretenso("juan facal" ,locacion_HomeOffice, rubro_ComercioLocal);
+		Simulacion_EmpleadoPretenso ep2=new Simulacion_EmpleadoPretenso("milton sanchez" ,locacion_HomeOffice, rubro_ComercioInternacional);
+		Simulacion_EmpleadoPretenso ep3=new Simulacion_EmpleadoPretenso("ivan gonzalez meier" ,locacion_Presencial, rubro_ComercioLocal);
+		Simulacion_EmpleadoPretenso ep4=new Simulacion_EmpleadoPretenso("franco palmeiras" ,locacion_Presencial, rubro_Salud);
+		Simulacion_EmpleadoPretenso ep5=new Simulacion_EmpleadoPretenso("tomas palmitano" ,locacion_Indistinto, rubro_Salud);
+		Simulacion_EmpleadoPretenso ep6=new Simulacion_EmpleadoPretenso("franco sosa" ,locacion_Indistinto, rubro_ComercioInternacional);
 		
 		Simulacion_Empleador e1=new Simulacion_Empleador("Toledo");
-		Simulacion_Empleador e2=new Simulacion_Empleador("Farmacity");
-		
-		BolsaDeTrabajo bolsaDeTrabajo=BolsaDeTrabajo.getInstancia();
-		
-		ep1.agregarObservable(bolsaDeTrabajo);
-		ep2.agregarObservable(bolsaDeTrabajo);
-		ep3.agregarObservable(bolsaDeTrabajo);
-		ep4.agregarObservable(bolsaDeTrabajo);
-		ep5.agregarObservable(bolsaDeTrabajo);
-		ep6.agregarObservable(bolsaDeTrabajo);
-		
+		Simulacion_Empleador e2=new Simulacion_Empleador("Farmacity");		
 		
 		Thread t1=new Thread(ep1);
 		Thread t2=new Thread(ep2);
@@ -52,7 +49,5 @@ public class PruebaSimulacion
 		t6.start();
 		t7.start();
 		t8.start();
-		
 	}
-
 }

@@ -11,11 +11,11 @@ public class LocacionFactory {
 		ILocacion locacion = null;
 		
 		if(tipo.equalsIgnoreCase("Home Office"))
-			locacion = new Locacion_HomeOffice();
+			locacion = Locacion_HomeOffice.getInstancia();
 		else if(tipo.equalsIgnoreCase("Presencial"))
-			locacion = new Locacion_Presencial();
+			locacion = Locacion_Presencial.getInstancia();
 		else if(tipo.equalsIgnoreCase("Indistinto"))
-			locacion = new Locacion_Indistinto();
+			locacion = Locacion_Indistinto.getInstancia();
 		
 		return locacion;
 	}
