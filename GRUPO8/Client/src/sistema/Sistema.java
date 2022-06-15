@@ -20,6 +20,7 @@ import excepciones.ErrorContrasenaException;
 import excepciones.ErrorUsuarioException;
 import excepciones.ListaNoGeneradaException;
 import excepciones.TipoPersonaInvalidoException;
+import patronState.FinalizadoState;
 /**
  * 
  * Clase que representa al sistema, encargada de instanciar personas, realizar los registros de usuarios y sus logins.
@@ -71,6 +72,8 @@ public abstract class Sistema {
 		Sistema.agregarUsuario(administrador);
 	}
 	
+	
+	
 	/**
 	 *  Si el usuario esta registrado en el sistema y la contrasenia es correcta, hace su login.
 	 * @param nombreUsuario Parametro de tipo String que representa el nombre de usuario de la persona.
@@ -108,7 +111,6 @@ public abstract class Sistema {
 	public static void setInicioRondaEncuentrosLaborales(boolean inicioRondaEncuentrosLaborales) {
 		InicioRondaEncuentrosLaborales = inicioRondaEncuentrosLaborales;
 	}
-
 
 	public static FuncionalidadEmpleadoPretenso loginEmpleadoPretenso(String nombreUsuario,String contrasena) throws ErrorContrasenaException,ErrorUsuarioException 
 	{
@@ -217,12 +219,12 @@ public abstract class Sistema {
 	 */
 	
 	static void finalizarTicket(Persona_Empleador empleador) {
-		empleador.getTicket().setEstado("finalizado");
+		empleador.getTicket().setEstado(new FinalizadoState(empleador.getTicket()));
 		Sistema.puntajeFinalizar(empleador);
 	}
 	
 	static void finalizarTicket(Persona_EmpleadoPretenso empleadoPretenso) {
-		empleadoPretenso.getTicket().setEstado("finalizado");
+		empleadoPretenso.getTicket().setEstado(new FinalizadoState(empleadoPretenso.getTicket()));
 		Sistema.puntajeFinalizar(empleadoPretenso);
 	}
 	
@@ -259,18 +261,14 @@ public abstract class Sistema {
 		ticketEmpleadoPretenso.setResultado(resultado);
 	}
 
-	
-	
-	static void resultadoExito(Persona_EmpleadoPretenso empleadoPretenso) 
-	{ 
-		Ticket_EmpleadoPretenso ticket = (Ticket_EmpleadoPretenso)empleadoPretenso.getTicket();
-		ticket.setResultado("exito");
+	static void visualizarListaAsignacion(Persona persona) throws ListaNoGeneradaException
+	{
+		if(persona.getListaDeAsignacion() != null)
+			System.out.println(persona.getListaDeAsignacion());
+		else
+			throw new ListaNoGeneradaException();
 	}
 	
-	static void resultadoFracaso(Persona_EmpleadoPretenso empleadoPretenso) {
-		Ticket_EmpleadoPretenso ticket = (Ticket_EmpleadoPretenso) empleadoPretenso.getTicket();
-		ticket.setResultado("fracaso");
-	}
 	
 	public static String visualizarContratos() {
 		String str = "";

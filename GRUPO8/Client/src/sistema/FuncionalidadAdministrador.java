@@ -15,15 +15,10 @@ public class FuncionalidadAdministrador extends FuncionalidadUsuario{
 		RondaDeEncuentrosLaborales.iniciaRondaDeEncuentrosLaborales();
 	}
 	
-	public void iniciaRondaContratacion() {
-		try
-		{
+	public void iniciaRondaContratacion() 
+	{
 			RondaDeContrataciones.iniciaRondaDeContrataciones();
-		} catch (RondaDeEncuentrosLaboralesNoIniciadaException e)
-		{
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		
 	}
 	
 	public String visualizarEmpleadores() {
