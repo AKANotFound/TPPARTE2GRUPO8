@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class BolsaDeTrabajo {
     private ArrayList<TicketSimplificado> bolsaDeTrabajo = new ArrayList<TicketSimplificado>();
     private static BolsaDeTrabajo instancia = null;
+    private boolean simulacionFinalizada=false;
     
     private BolsaDeTrabajo() {}
     
@@ -14,6 +15,14 @@ public class BolsaDeTrabajo {
     	return instancia;
     }
     
+    public synchronized void finalizarSimulacion() //LLAMAR CUANDO CIERRE LA VENTANA USANDO WINDOWLISTENER EN CONTROLADOR
+    {
+    	simulacionFinalizada=true;
+    	notifyAll();
+    	
+    }
+    
+    //QUITAR SYSTEM.OUTS E IMPLEMENTAR PATRON OBSERVER OBSERVABLE PARA MOSTRAR LAS COSAS
     public synchronized void poneTicketSimplificado(TicketSimplificado ticketSimplificado) 
     {
     	bolsaDeTrabajo.add(ticketSimplificado);
@@ -27,7 +36,7 @@ public class BolsaDeTrabajo {
     	System.out.println("[" + empleadoPretenso.getNya() + "] intenta sacar ticket de la bolsa");
     	
     	int i = 0;
-    	while(i < bolsaDeTrabajo.size() && empleadoPretenso.getTicketSimplificado() == null) 
+    	while(i < bolsaDeTrabajo.size() && empleadoPretenso.getTicketSimplificado() == null && !this.simulacionFinalizada) 
     	{
     		if(bolsaDeTrabajo.get(i).getRubro().equals(empleadoPretenso.getRubroElegido()) && !empleadoPretenso.getTicketsSimplificadosIncompatibles().contains(bolsaDeTrabajo.get(i))) { //compara rubro, sobreescribir equals
     			empleadoPretenso.setTicketSimplificado(bolsaDeTrabajo.get(i));
@@ -65,4 +74,6 @@ public class BolsaDeTrabajo {
     		notifyAll();
     	}
     }
+    
+    
 }
