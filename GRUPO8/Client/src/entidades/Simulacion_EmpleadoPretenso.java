@@ -48,7 +48,8 @@ public class Simulacion_EmpleadoPretenso extends Persona_EmpleadoPretenso implem
 	@Override
 	public void run() {
 		int i = 0;
-		while(i < 10 && ticketSimplificado == null) {
+		while(i < 10 && ticketSimplificado == null)
+		{
 			bolsaDeTrabajo.sacaTicketSimplificado(this);
 			Util.espera(3000);
 			if(ticketSimplificado != null)
