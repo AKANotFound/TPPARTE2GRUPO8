@@ -30,7 +30,10 @@ public class PruebaSimulacion
 		Simulacion_EmpleadoPretenso ep6=new Simulacion_EmpleadoPretenso("franco sosa" ,locacion_Indistinto, rubro_ComercioInternacional);
 		
 		Simulacion_Empleador e1=new Simulacion_Empleador("Toledo");
-		Simulacion_Empleador e2=new Simulacion_Empleador("Farmacity");		
+		Simulacion_Empleador e2=new Simulacion_Empleador("Farmacity");
+		Simulacion_Empleador e3=new Simulacion_Empleador("Musimundo");
+		Simulacion_Empleador e4=new Simulacion_Empleador("Disco");	
+		
 		
 		Thread t1=new Thread(ep1);
 		Thread t2=new Thread(ep2);
@@ -40,6 +43,8 @@ public class PruebaSimulacion
 		Thread t6=new Thread(ep6);
 		Thread t7=new Thread(e1);
 		Thread t8=new Thread(e2);
+		Thread t9=new Thread(e3);
+		Thread t10=new Thread(e4);
 		
 		t1.start();
 		t2.start();
@@ -49,5 +54,7 @@ public class PruebaSimulacion
 		t6.start();
 		t7.start();
 		t8.start();
+		t9.start();
+		t10.start();
 	}
 }

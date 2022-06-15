@@ -6,9 +6,9 @@ public class TicketSimplificado
 {
 	private ILocacion locacion;
 	private IRubro rubro;
-	private Persona_Empleador empleador=null;
+	private Simulacion_Empleador empleador=null;
 	
-	public TicketSimplificado(ILocacion locacion, IRubro rubro, Persona_Empleador empleador)
+	public TicketSimplificado(ILocacion locacion, IRubro rubro, Simulacion_Empleador empleador)
 	{
 		super();
 		this.locacion = locacion;
@@ -24,7 +24,7 @@ public class TicketSimplificado
 		return rubro;
 	}
 
-	public Persona_Empleador getEmpleador()
+	public Simulacion_Empleador getEmpleador()
 	{
 		return empleador;
 	}
