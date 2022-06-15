@@ -14,10 +14,9 @@ public class BolsaDeTrabajo {
     	return instancia;
     }
     
-    public synchronized void poneTicketSimplificado(Simulacion_Empleador empleador) {
-    	bolsaDeTrabajo.add(empleador.getTicketSimplificado());
-    	empleador.setTicketSimplificado(null);
-    	System.out.println("[" + empleador.getRazonSocial() + "] puso ticket en la bolsa");
+    public synchronized void poneTicketSimplificado(TicketSimplificado ticketSimplificado) {
+    	bolsaDeTrabajo.add(ticketSimplificado);
+    	System.out.println("[" + ticketSimplificado.getEmpleador().getRazonSocial() + "] puso ticket en la bolsa");
     	//notificar observer parte visual
     	notifyAll();
     }
@@ -26,7 +25,8 @@ public class BolsaDeTrabajo {
     	System.out.println("[" + empleadoPretenso.getNya() + "] intenta sacar ticket de la bolsa");
     	
     	int i = 0;
-    	while(i < bolsaDeTrabajo.size() && empleadoPretenso.getTicketSimplificado() == null) {
+    	while(i < bolsaDeTrabajo.size() && empleadoPretenso.getTicketSimplificado() == null) 
+    	{
     		if(bolsaDeTrabajo.get(i).getRubro().equals(empleadoPretenso.getRubroElegido()) && !empleadoPretenso.getTicketsSimplificadosIncompatibles().contains(bolsaDeTrabajo.get(i))) { //compara rubro, sobreescribir equals
     			empleadoPretenso.setTicketSimplificado(bolsaDeTrabajo.get(i));
     			bolsaDeTrabajo.remove(i);
@@ -34,11 +34,13 @@ public class BolsaDeTrabajo {
     		}
     		else 
     		{
-    			if(i == bolsaDeTrabajo.size()-1) {
-    				try {
-    					System.out.println("[" + empleadoPretenso.getNya() + "] reviso toda la bolsa y no encontro ticket compatible (por el rubro), espera");
-						wait();
-						i = 0;
+    			if(i == bolsaDeTrabajo.size()-1) 
+    			{
+    				try
+    			 	{
+    				  System.out.println("[" + empleadoPretenso.getNya() + "] reviso toda la bolsa y no encontro ticket compatible (por el rubro), espera");
+					  wait();
+					  i = 0;
 					} catch (InterruptedException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();

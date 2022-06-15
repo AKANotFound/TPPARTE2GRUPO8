@@ -23,4 +23,12 @@ public class TicketSimplificado
 	public IRubro getRubro() {
 		return rubro;
 	}
+
+	public Persona_Empleador getEmpleador()
+	{
+		return empleador;
+	}
+	
+	
+
 }

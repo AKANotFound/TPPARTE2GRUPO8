@@ -8,28 +8,22 @@ import tablas.Locacion_Presencial;
 public class Simulacion_Empleador extends Persona_Empleador implements Runnable {
 	
 	private BolsaDeTrabajo bolsaDeTrabajo;
-	private TicketSimplificado ticketSimplificado;
+	
 
 	public Simulacion_Empleador(String razonSocial) {
 		super(null, razonSocial, null, null, null);
 		bolsaDeTrabajo = BolsaDeTrabajo.getInstancia();
-		ticketSimplificado = null;
+		
 	}
 	
-	public TicketSimplificado getTicketSimplificado() {
-		return ticketSimplificado;
-	}
-
-	public void setTicketSimplificado(TicketSimplificado ticketSimplificado) {
-		this.ticketSimplificado = ticketSimplificado;
-	}
+	
 
 	@Override
 	public void run() {
 		ILocacion locacion = null;
 		IRubro rubro = null;
 		int opcion = 0;
-		
+		TicketSimplificado ticketSimplificado=null;
 		for(int i = 0; i < 3; i++) {
 			opcion = (int)(Math.random()*3+1);
 			
@@ -53,9 +47,9 @@ public class Simulacion_Empleador extends Persona_Empleador implements Runnable 
 				break;
 			}
 			
-			this.ticketSimplificado = new TicketSimplificado(locacion, rubro, this);
+			ticketSimplificado= new TicketSimplificado(locacion, rubro, this);
 			
-			bolsaDeTrabajo.poneTicketSimplificado(this);
+			bolsaDeTrabajo.poneTicketSimplificado(ticketSimplificado);
 		}
 	}
 }
