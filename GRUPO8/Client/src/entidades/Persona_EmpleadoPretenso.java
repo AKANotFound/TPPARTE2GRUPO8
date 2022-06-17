@@ -13,7 +13,7 @@ public class Persona_EmpleadoPretenso extends Persona {
 		this.telefono = telefono;
 		this.edad = edad;
 		this.empleadorElegido = null;
-		this.empleadorActual=null;
+		this.empleadorActual = null;
 	}
 
 	public Persona_Empleador getEmpleadorActual() {
@@ -32,10 +32,6 @@ public class Persona_EmpleadoPretenso extends Persona {
 	public void setEmpleadorElegido(PersonaElegida elegido) {
 		this.empleadorElegido = elegido;
 	}
-
-	public void setTelefono(String telefono) {
-		this.telefono = telefono;
-	}
 	
 	public String getTipoDePuesto() {
 		return this.ticket.getFormularioDeBusqueda().getTipoDePuesto().toString();
@@ -48,5 +44,13 @@ public class Persona_EmpleadoPretenso extends Persona {
 	
 	public String getNya() {
 		return nya;
+	}
+
+	public String getTelefono() {
+		return telefono;
+	}
+
+	public int getEdad() {
+		return edad;
 	}
 }

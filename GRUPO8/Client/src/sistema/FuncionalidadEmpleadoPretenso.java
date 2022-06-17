@@ -27,26 +27,17 @@ public class FuncionalidadEmpleadoPretenso extends FuncionalidadPersona {
 		RondaDeElecciones.iniciaRondaDeEleccionEmpleadoPretenso((Persona_EmpleadoPretenso) usuario);
 	}
 	
-	public void modificarTelefono(String telefono) {
-		((Persona_EmpleadoPretenso) usuario).setTelefono(telefono);
-		
-	}
-	
 	@Override
 	public String visualizaResultado() {
-		
 		return ((Persona_EmpleadoPretenso)usuario).getTicket().visualizaResultado(usuario);
-	
 	}
-	
 
 	@Override
 	public String visualizarPersonasElegidas() {
 		return ((Persona_EmpleadoPretenso) usuario).getNya() + " eligio a: [" + ((Persona_EmpleadoPretenso) usuario).getEmpleadorElegido() + "]";
 	}
 
-	@Override
-	public String visualizarPersona() {
+	public String getNya() {
 		return ((Persona_EmpleadoPretenso) usuario).getNya();
 	}	
 }

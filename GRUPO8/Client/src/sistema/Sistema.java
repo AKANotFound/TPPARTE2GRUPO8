@@ -87,13 +87,13 @@ public abstract class Sistema {
 	{
 		Usuario usuario = usuarios.get(nombreUsuario);
 		Cuenta cuenta = usuario.getCuenta();
-		FuncionalidadEmpleador funcionalidadAdministrador = null;
+		FuncionalidadEmpleador funcionalidadEmpleador = null;
 		
         if(cuenta!= null) {
         	if(cuenta.confirmaContrasena(contrasena)) {
         		if(!(logins.contains(cuenta)))
         			logins.add(cuenta);
-        		funcionalidadAdministrador = new FuncionalidadEmpleador((Persona_Empleador) usuario);		       		
+        		funcionalidadEmpleador = new FuncionalidadEmpleador((Persona_Empleador) usuario);		       		
         	}
         	else
         		throw new ErrorContrasenaException(contrasena);
@@ -101,7 +101,7 @@ public abstract class Sistema {
         else
         	throw new ErrorUsuarioException(nombreUsuario);
         
-		return funcionalidadAdministrador;
+		return funcionalidadEmpleador;
     }
 	
 	public static boolean isInicioRondaEncuentrosLaborales() {

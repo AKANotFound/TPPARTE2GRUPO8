@@ -52,7 +52,6 @@ public abstract class FuncionalidadPersona extends FuncionalidadUsuario{
 		return persona.getTicket().visualizarCostoServicio(persona);
 	}
 	
-	public abstract String visualizarPersona();
 	public abstract String visualizaResultado();
 	public abstract String visualizarPersonasElegidas();
 } 

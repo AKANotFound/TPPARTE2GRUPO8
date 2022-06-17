@@ -39,8 +39,7 @@ public class FuncionalidadEmpleador extends FuncionalidadPersona {
 		return ((Persona_Empleador) usuario).getRazonSocial() + " eligio a: " + ((Persona_Empleador) usuario).getEmpleadosElegidos();
 	}
 
-	@Override
-	public String visualizarPersona() {
+	public String getRazonSocial() {
 		return ((Persona_Empleador) usuario).getRazonSocial();
 	}
 	

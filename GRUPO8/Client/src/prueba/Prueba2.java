@@ -185,7 +185,7 @@ public class Prueba2 {
 		System.out.println("UNA VEZ TERMINADA LA RONDA DE ENCUENTROS LABORALES, CADA USUARIO VISUALIZA SU LISTA DE ASIGNACION \n");
 		
 		try {
-			System.out.println("[" + jorge.visualizarPersona() + "] " + jorge.visualizarListaAsignacion());
+			System.out.println("[" + jorge.getNya() + "] " + jorge.visualizarListaAsignacion());
 			
 		} catch (ListaNoGeneradaException e) {
 			
@@ -193,7 +193,7 @@ public class Prueba2 {
 			e.printStackTrace();
 		}
 		try {
-			System.out.println("[" + pablo.visualizarPersona() + "] " + pablo.visualizarListaAsignacion());
+			System.out.println("[" + pablo.getNya() + "] " + pablo.visualizarListaAsignacion());
 			
 		} catch (ListaNoGeneradaException e) {
 			
@@ -201,14 +201,14 @@ public class Prueba2 {
 			e.printStackTrace();
 		}
 		try {
-			System.out.println("[" + francoS.visualizarPersona() + "] " + francoS.visualizarListaAsignacion());
+			System.out.println("[" + francoS.getNya() + "] " + francoS.visualizarListaAsignacion());
 		} catch (ListaNoGeneradaException e) {
 			
 			System.out.println(e.getMessage());
 			e.printStackTrace();
 		}
 		try {
-			System.out.println("[" + francoP.visualizarPersona() + "] " + francoP.visualizarListaAsignacion());
+			System.out.println("[" + francoP.getNya() + "] " + francoP.visualizarListaAsignacion());
 			
 		} catch (ListaNoGeneradaException e) {
 			
@@ -216,13 +216,13 @@ public class Prueba2 {
 			e.printStackTrace();
 		}
 		try {
-			System.out.println("[" + microsoft.visualizarPersona() + "] " + microsoft.visualizarListaAsignacion());
+			System.out.println("[" + microsoft.getRazonSocial() + "] " + microsoft.visualizarListaAsignacion());
 		} catch (ListaNoGeneradaException e) {
 			System.out.println(e.getMessage());
 			e.printStackTrace();
 		}
 		try {
-			System.out.println("[" + carrefour.visualizarPersona() + "] " + carrefour.visualizarListaAsignacion());
+			System.out.println("[" + carrefour.getRazonSocial() + "] " + carrefour.visualizarListaAsignacion());
 		} catch (ListaNoGeneradaException e) {
 			System.out.println(e.getMessage());
 			e.printStackTrace();
@@ -257,12 +257,12 @@ public class Prueba2 {
 		System.out.println(carrefour.visualizaResultado());
 		
 		System.out.println("\nCOSTO DEL SERVICIO");
-		System.out.println(jorge.visualizarPersona() + ": " + jorge.visualizarCostoServicio());
-		System.out.println(pablo.visualizarPersona() + ": " + pablo.visualizarCostoServicio());
-		System.out.println(francoS.visualizarPersona() + ": " + francoS.visualizarCostoServicio());
-		System.out.println(francoP.visualizarPersona() + ": " + francoP.visualizarCostoServicio());
-		System.out.println(microsoft.visualizarPersona() + ": " + microsoft.visualizarCostoServicio());
-		System.out.println(carrefour.visualizarPersona() + ": " + carrefour.visualizarCostoServicio());
+		System.out.println(jorge.getNya() + ": " + jorge.visualizarCostoServicio());
+		System.out.println(pablo.getNya() + ": " + pablo.visualizarCostoServicio());
+		System.out.println(francoS.getNya() + ": " + francoS.visualizarCostoServicio());
+		System.out.println(francoP.getNya() + ": " + francoP.visualizarCostoServicio());
+		System.out.println(microsoft.getRazonSocial() + ": " + microsoft.visualizarCostoServicio());
+		System.out.println(carrefour.getRazonSocial() + ": " + carrefour.visualizarCostoServicio());
 		
 	     
 	}
