@@ -15,7 +15,11 @@ public class BolsaDeTrabajo {
     	return instancia;
     }
     
-    public synchronized void finalizarSimulacion() //LLAMAR CUANDO CIERRE LA VENTANA USANDO WINDOWLISTENER EN CONTROLADOR
+    public boolean isSimulacionFinalizada() {
+		return simulacionFinalizada;
+	}
+
+	public synchronized void finalizarSimulacion() //LLAMAR CUANDO CIERRE LA VENTANA USANDO WINDOWLISTENER EN CONTROLADOR
     {
     	simulacionFinalizada=true;
     	notifyAll();
@@ -38,7 +42,7 @@ public class BolsaDeTrabajo {
     	int i = 0;
     	while(i < bolsaDeTrabajo.size() && empleadoPretenso.getTicketSimplificado() == null && !this.simulacionFinalizada) 
     	{
-    		if(bolsaDeTrabajo.get(i).getRubro().equals(empleadoPretenso.getRubroElegido()) && !empleadoPretenso.getTicketsSimplificadosIncompatibles().contains(bolsaDeTrabajo.get(i))) { //compara rubro, sobreescribir equals
+    		if(bolsaDeTrabajo.get(i).getRubro() == empleadoPretenso.getRubroElegido() && !empleadoPretenso.getTicketsSimplificadosIncompatibles().contains(bolsaDeTrabajo.get(i))) { //compara rubro, sobreescribir equals
     			empleadoPretenso.setTicketSimplificado(bolsaDeTrabajo.get(i));
     			bolsaDeTrabajo.remove(i);
     			System.out.println("[" + empleadoPretenso.getNya() + "] saco ticket de la bolsa");
@@ -65,7 +69,7 @@ public class BolsaDeTrabajo {
     
     public synchronized void analizaTicketSimplificado(Simulacion_EmpleadoPretenso empleadoPretenso)
     {
-    	if(!empleadoPretenso.getLocacionElegida().equals(empleadoPretenso.getTicketSimplificado().getLocacion())) 
+    	if(empleadoPretenso.getLocacionElegida() != empleadoPretenso.getTicketSimplificado().getLocacion()) 
     	{ 
     		bolsaDeTrabajo.add(empleadoPretenso.getTicketSimplificado());
     		empleadoPretenso.agregarTicketSimplificadoIncompatible(empleadoPretenso.getTicketSimplificado());

@@ -5,7 +5,7 @@ import tablas.Locacion_HomeOffice;
 import tablas.Locacion_Indistinto;
 import tablas.Locacion_Presencial;
 
-public class LocacionFactory {
+public class LocacionFactory { //REVISAR SI ELIMINAR
 
 	static ILocacion getLocacion (String tipo) {
 		ILocacion locacion = null;
