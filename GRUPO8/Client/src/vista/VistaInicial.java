@@ -18,7 +18,7 @@ import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import java.awt.FlowLayout;
 
-public class VentanaInicial extends JFrame implements IVista
+public class VistaInicial extends JPanel implements IVista
 {
 
 	private JPanel contentPane;
@@ -51,13 +51,11 @@ public class VentanaInicial extends JFrame implements IVista
 	/**
 	 * Create the frame.
 	 */
-	public VentanaInicial()
+	public VistaInicial()
 	{
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 329, 343);
 		this.contentPane = new JPanel();
 		this.contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setContentPane(this.contentPane);
 		this.contentPane.setLayout(new BorderLayout(0, 0));
 		
 		this.panel_Centro = new JPanel();
