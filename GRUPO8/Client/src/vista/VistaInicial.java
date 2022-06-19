@@ -25,7 +25,7 @@ public class VistaInicial extends JPanel {
 	private JLabel lbl_Contrasena;
 	private JTextField textField_Contrasena;
 	private JButton btn_CrearCuenta;
-	private JButton btn_Ingresar;
+	private JButton btn_Login;
 	private JPanel panel_lbl_Usuario_Border;
 	private JPanel panel_textField_Usuario_Border;
 	private JPanel panel_lbl_Contrasena_Border;
@@ -106,8 +106,8 @@ public class VistaInicial extends JPanel {
 		this.panel_btn_Ingresar_Border = new JPanel();
 		this.panel_Login.add(this.panel_btn_Ingresar_Border);
 		
-		this.btn_Ingresar = new JButton("Ingresar");
-		this.panel_btn_Ingresar_Border.add(this.btn_Ingresar);
+		this.btn_Login = new JButton("Login");
+		this.panel_btn_Ingresar_Border.add(this.btn_Login);
 		
 		this.panel_Sur = new JPanel();
 		this.panel_Sur.setBorder(new TitledBorder(null, "Iniciar simulaci\u00F3n", TitledBorder.LEADING, TitledBorder.TOP, null, null));
@@ -123,7 +123,7 @@ public class VistaInicial extends JPanel {
 	}
 
 	public JButton getBtn_Ingresar() {
-		return btn_Ingresar;
+		return btn_Login;
 	}
 
 	public JButton getBtn_Simulacion() {

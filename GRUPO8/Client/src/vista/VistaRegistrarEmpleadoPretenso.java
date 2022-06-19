@@ -6,11 +6,12 @@ import java.awt.GridLayout;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.border.TitledBorder;
+import javax.swing.BoxLayout;
+import javax.swing.JButton;
 
 public class VistaRegistrarEmpleadoPretenso extends JPanel {
 	private JPanel panel_Centro;
 	private JPanel panel_Sur;
-	private JPanel panel_UsuarioContrasena;
 	private JPanel panel_DatosEmpleado_Border;
 	private JPanel panel_DatosEmpleadoPretenso;
 	private JLabel lbl_Nya;
@@ -25,6 +26,20 @@ public class VistaRegistrarEmpleadoPretenso extends JPanel {
 	private JPanel panel_textField_Telefono;
 	private JPanel panel_lbl_Edad;
 	private JPanel panel_texField_Edad;
+	private JPanel panel_UsuarioContrasena_Border;
+	private JPanel panel_UsuarioContrasena;
+	private JLabel lbl_Usuario;
+	private JTextField textField_Usuario;
+	private JLabel lbl_Contrasena;
+	private JTextField textField_Contrasena;
+	private JPanel panel_lbl_Usuario;
+	private JPanel panel_textField_Usuario;
+	private JPanel panel_lbl_Contrasena;
+	private JPanel panel_textField_Contrasena;
+	private JButton btn_Volver;
+	private JButton btn_Registrar;
+	private JPanel panel_Volver;
+	private JPanel panel_Registrar;
 
 	/**
 	 * Create the panel.
@@ -35,9 +50,6 @@ public class VistaRegistrarEmpleadoPretenso extends JPanel {
 		this.panel_Centro = new JPanel();
 		add(this.panel_Centro, BorderLayout.CENTER);
 		this.panel_Centro.setLayout(new BorderLayout(0, 0));
-		
-		this.panel_UsuarioContrasena = new JPanel();
-		this.panel_Centro.add(this.panel_UsuarioContrasena, BorderLayout.SOUTH);
 		
 		this.panel_DatosEmpleado_Border = new JPanel();
 		this.panel_Centro.add(this.panel_DatosEmpleado_Border, BorderLayout.NORTH);
@@ -86,8 +98,55 @@ public class VistaRegistrarEmpleadoPretenso extends JPanel {
 		this.panel_texField_Edad.add(this.textField_Edad);
 		this.textField_Edad.setColumns(10);
 		
+		this.panel_UsuarioContrasena_Border = new JPanel();
+		this.panel_UsuarioContrasena_Border.setBorder(new TitledBorder(null, "Registro", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		this.panel_Centro.add(this.panel_UsuarioContrasena_Border, BorderLayout.SOUTH);
+		
+		this.panel_UsuarioContrasena = new JPanel();
+		this.panel_UsuarioContrasena_Border.add(this.panel_UsuarioContrasena);
+		this.panel_UsuarioContrasena.setLayout(new GridLayout(2, 2, 0, 0));
+		
+		this.panel_lbl_Usuario = new JPanel();
+		this.panel_UsuarioContrasena.add(this.panel_lbl_Usuario);
+		
+		this.lbl_Usuario = new JLabel("Usuario");
+		this.panel_lbl_Usuario.add(this.lbl_Usuario);
+		
+		this.panel_textField_Usuario = new JPanel();
+		this.panel_UsuarioContrasena.add(this.panel_textField_Usuario);
+		
+		this.textField_Usuario = new JTextField();
+		this.panel_textField_Usuario.add(this.textField_Usuario);
+		this.textField_Usuario.setColumns(10);
+		
+		this.panel_lbl_Contrasena = new JPanel();
+		this.panel_UsuarioContrasena.add(this.panel_lbl_Contrasena);
+		
+		this.lbl_Contrasena = new JLabel("Contrase\u00F1a");
+		this.panel_lbl_Contrasena.add(this.lbl_Contrasena);
+		
+		this.panel_textField_Contrasena = new JPanel();
+		this.panel_UsuarioContrasena.add(this.panel_textField_Contrasena);
+		
+		this.textField_Contrasena = new JTextField();
+		this.panel_textField_Contrasena.add(this.textField_Contrasena);
+		this.textField_Contrasena.setColumns(10);
+		
 		this.panel_Sur = new JPanel();
 		add(this.panel_Sur, BorderLayout.SOUTH);
+		this.panel_Sur.setLayout(new GridLayout(1, 0, 0, 0));
+		
+		this.panel_Volver = new JPanel();
+		this.panel_Sur.add(this.panel_Volver);
+		
+		this.btn_Volver = new JButton("Volver");
+		this.panel_Volver.add(this.btn_Volver);
+		
+		this.panel_Registrar = new JPanel();
+		this.panel_Sur.add(this.panel_Registrar);
+		
+		this.btn_Registrar = new JButton("Registrar");
+		this.panel_Registrar.add(this.btn_Registrar);
 
 	}
 
