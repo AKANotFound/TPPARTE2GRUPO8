@@ -29,6 +29,9 @@ public class VistaRegistrarAdministrador extends JPanel {
 	private JPanel panel_textField_Contrasena_Border;
 	private JTextField textField_2;
 	private JPanel panel_RegistroAdministrador_Border;
+	private JButton btn_Volver;
+	private JPanel panel_Volver_Border;
+	private JPanel panel_Registrar_Border;
 
 	/**
 	 * Create the panel.
@@ -89,10 +92,20 @@ public class VistaRegistrarAdministrador extends JPanel {
 		
 		this.panel_Sur = new JPanel();
 		add(this.panel_Sur, BorderLayout.SOUTH);
+		this.panel_Sur.setLayout(new GridLayout(1, 2, 0, 0));
+		
+		this.panel_Volver_Border = new JPanel();
+		this.panel_Sur.add(this.panel_Volver_Border);
+		
+		this.btn_Volver = new JButton("Volver");
+		this.panel_Volver_Border.add(this.btn_Volver);
+		
+		this.panel_Registrar_Border = new JPanel();
+		this.panel_Sur.add(this.panel_Registrar_Border);
 		
 		this.btn_Registrar = new JButton("Registrar");
+		this.panel_Registrar_Border.add(this.btn_Registrar);
 		this.btn_Registrar.setActionCommand("VistaRegistrarAdministrador_Registrar");
-		this.panel_Sur.add(this.btn_Registrar);
 
 	}
 
