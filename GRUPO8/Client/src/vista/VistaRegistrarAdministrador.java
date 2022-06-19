@@ -91,6 +91,7 @@ public class VistaRegistrarAdministrador extends JPanel {
 		add(this.panel_Sur, BorderLayout.SOUTH);
 		
 		this.btn_Registrar = new JButton("Registrar");
+		this.btn_Registrar.setActionCommand("VistaRegistrarAdministrador_Registrar");
 		this.panel_Sur.add(this.btn_Registrar);
 
 	}
