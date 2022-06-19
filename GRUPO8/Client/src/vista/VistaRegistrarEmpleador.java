@@ -12,7 +12,7 @@ import java.awt.Color;
 import javax.swing.JButton;
 import javax.swing.SwingConstants;
 
-public class VentanaRegistrarEmpleador extends JPanel {
+public class VistaRegistrarEmpleador extends JPanel {
 	private JPanel panel_Centro;
 	private JPanel panel_Sur;
 	private JPanel panel_DatosEmpleador;
@@ -77,7 +77,7 @@ public class VentanaRegistrarEmpleador extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public VentanaRegistrarEmpleador() {
+	public VistaRegistrarEmpleador() {
 		setLayout(new BorderLayout(0, 0));
 		
 		this.panel_Centro = new JPanel();

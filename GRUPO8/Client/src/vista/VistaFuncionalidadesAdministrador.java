@@ -24,10 +24,7 @@ public class VistaFuncionalidadesAdministrador extends JPanel {
 	private JButton btn_IniciarRondaEncuentrosLaborales;
 	private JPanel panel_IniciarRondaContratacion_Border;
 	private JButton btn_IniciarRondaContratacion;
-	private JPanel panel;
 	private JPanel panel_Sub_Border;
-	private JScrollPane scrollPane;
-	private JTextArea textArea;
 	private JPanel panel_Visualizar_Border;
 	private JPanel panel_Visualizar;
 	private JPanel panel_Visualizar_Norte;
@@ -39,6 +36,9 @@ public class VistaFuncionalidadesAdministrador extends JPanel {
 	private JButton btn_VisualizarCuentas;
 	private JButton btn_VisualizarLogins;
 	private JButton btn_Contratos;
+	private JPanel panel_Consola;
+	private JScrollPane scrollPane_Consola;
+	private JTextArea textArea_Consola;
 
 	/**
 	 * Create the panel.
@@ -53,7 +53,7 @@ public class VistaFuncionalidadesAdministrador extends JPanel {
 		this.panel_Salir = new JPanel();
 		this.panel_Sur.add(this.panel_Salir);
 		
-		this.btn_Logout = new JButton("Log out");
+		this.btn_Logout = new JButton("Cerrar sesi\u00F3n");
 		this.panel_Salir.add(this.btn_Logout);
 		
 		this.panel_BorrarCuenta = new JPanel();
@@ -91,24 +91,18 @@ public class VistaFuncionalidadesAdministrador extends JPanel {
 		
 		this.panel_Sub_Border = new JPanel();
 		this.panel_Centro.add(this.panel_Sub_Border, BorderLayout.CENTER);
-		this.panel_Sub_Border.setLayout(new BorderLayout(0, 0));
-		
-		this.scrollPane = new JScrollPane();
-		this.panel_Sub_Border.add(this.scrollPane, BorderLayout.CENTER);
-		
-		this.textArea = new JTextArea();
-		this.scrollPane.setViewportView(this.textArea);
+		this.panel_Sub_Border.setLayout(new GridLayout(2, 1, 0, 0));
 		
 		this.panel_Visualizar_Border = new JPanel();
 		this.panel_Visualizar_Border.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), "Visualizar listas", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
-		this.panel_Sub_Border.add(this.panel_Visualizar_Border, BorderLayout.NORTH);
+		this.panel_Sub_Border.add(this.panel_Visualizar_Border);
 		
 		this.panel_Visualizar = new JPanel();
 		this.panel_Visualizar_Border.add(this.panel_Visualizar);
-		this.panel_Visualizar.setLayout(new GridLayout(0, 1, 0, 0));
+		this.panel_Visualizar.setLayout(new BorderLayout(0, 0));
 		
 		this.panel_Visualizar_Norte = new JPanel();
-		this.panel_Visualizar.add(this.panel_Visualizar_Norte);
+		this.panel_Visualizar.add(this.panel_Visualizar_Norte, BorderLayout.NORTH);
 		
 		this.btn_VisualizarEmpleadosPretensos = new JButton("<html>Empleados <br/>pretensos</html>");
 		this.panel_Visualizar_Norte.add(this.btn_VisualizarEmpleadosPretensos);
@@ -123,7 +117,7 @@ public class VistaFuncionalidadesAdministrador extends JPanel {
 		this.panel_Visualizar_Norte.add(this.btn_VisualizarTicketsEmpleadores);
 		
 		this.panel_Visualizar_Sur = new JPanel();
-		this.panel_Visualizar.add(this.panel_Visualizar_Sur);
+		this.panel_Visualizar.add(this.panel_Visualizar_Sur, BorderLayout.SOUTH);
 		
 		this.btn_VisualizarCuentas = new JButton("Cuentas");
 		this.panel_Visualizar_Sur.add(this.btn_VisualizarCuentas);
@@ -134,8 +128,16 @@ public class VistaFuncionalidadesAdministrador extends JPanel {
 		this.btn_Contratos = new JButton("Contratos");
 		this.panel_Visualizar_Sur.add(this.btn_Contratos);
 		
-		this.panel = new JPanel();
-		add(this.panel, BorderLayout.NORTH);
+		this.panel_Consola = new JPanel();
+		this.panel_Consola.setBorder(new TitledBorder(null, "Consola", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		this.panel_Sub_Border.add(this.panel_Consola);
+		this.panel_Consola.setLayout(new BorderLayout(0, 0));
+		
+		this.scrollPane_Consola = new JScrollPane();
+		this.panel_Consola.add(this.scrollPane_Consola);
+		
+		this.textArea_Consola = new JTextArea();
+		this.scrollPane_Consola.setViewportView(this.textArea_Consola);
 
 	}
 

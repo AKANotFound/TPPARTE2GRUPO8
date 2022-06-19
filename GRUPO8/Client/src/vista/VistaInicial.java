@@ -106,7 +106,7 @@ public class VistaInicial extends JPanel {
 		this.panel_btn_Ingresar_Border = new JPanel();
 		this.panel_Login.add(this.panel_btn_Ingresar_Border);
 		
-		this.btn_Login = new JButton("Login");
+		this.btn_Login = new JButton("Iniciar Sesi\u00F3n");
 		this.panel_btn_Ingresar_Border.add(this.btn_Login);
 		
 		this.panel_Sur = new JPanel();
