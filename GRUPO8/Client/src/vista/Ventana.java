@@ -54,4 +54,8 @@ public class Ventana extends JFrame implements IVista {
 	public JPanel getContentPane() {
 		return contentPane;
 	}
+	
+	public void setSizeVentana(int ancho, int alto) {
+		setSize(ancho,alto);
+	}
 }

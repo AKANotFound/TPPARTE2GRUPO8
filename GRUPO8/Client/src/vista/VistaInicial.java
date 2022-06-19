@@ -100,6 +100,7 @@ public class VistaInicial extends JPanel {
 		this.panel_Login.add(this.panel_btn_CrearCuenta_Border);
 		
 		this.btn_CrearCuenta = new JButton("Crear cuenta");
+		this.btn_CrearCuenta.setActionCommand("VistaInicial_CrearCuenta");
 		this.panel_btn_CrearCuenta_Border.add(this.btn_CrearCuenta);
 		
 		this.panel_btn_Ingresar_Border = new JPanel();

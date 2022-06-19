@@ -10,4 +10,5 @@ public interface IVista
 	JPanel getContentPane();
 	VistaInicial getVistaInicial();
 	VistaRegistrarAdministrador getVistaRegistrarAdministrador();
+	public void setSizeVentana(int ancho, int alto);
 }
