@@ -3,6 +3,8 @@ package vista;
 import javax.swing.JPanel;
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
+import java.awt.event.ActionListener;
+
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
@@ -12,7 +14,7 @@ import java.awt.Color;
 import javax.swing.JButton;
 import javax.swing.SwingConstants;
 
-public class VistaRegistrarEmpleador extends JPanel {
+public class VistaRegistrarEmpleador extends JPanel implements IVistaRegistrarEmpleador {
 	private JPanel panel_Centro;
 	private JPanel panel_Sur;
 	private JPanel panel_DatosEmpleador;
@@ -278,6 +280,14 @@ public class VistaRegistrarEmpleador extends JPanel {
 		this.btn_Registrar = new JButton("Registrar");
 		this.panel_Registrar.add(this.btn_Registrar);
 
+	}
+
+	@Override
+	public void setActionListener(ActionListener actionListener)
+	{
+		this.btn_Volver.addActionListener(actionListener);
+		this.btn_Registrar.addActionListener(actionListener);
+		
 	}
 
 }

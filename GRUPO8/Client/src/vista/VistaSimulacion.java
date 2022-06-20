@@ -3,13 +3,15 @@ package vista;
 import javax.swing.JPanel;
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
+import java.awt.event.ActionListener;
+
 import javax.swing.JTextArea;
 import javax.swing.border.TitledBorder;
 import javax.swing.border.EtchedBorder;
 import java.awt.Color;
 import javax.swing.JButton;
 
-public class VistaSimulacion extends JPanel
+public class VistaSimulacion extends JPanel implements IVistaSimulacion
 {
 	private JPanel panel_Centro;
 	private JPanel panel_Sur;
@@ -108,6 +110,15 @@ public class VistaSimulacion extends JPanel
 		this.btn_Volver = new JButton("Volver");
 		this.panel_Volver.add(this.btn_Volver);
 
+	}
+
+	@Override
+	public void setActionListener(ActionListener actionListener)
+	{
+		this.btn_Iniciar.addActionListener(actionListener);
+		this.btn_Detener.addActionListener(actionListener);
+		this.btn_Volver.addActionListener(actionListener);
+		
 	}
 
 }
