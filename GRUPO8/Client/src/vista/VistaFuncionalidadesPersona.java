@@ -3,14 +3,15 @@ package vista;
 import javax.swing.JPanel;
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
+import java.awt.event.ActionListener;
+
 import javax.swing.JButton;
 import javax.swing.border.TitledBorder;
 import javax.swing.JList;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
-public class VistaFuncionalidadesPersona extends JPanel
-{
+public class VistaFuncionalidadesPersona extends JPanel implements IVistaFuncionalidadesPersona {
 	private JPanel panel_Centro;
 	private JPanel panel_Sur;
 	private JPanel panel_Norte_border;
@@ -30,7 +31,7 @@ public class VistaFuncionalidadesPersona extends JPanel
 	private JPanel panel_Eleccion;
 	private JPanel panel_Consola_Border;
 	private JPanel panel_Eleccion_Este;
-	private JButton btn_Aceptar;
+	private JButton btn_AceptarEleccion;
 	private JScrollPane scrollPane_Eleccion_Centro;
 	private JList list;
 	private JPanel panel_Eleccion_Border;
@@ -60,8 +61,9 @@ public class VistaFuncionalidadesPersona extends JPanel
 		this.panel_Eleccion_Este = new JPanel();
 		this.panel_Eleccion.add(this.panel_Eleccion_Este, BorderLayout.EAST);
 		
-		this.btn_Aceptar = new JButton("Aceptar");
-		this.panel_Eleccion_Este.add(this.btn_Aceptar);
+		this.btn_AceptarEleccion = new JButton("Aceptar");
+		this.btn_AceptarEleccion.setActionCommand("AceptarEleccion");
+		this.panel_Eleccion_Este.add(this.btn_AceptarEleccion);
 		
 		this.scrollPane_Eleccion_Centro = new JScrollPane();
 		this.panel_Eleccion.add(this.scrollPane_Eleccion_Centro, BorderLayout.CENTER);
@@ -88,12 +90,14 @@ public class VistaFuncionalidadesPersona extends JPanel
 		this.panel_Sur.add(this.panel_LogOut);
 		
 		this.btn_Logout = new JButton("Cerrar sesi\u00F3n");
+		this.btn_Logout.setActionCommand("CerrarSesion");
 		this.panel_LogOut.add(this.btn_Logout);
 		
 		this.panel_BorrarCuenta = new JPanel();
 		this.panel_Sur.add(this.panel_BorrarCuenta);
 		
 		this.btn_BorrarCuenta = new JButton("Borrar cuenta");
+		this.btn_BorrarCuenta.setActionCommand("BorrarCuenta");
 		this.panel_BorrarCuenta.add(this.btn_BorrarCuenta);
 		
 		this.panel_Norte_border = new JPanel();
@@ -108,26 +112,40 @@ public class VistaFuncionalidadesPersona extends JPanel
 		this.panel_Norte.add(this.panel_GestionDeTicket);
 		
 		this.btn_GestionDeTicket = new JButton("<html><center>Gesti\u00F3n de<br/>ticket</center></html>");
+		this.btn_GestionDeTicket.setActionCommand("GestionDeTicket");
 		this.panel_GestionDeTicket.add(this.btn_GestionDeTicket);
 		
 		this.panel_IniciarRondaDeEleccion = new JPanel();
 		this.panel_Norte.add(this.panel_IniciarRondaDeEleccion);
 		
 		this.btn_IniciarRondaDeEleccion = new JButton("<html><center>Iniciar ronda<br/>de elecci\u00F3n</center></html>");
+		this.btn_IniciarRondaDeEleccion.setActionCommand("IniciarRondaDeEleccion");
 		this.panel_IniciarRondaDeEleccion.add(this.btn_IniciarRondaDeEleccion);
 		
 		this.panel_VisualizarResultado = new JPanel();
 		this.panel_Norte.add(this.panel_VisualizarResultado);
 		
 		this.btn_VisualizarResultado = new JButton("<html><center>Visualizar<br/>resultado</center></html>");
+		this.btn_VisualizarResultado.setActionCommand("VisualizarResultado");
 		this.panel_VisualizarResultado.add(this.btn_VisualizarResultado);
 		
 		this.panel_VisualizarPersonasElegidas = new JPanel();
 		this.panel_Norte.add(this.panel_VisualizarPersonasElegidas);
 		
 		this.btn_VisualizarPersonasElegidas = new JButton("<html><center>Visualizar<br/>personas elegidas</center></html>");
+		this.btn_VisualizarPersonasElegidas.setActionCommand("VisualizarPersonasElegidas");
 		this.panel_VisualizarPersonasElegidas.add(this.btn_VisualizarPersonasElegidas);
 
+	}
+
+	@Override
+	public void setActionListener(ActionListener actionListener) {
+		this.btn_BorrarCuenta.addActionListener(actionListener);
+		this.btn_Logout.addActionListener(actionListener);
+		this.btn_AceptarEleccion.addActionListener(actionListener);
+		this.btn_IniciarRondaDeEleccion.addActionListener(actionListener);
+		this.btn_VisualizarPersonasElegidas.addActionListener(actionListener);
+		this.btn_VisualizarResultado.addActionListener(actionListener);
 	}
 
 }
