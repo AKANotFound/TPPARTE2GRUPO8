@@ -3,6 +3,8 @@ package vista;
 import javax.swing.JPanel;
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
+import java.awt.event.ActionListener;
+
 import javax.swing.JButton;
 import javax.swing.border.TitledBorder;
 import java.awt.FlowLayout;
@@ -11,7 +13,7 @@ import javax.swing.JTextArea;
 import javax.swing.border.EtchedBorder;
 import java.awt.Color;
 
-public class VistaFuncionalidadesAdministrador extends JPanel {
+public class VistaFuncionalidadesAdministrador extends JPanel implements IVistaFuncionalidadesAdministrador {
 	private JPanel panel_Sur;
 	private JPanel panel_Centro;
 	private JButton btn_Logout;
@@ -139,6 +141,23 @@ public class VistaFuncionalidadesAdministrador extends JPanel {
 		this.textArea_Consola = new JTextArea();
 		this.scrollPane_Consola.setViewportView(this.textArea_Consola);
 
+	}
+
+	@Override
+	public void setActionListener(ActionListener actionListener)
+	{
+		this.btn_BorrarCuenta.addActionListener(actionListener);
+		this.btn_Contratos.addActionListener(actionListener);
+		this.btn_IniciarRondaContratacion.addActionListener(actionListener);
+		this.btn_IniciarRondaEncuentrosLaborales.addActionListener(actionListener);
+		this.btn_Logout.addActionListener(actionListener);
+		this.btn_VisualizarCuentas.addActionListener(actionListener);
+		this.btn_VisualizarEmpleadores.addActionListener(actionListener);
+		this.btn_VisualizarEmpleadosPretensos.addActionListener(actionListener);
+		this.btn_VisualizarLogins.addActionListener(actionListener);
+		this.btn_VisualizarTicketsEmpleadores.addActionListener(actionListener);
+		this.btn_VisualizarTicketsEmpleadosPretensos.addActionListener(actionListener);
+		
 	}
 
 }
