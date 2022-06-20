@@ -2,8 +2,11 @@ package prueba;
 
 import javax.swing.JPanel;
 
+import controlador.ControladorVistaFormularioDeBusquedaEmpleadoPretenso;
+import controlador.ControladorVistaFormularioDeBusquedaEmpleador;
 import controlador.ControladorVistaFuncionalidadesAdministrador;
 import controlador.ControladorVistaFuncionalidadesPersona;
+import controlador.ControladorVistaGestionTicketPersona;
 import controlador.ControladorVistaInicial;
 import controlador.ControladorVistaRegistrarAdministrador;
 import controlador.ControladorVistaRegistrarEmpleadoPretenso;
@@ -55,6 +58,9 @@ public class PruebaVista {
 		ControladorVistaSimulacion controladorVistaSimulacion = new ControladorVistaSimulacion(vistaSimulacion,contentPane);
 		ControladorVistaFuncionalidadesAdministrador controladorVistaFuncionalidadesAdministrador = new ControladorVistaFuncionalidadesAdministrador(vistaFuncionalidadesAdministrador,contentPane);
 		ControladorVistaFuncionalidadesPersona controladorVistaFuncionalidadesPersona = new ControladorVistaFuncionalidadesPersona(vistaFuncionalidadesPersona,contentPane);
+		ControladorVistaFormularioDeBusquedaEmpleador controladorVistaFormularioDeBusquedaEmpleador = new ControladorVistaFormularioDeBusquedaEmpleador(vistaFormularioDeBusquedaEmpleador,contentPane);
+		ControladorVistaFormularioDeBusquedaEmpleadoPretenso controladorVistaFormularioDeBusquedaEmpleadoPretenso = new ControladorVistaFormularioDeBusquedaEmpleadoPretenso(vistaFormularioDeBusquedaEmpleadoPretenso,contentPane);
+		ControladorVistaGestionTicketPersona controladoVistaGestionTicketPersona = new ControladorVistaGestionTicketPersona(vistaGestionTicketPersona,contentPane);
 	}
 
 }
