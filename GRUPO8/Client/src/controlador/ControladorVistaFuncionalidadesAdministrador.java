@@ -32,6 +32,7 @@ public class ControladorVistaFuncionalidadesAdministrador implements ActionListe
 	{
 		this.vista = vista;
 		this.contentPane = contentPane;
+		this.vista.setActionListener(this);
 	}
 
 
