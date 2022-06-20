@@ -3,13 +3,15 @@ package vista;
 import javax.swing.JPanel;
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
+import java.awt.event.ActionListener;
+
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.border.TitledBorder;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 
-public class VistaRegistrarEmpleadoPretenso extends JPanel {
+public class VistaRegistrarEmpleadoPretenso extends JPanel implements IVistaRegistrarEmpleadoPretenso {
 	private JPanel panel_Centro;
 	private JPanel panel_Sur;
 	private JPanel panel_DatosEmpleado_Border;
@@ -148,6 +150,12 @@ public class VistaRegistrarEmpleadoPretenso extends JPanel {
 		this.btn_Registrar = new JButton("Registrar");
 		this.panel_Registrar.add(this.btn_Registrar);
 
+	}
+
+	@Override
+	public void setActionListener(ActionListener actionListener) {
+		this.btn_Registrar.addActionListener(actionListener);
+		this.btn_Volver.addActionListener(actionListener);
 	}
 
 }
