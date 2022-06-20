@@ -46,6 +46,8 @@ public class ControladorVistaFormularioDeBusquedaEmpleadoPretenso implements Act
 				cl.show(contentPane, Ventana.VISTA_GESTION_TICKET_PERSONA);
 			}
 		
+		this.vista.actualizarComboBox();
+		
 	}
 
 }

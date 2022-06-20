@@ -46,6 +46,7 @@ public class ControladorVistaFormularioDeBusquedaEmpleador implements ActionList
 			{
 				cl.show(contentPane, Ventana.VISTA_GESTION_TICKET_PERSONA);
 			}
+		this.vista.actualizarComboBox();
 		
 	}
 
