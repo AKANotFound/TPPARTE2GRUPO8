@@ -3,6 +3,10 @@ package prueba;
 import javax.swing.JPanel;
 
 import controlador.ControladorVistaInicial;
+import controlador.ControladorVistaRegistrarAdministrador;
+import controlador.ControladorVistaRegistrarEmpleadoPretenso;
+import controlador.ControladorVistaRegistrarEmpleador;
+import controlador.ControladorVistaSimulacion;
 import vista.Ventana;
 import vista.VistaFormularioDeBusquedaEmpleadoPretenso;
 import vista.VistaFormularioDeBusquedaEmpleador;
@@ -43,6 +47,10 @@ public class PruebaVista {
 		JPanel contentPane = ventana.getContentPane();
 		
 		ControladorVistaInicial controladorVistaInicial = new ControladorVistaInicial(vistaInicial,contentPane);
+		ControladorVistaRegistrarAdministrador controladorVistaRegistrarAdministrador = new ControladorVistaRegistrarAdministrador(vistaRegistrarAdministrador,contentPane);
+		ControladorVistaRegistrarEmpleadoPretenso controladorVistaRegistrarEmpleadoPretenso = new ControladorVistaRegistrarEmpleadoPretenso(vistaRegistrarEmpleadoPretenso,contentPane);
+		ControladorVistaRegistrarEmpleador controladorVistaRegistrarEmpleador = new ControladorVistaRegistrarEmpleador(vistaRegistrarEmpleador,contentPane);
+		ControladorVistaSimulacion controladorVistaSimulacion = new ControladorVistaSimulacion(vistaSimulacion,contentPane);
 	}
 
 }
