@@ -10,8 +10,10 @@ import javax.swing.JTextField;
 import javax.swing.border.TitledBorder;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
+import java.awt.event.KeyListener;
+import java.awt.event.KeyEvent;
 
-public class VistaRegistrarEmpleadoPretenso extends JPanel implements IVistaRegistrarEmpleadoPretenso {
+public class VistaRegistrarEmpleadoPretenso extends JPanel implements IVistaRegistrarEmpleadoPretenso, KeyListener {
 	private JPanel panel_Centro;
 	private JPanel panel_Sur;
 	private JPanel panel_DatosEmpleado_Border;
@@ -72,6 +74,7 @@ public class VistaRegistrarEmpleadoPretenso extends JPanel implements IVistaRegi
 		this.panel_DatosEmpleadoPretenso.add(this.panel_textField_Nya);
 		
 		this.textField_Nya = new JTextField();
+		this.textField_Nya.addKeyListener(this);
 		this.panel_textField_Nya.add(this.textField_Nya);
 		this.textField_Nya.setColumns(10);
 		
@@ -85,6 +88,7 @@ public class VistaRegistrarEmpleadoPretenso extends JPanel implements IVistaRegi
 		this.panel_DatosEmpleadoPretenso.add(this.panel_textField_Telefono);
 		
 		this.textField_Telefono = new JTextField();
+		this.textField_Telefono.addKeyListener(this);
 		this.panel_textField_Telefono.add(this.textField_Telefono);
 		this.textField_Telefono.setColumns(10);
 		
@@ -98,6 +102,7 @@ public class VistaRegistrarEmpleadoPretenso extends JPanel implements IVistaRegi
 		this.panel_DatosEmpleadoPretenso.add(this.panel_texField_Edad);
 		
 		this.textField_Edad = new JTextField();
+		this.textField_Edad.addKeyListener(this);
 		this.panel_texField_Edad.add(this.textField_Edad);
 		this.textField_Edad.setColumns(10);
 		
@@ -119,6 +124,7 @@ public class VistaRegistrarEmpleadoPretenso extends JPanel implements IVistaRegi
 		this.panel_UsuarioContrasena.add(this.panel_textField_Usuario);
 		
 		this.textField_Usuario = new JTextField();
+		this.textField_Usuario.addKeyListener(this);
 		this.panel_textField_Usuario.add(this.textField_Usuario);
 		this.textField_Usuario.setColumns(10);
 		
@@ -132,6 +138,7 @@ public class VistaRegistrarEmpleadoPretenso extends JPanel implements IVistaRegi
 		this.panel_UsuarioContrasena.add(this.panel_textField_Contrasena);
 		
 		this.textField_Contrasena = new JTextField();
+		this.textField_Contrasena.addKeyListener(this);
 		this.panel_textField_Contrasena.add(this.textField_Contrasena);
 		this.textField_Contrasena.setColumns(10);
 		
@@ -149,6 +156,7 @@ public class VistaRegistrarEmpleadoPretenso extends JPanel implements IVistaRegi
 		this.panel_Sur.add(this.panel_Registrar);
 		
 		this.btn_Registrar = new JButton("Registrar");
+		this.btn_Registrar.setEnabled(false);
 		this.panel_Registrar.add(this.btn_Registrar);
 
 	}
@@ -160,4 +168,36 @@ public class VistaRegistrarEmpleadoPretenso extends JPanel implements IVistaRegi
 		this.actionListener=actionListener;
 	}
 
+	public void keyPressed(KeyEvent e) {
+	}
+	public void keyReleased(KeyEvent e) {
+		int edad = 0;
+		int telefono = 0;
+		
+		try {
+			edad = Integer.parseInt(this.textField_Edad.getText());			
+		}
+		catch(NumberFormatException exception) {
+		}
+		
+		try {
+			telefono = Integer.parseInt(this.textField_Telefono.getText());			
+		}
+		catch(NumberFormatException exception) {
+		}
+		
+		if(this.textField_Contrasena.getText().length() != 0
+				&& this.textField_Edad.getText().length() != 0
+				&& this.textField_Nya.getText().length() != 0
+				&& this.textField_Telefono.getText().length() != 0
+				&& this.textField_Usuario.getText().length() != 0
+				&& edad != 0
+				&& telefono != 0) {
+			this.btn_Registrar.setEnabled(true);
+		}
+		else
+			this.btn_Registrar.setEnabled(false);
+	}
+	public void keyTyped(KeyEvent e) {
+	}
 }

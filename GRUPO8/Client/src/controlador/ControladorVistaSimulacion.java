@@ -40,12 +40,12 @@ public class ControladorVistaSimulacion implements ActionListener
 		else
 			if (comando.equals(INICIAR))
 			{
-				
+				vista.setIniciarDisabled();
 			}
 			else
 				if (comando.equals(DETENER))
 				{
-					
+					vista.setDetenerDisabled();
 				}
 		
 	}
