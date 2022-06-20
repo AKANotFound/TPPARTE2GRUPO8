@@ -52,6 +52,7 @@ public class VistaFormularioDeBusquedaEmpleador extends JPanel implements IVista
 	private JPanel panel_comboBox_EstudiosCursados;
 	private JPanel panel_lbl_CantidadDeEmpleadosSolicitados;
 	private JPanel panel_comboBox_CantidadDeEmpleadosSolicitados;
+	private ActionListener actionListener;//controlador
 
 	/**
 	 * Create the panel.
@@ -188,6 +189,7 @@ public class VistaFormularioDeBusquedaEmpleador extends JPanel implements IVista
 	{
 		this.btn_Aceptar.addActionListener(actionListener);
 		this.btn_Cancelar.addActionListener(actionListener);
+		this.actionListener=actionListener;
 		
 	}
 

@@ -32,6 +32,7 @@ public class VistaSimulacion extends JPanel implements IVistaSimulacion
 	private JButton btn_Volver;
 	private JPanel panel_Iniciar;
 	private JPanel panel_Detener;
+	private ActionListener actionListener;//controlador
 
 	/**
 	 * Create the panel.
@@ -118,6 +119,7 @@ public class VistaSimulacion extends JPanel implements IVistaSimulacion
 		this.btn_Iniciar.addActionListener(actionListener);
 		this.btn_Detener.addActionListener(actionListener);
 		this.btn_Volver.addActionListener(actionListener);
+		this.actionListener=actionListener;
 		
 	}
 

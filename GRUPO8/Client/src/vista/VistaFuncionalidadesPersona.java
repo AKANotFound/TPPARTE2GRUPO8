@@ -37,6 +37,7 @@ public class VistaFuncionalidadesPersona extends JPanel implements IVistaFuncion
 	private JPanel panel_Eleccion_Border;
 	private JScrollPane scrollPane_Consola;
 	private JTextArea textArea_Consola;
+	private ActionListener actionListener;//controlador
 
 	/**
 	 * Create the panel.
@@ -147,6 +148,7 @@ public class VistaFuncionalidadesPersona extends JPanel implements IVistaFuncion
 		this.btn_VisualizarPersonasElegidas.addActionListener(actionListener);
 		this.btn_VisualizarResultado.addActionListener(actionListener);
 		this.btn_GestionDeTicket.addActionListener(actionListener);
+		this.actionListener=actionListener;
 	}
 
 }

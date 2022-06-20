@@ -42,6 +42,7 @@ public class VistaFuncionalidadesAdministrador extends JPanel implements IVistaF
 	private JButton btn_VisualizarCuentas;
 	private JButton btn_VisualizarLogins;
 	private JButton btn_Contratos;
+	private ActionListener actionListener;//controlador
 
 	/**
 	 * Create the panel.
@@ -163,6 +164,7 @@ public class VistaFuncionalidadesAdministrador extends JPanel implements IVistaF
 		this.btn_VisualizarLogins.addActionListener(actionListener);
 		this.btn_VisualizarTicketsEmpleadores.addActionListener(actionListener);
 		this.btn_VisualizarTicketsEmpleadosPretensos.addActionListener(actionListener);
+		this.actionListener=actionListener;
 		
 	}
 

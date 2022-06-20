@@ -51,6 +51,7 @@ public class VistaFormularioDeBusquedaEmpleadoPretenso extends JPanel implements
 	private JPanel panel_comboBox_ExperienciaPrevia;
 	private JPanel panel_lbl_EstudiosCursados;
 	private JPanel panel_comboBox_EstudiosCursados;
+	private ActionListener actionListener;//controlador
 
 	/**
 	 * Create the panel.
@@ -173,6 +174,7 @@ public class VistaFormularioDeBusquedaEmpleadoPretenso extends JPanel implements
 	{
 		this.btn_Aceptar.addActionListener(actionListener);
 		this.btn_Cancelar.addActionListener(actionListener);
+		this.actionListener=actionListener;
 		
 	}
 

@@ -23,6 +23,7 @@ public class VistaGestionTicketPersona extends JPanel implements IVistaGestionTi
 	private JPanel panel_SuspenderTicket;
 	private JPanel panel_CancelarTicket;
 	private JPanel panel_ModificarTicket;
+	private ActionListener actionListener;//controlador
 
 	/**
 	 * Create the panel.
@@ -85,6 +86,7 @@ public class VistaGestionTicketPersona extends JPanel implements IVistaGestionTi
 		this.btn_ModificarTicket.addActionListener(actionListener);
 		this.btn_SuspenderTicket.addActionListener(actionListener);
 		this.btn_Volver.addActionListener(actionListener);
+		this.actionListener=actionListener;
 	}
 
 }

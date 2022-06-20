@@ -17,6 +17,7 @@ public class ControladorVistaFormularioDeBusquedaEmpleadoPretenso implements Act
 	private final String CANCELAR = "Cancelar";
 	
 	
+	
 	public ControladorVistaFormularioDeBusquedaEmpleadoPretenso(IVistaFormularioDeBusquedaEmpleadoPretenso vista,
 			JPanel contentPane)
 	{

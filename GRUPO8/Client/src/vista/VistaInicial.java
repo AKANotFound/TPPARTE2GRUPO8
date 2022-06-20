@@ -38,6 +38,7 @@ public class VistaInicial extends JPanel implements IVistaInicial {
 	private JButton btn_Simulacion;
 	private JPanel panel;
 	private ButtonGroup tipoUsuarioRadioButtonGroup;
+	private ActionListener actionListener;//controlador
 
 	/**
 	 * Create the panel.
@@ -135,6 +136,7 @@ public class VistaInicial extends JPanel implements IVistaInicial {
 		this.btn_CrearCuenta.addActionListener(actionListener);
 		this.btn_Login.addActionListener(actionListener);
 		this.btn_Simulacion.addActionListener(actionListener);
+		this.actionListener=actionListener;
 	}
 
 	@Override
