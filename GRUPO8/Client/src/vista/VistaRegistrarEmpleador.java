@@ -11,6 +11,8 @@ import javax.swing.JComboBox;
 import javax.swing.border.TitledBorder;
 import javax.swing.border.EtchedBorder;
 import java.awt.Color;
+
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.SwingConstants;
 
@@ -22,9 +24,11 @@ public class VistaRegistrarEmpleador extends JPanel implements IVistaRegistrarEm
 	private JLabel lbl_RazonSocial;
 	private JTextField textField_RazonSocial;
 	private JLabel lbl_TipoPersona;
-	private JComboBox comboBox_TipoPersona;
+	private JComboBox<String> comboBox_TipoPersona;
+	private DefaultComboBoxModel<String> defaultComboBox_TipoPersona;
 	private JLabel lbl_Rubro;
-	private JComboBox comboBox_Rubro;
+	private JComboBox<String> comboBox_Rubro;
+	private DefaultComboBoxModel <String>defaultComboBox_Rubro;
 	private JPanel panel_DatosEmpleador_Border;
 	private JPanel panel_lbl_RazonSocial;
 	private JPanel panel_textField_RazonSocial;
@@ -76,6 +80,13 @@ public class VistaRegistrarEmpleador extends JPanel implements IVistaRegistrarEm
 	private JPanel panel_Volver;
 	private JPanel panel_Registrar;
 	private ActionListener actionListener;//controlador
+	
+	private final String PERSONA_FISICA="Fisica";
+	private final String PERSONA_JURIDICA="Juridica";
+	private final String SELECCIONE="(Seleccione)";
+	private final String RUBRO_COMERCIO_LOCAL="Comercio local";
+	private final String RUBRO_COMERCIO_INTERNACIONAL="Comercio internacional";
+	private final String RUBRO_SALUD="Salud";
 
 	/**
 	 * Create the panel.
@@ -117,7 +128,12 @@ public class VistaRegistrarEmpleador extends JPanel implements IVistaRegistrarEm
 		this.panel_comboBox_TipoPersona = new JPanel();
 		this.panel_DatosEmpleador.add(this.panel_comboBox_TipoPersona);
 		
-		this.comboBox_TipoPersona = new JComboBox();
+		this.comboBox_TipoPersona = new JComboBox<String>();
+		this.defaultComboBox_TipoPersona=new DefaultComboBoxModel<String>();
+		this.defaultComboBox_TipoPersona.addElement(SELECCIONE);
+		this.defaultComboBox_TipoPersona.addElement(PERSONA_FISICA);
+		this.defaultComboBox_TipoPersona.addElement(PERSONA_JURIDICA);
+		this.comboBox_TipoPersona.setModel(defaultComboBox_TipoPersona);
 		this.panel_comboBox_TipoPersona.add(this.comboBox_TipoPersona);
 		
 		this.panel_lbl_Rubro = new JPanel();
@@ -129,7 +145,13 @@ public class VistaRegistrarEmpleador extends JPanel implements IVistaRegistrarEm
 		this.panel_comboBox_Rubro = new JPanel();
 		this.panel_DatosEmpleador.add(this.panel_comboBox_Rubro);
 		
-		this.comboBox_Rubro = new JComboBox();
+		this.comboBox_Rubro = new JComboBox<String>();
+		this.defaultComboBox_Rubro=new DefaultComboBoxModel<String>();
+		this.comboBox_Rubro.setModel(defaultComboBox_Rubro);
+		this.defaultComboBox_Rubro.addElement(SELECCIONE);
+		this.defaultComboBox_Rubro.addElement(RUBRO_COMERCIO_LOCAL);
+		this.defaultComboBox_Rubro.addElement(RUBRO_COMERCIO_INTERNACIONAL);
+		this.defaultComboBox_Rubro.addElement(RUBRO_SALUD);
 		this.panel_comboBox_Rubro.add(this.comboBox_Rubro);
 		
 		this.panel_PuntajeAspectos_Border = new JPanel();
@@ -289,6 +311,21 @@ public class VistaRegistrarEmpleador extends JPanel implements IVistaRegistrarEm
 		this.btn_Volver.addActionListener(actionListener);
 		this.btn_Registrar.addActionListener(actionListener);
 		this.actionListener=actionListener;
+		
+	}
+
+	@Override
+	public void actualizarComboBox()
+	{
+		this.defaultComboBox_TipoPersona.removeAllElements();
+		this.defaultComboBox_Rubro.removeAllElements();
+		this.defaultComboBox_TipoPersona.addElement(SELECCIONE);
+		this.defaultComboBox_TipoPersona.addElement(PERSONA_FISICA);
+		this.defaultComboBox_TipoPersona.addElement(PERSONA_JURIDICA);
+		this.defaultComboBox_Rubro.addElement(SELECCIONE);
+		this.defaultComboBox_Rubro.addElement(RUBRO_COMERCIO_LOCAL);
+		this.defaultComboBox_Rubro.addElement(RUBRO_COMERCIO_INTERNACIONAL);
+		this.defaultComboBox_Rubro.addElement(RUBRO_SALUD);
 		
 	}
 

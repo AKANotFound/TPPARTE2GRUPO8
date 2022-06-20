@@ -39,6 +39,7 @@ public class ControladorVistaRegistrarEmpleador implements ActionListener
 				cl.show(contentPane, Ventana.VISTA_INICIAL);
 			}
 		
+		this.vista.actualizarComboBox();
 	}
 
 	
