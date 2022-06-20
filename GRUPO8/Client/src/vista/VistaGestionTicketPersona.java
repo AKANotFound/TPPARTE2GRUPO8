@@ -4,9 +4,11 @@ import javax.swing.JPanel;
 import java.awt.BorderLayout;
 import javax.swing.JButton;
 import java.awt.GridLayout;
+import java.awt.event.ActionListener;
+
 import javax.swing.border.TitledBorder;
 
-public class VistaGestionTicketPersona extends JPanel {
+public class VistaGestionTicketPersona extends JPanel implements IVistaGestionTicketPersona {
 	private JPanel panel_Sur;
 	private JButton btn_Volver;
 	private JPanel panel_Centro_Border;
@@ -73,6 +75,16 @@ public class VistaGestionTicketPersona extends JPanel {
 		this.btn_ModificarTicket = new JButton("Modificar");
 		this.panel_ModificarTicket.add(this.btn_ModificarTicket);
 
+	}
+
+	@Override
+	public void setActionListener(ActionListener actionListener) {
+		this.btn_ActivarTicket.addActionListener(actionListener);
+		this.btn_CancelarTicket.addActionListener(actionListener);
+		this.btn_CrearTicket.addActionListener(actionListener);
+		this.btn_ModificarTicket.addActionListener(actionListener);
+		this.btn_SuspenderTicket.addActionListener(actionListener);
+		this.btn_Volver.addActionListener(actionListener);
 	}
 
 }

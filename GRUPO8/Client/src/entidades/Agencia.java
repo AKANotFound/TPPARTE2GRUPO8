@@ -17,6 +17,7 @@ public class Agencia {
     private ArrayList<Cuenta> logins = new ArrayList<Cuenta>();
 	private HashMap <String, Usuario> usuarios = new HashMap <>(); 
     private ArrayList<Contrato> contratos = new ArrayList<Contrato>();
+    private String usuarioActual = null;
     
     private static Agencia instancia = null;
     
@@ -29,7 +30,15 @@ public class Agencia {
     		instancia = new Agencia();
     	return instancia;
     }
- 
+	
+	public String getUsuarioActual() {
+		return usuarioActual;
+	}
+
+	public void setUsuarioActual(String usuarioActual) {
+		this.usuarioActual = usuarioActual;
+	}
+
 	public ArrayList<Persona_Empleador> getEmpleadores() {
 		return empleadores;
 	}
