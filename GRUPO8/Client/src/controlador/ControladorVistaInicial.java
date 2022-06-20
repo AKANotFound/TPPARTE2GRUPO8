@@ -13,9 +13,9 @@ public class ControladorVistaInicial implements ActionListener {
 	private IVistaInicial vistaInicial = null;
 	private JPanel contentPane = null;
 
-	private final String VISTA_INICIAL_CREAR_CUENTA = "VistaInicial_CrearCuenta";
-	private final String VISTA_INICIAL_SIMULACION = "VistaInicial_Simulacion";
-	private final String VISTA_INICIAL_INICIAR_SESION = "VistaInicial_IniciarSesion";
+	private final String CREAR_CUENTA = "CrearCuenta";
+	private final String SIMULACION = "Simulacion";
+	private final String INICIAR_SESION = "IniciarSesion";
 	
 	public ControladorVistaInicial(IVistaInicial vistaInicial,JPanel contentPane) {
 		super();
@@ -29,7 +29,7 @@ public class ControladorVistaInicial implements ActionListener {
 		CardLayout cl = (CardLayout)(contentPane.getLayout());
 		String comando = e.getActionCommand();
 		
-		if(comando.equals(VISTA_INICIAL_CREAR_CUENTA)) {
+		if(comando.equals(CREAR_CUENTA)) {
 			if(this.vistaInicial.isRdbtn_Administrador_Selected())
 				cl.show(contentPane, Ventana.VISTA_REGISTRAR_ADMINISTRADOR);
 			else if(this.vistaInicial.isRdbtn_Empleador_Selected())
@@ -37,7 +37,18 @@ public class ControladorVistaInicial implements ActionListener {
 			else if(this.vistaInicial.isRdbtn_EmpleadoPretenso_Selected())
 				cl.show(contentPane, Ventana.VISTA_REGISTRAR_EMPLEADO_PRETENSO);
 		}
-		else if(comando.equals(VISTA_INICIAL_SIMULACION)) {
+		else if(comando.equals(INICIAR_SESION)) {
+			if(this.vistaInicial.isRdbtn_Administrador_Selected()) {
+				cl.show(contentPane, Ventana.VISTA_FUNCIONALIDADES_ADMINISTRADOR);				
+			}
+			else if(this.vistaInicial.isRdbtn_Empleador_Selected()) {
+				cl.show(contentPane, Ventana.VISTA_FUNCIONALIDADES_PERSONA);				
+			}
+			else if(this.vistaInicial.isRdbtn_EmpleadoPretenso_Selected()) {
+				cl.show(contentPane, Ventana.VISTA_FUNCIONALIDADES_PERSONA);				
+			}
+		}
+		else if(comando.equals(SIMULACION)) {
 			cl.show(contentPane, Ventana.VISTA_SIMULACION);
 		}
 	}

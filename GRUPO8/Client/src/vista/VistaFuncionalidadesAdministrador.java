@@ -20,13 +20,17 @@ public class VistaFuncionalidadesAdministrador extends JPanel implements IVistaF
 	private JButton btn_BorrarCuenta;
 	private JPanel panel_Salir;
 	private JPanel panel_BorrarCuenta;
+	private JPanel panel_Sub_Border;
+	private JPanel panel_Consola;
+	private JScrollPane scrollPane_Consola;
+	private JTextArea textArea_Consola;
+	private JPanel panel_Centro_Norte;
 	private JPanel panel_Acciones_Border;
 	private JPanel panel_Acciones;
 	private JPanel panel_IniciarRondaEncuentrosLaborales_Border;
 	private JButton btn_IniciarRondaEncuentrosLaborales;
 	private JPanel panel_IniciarRondaContratacion_Border;
 	private JButton btn_IniciarRondaContratacion;
-	private JPanel panel_Sub_Border;
 	private JPanel panel_Visualizar_Border;
 	private JPanel panel_Visualizar;
 	private JPanel panel_Visualizar_Norte;
@@ -38,9 +42,6 @@ public class VistaFuncionalidadesAdministrador extends JPanel implements IVistaF
 	private JButton btn_VisualizarCuentas;
 	private JButton btn_VisualizarLogins;
 	private JButton btn_Contratos;
-	private JPanel panel_Consola;
-	private JScrollPane scrollPane_Consola;
-	private JTextArea textArea_Consola;
 
 	/**
 	 * Create the panel.
@@ -56,48 +57,64 @@ public class VistaFuncionalidadesAdministrador extends JPanel implements IVistaF
 		this.panel_Sur.add(this.panel_Salir);
 		
 		this.btn_Logout = new JButton("Cerrar sesi\u00F3n");
+		this.btn_Logout.setActionCommand("CerrarSesion");
 		this.panel_Salir.add(this.btn_Logout);
 		
 		this.panel_BorrarCuenta = new JPanel();
 		this.panel_Sur.add(this.panel_BorrarCuenta);
 		
 		this.btn_BorrarCuenta = new JButton("Borrar cuenta");
+		this.btn_BorrarCuenta.setActionCommand("BorrarCuenta");
 		this.panel_BorrarCuenta.add(this.btn_BorrarCuenta);
 		
 		this.panel_Centro = new JPanel();
 		add(this.panel_Centro, BorderLayout.CENTER);
 		this.panel_Centro.setLayout(new BorderLayout(0, 0));
 		
+		this.panel_Sub_Border = new JPanel();
+		this.panel_Centro.add(this.panel_Sub_Border, BorderLayout.CENTER);
+		this.panel_Sub_Border.setLayout(new BorderLayout(0, 0));
+		
+		this.panel_Consola = new JPanel();
+		this.panel_Consola.setBorder(new TitledBorder(null, "Consola", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		this.panel_Sub_Border.add(this.panel_Consola);
+		this.panel_Consola.setLayout(new BorderLayout(0, 0));
+		
+		this.scrollPane_Consola = new JScrollPane();
+		this.panel_Consola.add(this.scrollPane_Consola);
+		
+		this.textArea_Consola = new JTextArea();
+		this.scrollPane_Consola.setViewportView(this.textArea_Consola);
+		
+		this.panel_Centro_Norte = new JPanel();
+		this.panel_Centro.add(this.panel_Centro_Norte, BorderLayout.NORTH);
+		this.panel_Centro_Norte.setLayout(new BorderLayout(0, 0));
+		
 		this.panel_Acciones_Border = new JPanel();
 		this.panel_Acciones_Border.setBorder(new TitledBorder(null, "Acciones", TitledBorder.LEADING, TitledBorder.TOP, null, null));
-		this.panel_Centro.add(this.panel_Acciones_Border, BorderLayout.NORTH);
+		this.panel_Centro_Norte.add(this.panel_Acciones_Border, BorderLayout.NORTH);
 		this.panel_Acciones_Border.setLayout(new BorderLayout(0, 0));
 		
 		this.panel_Acciones = new JPanel();
-		this.panel_Acciones_Border.add(this.panel_Acciones);
+		this.panel_Acciones_Border.add(this.panel_Acciones, BorderLayout.CENTER);
 		this.panel_Acciones.setLayout(new GridLayout(1, 2, 0, 0));
 		
 		this.panel_IniciarRondaEncuentrosLaborales_Border = new JPanel();
-		this.panel_IniciarRondaEncuentrosLaborales_Border.setBorder(new TitledBorder(null, "Ronda de encuentros laborales", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		this.panel_Acciones.add(this.panel_IniciarRondaEncuentrosLaborales_Border);
 		
-		this.btn_IniciarRondaEncuentrosLaborales = new JButton("Iniciar");
+		this.btn_IniciarRondaEncuentrosLaborales = new JButton("<html><center>Iniciar ronda de<br/>encuentros laborales</center></html>");
 		this.panel_IniciarRondaEncuentrosLaborales_Border.add(this.btn_IniciarRondaEncuentrosLaborales);
 		
 		this.panel_IniciarRondaContratacion_Border = new JPanel();
-		this.panel_IniciarRondaContratacion_Border.setBorder(new TitledBorder(null, "Ronda de contrataci\u00F3n", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		this.panel_Acciones.add(this.panel_IniciarRondaContratacion_Border);
 		
-		this.btn_IniciarRondaContratacion = new JButton("Iniciar");
+		this.btn_IniciarRondaContratacion = new JButton("<html><center>Iniciar ronda<br/>de contrataci\u00F3n</center></html>");
 		this.panel_IniciarRondaContratacion_Border.add(this.btn_IniciarRondaContratacion);
-		
-		this.panel_Sub_Border = new JPanel();
-		this.panel_Centro.add(this.panel_Sub_Border, BorderLayout.CENTER);
-		this.panel_Sub_Border.setLayout(new GridLayout(2, 1, 0, 0));
 		
 		this.panel_Visualizar_Border = new JPanel();
 		this.panel_Visualizar_Border.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), "Visualizar listas", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
-		this.panel_Sub_Border.add(this.panel_Visualizar_Border);
+		this.panel_Centro_Norte.add(this.panel_Visualizar_Border, BorderLayout.SOUTH);
+		this.panel_Visualizar_Border.setLayout(new BorderLayout(0, 0));
 		
 		this.panel_Visualizar = new JPanel();
 		this.panel_Visualizar_Border.add(this.panel_Visualizar);
@@ -129,17 +146,6 @@ public class VistaFuncionalidadesAdministrador extends JPanel implements IVistaF
 		
 		this.btn_Contratos = new JButton("Contratos");
 		this.panel_Visualizar_Sur.add(this.btn_Contratos);
-		
-		this.panel_Consola = new JPanel();
-		this.panel_Consola.setBorder(new TitledBorder(null, "Consola", TitledBorder.LEADING, TitledBorder.TOP, null, null));
-		this.panel_Sub_Border.add(this.panel_Consola);
-		this.panel_Consola.setLayout(new BorderLayout(0, 0));
-		
-		this.scrollPane_Consola = new JScrollPane();
-		this.panel_Consola.add(this.scrollPane_Consola);
-		
-		this.textArea_Consola = new JTextArea();
-		this.scrollPane_Consola.setViewportView(this.textArea_Consola);
 
 	}
 

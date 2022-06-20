@@ -109,21 +109,22 @@ public class VistaInicial extends JPanel implements IVistaInicial {
 		this.panel_Login.add(this.panel_btn_CrearCuenta_Border);
 		
 		this.btn_CrearCuenta = new JButton("Crear cuenta");
-		this.btn_CrearCuenta.setActionCommand("VistaInicial_CrearCuenta");
+		this.btn_CrearCuenta.setActionCommand("CrearCuenta");
 		this.panel_btn_CrearCuenta_Border.add(this.btn_CrearCuenta);
 		
 		this.panel_btn_Ingresar_Border = new JPanel();
 		this.panel_Login.add(this.panel_btn_Ingresar_Border);
 		
 		this.btn_Login = new JButton("Iniciar Sesi\u00F3n");
+		this.btn_Login.setActionCommand("IniciarSesion");
 		this.panel_btn_Ingresar_Border.add(this.btn_Login);
 		
 		this.panel_Sur = new JPanel();
 		this.panel_Sur.setBorder(new TitledBorder(null, "Iniciar simulaci\u00F3n", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		add(this.panel_Sur, BorderLayout.SOUTH);
 		
-		this.btn_Simulacion = new JButton("Simulacion");
-		this.btn_Simulacion.setActionCommand("VistaInicial_Simulacion");
+		this.btn_Simulacion = new JButton("Simulaci\u00F3n");
+		this.btn_Simulacion.setActionCommand("Simulacion");
 		this.panel_Sur.add(this.btn_Simulacion);
 		
 		this.rdbtn_EmpleadoPretenso.setSelected(true);

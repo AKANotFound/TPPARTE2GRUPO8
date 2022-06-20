@@ -146,6 +146,7 @@ public class VistaFuncionalidadesPersona extends JPanel implements IVistaFuncion
 		this.btn_IniciarRondaDeEleccion.addActionListener(actionListener);
 		this.btn_VisualizarPersonasElegidas.addActionListener(actionListener);
 		this.btn_VisualizarResultado.addActionListener(actionListener);
+		this.btn_GestionDeTicket.addActionListener(actionListener);
 	}
 
 }

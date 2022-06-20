@@ -28,7 +28,7 @@ public class Ventana extends JFrame {
 	public final static String VISTA_REGISTRAR_EMPLEADO_PRETENSO = "VistaRegistrarEmpleadoPretenso";
 	public final static String VISTA_REGISTRAR_EMPLEADOR = "VistaRegistrarEmpleador";
 	public final static String VISTA_FUNCIONALIDADES_ADMINISTRADOR = "VistaFuncionalidadesAdministrador";
-	public final static String VISTA_FUNCIONALIDADES_PERSONA = "VistaFuncionalidadesAdministrador";
+	public final static String VISTA_FUNCIONALIDADES_PERSONA = "VistaFuncionalidadesPersona";
 	public final static String VISTA_FORMULARIO_DE_BUSQUEDA_EMPLEADO_PRETENSO = "VistaFormularioDeBusquedaEmpleadoPretenso";
 	public final static String VISTA_FORMULARIO_DE_BUSQUEDA_EMPLEADOR = "VistaFormularioDeBusquedaEmpleador";
 	public final static String VISTA_GESTION_TICKET_PERSONA = "VistaGestionTicketPersona";
