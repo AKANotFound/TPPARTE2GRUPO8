@@ -3,13 +3,15 @@ package vista;
 import javax.swing.JPanel;
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
+import java.awt.event.ActionListener;
+
 import javax.swing.JLabel;
 import javax.swing.JComboBox;
 import javax.swing.JTextField;
 import javax.swing.border.TitledBorder;
 import javax.swing.JButton;
 
-public class VistaFormularioDeBusquedaEmpleador extends JPanel
+public class VistaFormularioDeBusquedaEmpleador extends JPanel implements IVistaFormularioDeBusquedaEmpleador
 {
 	private JPanel panel_Sur;
 	private JPanel panel_Centro_Border;
@@ -179,6 +181,14 @@ public class VistaFormularioDeBusquedaEmpleador extends JPanel
 		this.panel_comboBox_CantidadDeEmpleadosSolicitados.add(this.textField_CantidadEmpleadosSolicitados);
 		this.textField_CantidadEmpleadosSolicitados.setColumns(10);
 
+	}
+
+	@Override
+	public void setActionListener(ActionListener actionListener)
+	{
+		this.btn_Aceptar.addActionListener(actionListener);
+		this.btn_Cancelar.addActionListener(actionListener);
+		
 	}
 
 }

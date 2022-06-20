@@ -1,18 +1,20 @@
 package controlador;
 
+import java.awt.CardLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JPanel;
 
 import vista.IVistaFormularioDeBusquedaEmpleadoPretenso;
+import vista.Ventana;
 
 public class ControladorVistaFormularioDeBusquedaEmpleadoPretenso implements ActionListener 
 {
 	private IVistaFormularioDeBusquedaEmpleadoPretenso vista=null;
 	private JPanel contentPane = null;
-	private final String VOLVER = "Volver";
-	private final String REGISTRAR = "Registrar";
+	private final String ACEPTAR = "Aceptar";
+	private final String CANCELAR = "Cancelar";
 	
 	
 	public ControladorVistaFormularioDeBusquedaEmpleadoPretenso(IVistaFormularioDeBusquedaEmpleadoPretenso vista,
@@ -27,13 +29,21 @@ public class ControladorVistaFormularioDeBusquedaEmpleadoPretenso implements Act
 
 
 
-
-
-
 	@Override
 	public void actionPerformed(ActionEvent e)
 	{
-		// TODO Auto-generated method stub
+		CardLayout cl = (CardLayout)(contentPane.getLayout());
+		String comando = e.getActionCommand();
+		
+		if(comando.equals(ACEPTAR)) 
+		{
+			cl.show(contentPane, Ventana.VISTA_GESTION_TICKET_PERSONA);
+		}
+		else
+			if(comando.equals(CANCELAR)) 
+			{
+				cl.show(contentPane, Ventana.VISTA_GESTION_TICKET_PERSONA);
+			}
 		
 	}
 

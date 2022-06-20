@@ -3,6 +3,9 @@ package vista;
 import javax.swing.JPanel;
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JLabel;
 import javax.swing.JComboBox;
 import javax.swing.JTextField;
@@ -11,7 +14,7 @@ import javax.swing.JButton;
 import javax.swing.border.EtchedBorder;
 import java.awt.Color;
 
-public class VistaFormularioDeBusquedaEmpleadoPretenso extends JPanel
+public class VistaFormularioDeBusquedaEmpleadoPretenso extends JPanel implements IVistaFormularioDeBusquedaEmpleadoPretenso
 {
 	private JPanel panel_Sur;
 	private JPanel panel_Centro_Border;
@@ -164,5 +167,15 @@ public class VistaFormularioDeBusquedaEmpleadoPretenso extends JPanel
 		this.comboBox_EstudiosCursados = new JComboBox();
 		this.panel_comboBox_EstudiosCursados.add(this.comboBox_EstudiosCursados);
 	}
+
+	@Override
+	public void setActionListener(ActionListener actionListener)
+	{
+		this.btn_Aceptar.addActionListener(actionListener);
+		this.btn_Cancelar.addActionListener(actionListener);
+		
+	}
+
+	
 
 }
