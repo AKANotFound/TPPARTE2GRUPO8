@@ -13,8 +13,10 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
+import java.awt.event.KeyListener;
+import java.awt.event.KeyEvent;
 
-public class VistaInicial extends JPanel implements IVistaInicial {
+public class VistaInicial extends JPanel implements IVistaInicial, KeyListener {
 	private JPanel panel_Centro;
 	private JPanel panel_Sur;
 	private JPanel panel_TipoUsuario;
@@ -90,6 +92,7 @@ public class VistaInicial extends JPanel implements IVistaInicial {
 		this.panel_Login.add(this.panel_textField_Usuario_Border);
 		
 		this.textField_Usuario = new JTextField();
+		this.textField_Usuario.addKeyListener(this);
 		this.panel_textField_Usuario_Border.add(this.textField_Usuario);
 		this.textField_Usuario.setColumns(10);
 		
@@ -103,6 +106,7 @@ public class VistaInicial extends JPanel implements IVistaInicial {
 		this.panel_Login.add(this.panel_textField_Contrasena_Border);
 		
 		this.textField_Contrasena = new JTextField();
+		this.textField_Contrasena.addKeyListener(this);
 		this.panel_textField_Contrasena_Border.add(this.textField_Contrasena);
 		this.textField_Contrasena.setColumns(10);
 		
@@ -117,6 +121,7 @@ public class VistaInicial extends JPanel implements IVistaInicial {
 		this.panel_Login.add(this.panel_btn_Ingresar_Border);
 		
 		this.btn_Login = new JButton("Iniciar Sesi\u00F3n");
+		this.btn_Login.setEnabled(false);
 		this.btn_Login.setActionCommand("IniciarSesion");
 		this.panel_btn_Ingresar_Border.add(this.btn_Login);
 		
@@ -152,5 +157,16 @@ public class VistaInicial extends JPanel implements IVistaInicial {
 	@Override
 	public boolean isRdbtn_EmpleadoPretenso_Selected() {
 		return this.rdbtn_EmpleadoPretenso.isSelected();
+	}
+	public void keyPressed(KeyEvent e) {
+	}
+	public void keyReleased(KeyEvent e) {
+		if (this.textField_Usuario.getText().length()!=0 && this.textField_Contrasena.getText().length()!=0)
+			this.btn_Login.setEnabled(true);
+		else
+			this.btn_Login.setEnabled(false);
+		
+	}
+	public void keyTyped(KeyEvent e) {
 	}
 }

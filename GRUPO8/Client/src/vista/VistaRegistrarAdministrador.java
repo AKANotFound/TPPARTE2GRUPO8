@@ -12,8 +12,10 @@ import java.awt.FlowLayout;
 import javax.swing.border.TitledBorder;
 import javax.swing.border.EtchedBorder;
 import java.awt.Color;
+import java.awt.event.KeyListener;
+import java.awt.event.KeyEvent;
 
-public class VistaRegistrarAdministrador extends JPanel implements IVistaRegistrarAdministrador {
+public class VistaRegistrarAdministrador extends JPanel implements IVistaRegistrarAdministrador, KeyListener {
 	private JPanel panel_Centro;
 	private JPanel panel_Sur;
 	private JButton btn_Registrar;
@@ -21,15 +23,15 @@ public class VistaRegistrarAdministrador extends JPanel implements IVistaRegistr
 	private JPanel panel_CodigoAdministrador_Border;
 	private JLabel lbl_CodigoAdministrador;
 	private JPanel panel__textField_CodigoAdministrador_Border;
-	private JTextField textField;
+	private JTextField textField_CodigoAdministrador;
 	private JPanel panel_Usuario_Border;
 	private JLabel lbl_Usuario;
 	private JPanel panel_textField_Usuario_Border;
-	private JTextField textField_1;
+	private JTextField textField_Usuario;
 	private JPanel panel_Contrasena_Border;
 	private JLabel lbl_Contrasena;
 	private JPanel panel_textField_Contrasena_Border;
-	private JTextField textField_2;
+	private JTextField textField_Contrasena;
 	private JPanel panel_RegistroAdministrador_Border;
 	private JButton btn_Volver;
 	private JPanel panel_Volver_Border;
@@ -63,9 +65,10 @@ public class VistaRegistrarAdministrador extends JPanel implements IVistaRegistr
 		this.panel__textField_CodigoAdministrador_Border = new JPanel();
 		this.panel_RegistroAdministrador.add(this.panel__textField_CodigoAdministrador_Border);
 		
-		this.textField = new JTextField();
-		this.textField.setColumns(10);
-		this.panel__textField_CodigoAdministrador_Border.add(this.textField);
+		this.textField_CodigoAdministrador = new JTextField();
+		this.textField_CodigoAdministrador.addKeyListener(this);
+		this.textField_CodigoAdministrador.setColumns(10);
+		this.panel__textField_CodigoAdministrador_Border.add(this.textField_CodigoAdministrador);
 		
 		this.panel_Usuario_Border = new JPanel();
 		this.panel_RegistroAdministrador.add(this.panel_Usuario_Border);
@@ -76,9 +79,10 @@ public class VistaRegistrarAdministrador extends JPanel implements IVistaRegistr
 		this.panel_textField_Usuario_Border = new JPanel();
 		this.panel_RegistroAdministrador.add(this.panel_textField_Usuario_Border);
 		
-		this.textField_1 = new JTextField();
-		this.textField_1.setColumns(10);
-		this.panel_textField_Usuario_Border.add(this.textField_1);
+		this.textField_Usuario = new JTextField();
+		this.textField_Usuario.addKeyListener(this);
+		this.textField_Usuario.setColumns(10);
+		this.panel_textField_Usuario_Border.add(this.textField_Usuario);
 		
 		this.panel_Contrasena_Border = new JPanel();
 		this.panel_RegistroAdministrador.add(this.panel_Contrasena_Border);
@@ -89,9 +93,10 @@ public class VistaRegistrarAdministrador extends JPanel implements IVistaRegistr
 		this.panel_textField_Contrasena_Border = new JPanel();
 		this.panel_RegistroAdministrador.add(this.panel_textField_Contrasena_Border);
 		
-		this.textField_2 = new JTextField();
-		this.textField_2.setColumns(10);
-		this.panel_textField_Contrasena_Border.add(this.textField_2);
+		this.textField_Contrasena = new JTextField();
+		this.textField_Contrasena.addKeyListener(this);
+		this.textField_Contrasena.setColumns(10);
+		this.panel_textField_Contrasena_Border.add(this.textField_Contrasena);
 		
 		this.panel_Sur = new JPanel();
 		add(this.panel_Sur, BorderLayout.SOUTH);
@@ -107,6 +112,7 @@ public class VistaRegistrarAdministrador extends JPanel implements IVistaRegistr
 		this.panel_Sur.add(this.panel_Registrar_Border);
 		
 		this.btn_Registrar = new JButton("Registrar");
+		this.btn_Registrar.setEnabled(false);
 		this.panel_Registrar_Border.add(this.btn_Registrar);
 
 	}
@@ -116,5 +122,19 @@ public class VistaRegistrarAdministrador extends JPanel implements IVistaRegistr
 		this.btn_Registrar.addActionListener(actionListener);
 		this.btn_Volver.addActionListener(actionListener);
 		this.actionListener=actionListener;
+	}
+	public void keyPressed(KeyEvent e) {
+	}
+	public void keyReleased(KeyEvent e) {
+		if (this.textField_CodigoAdministrador.getText().length()!=0
+				&& this.textField_Usuario.getText().length()!=0 
+				&& this.textField_Contrasena.getText().length()!=0)
+			this.btn_Registrar.setEnabled(true);
+		else
+			this.btn_Registrar.setEnabled(false);
+		
+		
+	}
+	public void keyTyped(KeyEvent e) {
 	}
 }
