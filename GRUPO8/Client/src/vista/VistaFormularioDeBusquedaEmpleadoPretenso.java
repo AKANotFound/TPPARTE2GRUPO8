@@ -163,7 +163,6 @@ public class VistaFormularioDeBusquedaEmpleadoPretenso extends JPanel
 		
 		this.comboBox_EstudiosCursados = new JComboBox();
 		this.panel_comboBox_EstudiosCursados.add(this.comboBox_EstudiosCursados);
-
 	}
 
 }

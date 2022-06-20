@@ -3,15 +3,18 @@ package vista;
 import javax.swing.JPanel;
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
+import java.awt.event.ActionListener;
+
 import javax.swing.JRadioButton;
 import javax.swing.border.TitledBorder;
 import javax.swing.border.EtchedBorder;
 import java.awt.Color;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 
-public class VistaInicial extends JPanel {
+public class VistaInicial extends JPanel implements IVistaInicial {
 	private JPanel panel_Centro;
 	private JPanel panel_Sur;
 	private JPanel panel_TipoUsuario;
@@ -34,12 +37,15 @@ public class VistaInicial extends JPanel {
 	private JPanel panel_btn_Ingresar_Border;
 	private JButton btn_Simulacion;
 	private JPanel panel;
+	private ButtonGroup tipoUsuarioRadioButtonGroup;
 
 	/**
 	 * Create the panel.
 	 */
-	public VistaInicial() {
+	public VistaInicial() {		
 		setLayout(new BorderLayout(0, 0));
+		
+		tipoUsuarioRadioButtonGroup = new ButtonGroup();
 		
 		this.panel_Centro = new JPanel();
 		add(this.panel_Centro);
@@ -55,12 +61,15 @@ public class VistaInicial extends JPanel {
 		
 		this.rdbtn_Administrador = new JRadioButton("Administrador");
 		this.panel_TipoUsuario.add(this.rdbtn_Administrador);
+		this.tipoUsuarioRadioButtonGroup.add(rdbtn_Administrador);
 		
 		this.rdbtn_Empleador = new JRadioButton("Empleador");
 		this.panel_TipoUsuario.add(this.rdbtn_Empleador);
+		this.tipoUsuarioRadioButtonGroup.add(rdbtn_Empleador);
 		
 		this.rdbtn_EmpleadoPretenso = new JRadioButton("Empleado pretenso");
 		this.panel_TipoUsuario.add(this.rdbtn_EmpleadoPretenso);
+		this.tipoUsuarioRadioButtonGroup.add(rdbtn_EmpleadoPretenso);
 		
 		this.panel = new JPanel();
 		this.panel.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), "Acceso de usuarios", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
@@ -114,19 +123,31 @@ public class VistaInicial extends JPanel {
 		add(this.panel_Sur, BorderLayout.SOUTH);
 		
 		this.btn_Simulacion = new JButton("Simulacion");
+		this.btn_Simulacion.setActionCommand("VistaInicial_Simulacion");
 		this.panel_Sur.add(this.btn_Simulacion);
-
+		
+		this.rdbtn_EmpleadoPretenso.setSelected(true);
 	}
 
-	public JButton getBtn_CrearCuenta() {
-		return btn_CrearCuenta;
+	@Override
+	public void setActionListener(ActionListener actionListener) {
+		this.btn_CrearCuenta.addActionListener(actionListener);
+		this.btn_Login.addActionListener(actionListener);
+		this.btn_Simulacion.addActionListener(actionListener);
 	}
 
-	public JButton getBtn_Ingresar() {
-		return btn_Login;
+	@Override
+	public boolean isRdbtn_Administrador_Selected() {
+		return this.rdbtn_Administrador.isSelected();
 	}
 
-	public JButton getBtn_Simulacion() {
-		return btn_Simulacion;
+	@Override
+	public boolean isRdbtn_Empleador_Selected() {
+		return this.rdbtn_Empleador.isSelected();
+	}
+
+	@Override
+	public boolean isRdbtn_EmpleadoPretenso_Selected() {
+		return this.rdbtn_EmpleadoPretenso.isSelected();
 	}
 }
