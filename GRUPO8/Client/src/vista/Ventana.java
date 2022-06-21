@@ -7,7 +7,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import java.awt.CardLayout;
 
-public class Ventana extends JFrame {
+public class Ventana extends JFrame implements IVentana {
 
 	private ActionListener actionListener; //controlador
 	private JPanel contentPane;
@@ -23,16 +23,18 @@ public class Ventana extends JFrame {
 	private VistaGestionTicketPersona vistaGestionTicketPersona;
 	private VistaSimulacion vistaSimulacion;
 
-	public final static String VISTA_INICIAL = "VistaInicial";
-	public final static String VISTA_REGISTRAR_ADMINISTRADOR = "VistaRegistrarAdministrador";
-	public final static String VISTA_REGISTRAR_EMPLEADO_PRETENSO = "VistaRegistrarEmpleadoPretenso";
-	public final static String VISTA_REGISTRAR_EMPLEADOR = "VistaRegistrarEmpleador";
-	public final static String VISTA_FUNCIONALIDADES_ADMINISTRADOR = "VistaFuncionalidadesAdministrador";
-	public final static String VISTA_FUNCIONALIDADES_PERSONA = "VistaFuncionalidadesPersona";
-	public final static String VISTA_FORMULARIO_DE_BUSQUEDA_EMPLEADO_PRETENSO = "VistaFormularioDeBusquedaEmpleadoPretenso";
-	public final static String VISTA_FORMULARIO_DE_BUSQUEDA_EMPLEADOR = "VistaFormularioDeBusquedaEmpleador";
-	public final static String VISTA_GESTION_TICKET_PERSONA = "VistaGestionTicketPersona";
-	public final static String VISTA_SIMULACION = "VistaSimulacion";
+	private final String VISTA_INICIAL = "VistaInicial";
+	private final String VISTA_REGISTRAR_ADMINISTRADOR = "VistaRegistrarAdministrador";
+	private final String VISTA_REGISTRAR_EMPLEADO_PRETENSO = "VistaRegistrarEmpleadoPretenso";
+	private final String VISTA_REGISTRAR_EMPLEADOR = "VistaRegistrarEmpleador";
+	private final String VISTA_FUNCIONALIDADES_ADMINISTRADOR = "VistaFuncionalidadesAdministrador";
+	private final String VISTA_FUNCIONALIDADES_PERSONA = "VistaFuncionalidadesPersona";
+	private final String VISTA_FORMULARIO_DE_BUSQUEDA_EMPLEADO_PRETENSO = "VistaFormularioDeBusquedaEmpleadoPretenso";
+	private final String VISTA_FORMULARIO_DE_BUSQUEDA_EMPLEADOR = "VistaFormularioDeBusquedaEmpleador";
+	private final String VISTA_GESTION_TICKET_PERSONA = "VistaGestionTicketPersona";
+	private final String VISTA_SIMULACION = "VistaSimulacion";
+	
+	private final int posicion = 100;
 
 	public Ventana(VistaInicial vistaInicial, VistaRegistrarAdministrador vistaRegistrarAdministrador,
 			VistaRegistrarEmpleadoPretenso vistaRegistrarEmpleadoPretenso,VistaRegistrarEmpleador vistaRegistrarEmpleador,
@@ -54,7 +56,7 @@ public class Ventana extends JFrame {
 		
 		this.setVisible(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 350, 415);
+		setBounds(posicion, posicion, 300, 350);
 		this.contentPane = new JPanel();
 		this.contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(this.contentPane);
@@ -72,9 +74,68 @@ public class Ventana extends JFrame {
 		contentPane.add(vistaSimulacion,VISTA_SIMULACION);
 	}
 
+	@Override
 	public JPanel getContentPane() {
 		return contentPane;
 	}
-	
-	
+
+	@Override
+	public String getVistaInicial() {
+		this.setSize(posicion + 200,posicion + 250);
+		return VISTA_INICIAL;
+	}
+
+	@Override
+	public String getVistaRegistrarAdministrador() {
+		this.setSize(posicion + 255,posicion + 120);
+		return VISTA_REGISTRAR_ADMINISTRADOR;
+	}
+
+	@Override
+	public String getVistaRegistrarEmpleadoPretenso() {
+		this.setSize(posicion + 200,posicion + 200);
+		return VISTA_REGISTRAR_EMPLEADO_PRETENSO;
+	}
+
+	@Override
+	public String getVistaRegistrarEmpleador() {
+		this.setSize(posicion + 280,posicion + 470);
+		return VISTA_REGISTRAR_EMPLEADOR;
+	}
+
+	@Override
+	public String getVistaFuncionalidadesAdministrador() {
+		this.setSize(posicion + 450,posicion + 400);
+		return VISTA_FUNCIONALIDADES_ADMINISTRADOR;
+	}
+
+	@Override
+	public String getVistaFuncionalidadesPersona() {
+		this.setSize(posicion + 400,posicion + 400);
+		return VISTA_FUNCIONALIDADES_PERSONA;
+	}
+
+	@Override
+	public String getVistaFormularioDeBusquedaEmpleadoPretenso() {
+		this.setSize(posicion + 250,posicion + 260);
+		return VISTA_FORMULARIO_DE_BUSQUEDA_EMPLEADO_PRETENSO;
+	}
+
+	@Override
+	public String getVistaFormularioDeBusquedaEmpleador() {
+		this.setSize(posicion + 280,posicion + 360);
+		return VISTA_FORMULARIO_DE_BUSQUEDA_EMPLEADOR;
+	}
+
+	@Override
+	public String getVistaGestionTicketPersona() {
+		this.setSize(posicion + 135,posicion + 230);
+		return VISTA_GESTION_TICKET_PERSONA;
+	}
+
+	@Override
+	public String getVistaSimulacion() {
+		this.setSize(posicion + 450,posicion + 400);
+		return VISTA_SIMULACION;
+	}
 }

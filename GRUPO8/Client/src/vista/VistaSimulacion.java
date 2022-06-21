@@ -10,6 +10,8 @@ import javax.swing.border.TitledBorder;
 import javax.swing.border.EtchedBorder;
 import java.awt.Color;
 import javax.swing.JButton;
+import java.awt.event.MouseListener;
+import java.awt.event.MouseEvent;
 
 public class VistaSimulacion extends JPanel implements IVistaSimulacion
 {
@@ -103,6 +105,7 @@ public class VistaSimulacion extends JPanel implements IVistaSimulacion
 		this.panel_IniciarDetener.add(this.panel_Detener);
 		
 		this.btn_Detener = new JButton("Detener");
+		this.btn_Detener.setEnabled(false);
 		this.panel_Detener.add(this.btn_Detener);
 		
 		this.panel_Volver = new JPanel();
@@ -123,4 +126,17 @@ public class VistaSimulacion extends JPanel implements IVistaSimulacion
 		
 	}
 
+	@Override
+	public void setIniciarDisabled() {
+		this.btn_Iniciar.setEnabled(false);
+		this.btn_Detener.setEnabled(true);
+	}
+
+	@Override
+	public void setDetenerDisabled() {
+		this.btn_Iniciar.setEnabled(true);
+		this.btn_Detener.setEnabled(false);
+	}
+	
+	
 }

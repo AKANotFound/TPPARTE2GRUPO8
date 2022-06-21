@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JPanel;
 
+import vista.IVentana;
 import vista.IVistaFuncionalidadesAdministrador;
 import vista.Ventana;
 
@@ -14,7 +15,9 @@ import vista.Ventana;
 public class ControladorVistaFuncionalidadesAdministrador implements ActionListener
 {
 	IVistaFuncionalidadesAdministrador vista=null;
+	private IVentana ventana = null;
 	private JPanel contentPane = null;
+	
 	private final String INICIAR_RONDA_DE_ENCUENTROS_LABORALES = "IniciarRondaDeEncuentrosLaborales";
 	private final String INICIAR_RONDA_DE_CONTRATACION = "IniciarRondaDeContratacion";
 	private final String EMPLEADOS_PRETENSOS = "EmpleadosPretensos";
@@ -27,11 +30,11 @@ public class ControladorVistaFuncionalidadesAdministrador implements ActionListe
 	private final String CERRAR_SESION = "CerrarSesion";
 	private final String BORRAR_CUENTA = "BorrarCuenta";
 	
-	
-	public ControladorVistaFuncionalidadesAdministrador(IVistaFuncionalidadesAdministrador vista, JPanel contentPane)
+	public ControladorVistaFuncionalidadesAdministrador(IVentana ventana,IVistaFuncionalidadesAdministrador vista)
 	{
 		this.vista = vista;
-		this.contentPane = contentPane;
+		this.ventana = ventana;
+		this.contentPane = ventana.getContentPane();
 		this.vista.setActionListener(this);
 	}
 
@@ -45,12 +48,12 @@ public class ControladorVistaFuncionalidadesAdministrador implements ActionListe
 		String comando = e.getActionCommand();
 		if (comando.equals(CERRAR_SESION))
 		{
-			cl.show(contentPane, Ventana.VISTA_INICIAL);
+			cl.show(contentPane, ventana.getVistaInicial());
 		}
 		else
 			if (comando.equals(BORRAR_CUENTA)) //HACER POP UP DE SI ESTA SEGURO
 			{
-				cl.show(contentPane, Ventana.VISTA_INICIAL);
+				cl.show(contentPane, ventana.getVistaInicial());
 			}
 			else
 				if (comando.equals(INICIAR_RONDA_DE_ENCUENTROS_LABORALES))
@@ -97,7 +100,6 @@ public class ControladorVistaFuncionalidadesAdministrador implements ActionListe
 												{
 													
 												}
-												
 	}
 
 }

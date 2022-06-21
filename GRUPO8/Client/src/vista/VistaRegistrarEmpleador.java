@@ -11,10 +11,15 @@ import javax.swing.JComboBox;
 import javax.swing.border.TitledBorder;
 import javax.swing.border.EtchedBorder;
 import java.awt.Color;
-import javax.swing.JButton;
-import javax.swing.SwingConstants;
 
-public class VistaRegistrarEmpleador extends JPanel implements IVistaRegistrarEmpleador {
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JButton;
+import java.awt.event.KeyListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.ItemListener;
+import java.awt.event.ItemEvent;
+
+public class VistaRegistrarEmpleador extends JPanel implements IVistaRegistrarEmpleador, KeyListener, ItemListener {
 	private JPanel panel_Centro;
 	private JPanel panel_Sur;
 	private JPanel panel_DatosEmpleador;
@@ -22,9 +27,11 @@ public class VistaRegistrarEmpleador extends JPanel implements IVistaRegistrarEm
 	private JLabel lbl_RazonSocial;
 	private JTextField textField_RazonSocial;
 	private JLabel lbl_TipoPersona;
-	private JComboBox comboBox_TipoPersona;
+	private JComboBox<String> comboBox_TipoPersona;
+	private DefaultComboBoxModel<String> defaultComboBox_TipoPersona;
 	private JLabel lbl_Rubro;
-	private JComboBox comboBox_Rubro;
+	private JComboBox<String> comboBox_Rubro;
+	private DefaultComboBoxModel <String>defaultComboBox_Rubro;
 	private JPanel panel_DatosEmpleador_Border;
 	private JPanel panel_lbl_RazonSocial;
 	private JPanel panel_textField_RazonSocial;
@@ -76,6 +83,13 @@ public class VistaRegistrarEmpleador extends JPanel implements IVistaRegistrarEm
 	private JPanel panel_Volver;
 	private JPanel panel_Registrar;
 	private ActionListener actionListener;//controlador
+	
+	private final String PERSONA_FISICA="Fisica";
+	private final String PERSONA_JURIDICA="Juridica";
+	private final String SELECCIONE="(Seleccione)";
+	private final String RUBRO_COMERCIO_LOCAL="Comercio local";
+	private final String RUBRO_COMERCIO_INTERNACIONAL="Comercio internacional";
+	private final String RUBRO_SALUD="Salud";
 
 	/**
 	 * Create the panel.
@@ -105,6 +119,7 @@ public class VistaRegistrarEmpleador extends JPanel implements IVistaRegistrarEm
 		this.panel_DatosEmpleador.add(this.panel_textField_RazonSocial);
 		
 		this.textField_RazonSocial = new JTextField();
+		this.textField_RazonSocial.addKeyListener(this);
 		this.panel_textField_RazonSocial.add(this.textField_RazonSocial);
 		this.textField_RazonSocial.setColumns(10);
 		
@@ -117,7 +132,13 @@ public class VistaRegistrarEmpleador extends JPanel implements IVistaRegistrarEm
 		this.panel_comboBox_TipoPersona = new JPanel();
 		this.panel_DatosEmpleador.add(this.panel_comboBox_TipoPersona);
 		
-		this.comboBox_TipoPersona = new JComboBox();
+		this.comboBox_TipoPersona = new JComboBox<String>();
+		this.comboBox_TipoPersona.addItemListener(this);
+		this.defaultComboBox_TipoPersona=new DefaultComboBoxModel<String>();
+		this.defaultComboBox_TipoPersona.addElement(SELECCIONE);
+		this.defaultComboBox_TipoPersona.addElement(PERSONA_FISICA);
+		this.defaultComboBox_TipoPersona.addElement(PERSONA_JURIDICA);
+		this.comboBox_TipoPersona.setModel(defaultComboBox_TipoPersona);
 		this.panel_comboBox_TipoPersona.add(this.comboBox_TipoPersona);
 		
 		this.panel_lbl_Rubro = new JPanel();
@@ -129,7 +150,14 @@ public class VistaRegistrarEmpleador extends JPanel implements IVistaRegistrarEm
 		this.panel_comboBox_Rubro = new JPanel();
 		this.panel_DatosEmpleador.add(this.panel_comboBox_Rubro);
 		
-		this.comboBox_Rubro = new JComboBox();
+		this.comboBox_Rubro = new JComboBox<String>();
+		this.comboBox_Rubro.addItemListener(this);
+		this.defaultComboBox_Rubro=new DefaultComboBoxModel<String>();
+		this.defaultComboBox_Rubro.addElement(SELECCIONE);
+		this.defaultComboBox_Rubro.addElement(RUBRO_COMERCIO_LOCAL);
+		this.defaultComboBox_Rubro.addElement(RUBRO_COMERCIO_INTERNACIONAL);
+		this.defaultComboBox_Rubro.addElement(RUBRO_SALUD);
+		this.comboBox_Rubro.setModel(defaultComboBox_Rubro);
 		this.panel_comboBox_Rubro.add(this.comboBox_Rubro);
 		
 		this.panel_PuntajeAspectos_Border = new JPanel();
@@ -150,6 +178,7 @@ public class VistaRegistrarEmpleador extends JPanel implements IVistaRegistrarEm
 		this.panel_PuntajeAspectos.add(this.panel_textField_Locacion);
 		
 		this.textField_Locacion = new JTextField();
+		this.textField_Locacion.addKeyListener(this);
 		this.panel_textField_Locacion.add(this.textField_Locacion);
 		this.textField_Locacion.setColumns(10);
 		
@@ -163,6 +192,7 @@ public class VistaRegistrarEmpleador extends JPanel implements IVistaRegistrarEm
 		this.panel_PuntajeAspectos.add(this.panel_textField_CargaHoraria);
 		
 		this.textField_CargaHoraria = new JTextField();
+		this.textField_CargaHoraria.addKeyListener(this);
 		this.panel_textField_CargaHoraria.add(this.textField_CargaHoraria);
 		this.textField_CargaHoraria.setColumns(10);
 		
@@ -176,6 +206,7 @@ public class VistaRegistrarEmpleador extends JPanel implements IVistaRegistrarEm
 		this.panel_PuntajeAspectos.add(this.panel_textField_EstudiosCursados);
 		
 		this.textField_EstudiosCursados = new JTextField();
+		this.textField_EstudiosCursados.addKeyListener(this);
 		this.panel_textField_EstudiosCursados.add(this.textField_EstudiosCursados);
 		this.textField_EstudiosCursados.setColumns(10);
 		
@@ -189,6 +220,7 @@ public class VistaRegistrarEmpleador extends JPanel implements IVistaRegistrarEm
 		this.panel_PuntajeAspectos.add(this.panel_textField_ExperienciaPrevia);
 		
 		this.textField_ExperienciaPrevia = new JTextField();
+		this.textField_ExperienciaPrevia.addKeyListener(this);
 		this.panel_textField_ExperienciaPrevia.add(this.textField_ExperienciaPrevia);
 		this.textField_ExperienciaPrevia.setColumns(10);
 		
@@ -202,6 +234,7 @@ public class VistaRegistrarEmpleador extends JPanel implements IVistaRegistrarEm
 		this.panel_PuntajeAspectos.add(this.panel_textField_RangoEtario);
 		
 		this.textField_RangoEtario = new JTextField();
+		this.textField_RangoEtario.addKeyListener(this);
 		this.panel_textField_RangoEtario.add(this.textField_RangoEtario);
 		this.textField_RangoEtario.setColumns(10);
 		
@@ -215,6 +248,7 @@ public class VistaRegistrarEmpleador extends JPanel implements IVistaRegistrarEm
 		this.panel_PuntajeAspectos.add(this.panel_textField_Remuneracion);
 		
 		this.textField_Remuneracion = new JTextField();
+		this.textField_Remuneracion.addKeyListener(this);
 		this.panel_textField_Remuneracion.add(this.textField_Remuneracion);
 		this.textField_Remuneracion.setColumns(10);
 		
@@ -228,6 +262,7 @@ public class VistaRegistrarEmpleador extends JPanel implements IVistaRegistrarEm
 		this.panel_PuntajeAspectos.add(this.panel_textField_TipoPuesto);
 		
 		this.textField_TipoPuesto = new JTextField();
+		this.textField_TipoPuesto.addKeyListener(this);
 		this.panel_textField_TipoPuesto.add(this.textField_TipoPuesto);
 		this.textField_TipoPuesto.setColumns(10);
 		
@@ -249,6 +284,7 @@ public class VistaRegistrarEmpleador extends JPanel implements IVistaRegistrarEm
 		this.panel_UsuarioContrasena.add(this.panel_textField_Usuario);
 		
 		this.textField_Usuario = new JTextField();
+		this.textField_Usuario.addKeyListener(this);
 		this.panel_textField_Usuario.add(this.textField_Usuario);
 		this.textField_Usuario.setColumns(10);
 		
@@ -262,6 +298,7 @@ public class VistaRegistrarEmpleador extends JPanel implements IVistaRegistrarEm
 		this.panel_UsuarioContrasena.add(this.panel_textField_Contrasena);
 		
 		this.textField_Contrasena = new JTextField();
+		this.textField_Contrasena.addKeyListener(this);
 		this.panel_textField_Contrasena.add(this.textField_Contrasena);
 		this.textField_Contrasena.setColumns(10);
 		
@@ -279,6 +316,7 @@ public class VistaRegistrarEmpleador extends JPanel implements IVistaRegistrarEm
 		this.panel_Sur.add(this.panel_Registrar);
 		
 		this.btn_Registrar = new JButton("Registrar");
+		this.btn_Registrar.setEnabled(false);
 		this.panel_Registrar.add(this.btn_Registrar);
 
 	}
@@ -292,4 +330,59 @@ public class VistaRegistrarEmpleador extends JPanel implements IVistaRegistrarEm
 		
 	}
 
+	@Override
+	public void actualizarComboBox()
+	{
+		this.defaultComboBox_TipoPersona.removeAllElements();
+		this.defaultComboBox_Rubro.removeAllElements();
+		this.defaultComboBox_TipoPersona.addElement(SELECCIONE);
+		this.defaultComboBox_TipoPersona.addElement(PERSONA_FISICA);
+		this.defaultComboBox_TipoPersona.addElement(PERSONA_JURIDICA);
+		this.defaultComboBox_Rubro.addElement(SELECCIONE);
+		this.defaultComboBox_Rubro.addElement(RUBRO_COMERCIO_LOCAL);
+		this.defaultComboBox_Rubro.addElement(RUBRO_COMERCIO_INTERNACIONAL);
+		this.defaultComboBox_Rubro.addElement(RUBRO_SALUD);
+	}
+
+	public void keyPressed(KeyEvent e) {
+	}
+	public void keyReleased(KeyEvent e) {
+		if(this.textField_CargaHoraria.getText().length() != 0
+			&& this.textField_Contrasena.getText().length() != 0
+			&& this.textField_EstudiosCursados.getText().length() != 0
+			&& this.textField_ExperienciaPrevia.getText().length() != 0
+			&& this.textField_Locacion.getText().length() != 0
+			&& this.textField_RangoEtario.getText().length() != 0
+			&& this.textField_RazonSocial.getText().length() != 0
+			&& this.textField_Remuneracion.getText().length() != 0
+			&& this.textField_TipoPuesto.getText().length() != 0
+			&& this.textField_Usuario.getText().length() != 0
+			&& this.comboBox_TipoPersona.getSelectedItem() != SELECCIONE
+			&& this.comboBox_Rubro.getSelectedItem() != SELECCIONE) {
+			this.btn_Registrar.setEnabled(true);
+		}
+		else
+			this.btn_Registrar.setEnabled(false);
+	}
+	public void keyTyped(KeyEvent e) {
+	}
+	
+	public void itemStateChanged(ItemEvent e) {
+		if(this.textField_CargaHoraria.getText().length() != 0
+				&& this.textField_Contrasena.getText().length() != 0
+				&& this.textField_EstudiosCursados.getText().length() != 0
+				&& this.textField_ExperienciaPrevia.getText().length() != 0
+				&& this.textField_Locacion.getText().length() != 0
+				&& this.textField_RangoEtario.getText().length() != 0
+				&& this.textField_RazonSocial.getText().length() != 0
+				&& this.textField_Remuneracion.getText().length() != 0
+				&& this.textField_TipoPuesto.getText().length() != 0
+				&& this.textField_Usuario.getText().length() != 0
+				&& this.comboBox_TipoPersona.getSelectedItem() != SELECCIONE
+				&& this.comboBox_Rubro.getSelectedItem() != SELECCIONE) {
+				this.btn_Registrar.setEnabled(true);
+			}
+			else
+				this.btn_Registrar.setEnabled(false);
+	}
 }

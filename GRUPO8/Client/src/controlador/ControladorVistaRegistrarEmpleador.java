@@ -6,21 +6,24 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JPanel;
 
+import vista.IVentana;
 import vista.IVistaRegistrarEmpleador;
 import vista.Ventana;
 
 public class ControladorVistaRegistrarEmpleador implements ActionListener
 {
 	IVistaRegistrarEmpleador vista=null;
+	private IVentana ventana = null;
 	private JPanel contentPane = null;
 	private final String VOLVER = "Volver";
 	private final String REGISTRAR = "Registrar";
 	
-	public ControladorVistaRegistrarEmpleador(IVistaRegistrarEmpleador vistaRegistrarEmpleador,JPanel contentPane)
+	public ControladorVistaRegistrarEmpleador(IVentana ventana,IVistaRegistrarEmpleador vista)
 	{
-		this.vista = vistaRegistrarEmpleador;
+		this.vista = vista;
+		this.ventana = ventana;
 		this.vista.setActionListener(this);
-		this.contentPane=contentPane;
+		this.contentPane=ventana.getContentPane();
 	}
 
 
@@ -31,14 +34,15 @@ public class ControladorVistaRegistrarEmpleador implements ActionListener
 		String comando = e.getActionCommand();
 		if (comando.equals(VOLVER))
 		{
-			cl.show(contentPane, Ventana.VISTA_INICIAL);
+			cl.show(contentPane, ventana.getVistaInicial());
 		}
 		else
 			if (comando.equals(REGISTRAR)) //CREAR EMPLEADOR Y AÑADIRLO A LOS ARRAY CORRESPONDIENTES
 			{
-				cl.show(contentPane, Ventana.VISTA_INICIAL);
+				cl.show(contentPane, ventana.getVistaInicial());
 			}
 		
+		this.vista.actualizarComboBox();
 	}
 
 	

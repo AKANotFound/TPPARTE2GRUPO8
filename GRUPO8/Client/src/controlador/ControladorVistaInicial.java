@@ -7,11 +7,13 @@ import java.awt.event.ActionListener;
 import javax.swing.JPanel;
 
 import entidades.Agencia;
+import vista.IVentana;
 import vista.IVistaInicial;
 import vista.Ventana;
 
 public class ControladorVistaInicial implements ActionListener {
-	private IVistaInicial vistaInicial = null;
+	private IVistaInicial vista = null;
+	private IVentana ventana = null;
 	private JPanel contentPane = null;
 
 	private final String CREAR_CUENTA = "CrearCuenta";
@@ -22,11 +24,12 @@ public class ControladorVistaInicial implements ActionListener {
 	public final static String EMPLEADOR = "Empleador";
 	public final static String EMPLEADO_PRETENSO = "EmpleadoPretenso";
 	
-	public ControladorVistaInicial(IVistaInicial vistaInicial,JPanel contentPane) {
+	public ControladorVistaInicial(IVentana ventana,IVistaInicial vista) {
 		super();
-		this.vistaInicial = vistaInicial;
-		this.vistaInicial.setActionListener(this);
-		this.contentPane = contentPane;
+		this.vista = vista;
+		this.ventana = ventana;
+		this.vista.setActionListener(this);
+		this.contentPane = ventana.getContentPane();
 	}
 
 	@Override
@@ -35,29 +38,29 @@ public class ControladorVistaInicial implements ActionListener {
 		String comando = e.getActionCommand();
 		
 		if(comando.equals(CREAR_CUENTA)) {
-			if(this.vistaInicial.isRdbtn_Administrador_Selected())
-				cl.show(contentPane, Ventana.VISTA_REGISTRAR_ADMINISTRADOR);
-			else if(this.vistaInicial.isRdbtn_Empleador_Selected())
-				cl.show(contentPane, Ventana.VISTA_REGISTRAR_EMPLEADOR);
-			else if(this.vistaInicial.isRdbtn_EmpleadoPretenso_Selected())
-				cl.show(contentPane, Ventana.VISTA_REGISTRAR_EMPLEADO_PRETENSO);
+			if(this.vista.isRdbtn_Administrador_Selected())
+				cl.show(contentPane, ventana.getVistaRegistrarAdministrador());
+			else if(this.vista.isRdbtn_Empleador_Selected())
+				cl.show(contentPane, ventana.getVistaRegistrarEmpleador());
+			else if(this.vista.isRdbtn_EmpleadoPretenso_Selected())
+				cl.show(contentPane, ventana.getVistaRegistrarEmpleadoPretenso());
 		}
 		else if(comando.equals(INICIAR_SESION)) {
-			if(this.vistaInicial.isRdbtn_Administrador_Selected()) {
+			if(this.vista.isRdbtn_Administrador_Selected()) {
 				Agencia.getInstancia().setUsuarioActual(ADMINISTRADOR);
-				cl.show(contentPane, Ventana.VISTA_FUNCIONALIDADES_ADMINISTRADOR);				
+				cl.show(contentPane, ventana.getVistaFuncionalidadesAdministrador());				
 			}
-			else if(this.vistaInicial.isRdbtn_Empleador_Selected()) {
+			else if(this.vista.isRdbtn_Empleador_Selected()) {
 				Agencia.getInstancia().setUsuarioActual(EMPLEADOR);
-				cl.show(contentPane, Ventana.VISTA_FUNCIONALIDADES_PERSONA);				
+				cl.show(contentPane, ventana.getVistaFuncionalidadesPersona());				
 			}
-			else if(this.vistaInicial.isRdbtn_EmpleadoPretenso_Selected()) {
+			else if(this.vista.isRdbtn_EmpleadoPretenso_Selected()) {
 				Agencia.getInstancia().setUsuarioActual(EMPLEADO_PRETENSO);
-				cl.show(contentPane, Ventana.VISTA_FUNCIONALIDADES_PERSONA);				
+				cl.show(contentPane, ventana.getVistaFuncionalidadesPersona());				
 			}
 		}
 		else if(comando.equals(SIMULACION)) {
-			cl.show(contentPane, Ventana.VISTA_SIMULACION);
+			cl.show(contentPane, ventana.getVistaSimulacion());
 		}
 	}
 	
