@@ -45,7 +45,7 @@ public class ControladorVistaFuncionalidadesPersona implements ActionListener {
 		else if(comando.equals(BORRAR_CUENTA)) {
 			JFrame jFrame = new JFrame();
 			int result = JOptionPane.showConfirmDialog(jFrame, "¿Estás seguro de que deseas eliminar tu cuenta?");
-	        if (result == 0) //eliminar del array de agencia
+	        if (result == 0) 
 	        {
 	        	cl.show(contentPane, ventana.getVistaInicial());
 	        	Agencia.getInstancia().getUsuarios().remove(Agencia.getInstancia().getUsuarioActual());

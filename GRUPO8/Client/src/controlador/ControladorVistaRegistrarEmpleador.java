@@ -23,6 +23,8 @@ public class ControladorVistaRegistrarEmpleador implements ActionListener
 	private IVentana ventana = null;
 	private JPanel contentPane = null;
 	
+	
+	
 	private final String VOLVER = "Volver";
 	private final String REGISTRAR = "Registrar";
 	
