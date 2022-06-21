@@ -51,6 +51,7 @@ public class BolsaDeTrabajo {
     		{
     			if(i == bolsaDeTrabajo.size()-1) //si recorri todo el array y no encontre ticket
     			{
+    				
     				try
     			 	{
     				  System.out.println("[" + empleadoPretenso.getNya() + "] reviso toda la bolsa y no encontro ticket compatible (por el rubro), espera");
