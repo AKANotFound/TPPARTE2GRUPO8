@@ -59,11 +59,11 @@ public class ControladorVistaRegistrarEmpleador implements ActionListener
 					IRubro rubro=null;
 					switch(vista.getRubro())
 					{
-					 case"Salud":rubro=Rubro_Salud.getInstancia();
+					 case"Salud":rubro=new Rubro_Salud();
 					  break;
-					 case"Comercio local":rubro=Rubro_ComercioLocal.getInstancia();
+					 case"Comercio local":rubro=new Rubro_ComercioLocal();
 					  break;
-					 case"Comercio internacional":rubro=Rubro_ComercioInternacional.getInstancia();
+					 case"Comercio internacional":rubro=new Rubro_ComercioInternacional();
 					  break;
 					}
 					

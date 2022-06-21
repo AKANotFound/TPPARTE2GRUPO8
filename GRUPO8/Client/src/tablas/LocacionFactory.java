@@ -4,7 +4,7 @@ public class LocacionFactory {
 	
 	public static ILocacion getLocacion(String tipo) {
 		ILocacion ilocacion = null;
-		
+		//
 		if(tipo.equals("HomeOffice")) 
 			ilocacion = new Locacion_HomeOffice();
 		else
