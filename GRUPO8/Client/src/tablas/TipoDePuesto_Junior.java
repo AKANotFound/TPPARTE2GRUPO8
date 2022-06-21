@@ -2,6 +2,8 @@ package tablas;
 
 public class TipoDePuesto_Junior implements ITipoDePuesto {
 
+	public TipoDePuesto_Junior() {}
+	
 	@Override
 	public double comparaCon(ITipoDePuesto t) {
 		return t.comparaConJunior();

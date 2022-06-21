@@ -1,5 +1,7 @@
 package entidades;
 
+import java.io.Serializable;
+
 /**
  * Clase abstracta que representa una Persona, solo guarda informacion acerca de ella.<br>
  * @author Grupo 8 <br>
@@ -20,6 +22,9 @@ public abstract class Persona extends Usuario {
 	 * <br>
 	 * @param cuenta : parametro de tipo String que representa la cuenta de la Persona
 	 */
+	public Persona() {
+		
+	}
 	
 	public Persona(Cuenta cuenta) {
 		super(cuenta);
@@ -43,7 +48,8 @@ public abstract class Persona extends Usuario {
 		else
 			return this.ticket.getFormularioDeBusqueda().getRemuneracion().getRemuneracion();
 	}
-
+	
+	
 	public ListaDeAsignacion getListaDeAsignacion() {
 		return listaDeAsignacion;
 	}

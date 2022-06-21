@@ -4,7 +4,7 @@ public class Rubro_Salud implements IRubro {
 	
 	private static Rubro_Salud instancia = null;
 	
-	private Rubro_Salud() {}
+	public Rubro_Salud() {}
 	
 	public static Rubro_Salud getInstancia() {
 		if(instancia == null)

@@ -17,6 +17,10 @@ public class FormularioDeBusqueda {
     private IExperienciaPrevia experienciaPrevia;
     private IEstudiosCursados estudiosCursados;
     
+    public FormularioDeBusqueda() {
+    	
+    }
+    
 	public FormularioDeBusqueda(ILocacion locacion, IRemuneracion remuneracion, ICargaHoraria cargaHoraria,
 			ITipoDePuesto tipoDePuesto, IRangoEtario rangoEtario, IExperienciaPrevia experienciaPrevia,
 			IEstudiosCursados estudiosCursados) 
@@ -57,7 +61,34 @@ public class FormularioDeBusqueda {
 	public IEstudiosCursados getEstudiosCursados() {
 		return estudiosCursados;
 	}
+	
+	public void setLocacion(ILocacion locacion) {
+		this.locacion = locacion;
+	}
 
+	public void setRemuneracion(IRemuneracion remuneracion) {
+		this.remuneracion = remuneracion;
+	}
+
+	public void setCargaHoraria(ICargaHoraria cargaHoraria) {
+		this.cargaHoraria = cargaHoraria;
+	}
+
+	public void setTipoDePuesto(ITipoDePuesto tipoDePuesto) {
+		this.tipoDePuesto = tipoDePuesto;
+	}
+
+	public void setRangoEtario(IRangoEtario rangoEtario) {
+		this.rangoEtario = rangoEtario;
+	}
+
+	public void setExperienciaPrevia(IExperienciaPrevia experienciaPrevia) {
+		this.experienciaPrevia = experienciaPrevia;
+	}
+
+	public void setEstudiosCursados(IEstudiosCursados estudiosCursados) {
+		this.estudiosCursados = estudiosCursados;
+	}
 
 	@Override
 	public String toString() {

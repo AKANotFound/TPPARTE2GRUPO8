@@ -2,6 +2,10 @@ package tablas;
 
 public class ExperienciaPrevia_Mucha implements IExperienciaPrevia {
 
+	public ExperienciaPrevia_Mucha() {
+		
+	}
+	
 	@Override
 	public double comparaCon(IExperienciaPrevia e) {
 		return e.comparaConMucha();

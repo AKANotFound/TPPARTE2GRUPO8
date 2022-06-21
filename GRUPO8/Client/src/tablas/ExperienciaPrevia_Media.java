@@ -1,7 +1,10 @@
 package tablas;
 
 public class ExperienciaPrevia_Media implements IExperienciaPrevia {
-
+	
+	public ExperienciaPrevia_Media() {
+		
+	}
 	@Override
 	public double comparaCon(IExperienciaPrevia e) {
 		return e.comparaConMedia();

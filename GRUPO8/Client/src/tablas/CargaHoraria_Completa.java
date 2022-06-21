@@ -1,7 +1,11 @@
 package tablas;
 
 public class CargaHoraria_Completa implements ICargaHoraria {
-
+	
+	public CargaHoraria_Completa() {
+		
+	}
+	
 	@Override
 	public double comparaCon(ICargaHoraria c) {
 		return c.comparaConCompleta();

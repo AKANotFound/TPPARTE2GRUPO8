@@ -2,6 +2,8 @@ package tablas;
 
 public class Remuneracion_30mil implements IRemuneracion {
 	
+	public Remuneracion_30mil() {}
+	
 	@Override
 	public double comparaCon(IRemuneracion r) {
 		return r.comparaConHastaV1();

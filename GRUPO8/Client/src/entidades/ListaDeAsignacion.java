@@ -7,6 +7,10 @@ public class ListaDeAsignacion {
 	private GregorianCalendar fechaDeCreacion = null;
     private ArrayList<PersonaElegida> lista =null;
 	
+    public ListaDeAsignacion(){
+    	
+    }
+    
 	public String getFechaDeCreacion() {
 		if (fechaDeCreacion == null)
 			return "null";
@@ -22,8 +26,6 @@ public class ListaDeAsignacion {
 	public void setLista(ArrayList<PersonaElegida> lista) {
 		this.lista = lista;
 	}
-	
-	
 	
 	@Override
 	public String toString() {

@@ -16,7 +16,22 @@ public class Contrato {
      */
     private ArrayList<Persona_EmpleadoPretenso> empleadosPretensos;
 	
-	
+    public Contrato() {
+    	
+    }
+    
+	public void setFechaDeCreacion(GregorianCalendar fechaDeCreacion) {
+		this.fechaDeCreacion = fechaDeCreacion;
+	}
+
+	public void setEmpleador(Persona_Empleador empleador) {
+		this.empleador = empleador;
+	}
+
+	public void setEmpleadosPretensos(ArrayList<Persona_EmpleadoPretenso> empleadosPretensos) {
+		this.empleadosPretensos = empleadosPretensos;
+	}
+
 	public Contrato(Persona_Empleador empleador, ArrayList<Persona_EmpleadoPretenso> empleadosPretensos,GregorianCalendar fechaDeCreacion) {
 		super();
 		this.empleador = empleador;
@@ -37,15 +52,11 @@ public class Contrato {
 		return empleadosPretensos;
 	}
 
-
+	
 	@SuppressWarnings("deprecation")
 	@Override
 	public String toString() {
-		return "Contrato [fechaDeCreacion=" + fechaDeCreacion.getTime().toLocaleString() + ", empleador=" + empleador + ", empleadosPretensos="
-				+ empleadosPretensos + "]";
+		return empleador + " contrato a "+ empleadosPretensos ;
 	}
-
-
-
 	
 }

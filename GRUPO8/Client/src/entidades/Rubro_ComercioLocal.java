@@ -4,7 +4,7 @@ public class Rubro_ComercioLocal implements IRubro {
 	
 	private static Rubro_ComercioLocal instancia = null;
 	
-	private Rubro_ComercioLocal() {}
+	public Rubro_ComercioLocal() {}
 	
 	public static Rubro_ComercioLocal getInstancia() {
 		if(instancia == null)

@@ -1,5 +1,6 @@
 package entidades;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import tablas.ILocacion;
@@ -23,6 +24,10 @@ public class Persona_Empleador extends Persona {
     private ArrayList<PersonaElegida> empleadosElegidos = new ArrayList<PersonaElegida>();
     private String tipoPersona;
     private ArrayList<Persona_EmpleadoPretenso>empleadosContratados=new ArrayList<Persona_EmpleadoPretenso>();
+    
+    public Persona_Empleador(){
+    	
+    }
     
     public Persona_Empleador(Cuenta cuenta) 
     {
@@ -86,5 +91,23 @@ public class Persona_Empleador extends Persona {
 
 	public String getRazonSocial() {
 		return razonSocial;
+	}
+
+	public void setRazonSocial(String razonSocial) {
+		this.razonSocial = razonSocial;
+	}
+
+	public void setRubro(IRubro rubro) {
+		this.rubro = rubro;
+	}
+
+	public void setEmpleadosElegidos(ArrayList<PersonaElegida> empleadosElegidos) {
+		this.empleadosElegidos = empleadosElegidos;
+	}
+
+	public void setTipoPersona(String tipoPersona) {
+		this.tipoPersona = tipoPersona;
 	}	
+	
+	
 }

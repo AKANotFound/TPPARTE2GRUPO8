@@ -64,5 +64,19 @@ public class Agencia {
 	public String getCodigoAdministrador()
 	{
 		return codigoAdministrador;
+	}
+
+	public void setEmpleadores(ArrayList<Persona_Empleador> empleadores) {
+		this.empleadores = empleadores;
+	}
+
+	public void setEmpleadosPretensos(ArrayList<Persona_EmpleadoPretenso> empleadosPretensos) {
+		this.empleadosPretensos = empleadosPretensos;
+	}
+
+	public void setContratos(ArrayList<Contrato> contratos) {
+		this.contratos = contratos;
 	}	
+	
+	
 }

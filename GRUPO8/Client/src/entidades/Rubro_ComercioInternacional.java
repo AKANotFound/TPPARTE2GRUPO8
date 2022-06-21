@@ -4,7 +4,7 @@ public class Rubro_ComercioInternacional implements IRubro {
 	
 	private static Rubro_ComercioInternacional instancia = null;
 	
-	private Rubro_ComercioInternacional() {}
+	public Rubro_ComercioInternacional() {}
 	
 	public static Rubro_ComercioInternacional getInstancia() {
 		if(instancia == null)

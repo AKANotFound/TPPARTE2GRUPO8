@@ -4,7 +4,7 @@ public class Locacion_Indistinto implements ILocacion {
 	
 	private static Locacion_Indistinto instancia = null;
 	
-	private Locacion_Indistinto() {}
+	public Locacion_Indistinto() {}
 	
 	public static Locacion_Indistinto getInstancia() {
 		if(instancia == null)

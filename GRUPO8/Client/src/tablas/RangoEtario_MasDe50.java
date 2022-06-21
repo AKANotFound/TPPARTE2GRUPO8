@@ -2,6 +2,8 @@ package tablas;
 
 public class RangoEtario_MasDe50 implements IRangoEtario {
 
+	public RangoEtario_MasDe50() {}
+	
 	@Override
 	public double comparaCon(IRangoEtario r) {
 		return r.comparaConMasDe50();
@@ -23,6 +25,6 @@ public class RangoEtario_MasDe50 implements IRangoEtario {
 	}
 	@Override
 	public String toString() {
-		return " más de 50";
+		return " mï¿½s de 50";
 	}
 }

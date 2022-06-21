@@ -2,6 +2,10 @@ package tablas;
 
 public class CargaHoraria_Extendida implements ICargaHoraria {
 
+	public CargaHoraria_Extendida() {
+		
+	}
+	
 	@Override
 	public double comparaCon(ICargaHoraria c) {
 		

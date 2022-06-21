@@ -2,6 +2,10 @@ package tablas;
 
 public class CargaHoraria_Media implements ICargaHoraria {
 
+	public CargaHoraria_Media() {
+		
+	}
+	
 	@Override
 	public double comparaCon(ICargaHoraria c) {
 		return c.comparaConMedia();

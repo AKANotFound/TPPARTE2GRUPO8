@@ -20,7 +20,18 @@ public class ActivoState implements IState
 	private Ticket ticket;
 	
 	
+	public ActivoState() {
+		
+	}
 	
+	public Ticket getTicket() {
+		return ticket;
+	}
+
+	public void setTicket(Ticket ticket) {
+		this.ticket = ticket;
+	}
+
 	public ActivoState(Ticket ticket)
 	{
 		super();

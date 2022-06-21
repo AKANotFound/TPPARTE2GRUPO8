@@ -15,8 +15,23 @@ public abstract class Ticket {
      * @aggregation shared
      */
     
+    public Ticket() {
+    	
+    }
     
-    public void suspender()
+    public GregorianCalendar getFechaAlta() {
+		return fechaAlta;
+	}
+
+	public void setFechaAlta(GregorianCalendar fechaAlta) {
+		this.fechaAlta = fechaAlta;
+	}
+
+	public IState getEstado() {
+		return estado;
+	}
+
+	public void suspender()
 	   {
 		  this.estado.suspender();
 		  

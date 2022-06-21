@@ -2,6 +2,10 @@ package tablas;
 
 public class EstudiosCursados_Secundario implements IEstudiosCursados {
 
+	public EstudiosCursados_Secundario() {
+		
+	}
+	
 	@Override
 	public double comparaCon(IEstudiosCursados estudios) {
 		return estudios.comparaConSecundario();

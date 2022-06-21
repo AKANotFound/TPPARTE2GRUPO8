@@ -4,7 +4,7 @@ public class Locacion_Presencial implements ILocacion {
 	
 	private static Locacion_Presencial instancia = null;
 	
-	private Locacion_Presencial() {}
+	public Locacion_Presencial() {}
 	
 	public static Locacion_Presencial getInstancia() {
 		if(instancia == null)

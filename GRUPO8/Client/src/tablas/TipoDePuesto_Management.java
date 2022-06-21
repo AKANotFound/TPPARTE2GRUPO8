@@ -2,6 +2,8 @@ package tablas;
 
 public class TipoDePuesto_Management implements ITipoDePuesto {
 
+	public TipoDePuesto_Management() {}
+	
 	@Override
 	public double comparaCon(ITipoDePuesto t) {
 		return t.comparaConManagment();

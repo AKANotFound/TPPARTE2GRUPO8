@@ -16,6 +16,18 @@ public class FinalizadoState implements IState
 {
 	private Ticket ticket;
 	
+	public FinalizadoState() {
+		
+	}
+	
+	public Ticket getTicket() {
+		return ticket;
+	}
+
+	public void setTicket(Ticket ticket) {
+		this.ticket = ticket;
+	}
+
 	public FinalizadoState(Ticket ticket)
 	{
 		super();

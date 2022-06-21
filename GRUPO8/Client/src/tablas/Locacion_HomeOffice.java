@@ -4,7 +4,7 @@ public class Locacion_HomeOffice implements ILocacion {
 	
 	private static Locacion_HomeOffice instancia = null;
 	
-	private Locacion_HomeOffice() {}
+	public Locacion_HomeOffice() {}
 	
 	public static Locacion_HomeOffice getInstancia() {
 		if(instancia == null)

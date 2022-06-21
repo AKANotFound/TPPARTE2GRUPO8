@@ -16,6 +16,18 @@ public class CanceladoState implements IState
 {
 	private Ticket ticket;
 	
+	public CanceladoState() {
+		
+	}
+	
+	public Ticket getTicket() {
+		return ticket;
+	}
+
+	public void setTicket(Ticket ticket) {
+		this.ticket = ticket;
+	}
+
 	public CanceladoState(Ticket ticket)
 	{
 		super();

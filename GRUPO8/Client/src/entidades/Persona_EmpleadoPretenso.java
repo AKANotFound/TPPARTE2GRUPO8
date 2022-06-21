@@ -7,6 +7,8 @@ public class Persona_EmpleadoPretenso extends Persona {
 	private PersonaElegida empleadorElegido;
 	private Persona_Empleador empleadorActual;
 	
+	public Persona_EmpleadoPretenso() {}
+	
     public Persona_EmpleadoPretenso(Cuenta cuenta, String nya, String telefono, int edad) {
 		super(cuenta);
 		this.nya = nya;
@@ -53,4 +55,17 @@ public class Persona_EmpleadoPretenso extends Persona {
 	public int getEdad() {
 		return edad;
 	}
+
+	public void setNya(String nya) {
+		this.nya = nya;
+	}
+
+	public void setTelefono(String telefono) {
+		this.telefono = telefono;
+	}
+
+	public void setEdad(int edad) {
+		this.edad = edad;
+	}
+	
 }

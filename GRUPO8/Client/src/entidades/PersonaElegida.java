@@ -5,6 +5,10 @@ public class PersonaElegida implements Comparable<PersonaElegida>{
 	private Persona persona;
 	private double puntajeDeContratacion;
 	
+	public PersonaElegida() {
+		
+	}
+	
 	public PersonaElegida(Persona persona, double puntajeDeContratacion) {
 		super();
 		this.persona = persona;
@@ -17,6 +21,14 @@ public class PersonaElegida implements Comparable<PersonaElegida>{
 
 	public double getPuntajeDeContratacion() {
 		return puntajeDeContratacion;
+	}
+	
+	public void setPersona(Persona persona) {
+		this.persona = persona;
+	}
+
+	public void setPuntajeDeContratacion(double puntajeDeContratacion) {
+		this.puntajeDeContratacion = puntajeDeContratacion;
 	}
 
 	@Override
