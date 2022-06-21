@@ -112,9 +112,11 @@ public class FinalizadoState implements IState
 		
 		return "$" + ((Persona) usuario).getCostoServicio();
 	}
-	
 
-
+	@Override
+	public String toString() {
+		return "FinalizadoState";
+	}
 	
 
 }

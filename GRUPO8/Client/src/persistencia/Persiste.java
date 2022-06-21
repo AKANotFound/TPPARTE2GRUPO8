@@ -1,5 +1,6 @@
 package persistencia;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -50,7 +51,7 @@ public class Persiste {
 	}*/
 	
 	
-	public void leer() {
+	public void leer() throws IOException {
 		ArrayList<Persona_Empleador> lista = null; 
 		ArrayList<Persona_EmpleadoPretenso> listaEmpleados = null;
 		ArrayList<Contrato> listaContratos = new ArrayList<Contrato>();
@@ -64,18 +65,19 @@ public class Persiste {
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} catch (IOException e) {
+		} 
+		/*catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		}*/
 		
-		System.out.println(lista);
-		System.out.println(listaEmpleados);
-		System.out.println(listaContratos);
+		//System.out.println(lista);
+		//System.out.println(listaEmpleados.get(0).getTicket().getEstado());
+		//System.out.println(listaContratos);
 		
-		//Agencia.getInstancia().setEmpleadores(lista);
-		//Agencia.getInstancia().setEmpleadosPretensos(listaEmpleados);
-		//Agencia.getInstancia().setContratos(listaContratos);
+		Agencia.getInstancia().setEmpleadores(lista);
+		Agencia.getInstancia().setEmpleadosPretensos(listaEmpleados);
+		Agencia.getInstancia().setContratos(listaContratos);
 		
 	}
 }

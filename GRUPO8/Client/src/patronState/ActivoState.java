@@ -19,7 +19,6 @@ public class ActivoState implements IState
 {
 	private Ticket ticket;
 	
-	
 	public ActivoState() {
 		
 	}
@@ -148,6 +147,11 @@ public class ActivoState implements IState
 	{
 		
 		return "ticket no finalizado";
+	}
+
+	@Override
+	public String toString() {
+		return "ActivoState";
 	}
 
 

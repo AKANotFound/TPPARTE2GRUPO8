@@ -107,7 +107,13 @@ public class CanceladoState implements IState
 		
 		return "$" + ((Persona) usuario).getCostoServicio();
 	}
-	
 
+	@Override
+	public String toString() {
+		return "CanceladoState";
+	}
+	
+	
+	
 
 }

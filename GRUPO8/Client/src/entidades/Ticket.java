@@ -9,7 +9,7 @@ import patronState.IState;
 
 public abstract class Ticket {
     private GregorianCalendar fechaAlta; //tener en cuenta para visual
-    protected  IState estado;
+    protected IState estado;
     private FormularioDeBusqueda formularioDeBusqueda;
     /**
      * @aggregation shared
