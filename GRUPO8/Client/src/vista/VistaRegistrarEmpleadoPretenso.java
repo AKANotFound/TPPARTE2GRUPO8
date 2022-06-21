@@ -191,7 +191,7 @@ public class VistaRegistrarEmpleadoPretenso extends JPanel implements IVistaRegi
 				&& this.textField_Nya.getText().length() != 0
 				&& this.textField_Telefono.getText().length() != 0
 				&& this.textField_Usuario.getText().length() != 0
-				&& edad != 0
+				&& 16<edad 
 				&& telefono != 0) {
 			this.btn_Registrar.setEnabled(true);
 		}
@@ -199,5 +199,46 @@ public class VistaRegistrarEmpleadoPretenso extends JPanel implements IVistaRegi
 			this.btn_Registrar.setEnabled(false);
 	}
 	public void keyTyped(KeyEvent e) {
+	}
+
+	@Override
+	public String getNya()
+	{
+		return this.textField_Nya.getText();
+	}
+
+	@Override
+	public String getTelefono()
+	{
+		return this.textField_Telefono.getText();
+	}
+
+	@Override
+	public int getEdad()
+	{
+		return Integer.parseInt(this.textField_Edad.getText());
+	}
+
+	@Override
+	public String getUsuario()
+	{
+		return this.textField_Usuario.getText();
+	}
+
+	@Override
+	public String getContrasena()
+	{
+		return this.textField_Contrasena.getText();
+	}
+
+	@Override
+	public void limpiarVentana()
+	{
+		this.textField_Nya.setText("");
+		this.textField_Telefono.setText("");
+		this.textField_Edad.setText("");
+		this.textField_Usuario.setText("");
+		this.textField_Contrasena.setText("");
+		
 	}
 }

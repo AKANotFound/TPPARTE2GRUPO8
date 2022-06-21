@@ -6,8 +6,11 @@ import java.awt.GridLayout;
 import java.awt.event.ActionListener;
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+import javax.swing.JDialog;
+
 import java.awt.FlowLayout;
 import javax.swing.border.TitledBorder;
 import javax.swing.border.EtchedBorder;
@@ -136,5 +139,43 @@ public class VistaRegistrarAdministrador extends JPanel implements IVistaRegistr
 		
 	}
 	public void keyTyped(KeyEvent e) {
+	}
+
+	@Override
+	public String getUsuario()
+	{
+		return this.textField_Usuario.getText();
+	}
+
+	@Override
+	public String getContrasena()
+	{
+		return this.textField_Contrasena.getText();
+	}
+
+	@Override
+	public String getCodigoAdministrador()
+	{
+		
+		return this.textField_CodigoAdministrador.getText();
+	}
+
+	@Override
+	public void codigoErroneo() //VER COMO HACERLO
+	{
+		JDialog cartel=new JDialog();
+		cartel.setModal(true);
+		cartel.setVisible(true);
+		
+		
+	}
+
+	@Override
+	public void limpiarVista()
+	{
+		this.textField_Usuario.setText("");
+		this.textField_Contrasena.setText("");
+		this.textField_CodigoAdministrador.setText("");
+		
 	}
 }
