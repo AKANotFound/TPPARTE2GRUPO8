@@ -51,12 +51,12 @@ public class VistaInicial extends JPanel implements IVistaInicial, KeyListener {
 		tipoUsuarioRadioButtonGroup = new ButtonGroup();
 		
 		this.panel_Centro = new JPanel();
-		add(this.panel_Centro);
-		this.panel_Centro.setLayout(new GridLayout(2, 1, 0, 0));
+		add(this.panel_Centro, BorderLayout.CENTER);
+		this.panel_Centro.setLayout(new BorderLayout(0, 0));
 		
 		this.panel_TipoUsuario_Border = new JPanel();
 		this.panel_TipoUsuario_Border.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), "Tipo de usuario", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
-		this.panel_Centro.add(this.panel_TipoUsuario_Border);
+		this.panel_Centro.add(this.panel_TipoUsuario_Border, BorderLayout.NORTH);
 		
 		this.panel_TipoUsuario = new JPanel();
 		this.panel_TipoUsuario_Border.add(this.panel_TipoUsuario);
@@ -76,7 +76,7 @@ public class VistaInicial extends JPanel implements IVistaInicial, KeyListener {
 		
 		this.panel = new JPanel();
 		this.panel.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), "Acceso de usuarios", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
-		this.panel_Centro.add(this.panel);
+		this.panel_Centro.add(this.panel, BorderLayout.CENTER);
 		
 		this.panel_Login = new JPanel();
 		this.panel.add(this.panel_Login);

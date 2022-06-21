@@ -7,11 +7,13 @@ import java.awt.event.ActionListener;
 import javax.swing.JPanel;
 
 import entidades.Agencia;
+import vista.IVentana;
 import vista.IVistaGestionTicketPersona;
 import vista.Ventana;
 
 public class ControladorVistaGestionTicketPersona implements ActionListener {
 	private IVistaGestionTicketPersona vista = null;
+	private IVentana ventana = null;
 	private JPanel contentPane = null;
 	
 	private final String CREAR = "Crear";
@@ -21,9 +23,10 @@ public class ControladorVistaGestionTicketPersona implements ActionListener {
 	private final String MODIFICAR = "Modificar";
 	private final String VOLVER = "Volver";
 	
-	public ControladorVistaGestionTicketPersona(IVistaGestionTicketPersona vista, JPanel contentPane) {
+	public ControladorVistaGestionTicketPersona(IVentana ventana,IVistaGestionTicketPersona vista, JPanel contentPane) {
 		super();
 		this.vista = vista;
+		this.ventana = ventana;
 		this.vista.setActionListener(this);
 		this.contentPane = contentPane;
 	}
@@ -41,25 +44,25 @@ public class ControladorVistaGestionTicketPersona implements ActionListener {
 		}
 		else if(comando.equals(CREAR)) {
 			if(Agencia.getInstancia().getUsuarioActual().equals(ControladorVistaInicial.EMPLEADOR)) {
-				cl.show(contentPane, Ventana.VISTA_FORMULARIO_DE_BUSQUEDA_EMPLEADOR);				
+				cl.show(contentPane, ventana.getVistaFormularioDeBusquedaEmpleador());				
 			}
 			else if(Agencia.getInstancia().getUsuarioActual().equals(ControladorVistaInicial.EMPLEADO_PRETENSO)){
-				cl.show(contentPane, Ventana.VISTA_FORMULARIO_DE_BUSQUEDA_EMPLEADO_PRETENSO);				
+				cl.show(contentPane, ventana.getVistaFormularioDeBusquedaEmpleadoPretenso());				
 			}
 		}
 		else if(comando.equals(MODIFICAR)) {
 			if(Agencia.getInstancia().getUsuarioActual().equals(ControladorVistaInicial.EMPLEADOR)) {
-				cl.show(contentPane, Ventana.VISTA_FORMULARIO_DE_BUSQUEDA_EMPLEADOR);				
+				cl.show(contentPane, ventana.getVistaFormularioDeBusquedaEmpleador());				
 			}
 			else if(Agencia.getInstancia().getUsuarioActual().equals(ControladorVistaInicial.EMPLEADO_PRETENSO)){
-				cl.show(contentPane, Ventana.VISTA_FORMULARIO_DE_BUSQUEDA_EMPLEADO_PRETENSO);				
+				cl.show(contentPane, ventana.getVistaFormularioDeBusquedaEmpleadoPretenso());				
 			}
 		}
 		else if(comando.equals(SUSPENDER)) {
 			
 		}
 		else if(comando.equals(VOLVER)) {
-			cl.show(contentPane, Ventana.VISTA_FUNCIONALIDADES_PERSONA);
+			cl.show(contentPane, ventana.getVistaFuncionalidadesPersona());
 		}
 	}
 	

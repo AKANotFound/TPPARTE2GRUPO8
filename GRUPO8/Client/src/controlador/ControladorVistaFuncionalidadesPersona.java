@@ -6,11 +6,13 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JPanel;
 
+import vista.IVentana;
 import vista.IVistaFuncionalidadesPersona;
 import vista.Ventana;
 
 public class ControladorVistaFuncionalidadesPersona implements ActionListener {
 	private IVistaFuncionalidadesPersona vista = null;
+	private IVentana ventana = null;
 	private JPanel contentPane = null;
 	
 	private final String GESTION_DE_TICKET = "GestionDeTicket";
@@ -21,9 +23,10 @@ public class ControladorVistaFuncionalidadesPersona implements ActionListener {
 	private final String CERRAR_SESION = "CerrarSesion";
 	private final String BORRAR_CUENTA = "BorrarCuenta";
 	
-	public ControladorVistaFuncionalidadesPersona(IVistaFuncionalidadesPersona vista, JPanel contentPane) {
+	public ControladorVistaFuncionalidadesPersona(IVentana ventana,IVistaFuncionalidadesPersona vista, JPanel contentPane) {
 		super();
 		this.vista = vista;
+		this.ventana = ventana;
 		this.vista.setActionListener(this);
 		this.contentPane = contentPane;
 	}
@@ -37,13 +40,13 @@ public class ControladorVistaFuncionalidadesPersona implements ActionListener {
 			
 		}
 		else if(comando.equals(BORRAR_CUENTA)) { //hacer pop up de si esta seguro
-			cl.show(contentPane, Ventana.VISTA_INICIAL);
+			cl.show(contentPane, ventana.getVistaInicial());
 		}
 		else if(comando.equals(CERRAR_SESION)) {
-			cl.show(contentPane, Ventana.VISTA_INICIAL);
+			cl.show(contentPane, ventana.getVistaInicial());
 		}
 		else if(comando.equals(GESTION_DE_TICKET)) {
-			cl.show(contentPane, Ventana.VISTA_GESTION_TICKET_PERSONA);
+			cl.show(contentPane, ventana.getVistaGestionTicketPersona());
 		}
 		else if(comando.equals(INICIAR_RONDA_DE_ELECCION)) {
 			
