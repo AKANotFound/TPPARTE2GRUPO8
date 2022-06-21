@@ -23,12 +23,12 @@ public class ControladorVistaFormularioDeBusquedaEmpleador implements ActionList
 	
 	
 	
-	public ControladorVistaFormularioDeBusquedaEmpleador(IVentana ventana,IVistaFormularioDeBusquedaEmpleador vista, JPanel contentPane)
+	public ControladorVistaFormularioDeBusquedaEmpleador(IVentana ventana,IVistaFormularioDeBusquedaEmpleador vista)
 	{
 		super();
 		this.vista = vista;
 		this.ventana = ventana;
-		this.contentPane = contentPane;
+		this.contentPane = ventana.getContentPane();
 		this.vista.setActionListener(this);
 	}
 

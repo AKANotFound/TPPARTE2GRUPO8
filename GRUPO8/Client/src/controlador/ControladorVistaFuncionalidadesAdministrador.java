@@ -30,11 +30,11 @@ public class ControladorVistaFuncionalidadesAdministrador implements ActionListe
 	private final String CERRAR_SESION = "CerrarSesion";
 	private final String BORRAR_CUENTA = "BorrarCuenta";
 	
-	public ControladorVistaFuncionalidadesAdministrador(IVentana ventana,IVistaFuncionalidadesAdministrador vista, JPanel contentPane)
+	public ControladorVistaFuncionalidadesAdministrador(IVentana ventana,IVistaFuncionalidadesAdministrador vista)
 	{
 		this.vista = vista;
 		this.ventana = ventana;
-		this.contentPane = contentPane;
+		this.contentPane = ventana.getContentPane();
 		this.vista.setActionListener(this);
 	}
 

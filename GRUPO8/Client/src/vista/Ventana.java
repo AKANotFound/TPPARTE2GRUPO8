@@ -74,6 +74,7 @@ public class Ventana extends JFrame implements IVentana {
 		contentPane.add(vistaSimulacion,VISTA_SIMULACION);
 	}
 
+	@Override
 	public JPanel getContentPane() {
 		return contentPane;
 	}

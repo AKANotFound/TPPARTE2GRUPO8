@@ -24,12 +24,12 @@ public class ControladorVistaInicial implements ActionListener {
 	public final static String EMPLEADOR = "Empleador";
 	public final static String EMPLEADO_PRETENSO = "EmpleadoPretenso";
 	
-	public ControladorVistaInicial(IVentana ventana,IVistaInicial vista,JPanel contentPane) {
+	public ControladorVistaInicial(IVentana ventana,IVistaInicial vista) {
 		super();
 		this.vista = vista;
 		this.ventana = ventana;
 		this.vista.setActionListener(this);
-		this.contentPane = contentPane;
+		this.contentPane = ventana.getContentPane();
 	}
 
 	@Override

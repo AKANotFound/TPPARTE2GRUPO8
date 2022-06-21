@@ -18,12 +18,12 @@ public class ControladorVistaRegistrarAdministrador implements ActionListener {
 	private final String VOLVER = "Volver";
 	private final String REGISTRAR = "Registrar";
 	
-	public ControladorVistaRegistrarAdministrador(IVentana ventana,IVistaRegistrarAdministrador vista,JPanel contentPane) {
+	public ControladorVistaRegistrarAdministrador(IVentana ventana,IVistaRegistrarAdministrador vista) {
 		super();
 		this.vista = vista;
 		this.ventana = ventana;
 		this.vista.setActionListener(this);
-		this.contentPane = contentPane;
+		this.contentPane = ventana.getContentPane();
 	}
 
 	@Override

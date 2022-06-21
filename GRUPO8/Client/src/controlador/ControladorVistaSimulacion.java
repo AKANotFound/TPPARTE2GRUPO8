@@ -20,12 +20,12 @@ public class ControladorVistaSimulacion implements ActionListener
 	private final String DETENER = "Detener";
 	
 	
-	public ControladorVistaSimulacion(IVentana ventana,IVistaSimulacion vistaSimulacion,JPanel contentPane)
+	public ControladorVistaSimulacion(IVentana ventana,IVistaSimulacion vistaSimulacion)
 	{
 		this.vista = vistaSimulacion;
 		this.ventana = ventana;
 		this.vista.setActionListener(this);
-		this.contentPane=contentPane;
+		this.contentPane=ventana.getContentPane();
 	}
 
 

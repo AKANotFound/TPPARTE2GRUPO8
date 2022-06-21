@@ -23,12 +23,12 @@ public class ControladorVistaGestionTicketPersona implements ActionListener {
 	private final String MODIFICAR = "Modificar";
 	private final String VOLVER = "Volver";
 	
-	public ControladorVistaGestionTicketPersona(IVentana ventana,IVistaGestionTicketPersona vista, JPanel contentPane) {
+	public ControladorVistaGestionTicketPersona(IVentana ventana,IVistaGestionTicketPersona vista) {
 		super();
 		this.vista = vista;
 		this.ventana = ventana;
 		this.vista.setActionListener(this);
-		this.contentPane = contentPane;
+		this.contentPane = ventana.getContentPane();
 	}
 
 	@Override

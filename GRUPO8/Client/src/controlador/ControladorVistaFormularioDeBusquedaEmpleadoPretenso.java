@@ -20,13 +20,12 @@ public class ControladorVistaFormularioDeBusquedaEmpleadoPretenso implements Act
 	
 	
 	
-	public ControladorVistaFormularioDeBusquedaEmpleadoPretenso(IVentana ventana,IVistaFormularioDeBusquedaEmpleadoPretenso vista,
-			JPanel contentPane)
+	public ControladorVistaFormularioDeBusquedaEmpleadoPretenso(IVentana ventana,IVistaFormularioDeBusquedaEmpleadoPretenso vista)
 	{
 		super();
 		this.vista = vista;
 		this.ventana = ventana;
-		this.contentPane = contentPane;
+		this.contentPane = ventana.getContentPane();
 		this.vista.setActionListener(this);
 	}
 

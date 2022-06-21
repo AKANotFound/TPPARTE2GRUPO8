@@ -23,12 +23,12 @@ public class ControladorVistaFuncionalidadesPersona implements ActionListener {
 	private final String CERRAR_SESION = "CerrarSesion";
 	private final String BORRAR_CUENTA = "BorrarCuenta";
 	
-	public ControladorVistaFuncionalidadesPersona(IVentana ventana,IVistaFuncionalidadesPersona vista, JPanel contentPane) {
+	public ControladorVistaFuncionalidadesPersona(IVentana ventana,IVistaFuncionalidadesPersona vista) {
 		super();
 		this.vista = vista;
 		this.ventana = ventana;
 		this.vista.setActionListener(this);
-		this.contentPane = contentPane;
+		this.contentPane = ventana.getContentPane();
 	}
 
 	@Override
