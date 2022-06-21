@@ -144,20 +144,7 @@ public class VistaInicial extends JPanel implements IVistaInicial, KeyListener {
 		this.actionListener=actionListener;
 	}
 
-	@Override
-	public boolean isRdbtn_Administrador_Selected() {
-		return this.rdbtn_Administrador.isSelected();
-	}
-
-	@Override
-	public boolean isRdbtn_Empleador_Selected() {
-		return this.rdbtn_Empleador.isSelected();
-	}
-
-	@Override
-	public boolean isRdbtn_EmpleadoPretenso_Selected() {
-		return this.rdbtn_EmpleadoPretenso.isSelected();
-	}
+	
 	public void keyPressed(KeyEvent e) {
 	}
 	public void keyReleased(KeyEvent e) {
@@ -168,5 +155,47 @@ public class VistaInicial extends JPanel implements IVistaInicial, KeyListener {
 		
 	}
 	public void keyTyped(KeyEvent e) {
+	}
+
+	@Override
+	public String getUsuario()
+	{
+		
+		return this.textField_Usuario.getText();
+	}
+
+	@Override
+	public String getContrasena()
+	{
+		
+		return this.textField_Contrasena.getText();
+	}
+
+	@Override
+	public String getTipoUsuario()
+	{
+		String str=null;
+		if (this.rdbtn_Administrador.isSelected())
+			str="Administrador";
+		else
+			if(this.rdbtn_Empleador.isSelected())
+				str="Empleador";
+			else
+				if(this.rdbtn_EmpleadoPretenso.isSelected())
+					str="Empleado pretenso";
+			
+		
+		return str;
+	}
+
+	@Override
+	public void limpiarVista()
+	{
+		this.rdbtn_EmpleadoPretenso.setSelected(true);
+		this.rdbtn_Administrador.setSelected(false);
+		this.rdbtn_Empleador.setSelected(false);
+		this.textField_Usuario.setText("");
+		this.textField_Contrasena.setText("");
+		
 	}
 }

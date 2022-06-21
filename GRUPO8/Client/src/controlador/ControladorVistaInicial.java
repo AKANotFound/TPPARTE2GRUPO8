@@ -38,30 +38,43 @@ public class ControladorVistaInicial implements ActionListener {
 		String comando = e.getActionCommand();
 		
 		if(comando.equals(CREAR_CUENTA)) {
-			if(this.vista.isRdbtn_Administrador_Selected())
-				cl.show(contentPane, ventana.getVistaRegistrarAdministrador());
-			else if(this.vista.isRdbtn_Empleador_Selected())
-				cl.show(contentPane, ventana.getVistaRegistrarEmpleador());
-			else if(this.vista.isRdbtn_EmpleadoPretenso_Selected())
-				cl.show(contentPane, ventana.getVistaRegistrarEmpleadoPretenso());
+			
+			switch(this.vista.getTipoUsuario())
+			{
+			  case"Administrador":cl.show(contentPane, ventana.getVistaRegistrarAdministrador());
+				break;
+			  case "Empleador":cl.show(contentPane, ventana.getVistaRegistrarEmpleador());
+			    break;
+			  case"Empleado pretenso":cl.show(contentPane, ventana.getVistaRegistrarEmpleadoPretenso());
+			  	break;
+			}
+			
+				
 		}
 		else if(comando.equals(INICIAR_SESION)) {
-			if(this.vista.isRdbtn_Administrador_Selected()) {
-				Agencia.getInstancia().setUsuarioActual(ADMINISTRADOR);
-				cl.show(contentPane, ventana.getVistaFuncionalidadesAdministrador());				
+			
+			switch(this.vista.getTipoUsuario())
+			{
+			  case"Administrador":Agencia.getInstancia().setUsuarioActual(ADMINISTRADOR);
+				cl.show(contentPane, ventana.getVistaFuncionalidadesAdministrador());	
+				break;
+			  case "Empleador":Agencia.getInstancia().setUsuarioActual(EMPLEADOR);
+				cl.show(contentPane, ventana.getVistaFuncionalidadesPersona());	
+			    break;
+			  case"Empleado pretenso":Agencia.getInstancia().setUsuarioActual(EMPLEADO_PRETENSO);
+				cl.show(contentPane, ventana.getVistaFuncionalidadesPersona());		
+			  	break;
 			}
-			else if(this.vista.isRdbtn_Empleador_Selected()) {
-				Agencia.getInstancia().setUsuarioActual(EMPLEADOR);
-				cl.show(contentPane, ventana.getVistaFuncionalidadesPersona());				
-			}
-			else if(this.vista.isRdbtn_EmpleadoPretenso_Selected()) {
-				Agencia.getInstancia().setUsuarioActual(EMPLEADO_PRETENSO);
-				cl.show(contentPane, ventana.getVistaFuncionalidadesPersona());				
-			}
+			
+				
+			
 		}
 		else if(comando.equals(SIMULACION)) {
 			cl.show(contentPane, ventana.getVistaSimulacion());
+			
 		}
+		
+		this.vista.limpiarVista();
 	}
 	
 	

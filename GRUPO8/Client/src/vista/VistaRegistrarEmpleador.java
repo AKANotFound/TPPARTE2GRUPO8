@@ -330,32 +330,81 @@ public class VistaRegistrarEmpleador extends JPanel implements IVistaRegistrarEm
 		
 	}
 
-	@Override
-	public void actualizarComboBox()
-	{
-		this.defaultComboBox_TipoPersona.removeAllElements();
-		this.defaultComboBox_Rubro.removeAllElements();
-		this.defaultComboBox_TipoPersona.addElement(SELECCIONE);
-		this.defaultComboBox_TipoPersona.addElement(PERSONA_FISICA);
-		this.defaultComboBox_TipoPersona.addElement(PERSONA_JURIDICA);
-		this.defaultComboBox_Rubro.addElement(SELECCIONE);
-		this.defaultComboBox_Rubro.addElement(RUBRO_COMERCIO_LOCAL);
-		this.defaultComboBox_Rubro.addElement(RUBRO_COMERCIO_INTERNACIONAL);
-		this.defaultComboBox_Rubro.addElement(RUBRO_SALUD);
-	}
+	
 
 	public void keyPressed(KeyEvent e) {
 	}
 	public void keyReleased(KeyEvent e) {
-		if(this.textField_CargaHoraria.getText().length() != 0
+		double EstudiosCursados=-1;
+		double ExperienciaPrevia=-1;
+		double Locacion=-1;
+		double RangoEtario=-1;
+		double Remuneracion=-1;
+		double TipoPuesto=-1;
+		double CargaHoraria=-1;
+		
+		
+		try
+		{
+			EstudiosCursados=Double.parseDouble(this.textField_EstudiosCursados.getText());
+		}catch(NumberFormatException exception)
+		{
+			
+		}
+		try
+		{
+			ExperienciaPrevia=Double.parseDouble(this.textField_ExperienciaPrevia.getText());
+		}catch(NumberFormatException exception)
+		{
+			
+		}
+		try
+		{
+			Locacion=Double.parseDouble(this.textField_Locacion.getText());
+		}catch(NumberFormatException exception)
+		{
+			
+		}
+		try
+		{
+			RangoEtario=Double.parseDouble(this.textField_RangoEtario.getText());
+		}catch(NumberFormatException exception)
+		{
+			
+		}
+		try
+		{
+			CargaHoraria=Double.parseDouble(this.textField_CargaHoraria.getText());
+		}catch(NumberFormatException exception)
+		{
+			
+		}
+		try
+		{
+			Remuneracion=Double.parseDouble(this.textField_Remuneracion.getText());
+		}catch(NumberFormatException exception)
+		{
+			
+		}
+		try
+		{
+			TipoPuesto=Double.parseDouble(this.textField_TipoPuesto.getText());
+		}catch(NumberFormatException exception)
+		{
+			
+		}
+		
+		
+		
+		if(0<=CargaHoraria
 			&& this.textField_Contrasena.getText().length() != 0
-			&& this.textField_EstudiosCursados.getText().length() != 0
-			&& this.textField_ExperienciaPrevia.getText().length() != 0
-			&& this.textField_Locacion.getText().length() != 0
-			&& this.textField_RangoEtario.getText().length() != 0
+			&& 0<=EstudiosCursados
+			&& 0<=ExperienciaPrevia
+			&& 0<=Locacion
+			&& 0<=RangoEtario
 			&& this.textField_RazonSocial.getText().length() != 0
-			&& this.textField_Remuneracion.getText().length() != 0
-			&& this.textField_TipoPuesto.getText().length() != 0
+			&& 0<=Remuneracion
+			&& 0<=TipoPuesto
 			&& this.textField_Usuario.getText().length() != 0
 			&& this.comboBox_TipoPersona.getSelectedItem() != SELECCIONE
 			&& this.comboBox_Rubro.getSelectedItem() != SELECCIONE) {
@@ -368,21 +417,182 @@ public class VistaRegistrarEmpleador extends JPanel implements IVistaRegistrarEm
 	}
 	
 	public void itemStateChanged(ItemEvent e) {
-		if(this.textField_CargaHoraria.getText().length() != 0
-				&& this.textField_Contrasena.getText().length() != 0
-				&& this.textField_EstudiosCursados.getText().length() != 0
-				&& this.textField_ExperienciaPrevia.getText().length() != 0
-				&& this.textField_Locacion.getText().length() != 0
-				&& this.textField_RangoEtario.getText().length() != 0
-				&& this.textField_RazonSocial.getText().length() != 0
-				&& this.textField_Remuneracion.getText().length() != 0
-				&& this.textField_TipoPuesto.getText().length() != 0
-				&& this.textField_Usuario.getText().length() != 0
-				&& this.comboBox_TipoPersona.getSelectedItem() != SELECCIONE
-				&& this.comboBox_Rubro.getSelectedItem() != SELECCIONE) {
-				this.btn_Registrar.setEnabled(true);
-			}
-			else
-				this.btn_Registrar.setEnabled(false);
+		double EstudiosCursados=-1;
+		double ExperienciaPrevia=-1;
+		double Locacion=-1;
+		double RangoEtario=-1;
+		double Remuneracion=-1;
+		double TipoPuesto=-1;
+		double CargaHoraria=-1;
+		
+		
+		try
+		{
+			EstudiosCursados=Double.parseDouble(this.textField_EstudiosCursados.getText());
+		}catch(NumberFormatException exception)
+		{
+			
+		}
+		try
+		{
+			ExperienciaPrevia=Double.parseDouble(this.textField_ExperienciaPrevia.getText());
+		}catch(NumberFormatException exception)
+		{
+			
+		}
+		try
+		{
+			Locacion=Double.parseDouble(this.textField_Locacion.getText());
+		}catch(NumberFormatException exception)
+		{
+			
+		}
+		try
+		{
+			RangoEtario=Double.parseDouble(this.textField_RangoEtario.getText());
+		}catch(NumberFormatException exception)
+		{
+			
+		}
+		try
+		{
+			CargaHoraria=Double.parseDouble(this.textField_CargaHoraria.getText());
+		}catch(NumberFormatException exception)
+		{
+			
+		}
+		try
+		{
+			Remuneracion=Double.parseDouble(this.textField_Remuneracion.getText());
+		}catch(NumberFormatException exception)
+		{
+			
+		}
+		try
+		{
+			TipoPuesto=Double.parseDouble(this.textField_TipoPuesto.getText());
+		}catch(NumberFormatException exception)
+		{
+			
+		}
+		
+		
+		
+		if(0<=CargaHoraria
+			&& this.textField_Contrasena.getText().length() != 0
+			&& 0<=EstudiosCursados
+			&& 0<=ExperienciaPrevia
+			&& 0<=Locacion
+			&& 0<=RangoEtario
+			&& this.textField_RazonSocial.getText().length() != 0
+			&& 0<=Remuneracion
+			&& 0<=TipoPuesto
+			&& this.textField_Usuario.getText().length() != 0
+			&& this.comboBox_TipoPersona.getSelectedItem() != SELECCIONE
+			&& this.comboBox_Rubro.getSelectedItem() != SELECCIONE) {
+			this.btn_Registrar.setEnabled(true);
+		}
+		else
+			this.btn_Registrar.setEnabled(false);
+	}
+
+	@Override
+	public String getRazonSocial()
+	{
+		return this.textField_RazonSocial.getText();
+	}
+
+	@Override
+	public String getTipoPersona()
+	{
+		
+		return (String)this.comboBox_TipoPersona.getSelectedItem();
+	}
+
+	@Override
+	public String getRubro()
+	{
+		
+		return (String)this.comboBox_Rubro.getSelectedItem();
+	}
+
+	@Override
+	public double getPuntajeLocacion()
+	{
+		
+		return Integer.parseInt(this.textField_Locacion.getText());
+	}
+
+	@Override
+	public double getPuntajeCargaHoraria()
+	{
+		
+		return Integer.parseInt(this.textField_CargaHoraria.getText());
+	}
+
+	@Override
+	public double getPuntajeEstudiosCursados()
+	{
+		
+		return Integer.parseInt(this.textField_EstudiosCursados.getText());
+	}
+
+	@Override
+	public double getPuntajeExperienciaPrevia()
+	{
+		
+		return Integer.parseInt(this.textField_ExperienciaPrevia.getText());
+	}
+
+	@Override
+	public double getPuntajeRangoEtario()
+	{
+		
+		return Integer.parseInt(this.textField_RangoEtario.getText());
+	}
+
+	@Override
+	public double getPuntajeRemuneracion()
+	{
+		
+		return Integer.parseInt(this.textField_Remuneracion.getText());
+	}
+
+	@Override
+	public double getPuntajeTipoDePuesto()
+	{
+		
+		return Integer.parseInt(this.textField_TipoPuesto.getText());
+	}
+
+	@Override
+	public String getUsuario()
+	{
+		
+		return this.textField_Usuario.getText();
+	}
+
+	@Override
+	public String getContrasena()
+	{
+		
+		return this.textField_Contrasena.getText();
+	}
+
+	@Override
+	public void limpiarVista()
+	{
+		this.textField_RazonSocial.setText("");
+		this.comboBox_TipoPersona.setSelectedItem(SELECCIONE);
+		this.comboBox_Rubro.setSelectedItem(SELECCIONE);
+		this.textField_CargaHoraria.setText("");
+		this.textField_EstudiosCursados.setText("");
+		this.textField_ExperienciaPrevia.setText("");
+		this.textField_Locacion.setText("");
+		this.textField_RangoEtario.setText("");
+		this.textField_Remuneracion.setText("");
+		this.textField_TipoPuesto.setText("");
+		this.textField_Usuario.setText("");
+		this.textField_Contrasena.setText("");
 	}
 }

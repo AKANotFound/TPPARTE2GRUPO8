@@ -6,6 +6,8 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JPanel;
 
+import excepciones.ErrorCodigoException;
+import sistema.Sistema;
 import vista.IVentana;
 import vista.IVistaRegistrarAdministrador;
 import vista.Ventana;
@@ -31,11 +33,28 @@ public class ControladorVistaRegistrarAdministrador implements ActionListener {
 		CardLayout cl = (CardLayout)(contentPane.getLayout());
 		String comando = e.getActionCommand();
 		
-		if(comando.equals(VOLVER)) {
+		if(comando.equals(VOLVER)) 
+		{
+			
 			cl.show(contentPane, ventana.getVistaInicial());
 		}
-		else if(comando.equals(REGISTRAR)) { //ponerle condiciones
+		else if(comando.equals(REGISTRAR)) 
+		{ 
+			try
+			{
+				
+				Sistema.registrarAdministrador(vista.getUsuario(), vista.getContrasena(), 
+						vista.getCodigoAdministrador());
+			} catch (ErrorCodigoException e1)
+			{
+				vista.codigoErroneo();
+				e1.printStackTrace();
+			}
+			
 			cl.show(contentPane, ventana.getVistaInicial());
 		}
+		
+		this.vista.limpiarVista();
+		
 	}
 }

@@ -12,6 +12,8 @@ import controlador.ControladorVistaRegistrarAdministrador;
 import controlador.ControladorVistaRegistrarEmpleadoPretenso;
 import controlador.ControladorVistaRegistrarEmpleador;
 import controlador.ControladorVistaSimulacion;
+import entidades.Agencia;
+import sistema.Sistema;
 import vista.Ventana;
 import vista.VistaFormularioDeBusquedaEmpleadoPretenso;
 import vista.VistaFormularioDeBusquedaEmpleador;
@@ -49,7 +51,8 @@ public class PruebaVista {
 				vistaGestionTicketPersona,
 				vistaSimulacion);
 		
-		JPanel contentPane = ventana.getContentPane();
+		
+		
 		
 		ControladorVistaInicial controladorVistaInicial = new ControladorVistaInicial(ventana,vistaInicial);
 		ControladorVistaRegistrarAdministrador controladorVistaRegistrarAdministrador = new ControladorVistaRegistrarAdministrador(ventana,vistaRegistrarAdministrador);
