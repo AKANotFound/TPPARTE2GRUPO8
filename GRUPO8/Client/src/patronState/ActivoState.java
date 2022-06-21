@@ -41,8 +41,7 @@ public class ActivoState implements IState
 	@Override
 	public void suspender()
 	{
-		this.ticket.setEstado(new SuspendidoState(this.ticket));
-		
+		this.ticket.setEstado(new SuspendidoState(this.ticket));	
 	}
 
 	@Override

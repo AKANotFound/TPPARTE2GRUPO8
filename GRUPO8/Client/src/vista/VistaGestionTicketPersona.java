@@ -44,7 +44,7 @@ public class VistaGestionTicketPersona extends JPanel implements IVistaGestionTi
 		this.panel_Centro = new JPanel();
 		this.panel_Centro.setBorder(new TitledBorder(null, "Gesti\u00F3n de ticket", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		this.panel_Centro_Border.add(this.panel_Centro);
-		this.panel_Centro.setLayout(new GridLayout(5, 1, 0, 0));
+		this.panel_Centro.setLayout(new GridLayout(5, 1));
 		
 		this.panel_CrearTicket = new JPanel();
 		this.panel_Centro.add(this.panel_CrearTicket);
