@@ -6,13 +6,13 @@ public class LocacionFactory {
 		ILocacion ilocacion = null;
 		
 		if(tipo.equals("HomeOffice")) 
-			ilocacion =  Locacion_HomeOffice.getInstancia();
+			ilocacion = new Locacion_HomeOffice();
 		else
 			if(tipo.equals("Presencial"))
-				ilocacion =  Locacion_Presencial.getInstancia();
+				ilocacion = new Locacion_Presencial();
 			else
 				if(tipo.equals("Indistinto"))
-					ilocacion = Locacion_Indistinto.getInstancia();
+					ilocacion = new Locacion_Indistinto();
 		
 		return ilocacion;
 	}

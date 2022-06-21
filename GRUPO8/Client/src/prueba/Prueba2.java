@@ -55,9 +55,9 @@ public class Prueba2 {
 
 			e2.printStackTrace();
 
-			Rubro_ComercioLocal rubro_ComercioLocal = Rubro_ComercioLocal.getInstancia();
-			Rubro_ComercioInternacional rubro_ComercioInternacional = Rubro_ComercioInternacional.getInstancia();
-			Rubro_Salud rubro_Salud = Rubro_Salud.getInstancia();
+			Rubro_ComercioLocal rubro_ComercioLocal = new Rubro_ComercioLocal();
+			Rubro_ComercioInternacional rubro_ComercioInternacional = new Rubro_ComercioInternacional();
+			Rubro_Salud rubro_Salud = new Rubro_Salud();
 
 			FuncionalidadAdministrador admin = null;
 			FuncionalidadEmpleadoPretenso jorge = null;
@@ -264,8 +264,7 @@ public class Prueba2 {
 			microsoft.iniciarRondaEleccion();
 			carrefour.iniciarRondaEleccion();
 
-			System.out
-					.println("\nUNA VEZ FINALIZADA LA RONDA DE ELECCIONES, LOS USUARIOS ELIGEN VER SUS ELECCIONES \n");
+			System.out.println("\nUNA VEZ FINALIZADA LA RONDA DE ELECCIONES, LOS USUARIOS ELIGEN VER SUS ELECCIONES \n");
 			System.out.println(jorge.visualizarPersonasElegidas());
 			System.out.println(pablo.visualizarPersonasElegidas());
 			System.out.println(francoS.visualizarPersonasElegidas());

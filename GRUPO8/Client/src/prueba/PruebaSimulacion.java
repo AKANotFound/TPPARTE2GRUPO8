@@ -14,13 +14,17 @@ public class PruebaSimulacion
 
 	public static void main(String[] args)                                                                                                          
 	{                                                                                                                                               
-		Rubro_ComercioLocal rubro_ComercioLocal = Rubro_ComercioLocal.getInstancia();                                                               
-		Rubro_ComercioInternacional rubro_ComercioInternacional = Rubro_ComercioInternacional.getInstancia();                                       
-		Rubro_Salud rubro_Salud = Rubro_Salud.getInstancia();                                                                                       
+		Rubro_ComercioLocal rubro_ComercioLocal = new Rubro_ComercioLocal();                                                               
+		Rubro_ComercioInternacional rubro_ComercioInternacional = new Rubro_ComercioInternacional();                                       
+		Rubro_Salud rubro_Salud = new Rubro_Salud();                                                                                       
 		                                                                                                                                            
-		Locacion_HomeOffice locacion_HomeOffice = Locacion_HomeOffice.getInstancia();                                                               
+		/*Locacion_HomeOffice locacion_HomeOffice = Locacion_HomeOffice.getInstancia();                                                               
 		Locacion_Presencial locacion_Presencial = Locacion_Presencial.getInstancia();
-		Locacion_Indistinto locacion_Indistinto = Locacion_Indistinto.getInstancia();
+		Locacion_Indistinto locacion_Indistinto = Locacion_Indistinto.getInstancia();*/
+		
+		Locacion_HomeOffice locacion_HomeOffice = new Locacion_HomeOffice();                                                               
+		Locacion_Presencial locacion_Presencial = new Locacion_Presencial();
+		Locacion_Indistinto locacion_Indistinto = new Locacion_Indistinto();
 		
 		Simulacion_EmpleadoPretenso ep1=new Simulacion_EmpleadoPretenso("juan facal" ,locacion_HomeOffice, rubro_ComercioLocal);
 		Simulacion_EmpleadoPretenso ep2=new Simulacion_EmpleadoPretenso("milton sanchez" ,locacion_HomeOffice, rubro_ComercioInternacional);

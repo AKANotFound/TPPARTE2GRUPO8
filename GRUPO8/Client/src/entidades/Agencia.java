@@ -23,8 +23,6 @@ public class Agencia {
     
     private String codigoAdministrador="XAEA-12";
 	 
-	private Agencia() {}
-	 
 	public static Agencia getInstancia() {
     	if (instancia == null)
     		instancia = new Agencia();

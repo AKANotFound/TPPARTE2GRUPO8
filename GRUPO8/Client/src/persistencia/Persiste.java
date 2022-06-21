@@ -30,26 +30,7 @@ public class Persiste {
 		} catch (IOException e) {
 			System.out.println(e.getLocalizedMessage());
 		}
-	}
-	
-	/*public boolean leer()  {
-		boolean b = true;
-		PersistenciaBin p = new PersistenciaBin();
-		p = (PersistenciaBin) this.persistencia;
-		
-		try {
-			this.persistencia.abrirInput(archivo);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			
-			if(p.getFileinput() == null) {
-				b = false;
-			}
-		}
-		return b;
-	}*/
-	
+	}	
 	
 	public void leer() throws IOException {
 		ArrayList<Persona_Empleador> lista = null; 

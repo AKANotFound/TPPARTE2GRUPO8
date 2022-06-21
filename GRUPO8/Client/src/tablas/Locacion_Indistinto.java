@@ -2,14 +2,19 @@ package tablas;
 
 public class Locacion_Indistinto implements ILocacion {
 	
-	private static Locacion_Indistinto instancia = null;
+	//private static Locacion_Indistinto instancia = null;
 	
 	public Locacion_Indistinto() {}
 	
-	public static Locacion_Indistinto getInstancia() {
+	/*public static Locacion_Indistinto getInstancia() {
 		if(instancia == null)
 			instancia = new Locacion_Indistinto();
 		return instancia;
+	}*/
+	
+	@Override
+	public boolean equals(Object obj) {
+		return true;
 	}
 	
 	@Override

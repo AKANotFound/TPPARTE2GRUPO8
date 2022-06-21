@@ -2,14 +2,22 @@ package entidades;
 
 public class Rubro_ComercioLocal implements IRubro {
 	
-	private static Rubro_ComercioLocal instancia = null;
+	//private static Rubro_ComercioLocal instancia = null;
 	
 	public Rubro_ComercioLocal() {}
 	
-	public static Rubro_ComercioLocal getInstancia() {
+	/*public static Rubro_ComercioLocal getInstancia() {
 		if(instancia == null)
 			instancia = new Rubro_ComercioLocal();
 		return instancia;
+	}*/
+	
+	@Override
+	public boolean equals(Object obj) {
+		boolean res = false;
+		if (this.getClass() == obj.getClass())
+			res = true;
+		return res;
 	}
 	
 	@Override

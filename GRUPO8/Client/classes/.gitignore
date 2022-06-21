@@ -1,8 +1,11 @@
 /controlador/
-/vista/
 /entidades/
+/excepciones/
 /patronState/
-/prueba/
-/tablas/
-/util/
 /persistencia/
+/prueba/
+/sistema/
+/tablas/
+/uml/
+/util/
+/vista/

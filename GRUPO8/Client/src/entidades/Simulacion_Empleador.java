@@ -14,9 +14,7 @@ public class Simulacion_Empleador extends Persona_Empleador implements Runnable 
 		super(null, razonSocial, null, null, null);
 		bolsaDeTrabajo = BolsaDeTrabajo.getInstancia();
 		
-	}
-	
-	
+	}	
 
 	@Override
 	public void run() {
@@ -28,22 +26,22 @@ public class Simulacion_Empleador extends Persona_Empleador implements Runnable 
 			opcion = (int)(Math.random()*3+1);
 			
 			switch(opcion) {
-			case 1: locacion = Locacion_Presencial.getInstancia();
+			case 1: locacion = new Locacion_Presencial();
 				break;
-			case 2: locacion = Locacion_HomeOffice.getInstancia() ;
+			case 2: locacion = new Locacion_HomeOffice() ;
 				break;
-			case 3: locacion = Locacion_Indistinto.getInstancia();
+			case 3: locacion = new Locacion_Indistinto();
 				break;
 			}
 			
 			opcion = (int)(Math.random()*3+1);
 			
 			switch(opcion) {
-			case 1: rubro = Rubro_ComercioLocal.getInstancia();
+			case 1: rubro = new Rubro_ComercioLocal();
 				break;
-			case 2: rubro = Rubro_ComercioInternacional.getInstancia();
+			case 2: rubro =  new Rubro_ComercioInternacional();
 				break;
-			case 3: rubro = Rubro_Salud.getInstancia();
+			case 3: rubro = new Rubro_Salud();
 				break;
 			}
 			
