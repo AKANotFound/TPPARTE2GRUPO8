@@ -143,6 +143,7 @@ public class VistaFuncionalidadesPersona extends JPanel implements IVistaFuncion
 		this.btn_VisualizarPersonasElegidas.setActionCommand("VisualizarPersonasElegidas");
 		this.panel_VisualizarPersonasElegidas.add(this.btn_VisualizarPersonasElegidas);
 
+		
 	}
 
 	@Override
@@ -156,8 +157,8 @@ public class VistaFuncionalidadesPersona extends JPanel implements IVistaFuncion
 		this.btn_GestionDeTicket.addActionListener(actionListener);
 		this.actionListener=actionListener;
 	}
-
-	public void setTextArea_Consola(JTextArea textArea_Consola) {
-		this.textArea_Consola = textArea_Consola;
+	
+	public void setTextVista(String texto) {
+		this.textArea_Consola.setText(texto);
 	}
 }

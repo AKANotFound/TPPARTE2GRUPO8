@@ -63,13 +63,23 @@ public class ControladorVistaFuncionalidadesPersona implements ActionListener {
 		}
 		else if(comando.equals(VISUALIZAR_PERSONAS_ELEGIDAS)) {
 			switch(Agencia.getInstancia().getUsuarioActual()) {
-			case 
+			case Agencia.EMPLEADOR:
+				vista.setTextVista(Agencia.getInstancia().getFuncEmpleadorActual().visualizarPersonasElegidas());
+				break;
+			case Agencia.EMPLEADO_PRETENSO:
+				vista.setTextVista(Agencia.getInstancia().getFuncEmpleadoPretensoActual().visualizarPersonasElegidas());
+				break;
 			}
-			
-			vista.setTextArea_Consola(null);
 		}
 		else if(comando.equals(VISUALIZAR_RESULTADO)) {
-			
+			switch(Agencia.getInstancia().getUsuarioActual()) {
+			case Agencia.EMPLEADOR:
+				vista.setTextVista(Agencia.getInstancia().getFuncEmpleadorActual().visualizaResultado());
+				break;
+			case Agencia.EMPLEADO_PRETENSO:
+				vista.setTextVista(Agencia.getInstancia().getFuncEmpleadoPretensoActual().visualizaResultado());
+				break;
+			}
 		}
 	}
 	
