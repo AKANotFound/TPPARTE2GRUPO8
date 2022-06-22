@@ -1,5 +1,6 @@
 package prueba;
 
+import controlador.ControladorVistaSimulacion;
 import entidades.Rubro_ComercioInternacional;
 import entidades.Rubro_ComercioLocal;
 import entidades.Rubro_Salud;
@@ -38,6 +39,18 @@ public class PruebaSimulacion
 		Simulacion_Empleador e3=new Simulacion_Empleador("Musimundo");
 		Simulacion_Empleador e4=new Simulacion_Empleador("Disco");	
 		
+		ControladorVistaSimulacion c = new ControladorVistaSimulacion();
+		c.agregarObservable(ep1);
+		c.agregarObservable(ep2);
+		c.agregarObservable(ep3);
+		c.agregarObservable(ep4);
+		c.agregarObservable(ep5);
+		c.agregarObservable(ep6);
+		
+		c.agregarObservable(e1);
+		c.agregarObservable(e2);
+		c.agregarObservable(e3);
+		c.agregarObservable(e4);
 		
 		Thread t1=new Thread(ep1);
 		Thread t2=new Thread(ep2);

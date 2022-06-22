@@ -1,8 +1,9 @@
 package entidades;
 
 import java.io.Serializable;
+import java.util.Observable;
 
-public abstract class Usuario {
+public abstract class Usuario extends Observable{
     /**
      * @aggregation composite
      */

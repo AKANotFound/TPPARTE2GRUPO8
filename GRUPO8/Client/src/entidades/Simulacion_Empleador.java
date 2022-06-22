@@ -8,13 +8,21 @@ import tablas.Locacion_Presencial;
 public class Simulacion_Empleador extends Persona_Empleador implements Runnable {
 	
 	private BolsaDeTrabajo bolsaDeTrabajo;
-	
+	private String estado = null;
 
 	public Simulacion_Empleador(String razonSocial) {
 		super(null, razonSocial, null, null, null);
 		bolsaDeTrabajo = BolsaDeTrabajo.getInstancia();
 		
 	}	
+	
+	public String getEstado() {
+		return estado;
+	}
+
+	public void setEstado(String estado) {
+		this.estado = estado;
+	}
 
 	@Override
 	public void run() {
@@ -46,8 +54,10 @@ public class Simulacion_Empleador extends Persona_Empleador implements Runnable 
 			}
 			
 			ticketSimplificado= new TicketSimplificado(locacion, rubro, this);
-			
 			bolsaDeTrabajo.poneTicketSimplificado(ticketSimplificado);
+			
+			this.setChanged();
+		    this.notifyObservers(this.estado);
 		}
 	}
 }

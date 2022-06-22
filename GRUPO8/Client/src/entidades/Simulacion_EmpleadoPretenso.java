@@ -12,6 +12,7 @@ public class Simulacion_EmpleadoPretenso extends Persona_EmpleadoPretenso implem
 	private ArrayList<TicketSimplificado> ticketsSimplificadosIncompatibles = new ArrayList<TicketSimplificado>();
 	private ILocacion locacionElegida;
 	private IRubro rubroElegido;
+	private String estado = null;
 	
 	public Simulacion_EmpleadoPretenso(String nya, ILocacion locacionElegida, IRubro rubroElegido) {
 		super(null, nya, null, 0);
@@ -44,16 +45,29 @@ public class Simulacion_EmpleadoPretenso extends Persona_EmpleadoPretenso implem
 	public IRubro getRubroElegido() {
 		return rubroElegido;
 	}
+	
+	public String getEstado() {
+		return estado;
+	}
+
+	public void setEstado(String estado) {
+		this.estado = estado;
+	}
 
 	@Override
 	public void run() {
 		int i = 0;
-		while(i < 10 && ticketSimplificado == null && bolsaDeTrabajo.isSimulacionFinalizada())
+		while(i < 10 && ticketSimplificado == null && bolsaDeTrabajo.isSimulacionFinalizada() == false)
 		{
 			bolsaDeTrabajo.sacaTicketSimplificado(this);
 			Util.espera(3000);
+			
+			this.setChanged();
+		    this.notifyObservers(this.estado);
+		    
 			if(ticketSimplificado != null)
 				bolsaDeTrabajo.analizaTicketSimplificado(this);
+			
 			i++;
 		}
 	}
