@@ -7,6 +7,12 @@ import java.awt.event.ActionListener;
 import javax.swing.JPanel;
 
 import entidades.Agencia;
+import excepciones.ErrorContrasenaException;
+import excepciones.ErrorUsuarioException;
+import sistema.FuncionalidadAdministrador;
+import sistema.FuncionalidadEmpleadoPretenso;
+import sistema.FuncionalidadEmpleador;
+import sistema.Sistema;
 import vista.IVentana;
 import vista.IVistaInicial;
 import vista.Ventana;
@@ -56,12 +62,53 @@ public class ControladorVistaInicial implements ActionListener {
 			switch(this.vista.getTipoUsuario())
 			{
 			  case"Administrador":Agencia.getInstancia().setUsuarioActual(ADMINISTRADOR);
-				cl.show(contentPane, ventana.getVistaFuncionalidadesAdministrador());	
+			  	FuncionalidadAdministrador loginAdministrador = null;
+			  	try {
+					loginAdministrador = Sistema.loginAdministrador(vista.getUsuario(), vista.getContrasena());
+				} catch (ErrorContrasenaException e2) {
+					vista.ventanaEmergente("Contraseña errónea");
+					vista.limpiarVista();
+					e2.printStackTrace();
+				} catch (ErrorUsuarioException e2) {
+					vista.ventanaEmergente("Usuario erróneo");
+					vista.limpiarVista();
+					e2.printStackTrace();
+				}
+				cl.show(contentPane, ventana.getVistaFuncionalidadesAdministrador());
+				Agencia.getInstancia().setFuncAdministradorActual(loginAdministrador);
 				break;
+				
 			  case "Empleador":Agencia.getInstancia().setUsuarioActual(EMPLEADOR);
-				cl.show(contentPane, ventana.getVistaFuncionalidadesPersona());	
+			  	FuncionalidadEmpleador loginEmpleador = null;
+			  	try {
+					loginEmpleador = Sistema.loginEmpleador(vista.getUsuario(), vista.getContrasena());
+				} catch (ErrorContrasenaException e1) {
+					vista.ventanaEmergente("Contraseña errónea");
+					vista.limpiarVista();
+					e1.printStackTrace();
+				} catch (ErrorUsuarioException e1) {
+					vista.ventanaEmergente("Usuario erróneo");
+					vista.limpiarVista();
+					e1.printStackTrace();
+				}
+				cl.show(contentPane, ventana.getVistaFuncionalidadesPersona());
+				Agencia.getInstancia().setFuncEmpleadorActual(loginEmpleador);
 			    break;
+			    
 			  case"Empleado pretenso":Agencia.getInstancia().setUsuarioActual(EMPLEADO_PRETENSO);
+			  	FuncionalidadEmpleadoPretenso loginEmpleadoPretenso = null;
+			  	try {
+					loginEmpleadoPretenso = Sistema.loginEmpleadoPretenso(vista.getUsuario(), vista.getContrasena());
+				} catch (ErrorContrasenaException e1) {
+					vista.ventanaEmergente("Contraseña errónea");
+					vista.limpiarVista();
+					e1.printStackTrace();
+				} catch (ErrorUsuarioException e1) {
+					vista.ventanaEmergente("Usuario erróneo");
+					vista.limpiarVista();
+					e1.printStackTrace();
+				}
+			  	Agencia.getInstancia().setFuncEmpleadoPretensoActual(loginEmpleadoPretenso);
 				cl.show(contentPane, ventana.getVistaFuncionalidadesPersona());		
 			  	break;
 			}

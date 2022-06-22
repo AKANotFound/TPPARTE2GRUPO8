@@ -47,7 +47,7 @@ public class ControladorVistaRegistrarAdministrador implements ActionListener {
 						vista.getCodigoAdministrador());
 			} catch (ErrorCodigoException e1)
 			{
-				vista.codigoErroneo();
+				vista.ventanaEmergente("Código érroneo");
 				e1.printStackTrace();
 			}
 			

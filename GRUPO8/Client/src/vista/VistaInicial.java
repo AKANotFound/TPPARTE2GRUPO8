@@ -198,4 +198,10 @@ public class VistaInicial extends JPanel implements IVistaInicial, KeyListener {
 		this.textField_Contrasena.setText("");
 		
 	}
+
+	@Override
+	public void ventanaEmergente(String mensaje) {
+		// TODO Auto-generated method stub
+		
+	}
 }

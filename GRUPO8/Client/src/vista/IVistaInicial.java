@@ -10,4 +10,5 @@ public interface IVistaInicial {
 	String getContrasena();
 	String getTipoUsuario();
 	void limpiarVista();
+	void ventanaEmergente(String mensaje);
 }

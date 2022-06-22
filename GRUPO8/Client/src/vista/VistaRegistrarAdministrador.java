@@ -161,13 +161,11 @@ public class VistaRegistrarAdministrador extends JPanel implements IVistaRegistr
 	}
 
 	@Override
-	public void codigoErroneo() //VER COMO HACERLO
+	public void ventanaEmergente(String mensaje) //VER COMO HACERLO
 	{
 		JDialog cartel=new JDialog();
 		cartel.setModal(true);
 		cartel.setVisible(true);
-		
-		
 	}
 
 	@Override

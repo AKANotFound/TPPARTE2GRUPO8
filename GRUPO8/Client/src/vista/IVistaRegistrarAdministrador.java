@@ -7,6 +7,6 @@ public interface IVistaRegistrarAdministrador {
 	String getUsuario();
 	String getContrasena();
 	String getCodigoAdministrador();
-	void codigoErroneo();
+	void ventanaEmergente(String mensaje);
 	void limpiarVista();
 }
