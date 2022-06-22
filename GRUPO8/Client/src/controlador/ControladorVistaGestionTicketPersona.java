@@ -69,14 +69,7 @@ public class ControladorVistaGestionTicketPersona implements ActionListener {
 			else if(Agencia.getInstancia().getUsuarioActual().equals(Agencia.EMPLEADO_PRETENSO)){
 				cl.show(contentPane, ventana.getVistaFormularioDeBusquedaEmpleadoPretenso());				
 			}
-		}
-		else if(comando.equals(MODIFICAR)) {
-			if(Agencia.getInstancia().getUsuarioActual().equals(Agencia.EMPLEADOR)) {
-				cl.show(contentPane, ventana.getVistaFormularioDeBusquedaEmpleador());				
-			}
-			else if(Agencia.getInstancia().getUsuarioActual().equals(Agencia.EMPLEADO_PRETENSO)){
-				cl.show(contentPane, ventana.getVistaFormularioDeBusquedaEmpleadoPretenso());				
-			}
+		
 		}
 		else if(comando.equals(SUSPENDER)) {
 			switch(Agencia.getInstancia().getUsuarioActual()) 

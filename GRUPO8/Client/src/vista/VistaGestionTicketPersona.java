@@ -19,12 +19,10 @@ public class VistaGestionTicketPersona extends JPanel implements IVistaGestionTi
 	private JButton btn_ActivarTicket;
 	private JButton btn_SuspenderTicket;
 	private JButton btn_CancelarTicket;
-	private JButton btn_ModificarTicket;
 	private JPanel panel_CrearTicket;
 	private JPanel panel_ActivarTicket;
 	private JPanel panel_SuspenderTicket;
 	private JPanel panel_CancelarTicket;
-	private JPanel panel_ModificarTicket;
 	private ActionListener actionListener;//controlador
 
 	/**
@@ -46,7 +44,7 @@ public class VistaGestionTicketPersona extends JPanel implements IVistaGestionTi
 		this.panel_Centro = new JPanel();
 		this.panel_Centro.setBorder(new TitledBorder(null, "Gesti\u00F3n de ticket", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		this.panel_Centro_Border.add(this.panel_Centro);
-		this.panel_Centro.setLayout(new GridLayout(5, 1));
+		this.panel_Centro.setLayout(new GridLayout(4, 1));
 		
 		this.panel_CrearTicket = new JPanel();
 		this.panel_Centro.add(this.panel_CrearTicket);
@@ -71,12 +69,6 @@ public class VistaGestionTicketPersona extends JPanel implements IVistaGestionTi
 		
 		this.btn_CancelarTicket = new JButton("Cancelar");
 		this.panel_CancelarTicket.add(this.btn_CancelarTicket);
-		
-		this.panel_ModificarTicket = new JPanel();
-		this.panel_Centro.add(this.panel_ModificarTicket);
-		
-		this.btn_ModificarTicket = new JButton("Modificar");
-		this.panel_ModificarTicket.add(this.btn_ModificarTicket);
 
 	}
 
@@ -85,7 +77,6 @@ public class VistaGestionTicketPersona extends JPanel implements IVistaGestionTi
 		this.btn_ActivarTicket.addActionListener(actionListener);
 		this.btn_CancelarTicket.addActionListener(actionListener);
 		this.btn_CrearTicket.addActionListener(actionListener);
-		this.btn_ModificarTicket.addActionListener(actionListener);
 		this.btn_SuspenderTicket.addActionListener(actionListener);
 		this.btn_Volver.addActionListener(actionListener);
 		this.actionListener=actionListener;
