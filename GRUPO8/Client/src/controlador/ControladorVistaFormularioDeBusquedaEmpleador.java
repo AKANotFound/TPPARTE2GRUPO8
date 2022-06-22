@@ -42,6 +42,7 @@ public class ControladorVistaFormularioDeBusquedaEmpleador implements ActionList
 		
 		if(comando.equals(ACEPTAR)) 
 		{
+			
 			cl.show(contentPane, ventana.getVistaGestionTicketPersona());
 		}
 		else
@@ -49,7 +50,7 @@ public class ControladorVistaFormularioDeBusquedaEmpleador implements ActionList
 			{
 				cl.show(contentPane, ventana.getVistaGestionTicketPersona());
 			}
-		this.vista.actualizarComboBox();
+		this.vista.limpiarVista();
 		
 	}
 

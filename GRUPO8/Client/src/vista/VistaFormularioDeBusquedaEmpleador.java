@@ -333,44 +333,72 @@ public class VistaFormularioDeBusquedaEmpleador extends JPanel implements IVista
 			this.btn_Aceptar.setEnabled(false);
 	}
 
+	
 	@Override
-	public void actualizarComboBox()
+	public String getLocacion()
 	{
-		this.defaultcomboBox_CargaHoraria.removeAllElements();
-		this.defaultcomboBox_Locacion.removeAllElements();
-		this.defaultcomboBox_Remuneracion.removeAllElements();
-		this.defaultcomboBox_TipoDePuesto.removeAllElements();
-		this.defaultcomboBox_ExperienciaPrevia.removeAllElements();
-		this.defaultcomboBox_RangoEtario.removeAllElements();
-		this.defaultcomboBox_EstudiosCursados.removeAllElements();
-		this.defaultcomboBox_Locacion.addElement(SELECCIONE);
-		this.defaultcomboBox_Locacion.addElement(LOCACION_INDIFERENTE);
-		this.defaultcomboBox_Locacion.addElement(LOCACION_HOME_OFFICE);
-		this.defaultcomboBox_Locacion.addElement(LOCACION_PRESENCIAL);
-		this.defaultcomboBox_Remuneracion.addElement(SELECCIONE);
-		this.defaultcomboBox_Remuneracion.addElement(REMUNERACION_30MIL);
-		this.defaultcomboBox_Remuneracion.addElement(REMUNERACION_60MIL);
-		this.defaultcomboBox_Remuneracion.addElement(REMUNERACION_90MIL);
-		this.defaultcomboBox_CargaHoraria.addElement(SELECCIONE);
-		this.defaultcomboBox_CargaHoraria.addElement(CARGA_HORARIA_COMPLETA);
-		this.defaultcomboBox_CargaHoraria.addElement(CARGA_HORARIA_EXTENDIDA);
-		this.defaultcomboBox_CargaHoraria.addElement(CARGA_HORARIA_MEDIA);
-		this.defaultcomboBox_TipoDePuesto.addElement(SELECCIONE);
-		this.defaultcomboBox_TipoDePuesto.addElement(TIPO_DE_PUESTO_JUNIOR);
-		this.defaultcomboBox_TipoDePuesto.addElement(TIPO_DE_PUESTO_SENIOR);
-		this.defaultcomboBox_TipoDePuesto.addElement(TIPO_DE_PUESTO_MANAGEMENT);
-		this.defaultcomboBox_RangoEtario.addElement(SELECCIONE);
-		this.defaultcomboBox_RangoEtario.addElement(RANGO_ETARIO_DE_40_A_50);
-		this.defaultcomboBox_RangoEtario.addElement(RANGO_ETARIO_MENOS_DE_40);
-		this.defaultcomboBox_RangoEtario.addElement(RANGO_ETARIO_MAS_DE_50);
-	    this.defaultcomboBox_ExperienciaPrevia.addElement(SELECCIONE);
-		this.defaultcomboBox_ExperienciaPrevia.addElement(EXPERIENCIA_PREVIA_NADA);
-		this.defaultcomboBox_ExperienciaPrevia.addElement(EXPERIENCIA_PREVIA_MEDIA);
-		this.defaultcomboBox_ExperienciaPrevia.addElement(EXPERIENCIA_PREVIA_MUCHA);
-		this.defaultcomboBox_EstudiosCursados.addElement(SELECCIONE);
-		this.defaultcomboBox_EstudiosCursados.addElement(ESTUDIOS_CURSADOS_PRIMARIO);
-		this.defaultcomboBox_EstudiosCursados.addElement(ESTUDIOS_CURSADOS_SECUNDARIO);
-		this.defaultcomboBox_EstudiosCursados.addElement(ESTUDIOS_CURSADOS_TERCIARIO);
+		
+		return (String) this.comboBox_Locacion.getSelectedItem();
+	}
+
+	@Override
+	public String getRemuneracion()
+	{
+		
+		return (String) this.comboBox_Remuneracion.getSelectedItem();
+	}
+
+	@Override
+	public String getCargaHoraria()
+	{
+		
+		return (String) this.comboBox_CargaHoraria.getSelectedItem();
+	}
+
+	@Override
+	public String getTipoDePuesto()
+	{
+		
+		return (String) this.comboBox_TipoDePuesto.getSelectedItem();
+	}
+
+	@Override
+	public String getRangoEtario()
+	{
+		
+		return (String) this.comboBox_RangoEtario.getSelectedItem();
+	}
+
+	@Override
+	public String getExperienciaPrevia()
+	{
+		
+		return (String) this.comboBox_ExperienciaPrevia.getSelectedItem();
+	}
+
+	@Override
+	public String getEstudiosCursados()
+	{
+		return (String) this.comboBox_EstudiosCursados.getSelectedItem();
+	}
+
+	@Override
+	public int getCantidadEmpleadosSolicitados()
+	{
+		
+		return Integer.parseInt(this.textField_CantidadEmpleadosSolicitados.getText());
+	}
+
+	@Override
+	public void limpiarVista()
+	{
+		this.comboBox_CargaHoraria.setSelectedItem(SELECCIONE);
+		this.comboBox_Locacion.setSelectedItem(SELECCIONE);
+		this.comboBox_Remuneracion.setSelectedItem(SELECCIONE);
+		this.comboBox_RangoEtario.setSelectedItem(SELECCIONE);
+		this.comboBox_ExperienciaPrevia.setSelectedItem(SELECCIONE);
+		this.comboBox_EstudiosCursados.setSelectedItem(SELECCIONE);
+		this.comboBox_TipoDePuesto.setSelectedItem(SELECCIONE);
 		
 	}
 }

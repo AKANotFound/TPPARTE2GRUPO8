@@ -44,8 +44,8 @@ public class FuncionalidadEmpleador extends FuncionalidadPersona {
 	}
 	
 	@Override
-	public void cancelar()  {
-		super.cancelar();
+	public void cancelarTicket()  {
+		super.cancelarTicket();
 		Sistema.calculaComision((Persona_Empleador) usuario);
 	}
 }

@@ -5,5 +5,13 @@ import java.awt.event.ActionListener;
 public interface IVistaFormularioDeBusquedaEmpleador
 {
 	void setActionListener(ActionListener actionListener);
-	void actualizarComboBox();
+	void limpiarVista();
+	String getLocacion();
+	String getRemuneracion();
+	String getCargaHoraria();
+	String getTipoDePuesto();
+	String getRangoEtario();
+	String getExperienciaPrevia();
+	String getEstudiosCursados();
+	int getCantidadEmpleadosSolicitados();
 }

@@ -36,11 +36,31 @@ public class ControladorVistaGestionTicketPersona implements ActionListener {
 		CardLayout cl = (CardLayout)(contentPane.getLayout());
 		String comando = e.getActionCommand();
 		
-		if(comando.equals(ACTIVAR)) {
-			
+		if(comando.equals(ACTIVAR)) { 
+			switch(Agencia.getInstancia().getUsuarioActual()) 
+			{
+			 case Agencia.EMPLEADOR:
+				Agencia.getInstancia().getFuncEmpleadorActual().activarTicket();
+				 break;
+			 case Agencia.EMPLEADO_PRETENSO:
+				Agencia.getInstancia().getFuncEmpleadoPretensoActual().activarTicket();
+				 break;
+			}
+			//SI ESTA FINALIZADO O CANCELADO Y SE TOCA ACTIVAR SALE EL CARTEL Y NO DEBERIA
+			this.vista.ventanaEmergente("ticket activado exitosamente");
 		}
 		else if(comando.equals(CANCELAR)) {
-			
+			switch(Agencia.getInstancia().getUsuarioActual()) 
+			{
+			 case Agencia.EMPLEADOR:
+				Agencia.getInstancia().getFuncEmpleadorActual().cancelarTicket();
+				 break;
+			 case Agencia.EMPLEADO_PRETENSO:
+				Agencia.getInstancia().getFuncEmpleadoPretensoActual().cancelarTicket();
+				 break;
+			}
+			//SI ESTA FINALIZADO NO DEBERIA APARECER ESTO
+			this.vista.ventanaEmergente("ticket cancelado exitosamente");
 		}
 		else if(comando.equals(CREAR)) {
 			if(Agencia.getInstancia().getUsuarioActual().equals(Agencia.EMPLEADOR)) {
@@ -59,6 +79,17 @@ public class ControladorVistaGestionTicketPersona implements ActionListener {
 			}
 		}
 		else if(comando.equals(SUSPENDER)) {
+			switch(Agencia.getInstancia().getUsuarioActual()) 
+			{
+			 case Agencia.EMPLEADOR:
+				Agencia.getInstancia().getFuncEmpleadorActual().cancelarTicket();
+				 break;
+			 case Agencia.EMPLEADO_PRETENSO:
+				Agencia.getInstancia().getFuncEmpleadoPretensoActual().cancelarTicket();
+				 break;
+			}
+			//SI ESTA FINALIZADO O CANCELADO NO DEBERIA APARECER ESTO
+			this.vista.ventanaEmergente("ticket cancelado exitosamente");
 			
 		}
 		else if(comando.equals(VOLVER)) {

@@ -17,8 +17,8 @@ public class FuncionalidadEmpleadoPretenso extends FuncionalidadPersona {
 	}
 	
 	@Override
-	public void cancelar() {
-		super.cancelar();
+	public void cancelarTicket() {
+		super.cancelarTicket();
 		Sistema.puntajeCancelar((Persona_EmpleadoPretenso) usuario);
 	}
 

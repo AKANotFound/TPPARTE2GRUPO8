@@ -26,6 +26,7 @@ public class Agencia {
     private FuncionalidadEmpleador funcEmpleadorActual = null;
     private FuncionalidadEmpleadoPretenso funcEmpleadoPretensoActual = null;
     
+    
     public final static String ADMINISTRADOR = "Administrador";
 	public final static String EMPLEADOR = "Empleador";
 	public final static String EMPLEADO_PRETENSO = "EmpleadoPretenso";
@@ -115,7 +116,9 @@ public class Agencia {
 
 	public void setContratos(ArrayList<Contrato> contratos) {
 		this.contratos = contratos;
-	}	
+	}
+
+
 	
 	
 }

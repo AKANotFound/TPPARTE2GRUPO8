@@ -3,6 +3,7 @@ package patronState;
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
 
+import entidades.Agencia;
 import entidades.FormularioDeBusqueda;
 import entidades.ListaDeAsignacion;
 import entidades.Persona;
@@ -41,12 +42,14 @@ public class ActivoState implements IState
 	@Override
 	public void suspender()
 	{
+		
 		this.ticket.setEstado(new SuspendidoState(this.ticket));	
 	}
 
 	@Override
 	public void cancelar()
 	{
+		
 		this.ticket.setEstado(new CanceladoState(this.ticket));
 		
 	}
@@ -54,6 +57,7 @@ public class ActivoState implements IState
 	@Override
 	public void finalizar()
 	{
+		
 		this.ticket.setEstado(new FinalizadoState(this.ticket));
 		
 	}
@@ -62,8 +66,12 @@ public class ActivoState implements IState
 	@Override
 	public void modificarTicket_Formulario( FormularioDeBusqueda form) throws ModificacionTicketInvalidaException
 	{
+		
 		if (!Sistema.isInicioRondaEncuentrosLaborales())
+		{
+			
 			this.ticket.setFormularioDeBusqueda(form);
+		}
 		else
 			throw new ModificacionTicketInvalidaException("no se puede modificar el ticket una vez iniciada la ronda de encuentros laborales");
 		
@@ -136,7 +144,7 @@ public class ActivoState implements IState
 	@Override
 	public void activar()
 	{
-		// TODO Auto-generated method stub
+		
 		
 	}
 

@@ -3,6 +3,8 @@ package vista;
 import javax.swing.JPanel;
 import java.awt.BorderLayout;
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
+
 import java.awt.GridLayout;
 import java.awt.event.ActionListener;
 
@@ -87,6 +89,13 @@ public class VistaGestionTicketPersona extends JPanel implements IVistaGestionTi
 		this.btn_SuspenderTicket.addActionListener(actionListener);
 		this.btn_Volver.addActionListener(actionListener);
 		this.actionListener=actionListener;
+	}
+
+	@Override
+	public void ventanaEmergente(String mensaje)
+	{
+		JOptionPane.showMessageDialog(null,mensaje);
+		
 	}
 
 }

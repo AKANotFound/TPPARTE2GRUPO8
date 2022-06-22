@@ -14,12 +14,12 @@ public abstract class FuncionalidadPersona extends FuncionalidadUsuario{
 		super(persona);
 	}
 
-	public void suspender()
+	public void suspenderTicket()
 	   {
 		  persona.getTicket().suspender();
 		  
 	   }
-	   public void cancelar()
+	   public void cancelarTicket()
 	   {
 		   persona.getTicket().cancelar(); 
 	   }
@@ -29,7 +29,7 @@ public abstract class FuncionalidadPersona extends FuncionalidadUsuario{
 		   persona.getTicket().modificarTicket_Formulario(form);  
 	   }
 	
-	public void activar()
+	public void activarTicket()
 	{
 		persona.getTicket().activar();
 	}

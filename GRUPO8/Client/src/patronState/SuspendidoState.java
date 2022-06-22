@@ -3,6 +3,7 @@ package patronState;
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
 
+import entidades.Agencia;
 import entidades.FormularioDeBusqueda;
 import entidades.Persona;
 import entidades.Persona_EmpleadoPretenso;
@@ -26,13 +27,14 @@ public class SuspendidoState implements IState
 	@Override
 	public void suspender()
 	{
-		//un ticket suspendido no se puede suspender
+		 
 
 	}
 
 	@Override
 	public void cancelar()
 	{
+		
 		this.ticket.setEstado(new SuspendidoState(this.ticket));
 
 	}
@@ -47,6 +49,7 @@ public class SuspendidoState implements IState
 	@Override
 	public void modificarTicket_Formulario( FormularioDeBusqueda form)
 	{
+		
 		this.ticket.setFormularioDeBusqueda(form);
 		
 	}

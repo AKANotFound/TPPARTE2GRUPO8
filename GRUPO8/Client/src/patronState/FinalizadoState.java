@@ -3,6 +3,7 @@ package patronState;
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
 
+import entidades.Agencia;
 import entidades.FormularioDeBusqueda;
 import entidades.Persona;
 import entidades.Persona_EmpleadoPretenso;
@@ -38,27 +39,28 @@ public class FinalizadoState implements IState
 	@Override
 	public void suspender()
 	{
-		//un ticket finalizado no se puede suspender
+		
 
 	}
 
 	@Override
 	public void cancelar()
 	{
-		//un ticket finalizado no se puede cancelar
+		
 
 	}
 
 	@Override
 	public void finalizar()
 	{
-		//un ticket finalizado no se puede finalizar
+		
 
 	}
 
 	@Override
 	public void modificarTicket_Formulario(FormularioDeBusqueda form) throws ModificacionTicketInvalidaException
 	{
+		
 		throw new ModificacionTicketInvalidaException("no se puede modificar un ticket finalizado");
 		
 	}
@@ -101,7 +103,7 @@ public class FinalizadoState implements IState
 	@Override
 	public void activar()
 	{
-		// TODO Auto-generated method stub
+		 
 		
 	}
 

@@ -48,7 +48,7 @@ public class ControladorVistaFormularioDeBusquedaEmpleadoPretenso implements Act
 				cl.show(contentPane, ventana.getVistaGestionTicketPersona());
 			}
 		
-		this.vista.actualizarComboBox();
+		this.vista.limpiarVista();
 		
 	}
 
