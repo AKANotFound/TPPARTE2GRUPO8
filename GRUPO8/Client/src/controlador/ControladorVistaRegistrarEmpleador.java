@@ -53,10 +53,10 @@ public class ControladorVistaRegistrarEmpleador implements ActionListener
 			{
 				try
 				{
-					double puntajeAspectos[]= {vista.getPuntajeCargaHoraria(),vista.getPuntajeEstudiosCursados(),
-							vista.getPuntajeExperienciaPrevia(),
-							vista.getPuntajeLocacion(),vista.getPuntajeRangoEtario(),vista.getPuntajeRemuneracion()
-							,vista.getPuntajeTipoDePuesto()};
+					double puntajeAspectos[]= {vista.getPuntajeLocacion(),vista.getPuntajeRemuneracion(),
+							vista.getPuntajeCargaHoraria(),
+							vista.getPuntajeTipoDePuesto(),vista.getPuntajeRangoEtario(),vista.getPuntajeExperienciaPrevia()
+							,vista.getPuntajeEstudiosCursados()};
 					IRubro rubro=null;
 					switch(vista.getRubro())
 					{

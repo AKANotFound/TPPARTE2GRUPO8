@@ -82,7 +82,6 @@ public class VistaFuncionalidadesPersona extends JPanel implements IVistaFuncion
 		this.panel_Eleccion.add(this.scrollPane_Eleccion_Centro, BorderLayout.CENTER);
 		
 		this.list_ListaDeAsignacion = new JList<PersonaElegida>();
-		this.list_ListaDeAsignacion.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
 		this.list_ListaDeAsignacion.setModel(modeloLista);
 		this.scrollPane_Eleccion_Centro.setViewportView(this.list_ListaDeAsignacion);
 		
@@ -191,5 +190,15 @@ public class VistaFuncionalidadesPersona extends JPanel implements IVistaFuncion
 			
 		}
 		
+	}
+
+	@Override
+	public ArrayList<PersonaElegida> getPersonasElegidas()
+	{
+		ArrayList<PersonaElegida>personasElegidas=null;
+		
+		personasElegidas=(ArrayList<PersonaElegida>) this.list_ListaDeAsignacion.getSelectedValuesList();
+		
+		return personasElegidas;
 	}
 }

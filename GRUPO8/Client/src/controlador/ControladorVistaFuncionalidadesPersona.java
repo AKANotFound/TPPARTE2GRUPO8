@@ -3,12 +3,14 @@ package controlador;
 import java.awt.CardLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import entidades.Agencia;
+import entidades.PersonaElegida;
 import vista.IVentana;
 import vista.IVistaFuncionalidadesPersona;
 import vista.Ventana;
@@ -39,7 +41,11 @@ public class ControladorVistaFuncionalidadesPersona implements ActionListener {
 		CardLayout cl = (CardLayout)(contentPane.getLayout());
 		String comando = e.getActionCommand();
 		
-		if(comando.equals(ACEPTAR_ELECCION)) {
+		if(comando.equals(ACEPTAR_ELECCION))
+		{
+			int i=0;
+			ArrayList<PersonaElegida>personasElegidas=this.vista.getPersonasElegidas();
+			//ELIGE PERSONAS
 			
 		}
 		else if(comando.equals(BORRAR_CUENTA)) {
