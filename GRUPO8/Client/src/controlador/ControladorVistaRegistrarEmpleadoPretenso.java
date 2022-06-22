@@ -42,6 +42,7 @@ public class ControladorVistaRegistrarEmpleadoPretenso implements ActionListener
 			{
 				Sistema.registrarEmpleadoPretenso(vista.getUsuario(),vista.getContrasena(),vista.getNya()
 						, vista.getTelefono(), vista.getEdad());
+				System.out.println("Registrado");
 			} catch (EdadInvalidaException e1)
 			{
 				// TODO Auto-generated catch block

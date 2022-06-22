@@ -54,27 +54,26 @@ public class ControladorVistaInicial implements ActionListener {
 			}
 
 		} else if (comando.equals(INICIAR_SESION)) {
-
-			switch (this.vista.getTipoUsuario()) {
-			case "Administrador":
-				Agencia.getInstancia().setUsuarioActual(ADMINISTRADOR);
-				cl.show(contentPane, ventana.getVistaFuncionalidadesAdministrador());
-				break;
-			case "Empleador":
-				Agencia.getInstancia().setUsuarioActual(EMPLEADOR);
-				if (Agencia.getInstancia().getUsuarios().containsKey(EMPLEADOR))
-					cl.show(contentPane, ventana.getVistaFuncionalidadesPersona());
-				else
-					JOptionPane.showMessageDialog(null, "No estas papa, registrate");
-				break;
-			case "Empleado pretenso":
-				Agencia.getInstancia().setUsuarioActual(EMPLEADO_PRETENSO);
-				if (Agencia.getInstancia().getUsuarios().containsKey(EMPLEADO_PRETENSO))
-					cl.show(contentPane, ventana.getVistaFuncionalidadesPersona());
-				else
-					JOptionPane.showMessageDialog(null, "No estas papa, registrate");
-				break;
+			if (!Agencia.getInstancia().getUsuarios().containsKey(this.vista.getUsuario()))
+				JOptionPane.showMessageDialog(null, "No estas papa, registrate");
+			else
+			{
+				switch (this.vista.getTipoUsuario()) {
+					case "Administrador":
+						Agencia.getInstancia().setUsuarioActual(ADMINISTRADOR);
+						cl.show(contentPane, ventana.getVistaFuncionalidadesAdministrador());
+						break;
+					case "Empleador":
+						Agencia.getInstancia().setUsuarioActual(EMPLEADOR);
+						cl.show(contentPane, ventana.getVistaFuncionalidadesPersona());
+						break;
+					case "Empleado pretenso":
+						Agencia.getInstancia().setUsuarioActual(EMPLEADO_PRETENSO);
+						cl.show(contentPane, ventana.getVistaFuncionalidadesPersona());
+						break;
+				}
 			}
+			
 
 		} else if (comando.equals(SIMULACION)) {
 			cl.show(contentPane, ventana.getVistaSimulacion());
