@@ -13,6 +13,7 @@ import entidades.Agencia;
 import javax.swing.border.EtchedBorder;
 import java.awt.Color;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
@@ -204,7 +205,7 @@ public class VistaInicial extends JPanel implements IVistaInicial, KeyListener {
 
 	@Override
 	public void ventanaEmergente(String mensaje) {
-		// TODO Auto-generated method stub
+		JOptionPane.showMessageDialog(null,mensaje );
 		
 	}
 }

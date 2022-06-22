@@ -61,6 +61,7 @@ public class VistaSimulacion extends JPanel implements IVistaSimulacion
 		this.panel_textArea_Empleadores.setLayout(new BorderLayout(0, 0));
 		
 		this.textArea_Empleadores = new JTextArea();
+		this.textArea_Empleadores.setEditable(false);
 		this.panel_textArea_Empleadores.add(this.textArea_Empleadores);
 		
 		this.panel_border_EmpleadosPretensos = new JPanel();
@@ -73,6 +74,7 @@ public class VistaSimulacion extends JPanel implements IVistaSimulacion
 		this.panel_textArea_EmpleadosPretensos.setLayout(new BorderLayout(0, 0));
 		
 		this.textArea_EmpleadosPretensos = new JTextArea();
+		this.textArea_EmpleadosPretensos.setEditable(false);
 		this.panel_textArea_EmpleadosPretensos.add(this.textArea_EmpleadosPretensos);
 		
 		this.panel_border_Consola = new JPanel();
@@ -85,6 +87,7 @@ public class VistaSimulacion extends JPanel implements IVistaSimulacion
 		this.panel_textArea_Consola.setLayout(new BorderLayout(0, 0));
 		
 		this.textArea_Consola = new JTextArea();
+		this.textArea_Consola.setEditable(false);
 		this.panel_textArea_Consola.add(this.textArea_Consola);
 		
 		this.panel_Sur = new JPanel();

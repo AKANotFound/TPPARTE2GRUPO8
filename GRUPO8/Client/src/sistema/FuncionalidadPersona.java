@@ -1,6 +1,7 @@
 package sistema;
 
 import entidades.FormularioDeBusqueda;
+import entidades.ListaDeAsignacion;
 import entidades.Persona;
 import entidades.Ticket;
 import excepciones.ListaNoGeneradaException;
@@ -45,6 +46,12 @@ public abstract class FuncionalidadPersona extends FuncionalidadUsuario{
 			throw new ListaNoGeneradaException();
 		return str;
 	}
+	
+	public ListaDeAsignacion getListaDeAsignacion()
+	{
+		return persona.getListaDeAsignacion();
+	}
+	
 	
 	public String visualizarCostoServicio()
 	{
