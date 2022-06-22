@@ -43,8 +43,7 @@ public class ControladorVistaFuncionalidadesPersona implements ActionListener {
 			
 		}
 		else if(comando.equals(BORRAR_CUENTA)) {
-			JFrame jFrame = new JFrame();
-			int result = JOptionPane.showConfirmDialog(jFrame, "¿Estás seguro de que deseas eliminar tu cuenta?");
+			int result =this.vista.ventanaEmergenteConfirmar("¿Estás seguro de que deseas eliminar tu cuenta?");
 	        if (result == 0) 
 	        {
 	        	Agencia.getInstancia().getUsuarios().remove(Agencia.getInstancia().getUsuarioActual());
@@ -59,7 +58,14 @@ public class ControladorVistaFuncionalidadesPersona implements ActionListener {
 			cl.show(contentPane, ventana.getVistaGestionTicketPersona());
 		}
 		else if(comando.equals(INICIAR_RONDA_DE_ELECCION)) {
-			
+			switch(Agencia.getInstancia().getUsuarioActual()) {
+			case Agencia.EMPLEADOR:
+				vista.visualizarListaDeAsignacion(Agencia.getInstancia().getFuncEmpleadorActual().getListaDeAsignacion());
+				break;
+			case Agencia.EMPLEADO_PRETENSO:
+				vista.visualizarListaDeAsignacion(Agencia.getInstancia().getFuncEmpleadoPretensoActual().getListaDeAsignacion());
+				break;
+			}
 		}
 		else if(comando.equals(VISUALIZAR_PERSONAS_ELEGIDAS)) {
 			switch(Agencia.getInstancia().getUsuarioActual()) {

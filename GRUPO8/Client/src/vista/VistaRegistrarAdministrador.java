@@ -161,11 +161,9 @@ public class VistaRegistrarAdministrador extends JPanel implements IVistaRegistr
 	}
 
 	@Override
-	public void ventanaEmergente(String mensaje) //VER COMO HACERLO
+	public void ventanaEmergente(String mensaje) 
 	{
-		JDialog cartel=new JDialog();
-		cartel.setModal(true);
-		cartel.setVisible(true);
+		JOptionPane.showMessageDialog(null,mensaje );
 	}
 
 	@Override

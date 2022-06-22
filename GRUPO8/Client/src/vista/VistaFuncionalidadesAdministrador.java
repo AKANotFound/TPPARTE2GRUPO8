@@ -6,6 +6,7 @@ import java.awt.GridLayout;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 import javax.swing.border.TitledBorder;
 import java.awt.FlowLayout;
 import javax.swing.JScrollPane;
@@ -85,6 +86,7 @@ public class VistaFuncionalidadesAdministrador extends JPanel implements IVistaF
 		this.panel_Consola.add(this.scrollPane_Consola);
 		
 		this.textArea_Consola = new JTextArea();
+		this.textArea_Consola.setEditable(false);
 		this.scrollPane_Consola.setViewportView(this.textArea_Consola);
 		
 		this.panel_Centro_Norte = new JPanel();
@@ -104,12 +106,14 @@ public class VistaFuncionalidadesAdministrador extends JPanel implements IVistaF
 		this.panel_Acciones.add(this.panel_IniciarRondaEncuentrosLaborales_Border);
 		
 		this.btn_IniciarRondaEncuentrosLaborales = new JButton("<html><center>Iniciar ronda de<br/>encuentros laborales</center></html>");
+		this.btn_IniciarRondaEncuentrosLaborales.setActionCommand("IniciarRondaDeEncuentrosLaborales");
 		this.panel_IniciarRondaEncuentrosLaborales_Border.add(this.btn_IniciarRondaEncuentrosLaborales);
 		
 		this.panel_IniciarRondaContratacion_Border = new JPanel();
 		this.panel_Acciones.add(this.panel_IniciarRondaContratacion_Border);
 		
 		this.btn_IniciarRondaContratacion = new JButton("<html><center>Iniciar ronda<br/>de contrataci\u00F3n</center></html>");
+		this.btn_IniciarRondaContratacion.setActionCommand("IniciarRondaDeContratacion");
 		this.panel_IniciarRondaContratacion_Border.add(this.btn_IniciarRondaContratacion);
 		
 		this.panel_Visualizar_Border = new JPanel();
@@ -125,15 +129,18 @@ public class VistaFuncionalidadesAdministrador extends JPanel implements IVistaF
 		this.panel_Visualizar.add(this.panel_Visualizar_Norte, BorderLayout.NORTH);
 		
 		this.btn_VisualizarEmpleadosPretensos = new JButton("<html>Empleados <br/>pretensos</html>");
+		this.btn_VisualizarEmpleadosPretensos.setActionCommand("EmpleadosPretensos");
 		this.panel_Visualizar_Norte.add(this.btn_VisualizarEmpleadosPretensos);
 		
 		this.btn_VisualizarTicketsEmpleadosPretensos = new JButton("<html><center>Tickets empleados<br/>pretensos<center/><html/>");
+		this.btn_VisualizarTicketsEmpleadosPretensos.setActionCommand("TicketsEmpleadosPretensos");
 		this.panel_Visualizar_Norte.add(this.btn_VisualizarTicketsEmpleadosPretensos);
 		
 		this.btn_VisualizarEmpleadores = new JButton("Empleadores");
 		this.panel_Visualizar_Norte.add(this.btn_VisualizarEmpleadores);
 		
 		this.btn_VisualizarTicketsEmpleadores = new JButton("<html><center>Tickets<br/><center/>empleadores<html/>");
+		this.btn_VisualizarTicketsEmpleadores.setActionCommand("TicketsEmpleadores");
 		this.panel_Visualizar_Norte.add(this.btn_VisualizarTicketsEmpleadores);
 		
 		this.panel_Visualizar_Sur = new JPanel();
@@ -167,5 +174,18 @@ public class VistaFuncionalidadesAdministrador extends JPanel implements IVistaF
 		this.actionListener=actionListener;
 		
 	}
+
+	@Override
+	public void setTextVista(String texto) {
+		this.textArea_Consola.setText(texto);
+	}
+
+	@Override
+	public int ventanaEmergenteConfirmar(String mensaje)
+	{
+		return JOptionPane.showConfirmDialog(null,mensaje);
+		
+	}
+
 
 }

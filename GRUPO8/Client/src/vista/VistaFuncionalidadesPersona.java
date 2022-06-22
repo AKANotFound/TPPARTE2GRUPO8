@@ -4,14 +4,21 @@ import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.awt.PopupMenu;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
+import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
+import javax.swing.ListSelectionModel;
 import javax.swing.border.TitledBorder;
+
+import entidades.ListaDeAsignacion;
+import entidades.PersonaElegida;
 
 public class VistaFuncionalidadesPersona extends JPanel implements IVistaFuncionalidadesPersona {
 	private JPanel panel_Centro;
@@ -35,7 +42,8 @@ public class VistaFuncionalidadesPersona extends JPanel implements IVistaFuncion
 	private JPanel panel_Eleccion_Este;
 	private JButton btn_AceptarEleccion;
 	private JScrollPane scrollPane_Eleccion_Centro;
-	private JList list;
+	private JList<PersonaElegida> list_ListaDeAsignacion;
+	private DefaultListModel<PersonaElegida>modeloLista=new DefaultListModel<PersonaElegida>();
 	private JPanel panel_Eleccion_Border;
 	private JScrollPane scrollPane_Consola;
 	private JTextArea textArea_Consola;
@@ -73,8 +81,10 @@ public class VistaFuncionalidadesPersona extends JPanel implements IVistaFuncion
 		this.scrollPane_Eleccion_Centro = new JScrollPane();
 		this.panel_Eleccion.add(this.scrollPane_Eleccion_Centro, BorderLayout.CENTER);
 		
-		this.list = new JList();
-		this.scrollPane_Eleccion_Centro.setViewportView(this.list);
+		this.list_ListaDeAsignacion = new JList<PersonaElegida>();
+		this.list_ListaDeAsignacion.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
+		this.list_ListaDeAsignacion.setModel(modeloLista);
+		this.scrollPane_Eleccion_Centro.setViewportView(this.list_ListaDeAsignacion);
 		
 		this.panel_Consola_Border = new JPanel();
 		this.panel_Consola_Border.setBorder(new TitledBorder(null, "Consola", TitledBorder.LEADING, TitledBorder.TOP, null, null));
@@ -158,7 +168,28 @@ public class VistaFuncionalidadesPersona extends JPanel implements IVistaFuncion
 		this.actionListener=actionListener;
 	}
 	
+	@Override
 	public void setTextVista(String texto) {
 		this.textArea_Consola.setText(texto);
+	}
+
+	@Override
+	public int ventanaEmergenteConfirmar(String mensaje)
+	{
+		
+		return  JOptionPane.showConfirmDialog(jFrame,mensaje);
+	}
+
+	@Override
+	public void visualizarListaDeAsignacion(ListaDeAsignacion listaDeAsignacion)
+	{
+		ArrayList<PersonaElegida>lista=listaDeAsignacion.getLista();
+		
+		for (int i=0;i<lista.size();i++)
+		{
+			this.modeloLista.addElement(lista.get(i));
+			
+		}
+		
 	}
 }
