@@ -49,7 +49,8 @@ public class VistaGestionTicketPersona extends JPanel implements IVistaGestionTi
 		this.panel_CrearTicket = new JPanel();
 		this.panel_Centro.add(this.panel_CrearTicket);
 		
-		this.btn_CrearTicket = new JButton("Crear");
+		this.btn_CrearTicket = new JButton("Crear/Modificar");
+		this.btn_CrearTicket.setActionCommand("Crear");
 		this.panel_CrearTicket.add(this.btn_CrearTicket);
 		
 		this.panel_ActivarTicket = new JPanel();
