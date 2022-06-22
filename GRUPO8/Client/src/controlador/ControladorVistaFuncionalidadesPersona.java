@@ -47,8 +47,8 @@ public class ControladorVistaFuncionalidadesPersona implements ActionListener {
 			int result = JOptionPane.showConfirmDialog(jFrame, "¿Estás seguro de que deseas eliminar tu cuenta?");
 	        if (result == 0) 
 	        {
-	        	cl.show(contentPane, ventana.getVistaInicial());
 	        	Agencia.getInstancia().getUsuarios().remove(Agencia.getInstancia().getUsuarioActual());
+	        	cl.show(contentPane, ventana.getVistaInicial());
 	        }
 		}
 		else if(comando.equals(CERRAR_SESION)) {
