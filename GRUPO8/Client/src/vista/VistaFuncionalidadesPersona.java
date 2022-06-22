@@ -1,15 +1,17 @@
 package vista;
 
-import javax.swing.JPanel;
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
+import java.awt.PopupMenu;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
-import javax.swing.border.TitledBorder;
+import javax.swing.JFrame;
 import javax.swing.JList;
+import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
+import javax.swing.border.TitledBorder;
 
 public class VistaFuncionalidadesPersona extends JPanel implements IVistaFuncionalidadesPersona {
 	private JPanel panel_Centro;
@@ -38,6 +40,8 @@ public class VistaFuncionalidadesPersona extends JPanel implements IVistaFuncion
 	private JScrollPane scrollPane_Consola;
 	private JTextArea textArea_Consola;
 	private ActionListener actionListener;//controlador
+	private JFrame jFrame;
+    
 
 	/**
 	 * Create the panel.
@@ -100,6 +104,7 @@ public class VistaFuncionalidadesPersona extends JPanel implements IVistaFuncion
 		this.btn_BorrarCuenta = new JButton("Borrar cuenta");
 		this.btn_BorrarCuenta.setActionCommand("BorrarCuenta");
 		this.panel_BorrarCuenta.add(this.btn_BorrarCuenta);
+		
 		
 		this.panel_Norte_border = new JPanel();
 		this.panel_Norte_border.setBorder(new TitledBorder(null, "Acciones ", TitledBorder.LEADING, TitledBorder.TOP, null, null));

@@ -24,6 +24,7 @@ public class ControladorVistaRegistrarEmpleador implements ActionListener
 	private JPanel contentPane = null;
 	
 	
+	
 	private final String VOLVER = "Volver";
 	private final String REGISTRAR = "Registrar";
 	
@@ -59,11 +60,11 @@ public class ControladorVistaRegistrarEmpleador implements ActionListener
 					IRubro rubro=null;
 					switch(vista.getRubro())
 					{
-					 case"Salud":rubro=new Rubro_Salud();
+					 case"Salud":rubro = new Rubro_Salud();
 					  break;
-					 case"Comercio local":rubro=new Rubro_ComercioLocal();
+					 case"Comercio local":rubro = new Rubro_ComercioLocal();
 					  break;
-					 case"Comercio internacional":rubro=new Rubro_ComercioInternacional();
+					 case"Comercio internacional":rubro = new Rubro_ComercioInternacional();
 					  break;
 					}
 					

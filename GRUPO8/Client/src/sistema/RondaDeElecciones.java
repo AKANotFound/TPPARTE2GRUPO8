@@ -15,7 +15,6 @@ abstract class RondaDeElecciones {
 		//Sistema.visualizarListaAsignacion(empleadoPretenso); //le muestra la lista al usuario
 			empleadoPretenso.setEmpleadorElegido(empleadoPretenso.getListaDeAsignacion().getLista().get(seleccion));
 		}
-		
 	}
 	
 	static void iniciaRondaDeEleccionEmpleador(Persona_Empleador empleador) {

@@ -4,8 +4,11 @@ import java.awt.CardLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
+import entidades.Agencia;
 import vista.IVentana;
 import vista.IVistaFuncionalidadesAdministrador;
 import vista.Ventana;
@@ -53,7 +56,13 @@ public class ControladorVistaFuncionalidadesAdministrador implements ActionListe
 		else
 			if (comando.equals(BORRAR_CUENTA)) //HACER POP UP DE SI ESTA SEGURO
 			{
-				cl.show(contentPane, ventana.getVistaInicial());
+				JFrame jFrame = new JFrame();
+				int result = JOptionPane.showConfirmDialog(jFrame, "¿Estás seguro de que deseas eliminar tu cuenta?");
+		        if (result == 0) 
+		        {
+		        	Agencia.getInstancia().getUsuarios().remove(Agencia.getInstancia().getUsuarioActual());
+		        	cl.show(contentPane, ventana.getVistaInicial());
+		        }
 			}
 			else
 				if (comando.equals(INICIAR_RONDA_DE_ENCUENTROS_LABORALES))
