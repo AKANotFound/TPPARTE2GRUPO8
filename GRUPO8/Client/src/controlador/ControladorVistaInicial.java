@@ -8,16 +8,13 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import entidades.Agencia;
-<<<<<<< HEAD
 import excepciones.ErrorContrasenaException;
 import excepciones.ErrorUsuarioException;
 import sistema.FuncionalidadAdministrador;
 import sistema.FuncionalidadEmpleadoPretenso;
 import sistema.FuncionalidadEmpleador;
 import sistema.Sistema;
-=======
 import entidades.Usuario;
->>>>>>> branch 'master' of https://github.com/AKANotFound/TPPARTE2GRUPO8.git
 import vista.IVentana;
 import vista.IVistaInicial;
 
@@ -82,8 +79,6 @@ public class ControladorVistaInicial implements ActionListener {
 						break;
 				}
 			}
-			
-<<<<<<< HEAD
 				
 		}
 		else if(comando.equals(INICIAR_SESION)) {
@@ -146,10 +141,8 @@ public class ControladorVistaInicial implements ActionListener {
 			
 		}
 		else if(comando.equals(SIMULACION)) {
-=======
-
+			
 		} else if (comando.equals(SIMULACION)) {
->>>>>>> branch 'master' of https://github.com/AKANotFound/TPPARTE2GRUPO8.git
 			cl.show(contentPane, ventana.getVistaSimulacion());
 
 		}
