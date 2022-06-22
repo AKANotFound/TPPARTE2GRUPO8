@@ -52,6 +52,7 @@ public class ControladorVistaFuncionalidadesPersona implements ActionListener {
 	        }
 		}
 		else if(comando.equals(CERRAR_SESION)) {
+			Agencia.getInstancia().setUsuarioActual("");
 			cl.show(contentPane, ventana.getVistaInicial());
 		}
 		else if(comando.equals(GESTION_DE_TICKET)) {
