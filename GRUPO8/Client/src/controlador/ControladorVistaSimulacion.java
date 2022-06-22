@@ -1,20 +1,24 @@
 package controlador;
 
 import java.awt.CardLayout;
+import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
 
+import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
 
 import entidades.Simulacion_EmpleadoPretenso;
 import entidades.Simulacion_Empleador;
 import vista.IVentana;
 import vista.IVistaSimulacion;
 
-public class ControladorVistaSimulacion implements ActionListener, Observer {
+public class ControladorVistaSimulacion extends JFrame implements ActionListener, Observer {
 	
 	IVistaSimulacion vista = null;
 	private IVentana ventana = null;
@@ -22,11 +26,17 @@ public class ControladorVistaSimulacion implements ActionListener, Observer {
 	private final String VOLVER = "Volver";
 	private final String INICIAR = "Iniciar";
 	private final String DETENER = "Detener";
+	private JTextArea area = new JTextArea();
 	
 	protected ArrayList<Simulacion_EmpleadoPretenso> empleadosObservados = new ArrayList<Simulacion_EmpleadoPretenso>();
 	protected ArrayList<Simulacion_Empleador> empleadoresObservados = new ArrayList<Simulacion_Empleador>();
 	
-	public ControladorVistaSimulacion() {}
+	public ControladorVistaSimulacion() { //esto no va, hay q agregarlo a la ventana, pero era pa probar
+		JScrollPane scroll=new JScrollPane(area);
+		this.getContentPane().add(scroll);
+		this.setVisible(true);
+		this.setSize(new Dimension(600,600));
+	}
 	
 	public ControladorVistaSimulacion(IVentana ventana, IVistaSimulacion vistaSimulacion) {
 		this.vista = vistaSimulacion;
@@ -80,13 +90,15 @@ public class ControladorVistaSimulacion implements ActionListener, Observer {
 		if(o.getClass() == Simulacion_Empleador.class) {
 			Simulacion_Empleador empleador = (Simulacion_Empleador) o;
 			//System.out.println(empleador.getEstado());
-			System.out.println(arg);
+			//System.out.println(arg);
+			this.area.append((String) arg+"\n");
 			
 		}else
 			if(o.getClass() == Simulacion_EmpleadoPretenso.class) {
 				Simulacion_EmpleadoPretenso empleado = (Simulacion_EmpleadoPretenso) o;
 				//System.out.println(empleado.getEstado());
-				System.out.println(arg);
+				//System.out.println(arg);
+				this.area.append((String) arg+"\n");
 			}
 	}
 	

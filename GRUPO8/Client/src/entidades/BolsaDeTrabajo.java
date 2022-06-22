@@ -28,21 +28,14 @@ public class BolsaDeTrabajo {
 
 	}
 
-	// QUITAR SYSTEM.OUTS E IMPLEMENTAR PATRON OBSERVER OBSERVABLE PARA MOSTRAR LAS
-	// COSAS
 	public synchronized void poneTicketSimplificado(TicketSimplificado ticketSimplificado) {
 		bolsaDeTrabajo.add(ticketSimplificado);
-		ticketSimplificado.getEmpleador()
-				.setEstado(ticketSimplificado.getEmpleador().getRazonSocial() + " puso ticket en la bolsa.");
-		// System.out.println("[" + ticketSimplificado.getEmpleador().getRazonSocial() +
-		// "] puso ticket en la bolsa");
+		ticketSimplificado.getEmpleador().setEstado(ticketSimplificado.getEmpleador().getRazonSocial() + " puso ticket en la bolsa.");
 		// notificar observer parte visual
 		notifyAll();
 	}
 
 	public synchronized void sacaTicketSimplificado(Simulacion_EmpleadoPretenso empleadoPretenso) {
-		// System.out.println("[" + empleadoPretenso.getNya() + "] intenta sacar ticket
-		// de la bolsa");
 		empleadoPretenso.setEstado(empleadoPretenso.getNya() + " intenta sacar ticket de la bolsa");
 		int i = 0;
 		while (i < bolsaDeTrabajo.size() && empleadoPretenso.getTicketSimplificado() == null
@@ -51,16 +44,11 @@ public class BolsaDeTrabajo {
 					&& !empleadoPretenso.getTicketsSimplificadosIncompatibles().contains(bolsaDeTrabajo.get(i))) {
 				empleadoPretenso.setTicketSimplificado(bolsaDeTrabajo.get(i));
 				bolsaDeTrabajo.remove(i);
-				// System.out.println("[" + empleadoPretenso.getNya() + "] saco ticket de la
-				// bolsa");
 				empleadoPretenso.setEstado(empleadoPretenso.getNya() + " saco ticket de la bolsa");
 			} else {
 				if (i == bolsaDeTrabajo.size() - 1) // si recorri todo el array y no encontre ticket
 				{
-					//System.out.println(empleadoPretenso.getNya()+" no entro aca");
 					try {
-						// System.out.println("[" + empleadoPretenso.getNya() + "] reviso toda la bolsa
-						// y no encontro ticket compatible (por el rubro), espera");
 						empleadoPretenso.setEstado(empleadoPretenso.getNya() + " reviso toda la bolsa y no encontro ticket compatible (por el rubro), espera");
 						wait();
 						i = 0;
@@ -77,12 +65,9 @@ public class BolsaDeTrabajo {
 	public synchronized void analizaTicketSimplificado(Simulacion_EmpleadoPretenso empleadoPretenso) {
 		
 		if (empleadoPretenso.getLocacionElegida().equals(empleadoPretenso.getTicketSimplificado().getLocacion())) {
-			System.out.println(empleadoPretenso.getNya()+" analiza ticket");
 			bolsaDeTrabajo.add(empleadoPretenso.getTicketSimplificado());
 			empleadoPretenso.agregarTicketSimplificadoIncompatible(empleadoPretenso.getTicketSimplificado());
 			empleadoPretenso.setTicketSimplificado(null);
-			// System.out.println("[" + empleadoPretenso.getNya() + "] analizo el ticket y
-			// no es compatible (por la locacion), devuelve el ticket");
 			empleadoPretenso.setEstado(empleadoPretenso.getNya() + " analizo el ticket y no es compatible (por la locacion), devuelve el ticket");
 			
 			notifyAll();

@@ -135,9 +135,6 @@ public class ControladorVistaInicial implements ActionListener {
 			
 				
 			
-		}
-		else if(comando.equals(SIMULACION)) {
-			
 		} else if (comando.equals(SIMULACION)) {
 			cl.show(contentPane, ventana.getVistaSimulacion());
 

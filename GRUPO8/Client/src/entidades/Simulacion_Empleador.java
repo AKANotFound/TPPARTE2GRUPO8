@@ -4,6 +4,7 @@ import tablas.ILocacion;
 import tablas.Locacion_HomeOffice;
 import tablas.Locacion_Indistinto;
 import tablas.Locacion_Presencial;
+import util.Util;
 
 public class Simulacion_Empleador extends Persona_Empleador implements Runnable {
 	
@@ -58,6 +59,7 @@ public class Simulacion_Empleador extends Persona_Empleador implements Runnable 
 			
 			this.setChanged();
 		    this.notifyObservers(this.estado);
+		    Util.espera(2000);
 		}
 	}
 }
