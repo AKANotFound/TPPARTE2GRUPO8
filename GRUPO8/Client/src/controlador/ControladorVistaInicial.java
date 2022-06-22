@@ -55,7 +55,7 @@ public class ControladorVistaInicial implements ActionListener {
 
 		} else if (comando.equals(INICIAR_SESION)) {
 			if (!Agencia.getInstancia().getUsuarios().containsKey(this.vista.getUsuario()))
-				JOptionPane.showMessageDialog(null, "No estas papa, registrate");
+				JOptionPane.showMessageDialog(null, "No existe la cuenta. Intente registrarse.");
 			else
 			{
 				switch (this.vista.getTipoUsuario()) {
