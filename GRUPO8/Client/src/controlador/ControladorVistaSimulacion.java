@@ -17,6 +17,7 @@ import entidades.Simulacion_EmpleadoPretenso;
 import entidades.Simulacion_Empleador;
 import vista.IVentana;
 import vista.IVistaSimulacion;
+import vista.VistaSimulacion;
 
 public class ControladorVistaSimulacion extends JFrame implements ActionListener, Observer {
 	
@@ -85,20 +86,18 @@ public class ControladorVistaSimulacion extends JFrame implements ActionListener
 	@Override
 	public void update(Observable o, Object arg) {
 		
-		//System.out.println(arg);
-		
-		if(o.getClass() == Simulacion_Empleador.class) {
+	
+		VistaSimulacion v = (VistaSimulacion) this.vista;
+		if(o.getClass() == Simulacion_Empleador.class) 
+		{
 			Simulacion_Empleador empleador = (Simulacion_Empleador) o;
-			//System.out.println(empleador.getEstado());
-			//System.out.println(arg);
-			this.area.append((String) arg+"\n");
-			
+			//this.area.append((String) arg+"\n");
 		}else
-			if(o.getClass() == Simulacion_EmpleadoPretenso.class) {
+			if(o.getClass() == Simulacion_EmpleadoPretenso.class) 
+			{
 				Simulacion_EmpleadoPretenso empleado = (Simulacion_EmpleadoPretenso) o;
-				//System.out.println(empleado.getEstado());
-				//System.out.println(arg);
-				this.area.append((String) arg+"\n");
+				//this.area.append((String) arg+"\n");
+				v.getTextArea_EmpleadosPretensos().append((String) arg+"\n");
 			}
 	}
 	

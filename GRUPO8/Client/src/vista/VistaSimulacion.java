@@ -116,6 +116,18 @@ public class VistaSimulacion extends JPanel implements IVistaSimulacion
 
 	}
 
+	
+	
+
+	public JTextArea getTextArea_Empleadores() {
+		return textArea_Empleadores;
+	}
+
+	public JTextArea getTextArea_EmpleadosPretensos() {
+		return textArea_EmpleadosPretensos;
+	}
+
+
 	@Override
 	public void setActionListener(ActionListener actionListener)
 	{

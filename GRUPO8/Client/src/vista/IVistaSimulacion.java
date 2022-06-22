@@ -7,4 +7,5 @@ public interface IVistaSimulacion
 	void setActionListener(ActionListener actionListener);
 	void setIniciarDisabled();
 	void setDetenerDisabled();
+	
 }
