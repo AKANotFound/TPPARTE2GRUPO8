@@ -62,7 +62,11 @@ public class ControladorVistaFuncionalidadesPersona implements ActionListener {
 			
 		}
 		else if(comando.equals(VISUALIZAR_PERSONAS_ELEGIDAS)) {
+			switch(Agencia.getInstancia().getUsuarioActual()) {
+			case 
+			}
 			
+			vista.setTextArea_Consola(null);
 		}
 		else if(comando.equals(VISUALIZAR_RESULTADO)) {
 			

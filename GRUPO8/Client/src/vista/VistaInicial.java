@@ -7,6 +7,9 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JRadioButton;
 import javax.swing.border.TitledBorder;
+
+import entidades.Agencia;
+
 import javax.swing.border.EtchedBorder;
 import java.awt.Color;
 import javax.swing.JLabel;
@@ -176,13 +179,13 @@ public class VistaInicial extends JPanel implements IVistaInicial, KeyListener {
 	{
 		String str=null;
 		if (this.rdbtn_Administrador.isSelected())
-			str="Administrador";
+			str=Agencia.ADMINISTRADOR;
 		else
 			if(this.rdbtn_Empleador.isSelected())
-				str="Empleador";
+				str=Agencia.EMPLEADOR;
 			else
 				if(this.rdbtn_EmpleadoPretenso.isSelected())
-					str="Empleado pretenso";
+					str=Agencia.EMPLEADO_PRETENSO;
 			
 		
 		return str;

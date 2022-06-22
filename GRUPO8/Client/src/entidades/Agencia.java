@@ -26,6 +26,10 @@ public class Agencia {
     private FuncionalidadEmpleador funcEmpleadorActual = null;
     private FuncionalidadEmpleadoPretenso funcEmpleadoPretensoActual = null;
     
+    public final static String ADMINISTRADOR = "Administrador";
+	public final static String EMPLEADOR = "Empleador";
+	public final static String EMPLEADO_PRETENSO = "EmpleadoPretenso";
+    
     private static Agencia instancia = null;
     
     private String codigoAdministrador="XAEA-12";

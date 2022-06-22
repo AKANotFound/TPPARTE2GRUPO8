@@ -85,6 +85,7 @@ public class VistaFuncionalidadesPersona extends JPanel implements IVistaFuncion
 		this.panel_Consola_Border.add(this.scrollPane_Consola);
 		
 		this.textArea_Consola = new JTextArea();
+		this.textArea_Consola.setEditable(false);
 		this.scrollPane_Consola.setViewportView(this.textArea_Consola);
 		
 		this.panel_Sur = new JPanel();
@@ -156,4 +157,7 @@ public class VistaFuncionalidadesPersona extends JPanel implements IVistaFuncion
 		this.actionListener=actionListener;
 	}
 
+	public void setTextArea_Consola(JTextArea textArea_Consola) {
+		this.textArea_Consola = textArea_Consola;
+	}
 }
