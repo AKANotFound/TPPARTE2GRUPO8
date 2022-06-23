@@ -241,6 +241,7 @@ public class PruebaVista {
 		ControladorVistaFormularioDeBusquedaEmpleador controladorVistaFormularioDeBusquedaEmpleador = new ControladorVistaFormularioDeBusquedaEmpleador(ventana,vistaFormularioDeBusquedaEmpleador);
 		ControladorVistaFormularioDeBusquedaEmpleadoPretenso controladorVistaFormularioDeBusquedaEmpleadoPretenso = new ControladorVistaFormularioDeBusquedaEmpleadoPretenso(ventana,vistaFormularioDeBusquedaEmpleadoPretenso);
 		ControladorVistaGestionTicketPersona controladoVistaGestionTicketPersona = new ControladorVistaGestionTicketPersona(ventana,vistaGestionTicketPersona);
+		//System.out.println(vistaSimulacion);
 	}
 
 }

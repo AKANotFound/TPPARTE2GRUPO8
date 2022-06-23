@@ -1,17 +1,17 @@
 package vista;
 
-import javax.swing.JPanel;
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.GridLayout;
 import java.awt.event.ActionListener;
 
-import javax.swing.JTextArea;
-import javax.swing.border.TitledBorder;
-import javax.swing.border.EtchedBorder;
-import java.awt.Color;
 import javax.swing.JButton;
-import java.awt.event.MouseListener;
-import java.awt.event.MouseEvent;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import javax.swing.ScrollPaneConstants;
+import javax.swing.border.EtchedBorder;
+import javax.swing.border.TitledBorder;
 
 public class VistaSimulacion extends JPanel implements IVistaSimulacion
 {
@@ -35,6 +35,9 @@ public class VistaSimulacion extends JPanel implements IVistaSimulacion
 	private JPanel panel_Iniciar;
 	private JPanel panel_Detener;
 	private ActionListener actionListener;//controlador
+	private JScrollPane scroll_Consola;
+	private JScrollPane scroll_EmpleadoPretenso;
+	private JScrollPane scroll_Empleador;
 
 	/**
 	 * Create the panel.
@@ -63,6 +66,9 @@ public class VistaSimulacion extends JPanel implements IVistaSimulacion
 		this.textArea_Empleadores = new JTextArea();
 		this.textArea_Empleadores.setEditable(false);
 		this.panel_textArea_Empleadores.add(this.textArea_Empleadores);
+		this.scroll_Empleador = new JScrollPane(this.textArea_Empleadores);
+		this.scroll_Empleador.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+		this.panel_textArea_Empleadores.add(scroll_Empleador);
 		
 		this.panel_border_EmpleadosPretensos = new JPanel();
 		this.panel_border_EmpleadosPretensos.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), "Empleados pretensos", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
@@ -76,6 +82,9 @@ public class VistaSimulacion extends JPanel implements IVistaSimulacion
 		this.textArea_EmpleadosPretensos = new JTextArea();
 		this.textArea_EmpleadosPretensos.setEditable(false);
 		this.panel_textArea_EmpleadosPretensos.add(this.textArea_EmpleadosPretensos);
+		this.scroll_EmpleadoPretenso = new JScrollPane(this.textArea_EmpleadosPretensos);
+		this.scroll_EmpleadoPretenso.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+		this.panel_textArea_EmpleadosPretensos.add(scroll_EmpleadoPretenso);
 		
 		this.panel_border_Consola = new JPanel();
 		this.panel_border_Consola.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), "Consola", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
@@ -86,9 +95,13 @@ public class VistaSimulacion extends JPanel implements IVistaSimulacion
 		this.panel_border_Consola.add(this.panel_textArea_Consola);
 		this.panel_textArea_Consola.setLayout(new BorderLayout(0, 0));
 		
+		
 		this.textArea_Consola = new JTextArea();
 		this.textArea_Consola.setEditable(false);
 		this.panel_textArea_Consola.add(this.textArea_Consola);
+		this.scroll_Consola = new JScrollPane(this.textArea_Consola);
+		this.scroll_Consola.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+		this.panel_textArea_Consola.add(scroll_Consola);
 		
 		this.panel_Sur = new JPanel();
 		add(this.panel_Sur, BorderLayout.SOUTH);
@@ -118,18 +131,20 @@ public class VistaSimulacion extends JPanel implements IVistaSimulacion
 		this.panel_Volver.add(this.btn_Volver);
 
 	}
-
-	
 	
 
-	public JTextArea getTextArea_Empleadores() {
-		return textArea_Empleadores;
+	public void setTextArea_Consola(String textArea_Consola) {
+		this.textArea_Consola.append(textArea_Consola);
+		//this.textArea_Consola.setText(textArea_Consola); 
 	}
 
-	public JTextArea getTextArea_EmpleadosPretensos() {
-		return textArea_EmpleadosPretensos;
+	public void setTextArea_Empleadores(String textArea_Empleadores) {
+		this.textArea_Empleadores.append(textArea_Empleadores);
 	}
 
+	public void setTextArea_EmpleadosPretensos(String textArea_EmpleadosPretensos) {
+		this.textArea_EmpleadosPretensos.append(textArea_EmpleadosPretensos);
+	}
 
 	@Override
 	public void setActionListener(ActionListener actionListener)
@@ -152,6 +167,13 @@ public class VistaSimulacion extends JPanel implements IVistaSimulacion
 		this.btn_Iniciar.setEnabled(true);
 		this.btn_Detener.setEnabled(false);
 	}
+
+
+	@Override
+	public String toString() {
+		return "VistaSimulacion []";
+	}
+	
 	
 	
 }

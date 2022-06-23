@@ -21,7 +21,7 @@ public class BolsaDeTrabajo {
 	}
 
 	public synchronized void finalizarSimulacion() // LLAMAR CUANDO CIERRE LA VENTANA USANDO WINDOWLISTENER EN
-													// CONTROLADOR
+												// CONTROLADOR
 	{
 		simulacionFinalizada = true;
 		notifyAll();

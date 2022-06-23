@@ -13,8 +13,15 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
+import entidades.Rubro_ComercioInternacional;
+import entidades.Rubro_ComercioLocal;
+import entidades.Rubro_Salud;
 import entidades.Simulacion_EmpleadoPretenso;
 import entidades.Simulacion_Empleador;
+import simulacion.Simulacion;
+import tablas.Locacion_HomeOffice;
+import tablas.Locacion_Indistinto;
+import tablas.Locacion_Presencial;
 import vista.IVentana;
 import vista.IVistaSimulacion;
 import vista.VistaSimulacion;
@@ -27,17 +34,9 @@ public class ControladorVistaSimulacion extends JFrame implements ActionListener
 	private final String VOLVER = "Volver";
 	private final String INICIAR = "Iniciar";
 	private final String DETENER = "Detener";
-	private JTextArea area = new JTextArea();
 	
 	protected ArrayList<Simulacion_EmpleadoPretenso> empleadosObservados = new ArrayList<Simulacion_EmpleadoPretenso>();
 	protected ArrayList<Simulacion_Empleador> empleadoresObservados = new ArrayList<Simulacion_Empleador>();
-	
-	public ControladorVistaSimulacion() { //esto no va, hay q agregarlo a la ventana, pero era pa probar
-		JScrollPane scroll=new JScrollPane(area);
-		this.getContentPane().add(scroll);
-		this.setVisible(true);
-		this.setSize(new Dimension(600,600));
-	}
 	
 	public ControladorVistaSimulacion(IVentana ventana, IVistaSimulacion vistaSimulacion) {
 		this.vista = vistaSimulacion;
@@ -57,11 +56,20 @@ public class ControladorVistaSimulacion extends JFrame implements ActionListener
 			break;
 		case INICIAR:
 			vista.setIniciarDisabled();
+			Simulacion.getInstancia().simulacion(this);
+			//this.vista.setTextArea_Empleadores(Simulacion.getInstancia().);
 			break;
 		case DETENER:
 			vista.setDetenerDisabled();
+			Simulacion.getInstancia().detener();
 			break;
 		}
+	}
+	
+	
+
+	public IVistaSimulacion getVista() {
+		return vista;
 	}
 
 	public void agregarObservable(Simulacion_Empleador empleador) {
@@ -89,20 +97,19 @@ public class ControladorVistaSimulacion extends JFrame implements ActionListener
 
 	@Override
 	public void update(Observable o, Object arg) {
-		
-	
-		VistaSimulacion v = (VistaSimulacion) this.vista;
+		//System.out.println(this.ventana);
+		//VistaSimulacion v = (VistaSimulacion) this.vista;
 		if(o.getClass() == Simulacion_Empleador.class) 
 		{
 			Simulacion_Empleador empleador = (Simulacion_Empleador) o;
-			//this.area.append((String) arg+"\n");
+			//this.vista.setTextArea_Empleadores((String)arg+"\n");
 		}else
 			if(o.getClass() == Simulacion_EmpleadoPretenso.class) 
 			{
 				Simulacion_EmpleadoPretenso empleado = (Simulacion_EmpleadoPretenso) o;
-				//this.area.append((String) arg+"\n");
-				v.getTextArea_EmpleadosPretensos().append((String) arg+"\n");
+				//this.vista.setTextArea_EmpleadosPretensos((String)arg+"\n");
 			}
+		this.vista.setTextArea_Consola((String) arg+"\n");
 	}
 	
 }

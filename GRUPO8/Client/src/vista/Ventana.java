@@ -138,4 +138,10 @@ public class Ventana extends JFrame implements IVentana {
 		this.setSize(posicion + 450,posicion + 400);
 		return VISTA_SIMULACION;
 	}
+
+	@Override
+	public String toString() {
+		return "Ventana []";
+	}
+	
 }
