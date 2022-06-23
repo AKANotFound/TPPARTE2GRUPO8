@@ -8,6 +8,7 @@ import javax.swing.JPanel;
 
 import entidades.Agencia;
 import entidades.FormularioDeBusqueda;
+import excepciones.ModificacionTicketInvalidaException;
 import tablas.CargaHoraria_Completa;
 import tablas.CargaHoraria_Extendida;
 import tablas.CargaHoraria_Media;
@@ -182,8 +183,17 @@ public class ControladorVistaFormularioDeBusquedaEmpleador implements ActionList
 			
 			FormularioDeBusqueda form=new FormularioDeBusqueda(locacion,remuneracion,
 					cargaHoraria,tipoDePuesto,rangoEtario,experienciaPrevia,estudiosCursados);
-			
+			if (this.vista.CrearTicket())
 			Agencia.getInstancia().getFuncEmpleadorActual().crearTicket(form, vista.getCantidadEmpleadosSolicitados());
+			else
+				try
+				{
+					Agencia.getInstancia().getFuncEmpleadorActual().modificarTicket_Formulario(form);
+				} catch (ModificacionTicketInvalidaException e1)
+				{
+					
+					this.vista.ventanaEmergente(e1.getMessage());
+				}
 			cl.show(contentPane, ventana.getVistaGestionTicketPersona());
 			
 			break;

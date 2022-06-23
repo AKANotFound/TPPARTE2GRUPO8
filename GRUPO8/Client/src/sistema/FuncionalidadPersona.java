@@ -25,7 +25,7 @@ public abstract class FuncionalidadPersona extends FuncionalidadUsuario{
 		   persona.getTicket().cancelar(); 
 	   }
 	   
-	   void modificarTicket_Formulario(FormularioDeBusqueda form) throws ModificacionTicketInvalidaException
+	  public void modificarTicket_Formulario(FormularioDeBusqueda form) throws ModificacionTicketInvalidaException
 	   {
 		   persona.getTicket().modificarTicket_Formulario(form);  
 	   }
