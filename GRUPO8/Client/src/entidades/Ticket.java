@@ -3,6 +3,7 @@ package entidades;
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
 
+import excepciones.CambioDeEstadoFallidoException;
 import excepciones.ModificacionTicketInvalidaException;
 import patronState.ActivoState;
 import patronState.IState;
@@ -31,12 +32,12 @@ public abstract class Ticket {
 		return estado;
 	}
 
-	public void suspender()
+	public void suspender() throws CambioDeEstadoFallidoException
 	   {
 		  this.estado.suspender();
 		  
 	   }
-	   public void cancelar()
+	   public void cancelar() throws CambioDeEstadoFallidoException
 	   {
 		  this.estado.cancelar();
 	   }
@@ -68,7 +69,7 @@ public abstract class Ticket {
 		this.estado.seteaResultado(empleadoElegido);
 	}
 	
-	public void activar()
+	public void activar() throws CambioDeEstadoFallidoException
 	{
 		this.estado.activar();
 	}

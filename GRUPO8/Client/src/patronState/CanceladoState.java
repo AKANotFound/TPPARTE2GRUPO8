@@ -10,6 +10,7 @@ import entidades.Persona_EmpleadoPretenso;
 import entidades.Persona_Empleador;
 import entidades.Ticket;
 import entidades.Usuario;
+import excepciones.CambioDeEstadoFallidoException;
 import excepciones.ModificacionTicketInvalidaException;
 import sistema.Sistema;
 
@@ -36,18 +37,18 @@ public class CanceladoState implements IState
 	}
 	
 	@Override
-	public void suspender()
+	public void suspender() throws CambioDeEstadoFallidoException
 	{
 		 
-		//un ticket cancelado no se puede suspender
+		throw new CambioDeEstadoFallidoException("No se puede suspender un ticket cancelado");
 
 	}
 
 	@Override
-	public void cancelar()
+	public void cancelar() throws CambioDeEstadoFallidoException
 	{
 		
-		//un ticket cancelado no se puede cancelar
+		throw new CambioDeEstadoFallidoException("No se puede cancelar un ticket cancelado");
 
 	}
 
@@ -63,7 +64,7 @@ public class CanceladoState implements IState
 	public void modificarTicket_Formulario( FormularioDeBusqueda form)throws ModificacionTicketInvalidaException
 	{
 		
-	 throw new ModificacionTicketInvalidaException("no se puede modificar un ticket cancelado");
+	 throw new ModificacionTicketInvalidaException("No se puede modificar un ticket cancelado");
 		
 	}
 
@@ -98,9 +99,9 @@ public class CanceladoState implements IState
 	}
 
 	@Override
-	public void activar()
+	public void activar() throws CambioDeEstadoFallidoException
 	{
-		// TODO Auto-generated method stub
+		throw new CambioDeEstadoFallidoException("No se puede activar un ticket cancelado");
 		
 	}
 

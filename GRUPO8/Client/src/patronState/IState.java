@@ -8,13 +8,14 @@ import entidades.Persona;
 import entidades.Persona_EmpleadoPretenso;
 import entidades.Persona_Empleador;
 import entidades.Usuario;
+import excepciones.CambioDeEstadoFallidoException;
 import excepciones.ModificacionTicketInvalidaException;
 
 public interface IState
 {
-	void activar();
-	void suspender();
-	void cancelar();
+	void activar()throws CambioDeEstadoFallidoException;
+	void suspender()throws CambioDeEstadoFallidoException;
+	void cancelar()throws CambioDeEstadoFallidoException;
 	void finalizar();
 	void modificarTicket_Formulario(FormularioDeBusqueda form)throws ModificacionTicketInvalidaException;
 	void comparaFormularioEmpleador(Persona_Empleador empleador,Persona_EmpleadoPretenso empleadoP,GregorianCalendar fecha,ArrayList<Persona_EmpleadoPretenso>empleadosPretensos);

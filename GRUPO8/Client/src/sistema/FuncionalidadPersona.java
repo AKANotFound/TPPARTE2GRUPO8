@@ -4,6 +4,7 @@ import entidades.FormularioDeBusqueda;
 import entidades.ListaDeAsignacion;
 import entidades.Persona;
 import entidades.Ticket;
+import excepciones.CambioDeEstadoFallidoException;
 import excepciones.ListaNoGeneradaException;
 import excepciones.ModificacionTicketInvalidaException;
 
@@ -14,12 +15,12 @@ public abstract class FuncionalidadPersona extends FuncionalidadUsuario{
 		super(persona);
 	}
 
-	public void suspenderTicket()
+	public void suspenderTicket() throws CambioDeEstadoFallidoException
 	   {
 		  persona.getTicket().suspender();
 		  
 	   }
-	   public void cancelarTicket()
+	   public void cancelarTicket() throws CambioDeEstadoFallidoException
 	   {
 		   persona.getTicket().cancelar(); 
 	   }
@@ -29,7 +30,7 @@ public abstract class FuncionalidadPersona extends FuncionalidadUsuario{
 		   persona.getTicket().modificarTicket_Formulario(form);  
 	   }
 	
-	public void activarTicket()
+	public void activarTicket() throws CambioDeEstadoFallidoException
 	{
 		persona.getTicket().activar();
 	}

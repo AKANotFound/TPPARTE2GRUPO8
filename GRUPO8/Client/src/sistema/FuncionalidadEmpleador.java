@@ -3,6 +3,7 @@ package sistema;
 import entidades.FormularioDeBusqueda;
 import entidades.Persona;
 import entidades.Persona_Empleador;
+import excepciones.CambioDeEstadoFallidoException;
 import excepciones.ModificacionTicketInvalidaException;
 
 public class FuncionalidadEmpleador extends FuncionalidadPersona {	
@@ -44,7 +45,7 @@ public class FuncionalidadEmpleador extends FuncionalidadPersona {
 	}
 	
 	@Override
-	public void cancelarTicket()  {
+	public void cancelarTicket() throws CambioDeEstadoFallidoException  {
 		super.cancelarTicket();
 		Sistema.calculaComision((Persona_Empleador) usuario);
 	}

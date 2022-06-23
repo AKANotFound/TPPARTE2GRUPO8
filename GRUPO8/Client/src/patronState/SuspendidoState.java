@@ -10,6 +10,7 @@ import entidades.Persona_EmpleadoPretenso;
 import entidades.Persona_Empleador;
 import entidades.Ticket;
 import entidades.Usuario;
+import excepciones.CambioDeEstadoFallidoException;
 
 public class SuspendidoState implements IState
 {
@@ -25,9 +26,9 @@ public class SuspendidoState implements IState
 	}
 
 	@Override
-	public void suspender()
+	public void suspender()throws CambioDeEstadoFallidoException
 	{
-		 
+		throw new CambioDeEstadoFallidoException("No se puede suspender un ticket suspendido");
 
 	}
 
@@ -35,14 +36,14 @@ public class SuspendidoState implements IState
 	public void cancelar()
 	{
 		
-		this.ticket.setEstado(new SuspendidoState(this.ticket));
+		this.ticket.setEstado(new CanceladoState(this.ticket));
 
 	}
 
 	@Override
 	public void finalizar()
 	{
-		//un ticket suspendido no se puede finalizar
+		
 
 	}
 

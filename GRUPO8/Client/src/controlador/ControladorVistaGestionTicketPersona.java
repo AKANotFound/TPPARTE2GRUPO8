@@ -7,6 +7,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JPanel;
 
 import entidades.Agencia;
+import excepciones.CambioDeEstadoFallidoException;
 import vista.IVentana;
 import vista.IVistaGestionTicketPersona;
 
@@ -39,27 +40,53 @@ public class ControladorVistaGestionTicketPersona implements ActionListener {
 			switch(Agencia.getInstancia().getTipoUsuarioActual()) 
 			{
 			 case Agencia.EMPLEADOR:
-				Agencia.getInstancia().getFuncEmpleadorActual().activarTicket();
+				try
+				{
+					Agencia.getInstancia().getFuncEmpleadorActual().activarTicket();
+					this.vista.ventanaEmergente("Ticket activado exitosamente");
+				} catch (CambioDeEstadoFallidoException e1)
+				{
+					this.vista.ventanaEmergente(e1.getMessage());
+					
+				}
 				 break;
 			 case Agencia.EMPLEADO_PRETENSO:
-				Agencia.getInstancia().getFuncEmpleadoPretensoActual().activarTicket();
+				try
+				{
+					Agencia.getInstancia().getFuncEmpleadoPretensoActual().activarTicket();
+					this.vista.ventanaEmergente("Ticket activado exitosamente");
+				} catch (CambioDeEstadoFallidoException e1)
+				{
+					this.vista.ventanaEmergente(e1.getMessage());
+				}
 				 break;
 			}
-			//SI ESTA FINALIZADO O CANCELADO Y SE TOCA ACTIVAR SALE EL CARTEL Y NO DEBERIA
-			this.vista.ventanaEmergente("ticket activado exitosamente");
+
 			break;
 		case CANCELAR:
 			switch(Agencia.getInstancia().getTipoUsuarioActual()) 
 			{
 			 case Agencia.EMPLEADOR:
-				Agencia.getInstancia().getFuncEmpleadorActual().cancelarTicket();
+				try
+				{
+					Agencia.getInstancia().getFuncEmpleadorActual().cancelarTicket();
+					this.vista.ventanaEmergente("Ticket cancelado exitosamente");
+				} catch (CambioDeEstadoFallidoException e1)
+				{
+					this.vista.ventanaEmergente(e1.getMessage());
+				}
 				 break;
 			 case Agencia.EMPLEADO_PRETENSO:
-				Agencia.getInstancia().getFuncEmpleadoPretensoActual().cancelarTicket();
+				try
+				{
+					Agencia.getInstancia().getFuncEmpleadoPretensoActual().cancelarTicket();
+					this.vista.ventanaEmergente("Ticket cancelado exitosamente");
+				} catch (CambioDeEstadoFallidoException e1)
+				{
+					this.vista.ventanaEmergente(e1.getMessage());
+				}
 				 break;
 			}
-			//SI ESTA FINALIZADO NO DEBERIA APARECER ESTO
-			this.vista.ventanaEmergente("ticket cancelado exitosamente");
 			break;
 		case CREAR:
 			if(Agencia.getInstancia().getTipoUsuarioActual().equals(Agencia.EMPLEADOR)) {
@@ -73,14 +100,27 @@ public class ControladorVistaGestionTicketPersona implements ActionListener {
 			switch(Agencia.getInstancia().getTipoUsuarioActual()) 
 			{
 			 case Agencia.EMPLEADOR:
-				Agencia.getInstancia().getFuncEmpleadorActual().cancelarTicket();
+				try
+				{
+					Agencia.getInstancia().getFuncEmpleadorActual().suspenderTicket();
+					this.vista.ventanaEmergente("Ticket suspendido exitosamente");
+					
+				} catch (CambioDeEstadoFallidoException e1)
+				{
+					this.vista.ventanaEmergente(e1.getMessage());
+				}
 				 break;
 			 case Agencia.EMPLEADO_PRETENSO:
-				Agencia.getInstancia().getFuncEmpleadoPretensoActual().cancelarTicket();
+				try
+				{
+					Agencia.getInstancia().getFuncEmpleadoPretensoActual().suspenderTicket();
+					this.vista.ventanaEmergente("Ticket suspendido exitosamente");
+				} catch (CambioDeEstadoFallidoException e1)
+				{
+					this.vista.ventanaEmergente(e1.getMessage());
+				}
 				 break;
 			}
-			//SI ESTA FINALIZADO O CANCELADO NO DEBERIA APARECER ESTO
-			this.vista.ventanaEmergente("ticket cancelado exitosamente");
 			break;
 		case VOLVER:
 			cl.show(contentPane, ventana.getVistaFuncionalidadesPersona());	

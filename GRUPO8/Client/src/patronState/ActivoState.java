@@ -13,6 +13,7 @@ import entidades.Persona_Empleador;
 import entidades.Ticket;
 import entidades.Ticket_EmpleadoPretenso;
 import entidades.Usuario;
+import excepciones.CambioDeEstadoFallidoException;
 import excepciones.ModificacionTicketInvalidaException;
 import sistema.Sistema;
 
@@ -142,9 +143,9 @@ public class ActivoState implements IState
 
 
 	@Override
-	public void activar()
+	public void activar() throws CambioDeEstadoFallidoException
 	{
-		
+		throw new CambioDeEstadoFallidoException("No se puede activar un ticket activo");
 		
 	}
 
