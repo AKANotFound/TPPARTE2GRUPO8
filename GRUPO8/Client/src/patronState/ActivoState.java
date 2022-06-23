@@ -1,6 +1,7 @@
 package patronState;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.GregorianCalendar;
 
 import entidades.Agencia;
@@ -121,6 +122,11 @@ public class ActivoState implements IState
 		empleador.getListaDeAsignacion().getLista().add(new PersonaElegida(empleadoP,puntajeDeContratacion));
 		empleadoP.getListaDeAsignacion().getLista().add(new PersonaElegida(empleador,puntajeDeContratacion));
 	
+		Collections.sort(empleador.getListaDeAsignacion().getLista()); 	
+		empleadoP = (Persona_EmpleadoPretenso) empleador.getListaDeAsignacion().getLista().get(0).getPersona();
+		Sistema.puntajePrimero(empleadoP);
+		empleadoP = (Persona_EmpleadoPretenso) empleador.getListaDeAsignacion().getLista().get(empleador.getListaDeAsignacion().getLista().size()-1).getPersona();
+		Sistema.puntajeUltimo(empleadoP);
 		
 	}
 

@@ -269,11 +269,11 @@ public abstract class Sistema {
 		empleadoPretenso.setPuntaje(empleadoPretenso.getPuntaje() - 1);
 	}
 	
-	static void puntajeUltimo(Persona_EmpleadoPretenso empleadoPretenso) {
+	public static void puntajeUltimo(Persona_EmpleadoPretenso empleadoPretenso) {
 		empleadoPretenso.setPuntaje(empleadoPretenso.getPuntaje() - 5);
 	}
 
-	static void puntajePrimero(Persona_EmpleadoPretenso empleadoPretenso) {
+	public static void puntajePrimero(Persona_EmpleadoPretenso empleadoPretenso) {
 		empleadoPretenso.setPuntaje(empleadoPretenso.getPuntaje() + 5);
 	}
 
