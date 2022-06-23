@@ -67,6 +67,21 @@ public abstract class Sistema {
 		Agencia.getInstancia().setTipoUsuarioActual(null);
 	}
 	
+	public static void cerrarSesion() {
+		switch(Agencia.getInstancia().getTipoUsuarioActual()) {
+		case Agencia.ADMINISTRADOR:
+			Agencia.getInstancia().setFuncAdministradorActual(null);
+			break;
+		case Agencia.EMPLEADOR:
+			Agencia.getInstancia().setFuncEmpleadorActual(null);
+			break;
+		case Agencia.EMPLEADO_PRETENSO:
+			Agencia.getInstancia().setFuncEmpleadoPretensoActual(null);
+			break;
+		}
+		Agencia.getInstancia().setTipoUsuarioActual(null);
+	}
+	
 	public static void registrarEmpleador(String usuario, String contrasena, String razonSocial, String tipoPersona, IRubro rubro,double[] puntajeAspectos) throws TipoPersonaInvalidoException {
 		if (!tipoPersona.equalsIgnoreCase("fisica") && !tipoPersona.equalsIgnoreCase("juridica"))
 			throw new TipoPersonaInvalidoException(tipoPersona);

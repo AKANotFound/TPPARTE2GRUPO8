@@ -5,17 +5,15 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import entidades.Agencia;
 import entidades.PersonaElegida;
 import entidades.Persona_EmpleadoPretenso;
 import entidades.Persona_Empleador;
+import sistema.Sistema;
 import vista.IVentana;
 import vista.IVistaFuncionalidadesPersona;
-import vista.Ventana;
 
 public class ControladorVistaFuncionalidadesPersona implements ActionListener {
 	private IVistaFuncionalidadesPersona vista = null;
@@ -45,8 +43,8 @@ public class ControladorVistaFuncionalidadesPersona implements ActionListener {
 		
 		ArrayList<PersonaElegida> personasElegidas = this.vista.getPersonasElegidas();
 		
-		if(comando.equals(ACEPTAR_ELECCION))
-		{
+		switch(comando) {
+		case ACEPTAR_ELECCION:
 			switch(Agencia.getInstancia().getTipoUsuarioActual()) {
 			case Agencia.EMPLEADOR:
 				Persona_Empleador empleador = (Persona_Empleador) Agencia.getInstancia().getFuncEmpleadorActual().getUsuario();
@@ -62,23 +60,23 @@ public class ControladorVistaFuncionalidadesPersona implements ActionListener {
 				}
 			}
 			//NO SE USA LA CLASE INICIAR RONDA DE ELECCIONES
-		}
-		else if(comando.equals(BORRAR_CUENTA)) {
+			break;
+		case BORRAR_CUENTA:
 			int result =this.vista.ventanaEmergenteConfirmar("¿Estás seguro de que deseas eliminar tu cuenta?");
 	        if (result == 0) 
 	        {
 	        	Agencia.getInstancia().getUsuarios().remove(Agencia.getInstancia().getTipoUsuarioActual());
 	        	cl.show(contentPane, ventana.getVistaInicial());
 	        }
-		}
-		else if(comando.equals(CERRAR_SESION)) {
-			Agencia.getInstancia().setTipoUsuarioActual("");
+	        break;
+		case CERRAR_SESION:
+			Sistema.cerrarSesion();
 			cl.show(contentPane, ventana.getVistaInicial());
-		}
-		else if(comando.equals(GESTION_DE_TICKET)) {
+			break;
+		case GESTION_DE_TICKET:
 			cl.show(contentPane, ventana.getVistaGestionTicketPersona());
-		}
-		else if(comando.equals(INICIAR_RONDA_DE_ELECCION)) {
+			break;
+		case INICIAR_RONDA_DE_ELECCION:
 			switch(Agencia.getInstancia().getTipoUsuarioActual()) {
 			case Agencia.EMPLEADOR:
 				vista.visualizarListaDeAsignacion(Agencia.getInstancia().getFuncEmpleadorActual().getListaDeAsignacion());
@@ -87,8 +85,8 @@ public class ControladorVistaFuncionalidadesPersona implements ActionListener {
 				vista.visualizarListaDeAsignacion(Agencia.getInstancia().getFuncEmpleadoPretensoActual().getListaDeAsignacion());
 				break;
 			}
-		}
-		else if(comando.equals(VISUALIZAR_PERSONAS_ELEGIDAS)) {
+			break;
+		case VISUALIZAR_PERSONAS_ELEGIDAS:
 			switch(Agencia.getInstancia().getTipoUsuarioActual()) {
 			case Agencia.EMPLEADOR:
 				vista.setTextVista(Agencia.getInstancia().getFuncEmpleadorActual().visualizarPersonasElegidas());
@@ -97,8 +95,8 @@ public class ControladorVistaFuncionalidadesPersona implements ActionListener {
 				vista.setTextVista(Agencia.getInstancia().getFuncEmpleadoPretensoActual().visualizarPersonasElegidas());
 				break;
 			}
-		}
-		else if(comando.equals(VISUALIZAR_RESULTADO)) {
+			break;
+		case VISUALIZAR_RESULTADO:
 			switch(Agencia.getInstancia().getTipoUsuarioActual()) {
 			case Agencia.EMPLEADOR:
 				vista.setTextVista(Agencia.getInstancia().getFuncEmpleadorActual().visualizaResultado());
@@ -107,6 +105,7 @@ public class ControladorVistaFuncionalidadesPersona implements ActionListener {
 				vista.setTextVista(Agencia.getInstancia().getFuncEmpleadoPretensoActual().visualizaResultado());
 				break;
 			}
+			break;
 		}
 	}
 	
