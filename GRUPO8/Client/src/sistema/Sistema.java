@@ -30,7 +30,6 @@ public abstract class Sistema {
 	
 	private static ArrayList<Persona_EmpleadoPretenso> empleadosPretensos = Agencia.getInstancia().getEmpleadosPretensos();
 	private static ArrayList<Persona_Empleador> empleadores = Agencia.getInstancia().getEmpleadores();
-	private static ArrayList<Cuenta> logins = Agencia.getInstancia().getLogins();
 	private static ArrayList<Contrato> contratos = Agencia.getInstancia().getContratos();
 	private static HashMap <String, Usuario> usuarios = Agencia.getInstancia().getUsuarios();
 	private static boolean InicioRondaEncuentrosLaborales=false;
@@ -46,6 +45,27 @@ public abstract class Sistema {
 	 * <b>Post: </b> Crea un empleador y su cuenta, lo agrega en la lista donde se preservan a todos los empleadores. Se llama el metodo que agrega la cuenta al hashmap de usuarios.
 	 * @throws TipoPersonaInvalidoException <br>
 	 */
+	
+	public static void borrarCuenta() {
+		String usuario = null;
+		
+		switch(Agencia.getInstancia().getTipoUsuarioActual()) {
+		case Agencia.ADMINISTRADOR:
+			usuario = Agencia.getInstancia().getFuncAdministradorActual().getUsuario().getCuenta().getUsuario();
+			Agencia.getInstancia().setFuncAdministradorActual(null);
+			break;
+		case Agencia.EMPLEADOR:
+			usuario = Agencia.getInstancia().getFuncEmpleadorActual().getUsuario().getCuenta().getUsuario();
+			Agencia.getInstancia().setFuncEmpleadorActual(null);
+			break;
+		case Agencia.EMPLEADO_PRETENSO:
+			usuario = Agencia.getInstancia().getFuncEmpleadoPretensoActual().getUsuario().getCuenta().getUsuario();
+			Agencia.getInstancia().setFuncEmpleadoPretensoActual(null);
+			break;
+		}
+		Agencia.getInstancia().getUsuarios().remove(usuario);
+		Agencia.getInstancia().setTipoUsuarioActual(null);
+	}
 	
 	public static void registrarEmpleador(String usuario, String contrasena, String razonSocial, String tipoPersona, IRubro rubro,double[] puntajeAspectos) throws TipoPersonaInvalidoException {
 		if (!tipoPersona.equalsIgnoreCase("fisica") && !tipoPersona.equalsIgnoreCase("juridica"))
@@ -91,8 +111,6 @@ public abstract class Sistema {
 		
         if(cuenta!= null) {
         	if(cuenta.confirmaContrasena(contrasena)) {
-        		if(!(logins.contains(cuenta)))
-        			logins.add(cuenta);
         		funcionalidadEmpleador = new FuncionalidadEmpleador((Persona_Empleador) usuario);		       		
         	}
         	else
@@ -120,8 +138,6 @@ public abstract class Sistema {
 		
         if(cuenta!= null) {
         	if(cuenta.confirmaContrasena(contrasena)) {
-        		if(!(logins.contains(cuenta)))
-        			logins.add(cuenta);
         		funcionalidadEmpleadoPretenso = new FuncionalidadEmpleadoPretenso((Persona_EmpleadoPretenso) usuario);		       		
         	}
         	else
@@ -141,8 +157,6 @@ public abstract class Sistema {
 		
         if(cuenta!= null) {
         	if(cuenta.confirmaContrasena(contrasena)) {
-        		if(!(logins.contains(cuenta)))
-        			logins.add(cuenta);
         		funcionalidadAdministrador = new FuncionalidadAdministrador(usuario);		       		
         	}
         	else

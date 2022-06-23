@@ -34,7 +34,6 @@ import tablas.TipoDePuesto_Management;
 import tablas.TipoDePuesto_Senior;
 import vista.IVentana;
 import vista.IVistaFormularioDeBusquedaEmpleador;
-import vista.Ventana;
 
 
 

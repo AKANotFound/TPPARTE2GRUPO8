@@ -9,6 +9,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JPanel;
 
 import entidades.Agencia;
+import sistema.Sistema;
 import vista.IVentana;
 import vista.IVistaFuncionalidadesAdministrador;
 
@@ -60,7 +61,7 @@ public class ControladorVistaFuncionalidadesAdministrador implements ActionListe
 				int result =this.vista.ventanaEmergenteConfirmar("¿Estás seguro de que deseas eliminar tu cuenta?"); 
 		        if (result == 0) 
 		        {
-		        	Agencia.getInstancia().getUsuarios().remove(Agencia.getInstancia().getUsuarioActual());
+		        	Sistema.borrarCuenta();
 		        	cl.show(contentPane, ventana.getVistaInicial());
 		        }
 			}
@@ -111,15 +112,10 @@ public class ControladorVistaFuncionalidadesAdministrador implements ActionListe
 											this.vista.setTextVista(Agencia.getInstancia().getFuncAdministradorActual().visualizarCuentas());
 										}
 										else
-											if (comando.equals(VISUALIZAR_LOGINS))
+											if (comando.equals(VISUALIZAR_CONTRATOS))
 											{
-												this.vista.setTextVista(Agencia.getInstancia().getFuncAdministradorActual().visualizarLogins());
+												this.vista.setTextVista(Agencia.getInstancia().getFuncAdministradorActual().visualizarContratos());
 											}
-											else
-												if (comando.equals(VISUALIZAR_CONTRATOS))
-												{
-													this.vista.setTextVista(Agencia.getInstancia().getFuncAdministradorActual().visualizarContratos());
-												}
 	}
 
 }

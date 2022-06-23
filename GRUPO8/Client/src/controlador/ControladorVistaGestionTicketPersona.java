@@ -37,7 +37,7 @@ public class ControladorVistaGestionTicketPersona implements ActionListener {
 		String comando = e.getActionCommand();
 		
 		if(comando.equals(ACTIVAR)) { 
-			switch(Agencia.getInstancia().getUsuarioActual()) 
+			switch(Agencia.getInstancia().getTipoUsuarioActual()) 
 			{
 			 case Agencia.EMPLEADOR:
 				Agencia.getInstancia().getFuncEmpleadorActual().activarTicket();
@@ -50,7 +50,7 @@ public class ControladorVistaGestionTicketPersona implements ActionListener {
 			this.vista.ventanaEmergente("ticket activado exitosamente");
 		}
 		else if(comando.equals(CANCELAR)) {
-			switch(Agencia.getInstancia().getUsuarioActual()) 
+			switch(Agencia.getInstancia().getTipoUsuarioActual()) 
 			{
 			 case Agencia.EMPLEADOR:
 				Agencia.getInstancia().getFuncEmpleadorActual().cancelarTicket();
@@ -63,16 +63,16 @@ public class ControladorVistaGestionTicketPersona implements ActionListener {
 			this.vista.ventanaEmergente("ticket cancelado exitosamente");
 		}
 		else if(comando.equals(CREAR)) {
-			if(Agencia.getInstancia().getUsuarioActual().equals(Agencia.EMPLEADOR)) {
+			if(Agencia.getInstancia().getTipoUsuarioActual().equals(Agencia.EMPLEADOR)) {
 				cl.show(contentPane, ventana.getVistaFormularioDeBusquedaEmpleador());				
 			}
-			else if(Agencia.getInstancia().getUsuarioActual().equals(Agencia.EMPLEADO_PRETENSO)){
+			else if(Agencia.getInstancia().getTipoUsuarioActual().equals(Agencia.EMPLEADO_PRETENSO)){
 				cl.show(contentPane, ventana.getVistaFormularioDeBusquedaEmpleadoPretenso());				
 			}
 		
 		}
 		else if(comando.equals(SUSPENDER)) {
-			switch(Agencia.getInstancia().getUsuarioActual()) 
+			switch(Agencia.getInstancia().getTipoUsuarioActual()) 
 			{
 			 case Agencia.EMPLEADOR:
 				Agencia.getInstancia().getFuncEmpleadorActual().cancelarTicket();

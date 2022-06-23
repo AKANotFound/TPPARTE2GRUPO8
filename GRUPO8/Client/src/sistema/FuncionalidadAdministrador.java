@@ -50,10 +50,6 @@ public class FuncionalidadAdministrador extends FuncionalidadUsuario{
 		return ""+Agencia.getInstancia().getUsuarios();
 	}
 	
-	public String visualizarLogins() {
-		return ""+Agencia.getInstancia().getLogins();
-	}
-	
 	public String visualizarContratos() {
 		return ""+Agencia.getInstancia().getContratos();
 	}

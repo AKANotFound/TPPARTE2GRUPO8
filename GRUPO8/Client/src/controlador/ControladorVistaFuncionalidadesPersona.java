@@ -52,19 +52,19 @@ public class ControladorVistaFuncionalidadesPersona implements ActionListener {
 			int result =this.vista.ventanaEmergenteConfirmar("¿Estás seguro de que deseas eliminar tu cuenta?");
 	        if (result == 0) 
 	        {
-	        	Agencia.getInstancia().getUsuarios().remove(Agencia.getInstancia().getUsuarioActual());
+	        	Agencia.getInstancia().getUsuarios().remove(Agencia.getInstancia().getTipoUsuarioActual());
 	        	cl.show(contentPane, ventana.getVistaInicial());
 	        }
 		}
 		else if(comando.equals(CERRAR_SESION)) {
-			Agencia.getInstancia().setUsuarioActual("");
+			Agencia.getInstancia().setTipoUsuarioActual("");
 			cl.show(contentPane, ventana.getVistaInicial());
 		}
 		else if(comando.equals(GESTION_DE_TICKET)) {
 			cl.show(contentPane, ventana.getVistaGestionTicketPersona());
 		}
 		else if(comando.equals(INICIAR_RONDA_DE_ELECCION)) {
-			switch(Agencia.getInstancia().getUsuarioActual()) {
+			switch(Agencia.getInstancia().getTipoUsuarioActual()) {
 			case Agencia.EMPLEADOR:
 				vista.visualizarListaDeAsignacion(Agencia.getInstancia().getFuncEmpleadorActual().getListaDeAsignacion());
 				break;
@@ -74,7 +74,7 @@ public class ControladorVistaFuncionalidadesPersona implements ActionListener {
 			}
 		}
 		else if(comando.equals(VISUALIZAR_PERSONAS_ELEGIDAS)) {
-			switch(Agencia.getInstancia().getUsuarioActual()) {
+			switch(Agencia.getInstancia().getTipoUsuarioActual()) {
 			case Agencia.EMPLEADOR:
 				vista.setTextVista(Agencia.getInstancia().getFuncEmpleadorActual().visualizarPersonasElegidas());
 				break;
@@ -84,7 +84,7 @@ public class ControladorVistaFuncionalidadesPersona implements ActionListener {
 			}
 		}
 		else if(comando.equals(VISUALIZAR_RESULTADO)) {
-			switch(Agencia.getInstancia().getUsuarioActual()) {
+			switch(Agencia.getInstancia().getTipoUsuarioActual()) {
 			case Agencia.EMPLEADOR:
 				vista.setTextVista(Agencia.getInstancia().getFuncEmpleadorActual().visualizaResultado());
 				break;

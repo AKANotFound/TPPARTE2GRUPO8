@@ -62,7 +62,7 @@ public class ControladorVistaInicial implements ActionListener {
 			{
 				switch(this.vista.getTipoUsuario())
 				{
-				  case Agencia.ADMINISTRADOR:Agencia.getInstancia().setUsuarioActual(Agencia.ADMINISTRADOR);
+				  case Agencia.ADMINISTRADOR:Agencia.getInstancia().setTipoUsuarioActual(Agencia.ADMINISTRADOR);
 				  	FuncionalidadAdministrador loginAdministrador = null;
 				  	try {
 						loginAdministrador = Sistema.loginAdministrador(vista.getUsuario(), vista.getContrasena());
@@ -79,7 +79,7 @@ public class ControladorVistaInicial implements ActionListener {
 					Agencia.getInstancia().setFuncAdministradorActual(loginAdministrador);
 					break;
 					
-				  case Agencia.EMPLEADOR:Agencia.getInstancia().setUsuarioActual(Agencia.EMPLEADOR);
+				  case Agencia.EMPLEADOR:Agencia.getInstancia().setTipoUsuarioActual(Agencia.EMPLEADOR);
 				  	FuncionalidadEmpleador loginEmpleador = null;
 				  	try {
 						loginEmpleador = Sistema.loginEmpleador(vista.getUsuario(), vista.getContrasena());
@@ -96,7 +96,7 @@ public class ControladorVistaInicial implements ActionListener {
 					Agencia.getInstancia().setFuncEmpleadorActual(loginEmpleador);
 				    break;
 				    
-				  case Agencia.EMPLEADO_PRETENSO:Agencia.getInstancia().setUsuarioActual(Agencia.EMPLEADO_PRETENSO);
+				  case Agencia.EMPLEADO_PRETENSO:Agencia.getInstancia().setTipoUsuarioActual(Agencia.EMPLEADO_PRETENSO);
 				  	FuncionalidadEmpleadoPretenso loginEmpleadoPretenso = null;
 				  	try {
 						loginEmpleadoPretenso = Sistema.loginEmpleadoPretenso(vista.getUsuario(), vista.getContrasena());

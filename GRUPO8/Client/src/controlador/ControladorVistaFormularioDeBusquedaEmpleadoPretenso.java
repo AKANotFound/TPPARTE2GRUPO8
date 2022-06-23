@@ -34,7 +34,6 @@ import tablas.TipoDePuesto_Management;
 import tablas.TipoDePuesto_Senior;
 import vista.IVentana;
 import vista.IVistaFormularioDeBusquedaEmpleadoPretenso;
-import vista.Ventana;
 
 public class ControladorVistaFormularioDeBusquedaEmpleadoPretenso implements ActionListener 
 {
