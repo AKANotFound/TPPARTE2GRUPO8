@@ -56,13 +56,13 @@ public class ControladorVistaInicial implements ActionListener {
 		case INICIAR_SESION:
 			
 			Persiste.getInstancia().leer();
-			System.out.println(Agencia.getInstancia().getUsuarios().get("tuvi"));
 			
 			if (!Agencia.getInstancia().getUsuarios().containsKey(this.vista.getUsuario()))
 				this.vista.ventanaEmergente("No existe la cuenta. Intente registrarse.");
 			else
 			{
-				switch(this.vista.getTipoUsuario())
+				String tipoUsuario = Agencia.getInstancia().getUsuarios().get(this.vista.getUsuario()).getCuenta().getTipoUsuario();
+				switch(tipoUsuario)
 				{
 				  case Agencia.ADMINISTRADOR:Agencia.getInstancia().setTipoUsuarioActual(Agencia.ADMINISTRADOR);
 				  	FuncionalidadAdministrador loginAdministrador = null;
