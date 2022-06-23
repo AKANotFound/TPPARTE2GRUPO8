@@ -9,6 +9,7 @@ import javax.swing.JPanel;
 import entidades.Agencia;
 import excepciones.ErrorContrasenaException;
 import excepciones.ErrorUsuarioException;
+import persistencia.Persiste;
 import sistema.FuncionalidadAdministrador;
 import sistema.FuncionalidadEmpleadoPretenso;
 import sistema.FuncionalidadEmpleador;
@@ -53,6 +54,10 @@ public class ControladorVistaInicial implements ActionListener {
 			}
 			break;
 		case INICIAR_SESION:
+			
+			Persiste.getInstancia().leer();
+			System.out.println(Agencia.getInstancia().getUsuarios().get("tuvi"));
+			
 			if (!Agencia.getInstancia().getUsuarios().containsKey(this.vista.getUsuario()))
 				this.vista.ventanaEmergente("No existe la cuenta. Intente registrarse.");
 			else
@@ -64,11 +69,11 @@ public class ControladorVistaInicial implements ActionListener {
 				  	try {
 						loginAdministrador = Sistema.loginAdministrador(vista.getUsuario(), vista.getContrasena());
 					} catch (ErrorContrasenaException e2) {
-						vista.ventanaEmergente("Contraseña errónea");
+						vista.ventanaEmergente("Contraseï¿½a errï¿½nea");
 						vista.limpiarVista();
 						e2.printStackTrace();
 					} catch (ErrorUsuarioException e2) {
-						vista.ventanaEmergente("Usuario erróneo");
+						vista.ventanaEmergente("Usuario errï¿½neo");
 						vista.limpiarVista();
 						e2.printStackTrace();
 					}
@@ -81,11 +86,11 @@ public class ControladorVistaInicial implements ActionListener {
 				  	try {
 						loginEmpleador = Sistema.loginEmpleador(vista.getUsuario(), vista.getContrasena());
 					} catch (ErrorContrasenaException e1) {
-						vista.ventanaEmergente("Contraseña errónea");
+						vista.ventanaEmergente("Contraseï¿½a errï¿½nea");
 						vista.limpiarVista();
 						e1.printStackTrace();
 					} catch (ErrorUsuarioException e1) {
-						vista.ventanaEmergente("Usuario erróneo");
+						vista.ventanaEmergente("Usuario errï¿½neo");
 						vista.limpiarVista();
 						e1.printStackTrace();
 					}
@@ -98,18 +103,18 @@ public class ControladorVistaInicial implements ActionListener {
 				  	try {
 						loginEmpleadoPretenso = Sistema.loginEmpleadoPretenso(vista.getUsuario(), vista.getContrasena());
 					} catch (ErrorContrasenaException e1) {
-						vista.ventanaEmergente("Contraseña errónea");
+						vista.ventanaEmergente("Contraseï¿½a errï¿½nea");
 						vista.limpiarVista();
 						e1.printStackTrace();
 					} catch (ErrorUsuarioException e1) {
-						vista.ventanaEmergente("Usuario erróneo");
+						vista.ventanaEmergente("Usuario errï¿½neo");
 						vista.limpiarVista();
 						e1.printStackTrace();
 					}
 				  	Agencia.getInstancia().setFuncEmpleadoPretensoActual(loginEmpleadoPretenso);
 					cl.show(contentPane, ventana.getVistaFuncionalidadesPersona());		
 				  	break;
-				
+
 				}
 			}
 			break;

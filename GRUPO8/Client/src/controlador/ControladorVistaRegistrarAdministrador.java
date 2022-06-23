@@ -42,9 +42,10 @@ public class ControladorVistaRegistrarAdministrador implements ActionListener {
 				Sistema.registrarAdministrador(vista.getUsuario(), vista.getContrasena(), 
 						vista.getCodigoAdministrador());
 				cl.show(contentPane, ventana.getVistaInicial());
+				
 			} catch (ErrorCodigoException e1)
 			{
-				vista.ventanaEmergente("Código érroneo");
+				vista.ventanaEmergente("Cï¿½digo ï¿½rroneo");
 				e1.printStackTrace();
 			}			
 		}

@@ -7,6 +7,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JPanel;
 
 import excepciones.EdadInvalidaException;
+import persistencia.Persiste;
 import sistema.Sistema;
 import vista.IVentana;
 import vista.IVistaRegistrarEmpleadoPretenso;
@@ -41,6 +42,7 @@ public class ControladorVistaRegistrarEmpleadoPretenso implements ActionListener
 			{
 				Sistema.registrarEmpleadoPretenso(vista.getUsuario(),vista.getContrasena(),vista.getNya()
 						,vista.getTelefono(),vista.getEdad());
+				Persiste.getInstancia().persistir();
 				cl.show(contentPane, ventana.getVistaInicial());
 			} catch (EdadInvalidaException e1)
 			{

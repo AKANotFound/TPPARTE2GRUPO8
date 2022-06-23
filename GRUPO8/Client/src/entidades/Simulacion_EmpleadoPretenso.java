@@ -53,6 +53,14 @@ public class Simulacion_EmpleadoPretenso extends Persona_EmpleadoPretenso implem
 	public void setEstado(String estado) {
 		this.estado = estado;
 	}
+	
+	
+	
+	@Override
+	public String toString() {
+		
+		return this.getNya()+", locacion: " + this.locacionElegida.toString() + ", rubro: "+ this.rubroElegido.toString()+"\n";
+	}
 
 	@Override
 	public void run() {

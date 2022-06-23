@@ -1,5 +1,7 @@
 package simulacion;
 
+import java.util.ArrayList;
+
 import controlador.ControladorVistaSimulacion;
 import entidades.BolsaDeTrabajo;
 import entidades.Rubro_ComercioInternacional;
@@ -23,6 +25,7 @@ public class Simulacion {
     }
 
 	public void simulacion(ControladorVistaSimulacion c) {
+		
 		Rubro_ComercioLocal rubro_ComercioLocal = new Rubro_ComercioLocal();
 		Rubro_ComercioInternacional rubro_ComercioInternacional = new Rubro_ComercioInternacional();
 		Rubro_Salud rubro_Salud = new Rubro_Salud();
@@ -48,7 +51,8 @@ public class Simulacion {
 		Simulacion_Empleador e2 = new Simulacion_Empleador("Farmacity");
 		Simulacion_Empleador e3 = new Simulacion_Empleador("Musimundo");
 		Simulacion_Empleador e4 = new Simulacion_Empleador("Disco");
-
+		
+		
 		c.agregarObservable(ep1);
 		c.agregarObservable(ep2);
 		c.agregarObservable(ep3);
@@ -85,6 +89,8 @@ public class Simulacion {
 		
 		
 	}
+	
+	
 	
 	public void detener ()
 	{

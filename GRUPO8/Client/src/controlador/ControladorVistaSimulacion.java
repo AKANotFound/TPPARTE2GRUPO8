@@ -57,7 +57,8 @@ public class ControladorVistaSimulacion extends JFrame implements ActionListener
 		case INICIAR:
 			vista.setIniciarDisabled();
 			Simulacion.getInstancia().simulacion(this);
-			//this.vista.setTextArea_Empleadores(Simulacion.getInstancia().);
+			this.vista.setTextArea_Empleadores(this.empleadoresObservados.toString());
+			this.vista.setTextArea_EmpleadosPretensos(this.empleadosObservados.toString());
 			break;
 		case DETENER:
 			vista.setDetenerDisabled();
@@ -97,8 +98,7 @@ public class ControladorVistaSimulacion extends JFrame implements ActionListener
 
 	@Override
 	public void update(Observable o, Object arg) {
-		//System.out.println(this.ventana);
-		//VistaSimulacion v = (VistaSimulacion) this.vista;
+	
 		if(o.getClass() == Simulacion_Empleador.class) 
 		{
 			Simulacion_Empleador empleador = (Simulacion_Empleador) o;

@@ -73,6 +73,10 @@ public class Agencia {
 	public String getTipoUsuarioActual() {
 		return tipoUsuarioActual;
 	}
+	
+	public void setUsuarios(HashMap<String, Usuario> usuarios) {
+		this.usuarios = usuarios;
+	}
 
 	public void setTipoUsuarioActual(String tipoUsuarioActual) {
 		this.tipoUsuarioActual = tipoUsuarioActual;

@@ -10,7 +10,8 @@ public class Simulacion_Empleador extends Persona_Empleador implements Runnable 
 	
 	private BolsaDeTrabajo bolsaDeTrabajo;
 	private String estado = null;
-
+	
+	
 	public Simulacion_Empleador(String razonSocial) {
 		super(null, razonSocial, null, null, null);
 		bolsaDeTrabajo = BolsaDeTrabajo.getInstancia();
@@ -24,6 +25,13 @@ public class Simulacion_Empleador extends Persona_Empleador implements Runnable 
 	public void setEstado(String estado) {
 		this.estado = estado;
 	}
+	
+	
+	@Override
+	public String toString() {
+		
+		return this.getRazonSocial()+"\n";
+	}
 
 	@Override
 	public void run() {
@@ -31,7 +39,9 @@ public class Simulacion_Empleador extends Persona_Empleador implements Runnable 
 		IRubro rubro = null;
 		int opcion = 0;
 		TicketSimplificado ticketSimplificado=null;
-		for(int i = 0; i < 3; i++) {
+		int i = 0;
+		
+		while( i < 3 && bolsaDeTrabajo.isSimulacionFinalizada() == false) {
 			opcion = (int)(Math.random()*3+1);
 			
 			switch(opcion) {
@@ -60,6 +70,7 @@ public class Simulacion_Empleador extends Persona_Empleador implements Runnable 
 			this.setChanged();
 		    this.notifyObservers(this.estado);
 		    Util.espera(2000);
+		    i++;
 		}
 	}
 }
