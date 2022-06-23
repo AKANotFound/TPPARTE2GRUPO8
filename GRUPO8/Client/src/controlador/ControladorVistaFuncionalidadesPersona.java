@@ -61,6 +61,7 @@ public class ControladorVistaFuncionalidadesPersona implements ActionListener {
 					empleadoPretenso.setEmpleadorElegido(personaElegida);
 				}
 			}
+			//NO SE USA LA CLASE INICIAR RONDA DE ELECCIONES
 		}
 		else if(comando.equals(BORRAR_CUENTA)) {
 			int result =this.vista.ventanaEmergenteConfirmar("¿Estás seguro de que deseas eliminar tu cuenta?");
