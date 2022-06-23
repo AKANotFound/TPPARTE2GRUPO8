@@ -19,6 +19,7 @@ import javax.swing.border.TitledBorder;
 
 import entidades.ListaDeAsignacion;
 import entidades.PersonaElegida;
+import excepciones.ListaNoGeneradaException;
 
 public class VistaFuncionalidadesPersona extends JPanel implements IVistaFuncionalidadesPersona {
 	private JPanel panel_Centro;
@@ -191,7 +192,7 @@ public class VistaFuncionalidadesPersona extends JPanel implements IVistaFuncion
 	}
 
 	@Override
-	public ArrayList<PersonaElegida> getPersonasElegidas()
+	public ArrayList<PersonaElegida> getPersonasElegidas() throws ListaNoGeneradaException 
 	{
 		ArrayList<PersonaElegida>personasElegidas=null;
 		

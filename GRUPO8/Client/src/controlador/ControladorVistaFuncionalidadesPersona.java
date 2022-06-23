@@ -11,6 +11,7 @@ import entidades.Agencia;
 import entidades.PersonaElegida;
 import entidades.Persona_EmpleadoPretenso;
 import entidades.Persona_Empleador;
+import excepciones.ListaNoGeneradaException;
 import sistema.Sistema;
 import vista.IVentana;
 import vista.IVistaFuncionalidadesPersona;
@@ -46,11 +47,12 @@ public class ControladorVistaFuncionalidadesPersona implements ActionListener {
 		switch(comando) {
 		case ACEPTAR_ELECCION:
 			ArrayList<PersonaElegida> personasElegidas=null;
-			try{personasElegidas= this.vista.getPersonasElegidas();
+			try{
+				personasElegidas= this.vista.getPersonasElegidas();
 			
-			}catch(Exception exception)
+			}catch(ListaNoGeneradaException exception)
 			{
-				this.vista.ventanaEmergente("No existe elección");
+				this.vista.ventanaEmergente(exception.getMessage());
 			}
 			switch(Agencia.getInstancia().getTipoUsuarioActual()) {
 			case Agencia.EMPLEADOR:
