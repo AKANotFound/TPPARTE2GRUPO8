@@ -50,14 +50,18 @@ public class ControladorVistaSimulacion extends JFrame implements ActionListener
 	public void actionPerformed(ActionEvent e) {
 		CardLayout cl = (CardLayout) (contentPane.getLayout());
 		String comando = e.getActionCommand();
-		if (comando.equals(VOLVER)) {
+		
+		switch(comando) {
+		case VOLVER:
 			cl.show(contentPane, ventana.getVistaInicial());
-		} else if (comando.equals(INICIAR)) {
+			break;
+		case INICIAR:
 			vista.setIniciarDisabled();
-		} else if (comando.equals(DETENER)) {
+			break;
+		case DETENER:
 			vista.setDetenerDisabled();
+			break;
 		}
-
 	}
 
 	public void agregarObservable(Simulacion_Empleador empleador) {

@@ -4,7 +4,6 @@ import java.awt.CardLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import entidades.Agencia;
@@ -14,7 +13,6 @@ import sistema.FuncionalidadAdministrador;
 import sistema.FuncionalidadEmpleadoPretenso;
 import sistema.FuncionalidadEmpleador;
 import sistema.Sistema;
-import entidades.Usuario;
 import vista.IVentana;
 import vista.IVistaInicial;
 
@@ -39,10 +37,9 @@ public class ControladorVistaInicial implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		CardLayout cl = (CardLayout) (contentPane.getLayout());
 		String comando = e.getActionCommand();
-		Usuario u;
 
-		if (comando.equals(CREAR_CUENTA)) {
-
+		switch(comando) {
+		case CREAR_CUENTA:
 			switch (this.vista.getTipoUsuario()) {
 			case Agencia.ADMINISTRADOR:
 				cl.show(contentPane, ventana.getVistaRegistrarAdministrador());
@@ -54,8 +51,8 @@ public class ControladorVistaInicial implements ActionListener {
 				cl.show(contentPane, ventana.getVistaRegistrarEmpleadoPretenso());
 				break;
 			}
-
-		} else if (comando.equals(INICIAR_SESION)) {
+			break;
+		case INICIAR_SESION:
 			if (!Agencia.getInstancia().getUsuarios().containsKey(this.vista.getUsuario()))
 				this.vista.ventanaEmergente("No existe la cuenta. Intente registrarse.");
 			else
@@ -115,13 +112,11 @@ public class ControladorVistaInicial implements ActionListener {
 				
 				}
 			}
-				
+			break;
+		case SIMULACION:
+			cl.show(contentPane, ventana.getVistaSimulacion());			
 		}
-		 else if (comando.equals(SIMULACION)) {
-			cl.show(contentPane, ventana.getVistaSimulacion());
-
-		}
-
+		
 		this.vista.limpiarVista();
 	}
 

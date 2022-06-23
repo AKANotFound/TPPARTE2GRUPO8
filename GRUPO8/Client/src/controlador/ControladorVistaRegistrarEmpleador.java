@@ -6,7 +6,6 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JPanel;
 
-import entidades.Agencia;
 import entidades.IRubro;
 import entidades.Rubro_ComercioInternacional;
 import entidades.Rubro_ComercioLocal;
@@ -15,7 +14,6 @@ import excepciones.TipoPersonaInvalidoException;
 import sistema.Sistema;
 import vista.IVentana;
 import vista.IVistaRegistrarEmpleador;
-import vista.Ventana;
 
 public class ControladorVistaRegistrarEmpleador implements ActionListener
 {
@@ -43,42 +41,38 @@ public class ControladorVistaRegistrarEmpleador implements ActionListener
 	{
 		CardLayout cl = (CardLayout)(contentPane.getLayout());
 		String comando = e.getActionCommand();
-		if (comando.equals(VOLVER))
-		{
-			
+		
+		switch(comando) {
+		case VOLVER:
 			cl.show(contentPane, ventana.getVistaInicial());
-		}
-		else
-			if (comando.equals(REGISTRAR)) //CREAR EMPLEADOR 
+			break;
+		case REGISTRAR:
+			try
 			{
-				try
+				double puntajeAspectos[]= {vista.getPuntajeLocacion(),vista.getPuntajeRemuneracion(),
+						vista.getPuntajeCargaHoraria(),
+						vista.getPuntajeTipoDePuesto(),vista.getPuntajeRangoEtario(),vista.getPuntajeExperienciaPrevia()
+						,vista.getPuntajeEstudiosCursados()};
+				IRubro rubro=null;
+				switch(vista.getRubro())
 				{
-					double puntajeAspectos[]= {vista.getPuntajeLocacion(),vista.getPuntajeRemuneracion(),
-							vista.getPuntajeCargaHoraria(),
-							vista.getPuntajeTipoDePuesto(),vista.getPuntajeRangoEtario(),vista.getPuntajeExperienciaPrevia()
-							,vista.getPuntajeEstudiosCursados()};
-					IRubro rubro=null;
-					switch(vista.getRubro())
-					{
-					 case"Salud":rubro = new Rubro_Salud();
-					  break;
-					 case"Comercio local":rubro = new Rubro_ComercioLocal();
-					  break;
-					 case"Comercio internacional":rubro = new Rubro_ComercioInternacional();
-					  break;
-					}
-					
-					Sistema.registrarEmpleador(vista.getUsuario(),vista.getContrasena()
-							,vista.getRazonSocial(),vista.getTipoPersona(), rubro, puntajeAspectos);
-				} catch (TipoPersonaInvalidoException e1)
-				{
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
+				 case"Salud":rubro = new Rubro_Salud();
+				  break;
+				 case"Comercio local":rubro = new Rubro_ComercioLocal();
+				  break;
+				 case"Comercio internacional":rubro = new Rubro_ComercioInternacional();
+				  break;
 				}
 				
-				
+				Sistema.registrarEmpleador(vista.getUsuario(),vista.getContrasena()
+						,vista.getRazonSocial(),vista.getTipoPersona(), rubro, puntajeAspectos);
 				cl.show(contentPane, ventana.getVistaInicial());
+			} catch (TipoPersonaInvalidoException e1)
+			{
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
 			}
+		}
 		
 		this.vista.limpiarVista();
 		

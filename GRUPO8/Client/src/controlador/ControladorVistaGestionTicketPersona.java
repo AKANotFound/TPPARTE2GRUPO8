@@ -9,7 +9,6 @@ import javax.swing.JPanel;
 import entidades.Agencia;
 import vista.IVentana;
 import vista.IVistaGestionTicketPersona;
-import vista.Ventana;
 
 public class ControladorVistaGestionTicketPersona implements ActionListener {
 	private IVistaGestionTicketPersona vista = null;
@@ -20,7 +19,6 @@ public class ControladorVistaGestionTicketPersona implements ActionListener {
 	private final String ACTIVAR = "Activar";
 	private final String SUSPENDER = "Suspender";
 	private final String CANCELAR = "Cancelar";
-	private final String MODIFICAR = "Modificar";
 	private final String VOLVER = "Volver";
 	
 	public ControladorVistaGestionTicketPersona(IVentana ventana,IVistaGestionTicketPersona vista) {
@@ -36,7 +34,8 @@ public class ControladorVistaGestionTicketPersona implements ActionListener {
 		CardLayout cl = (CardLayout)(contentPane.getLayout());
 		String comando = e.getActionCommand();
 		
-		if(comando.equals(ACTIVAR)) { 
+		switch(comando) {
+		case ACTIVAR:
 			switch(Agencia.getInstancia().getTipoUsuarioActual()) 
 			{
 			 case Agencia.EMPLEADOR:
@@ -48,8 +47,8 @@ public class ControladorVistaGestionTicketPersona implements ActionListener {
 			}
 			//SI ESTA FINALIZADO O CANCELADO Y SE TOCA ACTIVAR SALE EL CARTEL Y NO DEBERIA
 			this.vista.ventanaEmergente("ticket activado exitosamente");
-		}
-		else if(comando.equals(CANCELAR)) {
+			break;
+		case CANCELAR:
 			switch(Agencia.getInstancia().getTipoUsuarioActual()) 
 			{
 			 case Agencia.EMPLEADOR:
@@ -61,17 +60,16 @@ public class ControladorVistaGestionTicketPersona implements ActionListener {
 			}
 			//SI ESTA FINALIZADO NO DEBERIA APARECER ESTO
 			this.vista.ventanaEmergente("ticket cancelado exitosamente");
-		}
-		else if(comando.equals(CREAR)) {
+			break;
+		case CREAR:
 			if(Agencia.getInstancia().getTipoUsuarioActual().equals(Agencia.EMPLEADOR)) {
 				cl.show(contentPane, ventana.getVistaFormularioDeBusquedaEmpleador());				
 			}
 			else if(Agencia.getInstancia().getTipoUsuarioActual().equals(Agencia.EMPLEADO_PRETENSO)){
 				cl.show(contentPane, ventana.getVistaFormularioDeBusquedaEmpleadoPretenso());				
 			}
-		
-		}
-		else if(comando.equals(SUSPENDER)) {
+			break;
+		case SUSPENDER:
 			switch(Agencia.getInstancia().getTipoUsuarioActual()) 
 			{
 			 case Agencia.EMPLEADOR:
@@ -83,12 +81,10 @@ public class ControladorVistaGestionTicketPersona implements ActionListener {
 			}
 			//SI ESTA FINALIZADO O CANCELADO NO DEBERIA APARECER ESTO
 			this.vista.ventanaEmergente("ticket cancelado exitosamente");
-			
-		}
-		else if(comando.equals(VOLVER)) {
-			cl.show(contentPane, ventana.getVistaFuncionalidadesPersona());
+			break;
+		case VOLVER:
+			cl.show(contentPane, ventana.getVistaFuncionalidadesPersona());	
+			break;
 		}
 	}
-	
-	
 }

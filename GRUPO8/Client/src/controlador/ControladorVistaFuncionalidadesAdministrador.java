@@ -50,6 +50,7 @@ public class ControladorVistaFuncionalidadesAdministrador implements ActionListe
 		
 		switch(comando) {
 		case CERRAR_SESION:
+			Sistema.cerrarSesion();
 			cl.show(contentPane, ventana.getVistaInicial());
 			break;
 		case BORRAR_CUENTA:

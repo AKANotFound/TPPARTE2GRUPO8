@@ -10,7 +10,6 @@ import excepciones.ErrorCodigoException;
 import sistema.Sistema;
 import vista.IVentana;
 import vista.IVistaRegistrarAdministrador;
-import vista.Ventana;
 
 public class ControladorVistaRegistrarAdministrador implements ActionListener {
 	private IVistaRegistrarAdministrador vista = null;
@@ -33,25 +32,21 @@ public class ControladorVistaRegistrarAdministrador implements ActionListener {
 		CardLayout cl = (CardLayout)(contentPane.getLayout());
 		String comando = e.getActionCommand();
 		
-		if(comando.equals(VOLVER)) 
-		{
-			
+		switch(comando) {
+		case VOLVER:
 			cl.show(contentPane, ventana.getVistaInicial());
-		}
-		else if(comando.equals(REGISTRAR)) 
-		{ 
+			break;
+		case REGISTRAR:
 			try
-			{
-				
+			{	
 				Sistema.registrarAdministrador(vista.getUsuario(), vista.getContrasena(), 
 						vista.getCodigoAdministrador());
+				cl.show(contentPane, ventana.getVistaInicial());
 			} catch (ErrorCodigoException e1)
 			{
 				vista.ventanaEmergente("Código érroneo");
 				e1.printStackTrace();
-			}
-			
-			cl.show(contentPane, ventana.getVistaInicial());
+			}			
 		}
 		
 		this.vista.limpiarVista();

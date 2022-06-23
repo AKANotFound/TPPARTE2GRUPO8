@@ -10,7 +10,6 @@ import excepciones.EdadInvalidaException;
 import sistema.Sistema;
 import vista.IVentana;
 import vista.IVistaRegistrarEmpleadoPretenso;
-import vista.Ventana;
 
 public class ControladorVistaRegistrarEmpleadoPretenso implements ActionListener {
 	private IVistaRegistrarEmpleadoPretenso vista = null;
@@ -33,24 +32,23 @@ public class ControladorVistaRegistrarEmpleadoPretenso implements ActionListener
 		CardLayout cl = (CardLayout)(contentPane.getLayout());
 		String comando = e.getActionCommand();
 		
-		if(comando.equals(VOLVER)) {
+		switch(comando) {
+		case VOLVER:
 			cl.show(contentPane, ventana.getVistaInicial());
-		}
-		else if(comando.equals(REGISTRAR)) { 
-			
+			break;
+		case REGISTRAR:
 			try
 			{
 				Sistema.registrarEmpleadoPretenso(vista.getUsuario(),vista.getContrasena(),vista.getNya()
-						, vista.getTelefono(), vista.getEdad());
+						,vista.getTelefono(),vista.getEdad());
+				cl.show(contentPane, ventana.getVistaInicial());
 			} catch (EdadInvalidaException e1)
 			{
-				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
-			
-			
-			cl.show(contentPane, ventana.getVistaInicial());
+			break;
 		}
+		
 		this.vista.limpiarVentana();
 	}
 }
