@@ -41,7 +41,6 @@ public class VistaFuncionalidadesAdministrador extends JPanel implements IVistaF
 	private JButton btn_VisualizarTicketsEmpleadores;
 	private JPanel panel_Visualizar_Sur;
 	private JButton btn_VisualizarCuentas;
-	private JButton btn_VisualizarLogins;
 	private JButton btn_Contratos;
 	private ActionListener actionListener;//controlador
 
@@ -149,9 +148,6 @@ public class VistaFuncionalidadesAdministrador extends JPanel implements IVistaF
 		this.btn_VisualizarCuentas = new JButton("Cuentas");
 		this.panel_Visualizar_Sur.add(this.btn_VisualizarCuentas);
 		
-		this.btn_VisualizarLogins = new JButton("Logins");
-		this.panel_Visualizar_Sur.add(this.btn_VisualizarLogins);
-		
 		this.btn_Contratos = new JButton("Contratos");
 		this.panel_Visualizar_Sur.add(this.btn_Contratos);
 
@@ -168,7 +164,6 @@ public class VistaFuncionalidadesAdministrador extends JPanel implements IVistaF
 		this.btn_VisualizarCuentas.addActionListener(actionListener);
 		this.btn_VisualizarEmpleadores.addActionListener(actionListener);
 		this.btn_VisualizarEmpleadosPretensos.addActionListener(actionListener);
-		this.btn_VisualizarLogins.addActionListener(actionListener);
 		this.btn_VisualizarTicketsEmpleadores.addActionListener(actionListener);
 		this.btn_VisualizarTicketsEmpleadosPretensos.addActionListener(actionListener);
 		this.actionListener=actionListener;

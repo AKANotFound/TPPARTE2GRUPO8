@@ -175,7 +175,6 @@ public class VistaFuncionalidadesPersona extends JPanel implements IVistaFuncion
 	@Override
 	public int ventanaEmergenteConfirmar(String mensaje)
 	{
-		
 		return  JOptionPane.showConfirmDialog(jFrame,mensaje);
 	}
 
@@ -189,7 +188,6 @@ public class VistaFuncionalidadesPersona extends JPanel implements IVistaFuncion
 			this.modeloLista.addElement(lista.get(i));
 			
 		}
-		
 	}
 
 	@Override

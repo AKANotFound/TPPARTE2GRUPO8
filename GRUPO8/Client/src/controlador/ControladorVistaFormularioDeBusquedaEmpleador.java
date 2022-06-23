@@ -85,9 +85,9 @@ public class ControladorVistaFormularioDeBusquedaEmpleador implements ActionList
 		CardLayout cl = (CardLayout)(contentPane.getLayout());
 		String comando = e.getActionCommand();
 		
-		
-		if(comando.equals(ACEPTAR)) 
-		{
+		switch(comando) {
+		case ACEPTAR:
+			
 			ILocacion locacion=null;
 			ICargaHoraria cargaHoraria=null;
 			IRemuneracion remuneracion=null;
@@ -185,12 +185,13 @@ public class ControladorVistaFormularioDeBusquedaEmpleador implements ActionList
 			
 			Agencia.getInstancia().getFuncEmpleadorActual().crearTicket(form, vista.getCantidadEmpleadosSolicitados());
 			cl.show(contentPane, ventana.getVistaGestionTicketPersona());
+			
+			break;
+		case CANCELAR:
+			cl.show(contentPane, ventana.getVistaGestionTicketPersona());
+			break;
 		}
-		else
-			if(comando.equals(CANCELAR)) 
-			{
-				cl.show(contentPane, ventana.getVistaGestionTicketPersona());
-			}
+
 		this.vista.limpiarVista();
 		
 	}
