@@ -1,6 +1,9 @@
 package sistema;
 
+import java.util.ArrayList;
+
 import entidades.Persona;
+import entidades.PersonaElegida;
 import entidades.Persona_EmpleadoPretenso;
 import entidades.Persona_Empleador;
 import entidades.Ticket_Empleador;
@@ -8,17 +11,22 @@ import excepciones.ListaNoGeneradaException;
 
 abstract class RondaDeElecciones {	
 	
-	static void iniciaRondaDeEleccionEmpleadoPretenso(Persona_EmpleadoPretenso empleadoPretenso) {
-		if (empleadoPretenso.getListaDeAsignacion()!=null)
+	static void iniciaRondaDeEleccionEmpleadoPretenso(Persona_EmpleadoPretenso empleadoPretenso, PersonaElegida personaElegida) {
+		empleadoPretenso.setEmpleadorElegido(personaElegida);
+		
+		/*if (empleadoPretenso.getListaDeAsignacion()!=null)
 		{
 			int seleccion=(int)(Math.random()*empleadoPretenso.getListaDeAsignacion().getLista().size());
 		//Sistema.visualizarListaAsignacion(empleadoPretenso); //le muestra la lista al usuario
 			empleadoPretenso.setEmpleadorElegido(empleadoPretenso.getListaDeAsignacion().getLista().get(seleccion));
-		}
+		}*/
 	}
 	
-	static void iniciaRondaDeEleccionEmpleador(Persona_Empleador empleador) {
-		Ticket_Empleador ticketEmpleador = (Ticket_Empleador) empleador.getTicket();
+	static void iniciaRondaDeEleccionEmpleador(Persona_Empleador empleador, ArrayList<PersonaElegida> personasElegidas) {
+		empleador.setEmpleadosElegidos(personasElegidas);
+		
+		
+		/*Ticket_Empleador ticketEmpleador = (Ticket_Empleador) empleador.getTicket();
 		int cantObtenidos = ticketEmpleador.getCantEmpleadosObtenidos();
 		int cantSolicitados = ticketEmpleador.getCantEmpleadosSolicitados();
 		int seleccion;
@@ -35,7 +43,7 @@ abstract class RondaDeElecciones {
 				i++;
 				cantObtenidos++;
 			}
-		}
+		}*/
 		
 	} 
 	

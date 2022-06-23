@@ -11,6 +11,8 @@ import javax.swing.JPanel;
 
 import entidades.Agencia;
 import entidades.PersonaElegida;
+import entidades.Persona_EmpleadoPretenso;
+import entidades.Persona_Empleador;
 import vista.IVentana;
 import vista.IVistaFuncionalidadesPersona;
 import vista.Ventana;
@@ -41,12 +43,24 @@ public class ControladorVistaFuncionalidadesPersona implements ActionListener {
 		CardLayout cl = (CardLayout)(contentPane.getLayout());
 		String comando = e.getActionCommand();
 		
+		ArrayList<PersonaElegida> personasElegidas = this.vista.getPersonasElegidas();
+		
 		if(comando.equals(ACEPTAR_ELECCION))
 		{
-			int i=0;
-			ArrayList<PersonaElegida>personasElegidas=this.vista.getPersonasElegidas();
-			//ELIGE PERSONAS
-			
+			switch(Agencia.getInstancia().getTipoUsuarioActual()) {
+			case Agencia.EMPLEADOR:
+				Persona_Empleador empleador = (Persona_Empleador) Agencia.getInstancia().getFuncEmpleadorActual().getUsuario();
+				empleador.setEmpleadosElegidos(personasElegidas);
+				break;
+			case Agencia.EMPLEADO_PRETENSO:
+				if(personasElegidas.size() > 1)
+					this.vista.ventanaEmergente("Solo puede elegir un empleador");
+				else {
+					PersonaElegida personaElegida = personasElegidas.get(0);
+					Persona_EmpleadoPretenso empleadoPretenso = (Persona_EmpleadoPretenso) Agencia.getInstancia().getFuncEmpleadoPretensoActual().getUsuario();
+					empleadoPretenso.setEmpleadorElegido(personaElegida);
+				}
+			}
 		}
 		else if(comando.equals(BORRAR_CUENTA)) {
 			int result =this.vista.ventanaEmergenteConfirmar("¿Estás seguro de que deseas eliminar tu cuenta?");

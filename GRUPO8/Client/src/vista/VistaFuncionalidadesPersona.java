@@ -199,4 +199,9 @@ public class VistaFuncionalidadesPersona extends JPanel implements IVistaFuncion
 		
 		return personasElegidas;
 	}
+
+	@Override
+	public void ventanaEmergente(String mensaje) {
+		JOptionPane.showMessageDialog(null,mensaje);
+	}
 }

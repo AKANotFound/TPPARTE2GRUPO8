@@ -163,7 +163,7 @@ public class VistaRegistrarAdministrador extends JPanel implements IVistaRegistr
 	@Override
 	public void ventanaEmergente(String mensaje) 
 	{
-		JOptionPane.showMessageDialog(null,mensaje );
+		JOptionPane.showMessageDialog(null,mensaje);
 	}
 
 	@Override
