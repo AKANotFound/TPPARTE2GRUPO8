@@ -434,6 +434,7 @@ public class VistaFormularioDeBusquedaEmpleador extends JPanel implements IVista
 		this.comboBox_TipoDePuesto.setSelectedItem(SELECCIONE);
 		this.rdbtn_Crear.setSelected(true);
 		
+		
 	}
 
 	@Override
