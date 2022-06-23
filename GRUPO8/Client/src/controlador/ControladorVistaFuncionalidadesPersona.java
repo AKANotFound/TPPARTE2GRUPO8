@@ -41,10 +41,17 @@ public class ControladorVistaFuncionalidadesPersona implements ActionListener {
 		CardLayout cl = (CardLayout)(contentPane.getLayout());
 		String comando = e.getActionCommand();
 		
-		ArrayList<PersonaElegida> personasElegidas = this.vista.getPersonasElegidas();
+		
 		
 		switch(comando) {
 		case ACEPTAR_ELECCION:
+			ArrayList<PersonaElegida> personasElegidas=null;
+			try{personasElegidas= this.vista.getPersonasElegidas();
+			
+			}catch(Exception exception)
+			{
+				this.vista.ventanaEmergente("No existe elección");
+			}
 			switch(Agencia.getInstancia().getTipoUsuarioActual()) {
 			case Agencia.EMPLEADOR:
 				Persona_Empleador empleador = (Persona_Empleador) Agencia.getInstancia().getFuncEmpleadorActual().getUsuario();
