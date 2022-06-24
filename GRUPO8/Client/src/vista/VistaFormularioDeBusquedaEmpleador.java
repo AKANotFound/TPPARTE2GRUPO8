@@ -282,6 +282,7 @@ public class VistaFormularioDeBusquedaEmpleador extends JPanel implements IVista
 		this.panel_Centro.add(this.panel_rdbtn_Crear);
 		
 		this.rdbtn_Crear = new JRadioButton("Crear");
+		this.rdbtn_Crear.addItemListener(this);
 		this.rdbtn_Group.add(rdbtn_Crear);
 		this.rdbtn_Crear.setSelected(true);
 		this.panel_rdbtn_Crear.add(this.rdbtn_Crear);
@@ -290,6 +291,7 @@ public class VistaFormularioDeBusquedaEmpleador extends JPanel implements IVista
 		this.panel_Centro.add(this.panel_rdbtn_Modificar);
 		
 		this.rdbtn_Modificar = new JRadioButton("Modificar");
+		this.rdbtn_Modificar.addItemListener(this);
 		this.rdbtn_Group.add(rdbtn_Modificar);
 		this.panel_rdbtn_Modificar.add(this.rdbtn_Modificar);
 
@@ -333,12 +335,15 @@ public class VistaFormularioDeBusquedaEmpleador extends JPanel implements IVista
 					this.btn_Aceptar.setEnabled(false);
 			}
 			else
-				if (cantEmpleadosSolicitados!=0)
-					this.btn_Aceptar.setEnabled(false);
-				else
+				if (this.textField_CantidadEmpleadosSolicitados.getText().isBlank())
 					this.btn_Aceptar.setEnabled(true);
+				else
+					this.btn_Aceptar.setEnabled(false);
+			
 			
 		}
+		else
+			this.btn_Aceptar.setEnabled(false);
 
 	}
 	public void keyTyped(KeyEvent e) {
@@ -370,12 +375,14 @@ public class VistaFormularioDeBusquedaEmpleador extends JPanel implements IVista
 					this.btn_Aceptar.setEnabled(false);
 			}
 			else
-				if (cantEmpleadosSolicitados!=0)
-					this.btn_Aceptar.setEnabled(false);
-				else
+				if (this.textField_CantidadEmpleadosSolicitados.getText().isBlank())
 					this.btn_Aceptar.setEnabled(true);
+				else
+					this.btn_Aceptar.setEnabled(false);
 			
 		}
+		else
+			this.btn_Aceptar.setEnabled(false);
 	}
 
 	
