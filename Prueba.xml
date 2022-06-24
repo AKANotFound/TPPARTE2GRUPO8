@@ -10,7 +10,7 @@
      <string>1234</string>
     </void>
     <void property="tipoUsuario">
-     <string>administrador</string>
+     <string>Administrador</string>
     </void>
     <void property="usuario">
      <string>admin</string>
@@ -27,7 +27,7 @@
        <string>159pep</string>
       </void>
       <void property="tipoUsuario">
-       <string>empleador</string>
+       <string>Empleador</string>
       </void>
       <void property="usuario">
        <string>microsoft</string>
@@ -124,7 +124,7 @@
        <string>747ghi</string>
       </void>
       <void property="tipoUsuario">
-       <string>empleador</string>
+       <string>Empleador</string>
       </void>
       <void property="usuario">
        <string>carrefour</string>
@@ -220,7 +220,7 @@
        <string>123abc</string>
       </void>
       <void property="tipoUsuario">
-       <string>empleadoPretenso</string>
+       <string>EmpleadoPretenso</string>
       </void>
       <void property="usuario">
        <string>jorge_perez</string>
@@ -294,7 +294,7 @@
        <string>abc123</string>
       </void>
       <void property="tipoUsuario">
-       <string>empleadoPretenso</string>
+       <string>EmpleadoPretenso</string>
       </void>
       <void property="usuario">
        <string>pablo_gimenez</string>
@@ -368,7 +368,7 @@
        <string>123qwe</string>
       </void>
       <void property="tipoUsuario">
-       <string>empleadoPretenso</string>
+       <string>EmpleadoPretenso</string>
       </void>
       <void property="usuario">
        <string>franco_sosa</string>
@@ -442,7 +442,7 @@
        <string>345ert</string>
       </void>
       <void property="tipoUsuario">
-       <string>empleadoPretenso</string>
+       <string>EmpleadoPretenso</string>
       </void>
       <void property="usuario">
        <string>franco_palmeiras</string>
@@ -516,7 +516,7 @@
        <string>juan</string>
       </void>
       <void property="tipoUsuario">
-       <string>empleadoPretenso</string>
+       <string>EmpleadoPretenso</string>
       </void>
       <void property="usuario">
        <string>juan</string>

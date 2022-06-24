@@ -351,21 +351,31 @@ public class VistaFormularioDeBusquedaEmpleador extends JPanel implements IVista
 		}
 		catch(NumberFormatException exception)
 		{
-			
 		}
 		
-		if (cantEmpleadosSolicitados!=0 && this.comboBox_Locacion.getSelectedItem()!=SELECCIONE
+		if (this.comboBox_Locacion.getSelectedItem()!=SELECCIONE
 				&& this.comboBox_Remuneracion.getSelectedItem()!=SELECCIONE
 				&& this.comboBox_CargaHoraria.getSelectedItem()!=SELECCIONE
 				&& this.comboBox_TipoDePuesto.getSelectedItem()!=SELECCIONE
 				&& this.comboBox_RangoEtario.getSelectedItem()!=SELECCIONE
 				&& this.comboBox_ExperienciaPrevia.getSelectedItem()!=SELECCIONE
-				&& this.comboBox_EstudiosCursados.getSelectedItem()!=SELECCIONE)
+				&& this.comboBox_EstudiosCursados.getSelectedItem()!=SELECCIONE
+				)
 		{
-			this.btn_Aceptar.setEnabled(true);
+			if (this.rdbtn_Crear.isSelected())
+			{
+				if (cantEmpleadosSolicitados!=0)
+					this.btn_Aceptar.setEnabled(true);
+				else
+					this.btn_Aceptar.setEnabled(false);
+			}
+			else
+				if (cantEmpleadosSolicitados!=0)
+					this.btn_Aceptar.setEnabled(false);
+				else
+					this.btn_Aceptar.setEnabled(true);
+			
 		}
-		else
-			this.btn_Aceptar.setEnabled(false);
 	}
 
 	
