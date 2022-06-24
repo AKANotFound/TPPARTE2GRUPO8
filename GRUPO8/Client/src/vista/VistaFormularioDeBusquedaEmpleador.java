@@ -18,6 +18,8 @@ import java.awt.event.KeyEvent;
 import java.awt.event.ItemListener;
 import java.awt.event.ItemEvent;
 import javax.swing.JRadioButton;
+import javax.swing.border.EtchedBorder;
+import java.awt.Color;
 
 public class VistaFormularioDeBusquedaEmpleador extends JPanel implements IVistaFormularioDeBusquedaEmpleador, KeyListener, ItemListener
 {
@@ -122,7 +124,7 @@ public class VistaFormularioDeBusquedaEmpleador extends JPanel implements IVista
 		this.panel_Aceptar.add(this.btn_Aceptar);
 		
 		this.panel_Centro_Border = new JPanel();
-		this.panel_Centro_Border.setBorder(new TitledBorder(null, "Creaci\u00F3n de ticket empleador", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		this.panel_Centro_Border.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), "Creaci\u00F3n/Modificaci\u00F3n de ticket empleador", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
 		add(this.panel_Centro_Border, BorderLayout.CENTER);
 		
 		this.panel_Centro = new JPanel();
