@@ -12,6 +12,7 @@ import entidades.PersonaElegida;
 import entidades.Persona_EmpleadoPretenso;
 import entidades.Persona_Empleador;
 import excepciones.ListaNoGeneradaException;
+import persistencia.Persiste;
 import sistema.Sistema;
 import vista.IVentana;
 import vista.IVistaFuncionalidadesPersona;
@@ -74,10 +75,15 @@ public class ControladorVistaFuncionalidadesPersona implements ActionListener {
 			//NO SE USA LA CLASE INICIAR RONDA DE ELECCIONES
 			break;
 		case BORRAR_CUENTA:
-			int result =this.vista.ventanaEmergenteConfirmar("¿Estás seguro de que deseas eliminar tu cuenta?");
+			int result =this.vista.ventanaEmergenteConfirmar("ï¿½Estï¿½s seguro de que deseas eliminar tu cuenta?");
 	        if (result == 0) 
 	        {
-	        	Agencia.getInstancia().getUsuarios().remove(Agencia.getInstancia().getTipoUsuarioActual());
+	        	//System.out.println(Agencia.getInstancia().getUsuarioActual());
+	        	
+	        	//Agencia.getInstancia().getUsuarios().remove(Agencia.getInstancia().getUsuarioActual()); // no se si funciona el borrar cuenta
+	        	//System.out.println(Agencia.getInstancia().getUsuarios());
+	        	Sistema.borrarCuenta();
+	        	Persiste.getInstancia().persistir();
 	        	cl.show(contentPane, ventana.getVistaInicial());
 	        }
 	        break;

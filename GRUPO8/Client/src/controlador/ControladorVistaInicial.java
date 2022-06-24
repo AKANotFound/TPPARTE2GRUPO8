@@ -57,16 +57,17 @@ public class ControladorVistaInicial implements ActionListener {
 			break;
 		case INICIAR_SESION:
 			
-			/*try {
+			try {
 				Persiste.getInstancia().leer();
 			} catch (IOException e3) {
 				e3.printStackTrace();
-			}*/
+			}
 			
 			if (Agencia.getInstancia().getUsuarios().containsKey(this.vista.getUsuario()) == false)
 				this.vista.ventanaEmergente("No existe la cuenta. Intente registrarse.");
 			else
 			{
+				//Agencia.getInstancia().setUsuarioActual(this.vista.getUsuario());
 				String tipoUsuario = Agencia.getInstancia().getUsuarios().get(this.vista.getUsuario()).getCuenta().getTipoUsuario();
 				switch(tipoUsuario)
 				{
@@ -103,7 +104,7 @@ public class ControladorVistaInicial implements ActionListener {
 					}
 					
 				    break;
-				    
+				     
 				  case Agencia.EMPLEADO_PRETENSO:Agencia.getInstancia().setTipoUsuarioActual(Agencia.EMPLEADO_PRETENSO);
 				  	try {
 				  		Agencia.getInstancia().setFuncEmpleadoPretensoActual(Sistema.loginEmpleadoPretenso(vista.getUsuario(), vista.getContrasena()));

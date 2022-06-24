@@ -34,6 +34,7 @@
       </void>
      </object>
     </void>
+    <void id="Integer0" property="puntaje"/>
     <void property="puntajeAspectos">
      <void index="0">
       <double>1.0</double>
@@ -308,7 +309,7 @@
  </object>
  <object class="java.util.ArrayList">
   <void method="add">
-   <object class="entidades.Persona_EmpleadoPretenso" id="Persona_EmpleadoPretenso0">
+   <object class="entidades.Persona_EmpleadoPretenso">
     <void property="cuenta">
      <object class="entidades.Cuenta">
       <void property="contrasena">
@@ -382,7 +383,7 @@
    </object>
   </void>
   <void method="add">
-   <object class="entidades.Persona_EmpleadoPretenso" id="Persona_EmpleadoPretenso1">
+   <object class="entidades.Persona_EmpleadoPretenso" id="Persona_EmpleadoPretenso0">
     <void property="cuenta">
      <object class="entidades.Cuenta">
       <void property="contrasena">
@@ -456,7 +457,7 @@
    </object>
   </void>
   <void method="add">
-   <object class="entidades.Persona_EmpleadoPretenso" id="Persona_EmpleadoPretenso2">
+   <object class="entidades.Persona_EmpleadoPretenso" id="Persona_EmpleadoPretenso1">
     <void property="cuenta">
      <object class="entidades.Cuenta">
       <void property="contrasena">
@@ -530,7 +531,7 @@
    </object>
   </void>
   <void method="add">
-   <object class="entidades.Persona_EmpleadoPretenso" id="Persona_EmpleadoPretenso3">
+   <object class="entidades.Persona_EmpleadoPretenso" id="Persona_EmpleadoPretenso2">
     <void property="cuenta">
      <object class="entidades.Cuenta">
       <void property="contrasena">
@@ -604,7 +605,7 @@
    </object>
   </void>
   <void method="add">
-   <object class="entidades.Persona_EmpleadoPretenso" id="Persona_EmpleadoPretenso4">
+   <object class="entidades.Persona_EmpleadoPretenso" id="Persona_EmpleadoPretenso3">
     <void property="cuenta">
      <object class="entidades.Cuenta">
       <void property="contrasena">
@@ -630,7 +631,7 @@
    </object>
   </void>
   <void method="add">
-   <object class="entidades.Persona_EmpleadoPretenso" id="Persona_EmpleadoPretenso5">
+   <object class="entidades.Persona_EmpleadoPretenso" id="Persona_EmpleadoPretenso4">
     <void property="cuenta">
      <object class="entidades.Cuenta">
       <void property="contrasena">
@@ -682,7 +683,7 @@
    </object>
   </void>
   <void method="add">
-   <object class="entidades.Persona_EmpleadoPretenso" id="Persona_EmpleadoPretenso6">
+   <object class="entidades.Persona_EmpleadoPretenso" id="Persona_EmpleadoPretenso5">
     <void property="cuenta">
      <object class="entidades.Cuenta">
       <void property="contrasena">
@@ -707,20 +708,42 @@
     </void>
    </object>
   </void>
+  <void method="add">
+   <object class="entidades.Persona_EmpleadoPretenso">
+    <void property="cuenta">
+     <object class="entidades.Cuenta">
+      <void property="contrasena">
+       <string>juan</string>
+      </void>
+      <void property="tipoUsuario">
+       <string>EmpleadoPretenso</string>
+      </void>
+      <void property="usuario">
+       <string>juan</string>
+      </void>
+     </object>
+    </void>
+    <void property="edad">
+     <int>20</int>
+    </void>
+    <void property="nya">
+     <string>juan</string>
+    </void>
+    <void property="telefono">
+     <string>131341</string>
+    </void>
+   </object>
+  </void>
  </object>
  <object class="java.util.ArrayList"/>
  <object class="java.util.HashMap">
   <void method="put">
    <string>franco_sosa</string>
-   <object idref="Persona_EmpleadoPretenso2"/>
-  </void>
-  <void method="put">
-   <string>jorge_perez</string>
-   <object idref="Persona_EmpleadoPretenso0"/>
+   <object idref="Persona_EmpleadoPretenso1"/>
   </void>
   <void method="put">
    <string>valen</string>
-   <object idref="Persona_EmpleadoPretenso4"/>
+   <object idref="Persona_EmpleadoPretenso3"/>
   </void>
   <void method="put">
    <string>arcoss</string>
@@ -732,7 +755,7 @@
   </void>
   <void method="put">
    <string>pablo_gimenez</string>
-   <object idref="Persona_EmpleadoPretenso1"/>
+   <object idref="Persona_EmpleadoPretenso0"/>
   </void>
   <void method="put">
    <string>carrefour</string>
@@ -744,15 +767,15 @@
   </void>
   <void method="put">
    <string>hola</string>
-   <object idref="Persona_EmpleadoPretenso5"/>
+   <object idref="Persona_EmpleadoPretenso4"/>
   </void>
   <void method="put">
    <string>marti</string>
-   <object idref="Persona_EmpleadoPretenso6"/>
+   <object idref="Persona_EmpleadoPretenso5"/>
   </void>
   <void method="put">
    <string>franco_palmeiras</string>
-   <object idref="Persona_EmpleadoPretenso3"/>
+   <object idref="Persona_EmpleadoPretenso2"/>
   </void>
  </object>
 </java>

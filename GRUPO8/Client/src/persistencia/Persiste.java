@@ -87,7 +87,7 @@ public class Persiste {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (UsuarioYaRegistradoException e1) {
-			System.out.println(e1.getMessage());
+			//System.out.println(e1.getMessage());
 		}
 		
 	}

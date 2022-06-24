@@ -13,6 +13,7 @@ import excepciones.ErrorContrasenaException;
 import excepciones.ErrorUsuarioException;
 import excepciones.ListaNoGeneradaException;
 import excepciones.TipoPersonaInvalidoException;
+import excepciones.UsuarioYaRegistradoException;
 import persistencia.Persiste;
 import sistema.FuncionalidadAdministrador;
 import sistema.FuncionalidadEmpleadoPretenso;
@@ -67,50 +68,85 @@ public class Prueba2 {
 			// REGISTRO ADMIN,EMPLEADOS Y EMPLEADORES
 
 			try {
-				Sistema.registrarAdministrador("admin", "1234", "XAEA-12");
+				try {
+					Sistema.registrarAdministrador("admin", "1234", "XAEA-12");
+				} catch (UsuarioYaRegistradoException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			} catch (ErrorCodigoException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
 
 			try {
-				Sistema.registrarEmpleadoPretenso("jorge_perez", "123abc", "Jorge Adrian Perez", "2231111111", 32);
+				try {
+					Sistema.registrarEmpleadoPretenso("jorge_perez", "123abc", "Jorge Adrian Perez", "2231111111", 32);
+				} catch (UsuarioYaRegistradoException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			} catch (EdadInvalidaException e) {
 				System.out.println(e.getMessage());
 				e.printStackTrace();
 			}
 			try {
-				Sistema.registrarEmpleadoPretenso("pablo_gimenez", "abc123", "Pablo Alberto Gimenez", "2232222222", 24);
+				try {
+					Sistema.registrarEmpleadoPretenso("pablo_gimenez", "abc123", "Pablo Alberto Gimenez", "2232222222", 24);
+				} catch (UsuarioYaRegistradoException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			} catch (EdadInvalidaException e) {
 				System.out.println(e.getMessage());
 				e.printStackTrace();
 			}
 
 			try {
-				Sistema.registrarEmpleadoPretenso("franco_sosa", "123qwe", "Franco Sosa", "2233333333", 27);
+				try {
+					Sistema.registrarEmpleadoPretenso("franco_sosa", "123qwe", "Franco Sosa", "2233333333", 27);
+				} catch (UsuarioYaRegistradoException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			} catch (EdadInvalidaException e) {
 				System.out.println(e.getMessage());
 				e.printStackTrace();
 			}
 
 			try {
-				Sistema.registrarEmpleadoPretenso("franco_palmeiras", "345ert", "Franco Palmeiras", "2264444444", 19);
+				try {
+					Sistema.registrarEmpleadoPretenso("franco_palmeiras", "345ert", "Franco Palmeiras", "2264444444", 19);
+				} catch (UsuarioYaRegistradoException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			} catch (EdadInvalidaException e) {
 				System.out.println(e.getMessage());
 				e.printStackTrace();
 			}
 
 			try {
-				Sistema.registrarEmpleador("microsoft", "159pep", "Microsoft", "juridica", rubro_ComercioLocal,
-						puntajeAspectosGesi);
+				try {
+					Sistema.registrarEmpleador("microsoft", "159pep", "Microsoft", "juridica", rubro_ComercioLocal,
+							puntajeAspectosGesi);
+				} catch (UsuarioYaRegistradoException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			} catch (TipoPersonaInvalidoException e) {
 				System.out.println(e.getMessage());
 				e.printStackTrace();
 			}
 
 			try {
-				Sistema.registrarEmpleador("carrefour", "747ghi", "Carrefour", "fisica", rubro_ComercioInternacional,
-						puntajeAspectosCarrefour);
+				try {
+					Sistema.registrarEmpleador("carrefour", "747ghi", "Carrefour", "fisica", rubro_ComercioInternacional,
+							puntajeAspectosCarrefour);
+				} catch (UsuarioYaRegistradoException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			} catch (TipoPersonaInvalidoException e) {
 				System.out.println(e.getMessage());
 				e.printStackTrace();
@@ -120,7 +156,12 @@ public class Prueba2 {
 
 			// LOGEO DE USUARIOS
 			try {
-				admin = Sistema.loginAdministrador("admin", "1234");
+				try {
+					admin = Sistema.loginAdministrador("admin", "1234");
+				} catch (UsuarioYaRegistradoException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			} catch (ErrorContrasenaException | ErrorUsuarioException e) {
 				System.out.println(e.getMessage());
 				e.printStackTrace();

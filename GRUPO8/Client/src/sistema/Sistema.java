@@ -33,8 +33,7 @@ import persistencia.Persiste;
  */
 public abstract class Sistema {
 
-	private static ArrayList<Persona_EmpleadoPretenso> empleadosPretensos = Agencia.getInstancia()
-			.getEmpleadosPretensos();
+	private static ArrayList<Persona_EmpleadoPretenso> empleadosPretensos = Agencia.getInstancia().getEmpleadosPretensos();
 	private static ArrayList<Persona_Empleador> empleadores = Agencia.getInstancia().getEmpleadores();
 	private static ArrayList<Contrato> contratos = Agencia.getInstancia().getContratos();
 	private static HashMap<String, Usuario> usuarios = Agencia.getInstancia().getUsuarios();

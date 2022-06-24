@@ -21,6 +21,7 @@ public class Agencia {
 	private HashMap <String, Usuario> usuarios = new HashMap <>(); 
     private ArrayList<Contrato> contratos = new ArrayList<Contrato>();
     private String tipoUsuarioActual = null;
+    //private String usuarioActual = null;
     private FuncionalidadAdministrador funcAdministradorActual = null;
     private FuncionalidadEmpleador funcEmpleadorActual = null;
     private FuncionalidadEmpleadoPretenso funcEmpleadoPretensoActual = null;
@@ -63,12 +64,18 @@ public class Agencia {
 	}
 
 
-
+	
 	public void setFuncEmpleadoPretensoActual(FuncionalidadEmpleadoPretenso funcEmpleadoPretensoActual) {
 		this.funcEmpleadoPretensoActual = funcEmpleadoPretensoActual;
 	}
 
+	/*public String getUsuarioActual() {
+		return usuarioActual;
+	}
 
+	public void setUsuarioActual(String usuarioActual) {
+		this.usuarioActual = usuarioActual;
+	}*/
 
 	public String getTipoUsuarioActual() {
 		return tipoUsuarioActual;
