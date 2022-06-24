@@ -1,0 +1,781 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="17.0.2" class="java.beans.XMLDecoder">
+ <object class="persistencia.AdministradorDto">
+  <void property="codigoAdministrador">
+   <string>XAEA-12</string>
+  </void>
+  <void property="cuenta">
+   <object class="entidades.Cuenta">
+    <void property="contrasena">
+     <string>1234</string>
+    </void>
+    <void property="tipoUsuario">
+     <string>Administrador</string>
+    </void>
+    <void property="usuario">
+     <string>admin</string>
+    </void>
+   </object>
+  </void>
+ </object>
+ <object class="java.util.ArrayList">
+  <void method="add">
+   <object class="entidades.Persona_Empleador" id="Persona_Empleador0">
+    <void property="cuenta">
+     <object class="entidades.Cuenta">
+      <void property="contrasena">
+       <string>159pep</string>
+      </void>
+      <void property="tipoUsuario">
+       <string>Empleador</string>
+      </void>
+      <void property="usuario">
+       <string>microsoft</string>
+      </void>
+     </object>
+    </void>
+    <void id="Integer0" property="puntaje"/>
+    <void property="puntajeAspectos">
+     <void index="0">
+      <double>1.0</double>
+     </void>
+     <void index="1">
+      <double>1.0</double>
+     </void>
+     <void index="2">
+      <double>1.0</double>
+     </void>
+     <void index="3">
+      <double>1.0</double>
+     </void>
+     <void index="4">
+      <double>1.0</double>
+     </void>
+     <void index="5">
+      <double>1.0</double>
+     </void>
+     <void index="6">
+      <double>3.0</double>
+     </void>
+    </void>
+    <void property="razonSocial">
+     <string>Microsoft</string>
+    </void>
+    <void property="rubro">
+     <object class="entidades.Rubro_ComercioLocal"/>
+    </void>
+    <void property="ticket">
+     <object class="entidades.Ticket_Empleador" id="Ticket_Empleador0">
+      <void property="cantEmpleadosSolicitados">
+       <int>2</int>
+      </void>
+      <void property="estado">
+       <object class="patronState.ActivoState">
+        <void property="ticket">
+         <object idref="Ticket_Empleador0"/>
+        </void>
+       </object>
+      </void>
+      <void property="fechaAlta">
+       <object class="java.util.GregorianCalendar">
+        <void property="time">
+         <object class="java.util.Date">
+          <long>1656096065687</long>
+         </object>
+        </void>
+       </object>
+      </void>
+      <void property="formularioDeBusqueda">
+       <object class="entidades.FormularioDeBusqueda">
+        <void property="cargaHoraria">
+         <object class="tablas.CargaHoraria_Completa"/>
+        </void>
+        <void property="estudiosCursados">
+         <object class="tablas.EstudiosCursados_Secundario"/>
+        </void>
+        <void property="experienciaPrevia">
+         <object class="tablas.ExperienciaPrevia_Mucha"/>
+        </void>
+        <void property="locacion">
+         <object class="tablas.Locacion_HomeOffice"/>
+        </void>
+        <void property="rangoEtario">
+         <object class="tablas.RangoEtario_MenosDe40"/>
+        </void>
+        <void property="remuneracion">
+         <object class="tablas.Remuneracion_90mil"/>
+        </void>
+        <void property="tipoDePuesto">
+         <object class="tablas.TipoDePuesto_Senior"/>
+        </void>
+       </object>
+      </void>
+     </object>
+    </void>
+    <void property="tipoPersona">
+     <string>juridica</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="entidades.Persona_Empleador" id="Persona_Empleador1">
+    <void property="cuenta">
+     <object class="entidades.Cuenta">
+      <void property="contrasena">
+       <string>747ghi</string>
+      </void>
+      <void property="tipoUsuario">
+       <string>Empleador</string>
+      </void>
+      <void property="usuario">
+       <string>carrefour</string>
+      </void>
+     </object>
+    </void>
+    <void property="puntajeAspectos">
+     <void index="0">
+      <double>10.0</double>
+     </void>
+     <void index="1">
+      <double>12.0</double>
+     </void>
+     <void index="3">
+      <double>1.0</double>
+     </void>
+     <void index="4">
+      <double>3.0</double>
+     </void>
+     <void index="5">
+      <double>-2.0</double>
+     </void>
+     <void index="6">
+      <double>1.0</double>
+     </void>
+    </void>
+    <void property="razonSocial">
+     <string>Carrefour</string>
+    </void>
+    <void property="rubro">
+     <object class="entidades.Rubro_ComercioInternacional"/>
+    </void>
+    <void property="ticket">
+     <object class="entidades.Ticket_Empleador" id="Ticket_Empleador1">
+      <void property="cantEmpleadosSolicitados">
+       <int>1</int>
+      </void>
+      <void property="estado">
+       <object class="patronState.ActivoState">
+        <void property="ticket">
+         <object idref="Ticket_Empleador1"/>
+        </void>
+       </object>
+      </void>
+      <void property="fechaAlta">
+       <object class="java.util.GregorianCalendar">
+        <void property="time">
+         <object class="java.util.Date">
+          <long>1656096065687</long>
+         </object>
+        </void>
+       </object>
+      </void>
+      <void property="formularioDeBusqueda">
+       <object class="entidades.FormularioDeBusqueda">
+        <void property="cargaHoraria">
+         <object class="tablas.CargaHoraria_Media"/>
+        </void>
+        <void property="estudiosCursados">
+         <object class="tablas.EstudiosCursados_Secundario"/>
+        </void>
+        <void property="experienciaPrevia">
+         <object class="tablas.ExperienciaPrevia_Nada"/>
+        </void>
+        <void property="locacion">
+         <object class="tablas.Locacion_Presencial"/>
+        </void>
+        <void property="rangoEtario">
+         <object class="tablas.RangoEtario_MenosDe40"/>
+        </void>
+        <void property="remuneracion">
+         <object class="tablas.Remuneracion_30mil"/>
+        </void>
+        <void property="tipoDePuesto">
+         <object class="tablas.TipoDePuesto_Junior"/>
+        </void>
+       </object>
+      </void>
+     </object>
+    </void>
+    <void property="tipoPersona">
+     <string>fisica</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="entidades.Persona_Empleador" id="Persona_Empleador2">
+    <void property="cuenta">
+     <object class="entidades.Cuenta">
+      <void property="contrasena">
+       <string>1234</string>
+      </void>
+      <void property="tipoUsuario">
+       <string>Empleador</string>
+      </void>
+      <void property="usuario">
+       <string>arcoss</string>
+      </void>
+     </object>
+    </void>
+    <void property="puntajeAspectos">
+     <void index="0">
+      <double>1.0</double>
+     </void>
+     <void index="1">
+      <double>2.0</double>
+     </void>
+     <void index="2">
+      <double>1.0</double>
+     </void>
+     <void index="3">
+      <double>3.0</double>
+     </void>
+     <void index="4">
+      <double>4.0</double>
+     </void>
+     <void index="5">
+      <double>3.0</double>
+     </void>
+     <void index="6">
+      <double>2.0</double>
+     </void>
+    </void>
+    <void property="razonSocial">
+     <string>arcos</string>
+    </void>
+    <void property="rubro">
+     <object class="entidades.Rubro_ComercioLocal"/>
+    </void>
+    <void property="tipoPersona">
+     <string>Fisica</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="entidades.Persona_Empleador" id="Persona_Empleador3">
+    <void property="cuenta">
+     <object class="entidades.Cuenta">
+      <void property="contrasena">
+       <string>emp</string>
+      </void>
+      <void property="tipoUsuario">
+       <string>Empleador</string>
+      </void>
+      <void property="usuario">
+       <string>emp</string>
+      </void>
+     </object>
+    </void>
+    <void property="puntajeAspectos">
+     <void index="0">
+      <double>1.3</double>
+     </void>
+     <void index="2">
+      <double>2.0</double>
+     </void>
+     <void index="3">
+      <double>3.0</double>
+     </void>
+     <void index="4">
+      <double>0.1</double>
+     </void>
+     <void index="5">
+      <double>7.0</double>
+     </void>
+     <void index="6">
+      <double>5.0</double>
+     </void>
+    </void>
+    <void property="razonSocial">
+     <string>hola</string>
+    </void>
+    <void property="rubro">
+     <object class="entidades.Rubro_ComercioLocal"/>
+    </void>
+    <void property="tipoPersona">
+     <string>Juridica</string>
+    </void>
+   </object>
+  </void>
+ </object>
+ <object class="java.util.ArrayList">
+  <void method="add">
+   <object class="entidades.Persona_EmpleadoPretenso">
+    <void property="cuenta">
+     <object class="entidades.Cuenta">
+      <void property="contrasena">
+       <string>123abc</string>
+      </void>
+      <void property="tipoUsuario">
+       <string>EmpleadoPretenso</string>
+      </void>
+      <void property="usuario">
+       <string>jorge_perez</string>
+      </void>
+     </object>
+    </void>
+    <void property="edad">
+     <int>32</int>
+    </void>
+    <void property="nya">
+     <string>Jorge Adrian Perez</string>
+    </void>
+    <void property="telefono">
+     <string>2231111111</string>
+    </void>
+    <void property="ticket">
+     <object class="entidades.Ticket_EmpleadoPretenso" id="Ticket_EmpleadoPretenso0">
+      <void property="estado">
+       <object class="patronState.ActivoState">
+        <void property="ticket">
+         <object idref="Ticket_EmpleadoPretenso0"/>
+        </void>
+       </object>
+      </void>
+      <void property="fechaAlta">
+       <object class="java.util.GregorianCalendar">
+        <void property="time">
+         <object class="java.util.Date">
+          <long>1656096065686</long>
+         </object>
+        </void>
+       </object>
+      </void>
+      <void property="formularioDeBusqueda">
+       <object class="entidades.FormularioDeBusqueda">
+        <void property="cargaHoraria">
+         <object class="tablas.CargaHoraria_Extendida"/>
+        </void>
+        <void property="estudiosCursados">
+         <object class="tablas.EstudiosCursados_Secundario"/>
+        </void>
+        <void property="experienciaPrevia">
+         <object class="tablas.ExperienciaPrevia_Media"/>
+        </void>
+        <void property="locacion">
+         <object class="tablas.Locacion_HomeOffice"/>
+        </void>
+        <void property="rangoEtario">
+         <object class="tablas.RangoEtario_MasDe50"/>
+        </void>
+        <void property="remuneracion">
+         <object class="tablas.Remuneracion_60mil"/>
+        </void>
+        <void property="tipoDePuesto">
+         <object class="tablas.TipoDePuesto_Junior"/>
+        </void>
+       </object>
+      </void>
+      <void property="resultado">
+       <string>en proceso</string>
+      </void>
+     </object>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="entidades.Persona_EmpleadoPretenso" id="Persona_EmpleadoPretenso0">
+    <void property="cuenta">
+     <object class="entidades.Cuenta">
+      <void property="contrasena">
+       <string>abc123</string>
+      </void>
+      <void property="tipoUsuario">
+       <string>EmpleadoPretenso</string>
+      </void>
+      <void property="usuario">
+       <string>pablo_gimenez</string>
+      </void>
+     </object>
+    </void>
+    <void property="edad">
+     <int>24</int>
+    </void>
+    <void property="nya">
+     <string>Pablo Alberto Gimenez</string>
+    </void>
+    <void property="telefono">
+     <string>2232222222</string>
+    </void>
+    <void property="ticket">
+     <object class="entidades.Ticket_EmpleadoPretenso" id="Ticket_EmpleadoPretenso1">
+      <void property="estado">
+       <object class="patronState.ActivoState">
+        <void property="ticket">
+         <object idref="Ticket_EmpleadoPretenso1"/>
+        </void>
+       </object>
+      </void>
+      <void property="fechaAlta">
+       <object class="java.util.GregorianCalendar">
+        <void property="time">
+         <object class="java.util.Date">
+          <long>1656096065687</long>
+         </object>
+        </void>
+       </object>
+      </void>
+      <void property="formularioDeBusqueda">
+       <object class="entidades.FormularioDeBusqueda">
+        <void property="cargaHoraria">
+         <object class="tablas.CargaHoraria_Media"/>
+        </void>
+        <void property="estudiosCursados">
+         <object class="tablas.EstudiosCursados_Terciario"/>
+        </void>
+        <void property="experienciaPrevia">
+         <object class="tablas.ExperienciaPrevia_Mucha"/>
+        </void>
+        <void property="locacion">
+         <object class="tablas.Locacion_Indistinto"/>
+        </void>
+        <void property="rangoEtario">
+         <object class="tablas.RangoEtario_MasDe50"/>
+        </void>
+        <void property="remuneracion">
+         <object class="tablas.Remuneracion_90mil"/>
+        </void>
+        <void property="tipoDePuesto">
+         <object class="tablas.TipoDePuesto_Senior"/>
+        </void>
+       </object>
+      </void>
+      <void property="resultado">
+       <string>en proceso</string>
+      </void>
+     </object>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="entidades.Persona_EmpleadoPretenso" id="Persona_EmpleadoPretenso1">
+    <void property="cuenta">
+     <object class="entidades.Cuenta">
+      <void property="contrasena">
+       <string>123qwe</string>
+      </void>
+      <void property="tipoUsuario">
+       <string>EmpleadoPretenso</string>
+      </void>
+      <void property="usuario">
+       <string>franco_sosa</string>
+      </void>
+     </object>
+    </void>
+    <void property="edad">
+     <int>27</int>
+    </void>
+    <void property="nya">
+     <string>Franco Sosa</string>
+    </void>
+    <void property="telefono">
+     <string>2233333333</string>
+    </void>
+    <void property="ticket">
+     <object class="entidades.Ticket_EmpleadoPretenso" id="Ticket_EmpleadoPretenso2">
+      <void property="estado">
+       <object class="patronState.ActivoState">
+        <void property="ticket">
+         <object idref="Ticket_EmpleadoPretenso2"/>
+        </void>
+       </object>
+      </void>
+      <void property="fechaAlta">
+       <object class="java.util.GregorianCalendar">
+        <void property="time">
+         <object class="java.util.Date">
+          <long>1656096065687</long>
+         </object>
+        </void>
+       </object>
+      </void>
+      <void property="formularioDeBusqueda">
+       <object class="entidades.FormularioDeBusqueda">
+        <void property="cargaHoraria">
+         <object class="tablas.CargaHoraria_Completa"/>
+        </void>
+        <void property="estudiosCursados">
+         <object class="tablas.EstudiosCursados_Secundario"/>
+        </void>
+        <void property="experienciaPrevia">
+         <object class="tablas.ExperienciaPrevia_Mucha"/>
+        </void>
+        <void property="locacion">
+         <object class="tablas.Locacion_Presencial"/>
+        </void>
+        <void property="rangoEtario">
+         <object class="tablas.RangoEtario_MenosDe40"/>
+        </void>
+        <void property="remuneracion">
+         <object class="tablas.Remuneracion_90mil"/>
+        </void>
+        <void property="tipoDePuesto">
+         <object class="tablas.TipoDePuesto_Management"/>
+        </void>
+       </object>
+      </void>
+      <void property="resultado">
+       <string>en proceso</string>
+      </void>
+     </object>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="entidades.Persona_EmpleadoPretenso" id="Persona_EmpleadoPretenso2">
+    <void property="cuenta">
+     <object class="entidades.Cuenta">
+      <void property="contrasena">
+       <string>345ert</string>
+      </void>
+      <void property="tipoUsuario">
+       <string>EmpleadoPretenso</string>
+      </void>
+      <void property="usuario">
+       <string>franco_palmeiras</string>
+      </void>
+     </object>
+    </void>
+    <void property="edad">
+     <int>19</int>
+    </void>
+    <void property="nya">
+     <string>Franco Palmeiras</string>
+    </void>
+    <void property="telefono">
+     <string>2264444444</string>
+    </void>
+    <void property="ticket">
+     <object class="entidades.Ticket_EmpleadoPretenso" id="Ticket_EmpleadoPretenso3">
+      <void property="estado">
+       <object class="patronState.ActivoState">
+        <void property="ticket">
+         <object idref="Ticket_EmpleadoPretenso3"/>
+        </void>
+       </object>
+      </void>
+      <void property="fechaAlta">
+       <object class="java.util.GregorianCalendar">
+        <void property="time">
+         <object class="java.util.Date">
+          <long>1656096065687</long>
+         </object>
+        </void>
+       </object>
+      </void>
+      <void property="formularioDeBusqueda">
+       <object class="entidades.FormularioDeBusqueda">
+        <void property="cargaHoraria">
+         <object class="tablas.CargaHoraria_Extendida"/>
+        </void>
+        <void property="estudiosCursados">
+         <object class="tablas.EstudiosCursados_Primario"/>
+        </void>
+        <void property="experienciaPrevia">
+         <object class="tablas.ExperienciaPrevia_Nada"/>
+        </void>
+        <void property="locacion">
+         <object class="tablas.Locacion_HomeOffice"/>
+        </void>
+        <void property="rangoEtario">
+         <object class="tablas.RangoEtario_MasDe50"/>
+        </void>
+        <void property="remuneracion">
+         <object class="tablas.Remuneracion_30mil"/>
+        </void>
+        <void property="tipoDePuesto">
+         <object class="tablas.TipoDePuesto_Junior"/>
+        </void>
+       </object>
+      </void>
+      <void property="resultado">
+       <string>en proceso</string>
+      </void>
+     </object>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="entidades.Persona_EmpleadoPretenso" id="Persona_EmpleadoPretenso3">
+    <void property="cuenta">
+     <object class="entidades.Cuenta">
+      <void property="contrasena">
+       <string>val</string>
+      </void>
+      <void property="tipoUsuario">
+       <string>EmpleadoPretenso</string>
+      </void>
+      <void property="usuario">
+       <string>valen</string>
+      </void>
+     </object>
+    </void>
+    <void property="edad">
+     <int>25</int>
+    </void>
+    <void property="nya">
+     <string>valen</string>
+    </void>
+    <void property="telefono">
+     <string>12345</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="entidades.Persona_EmpleadoPretenso" id="Persona_EmpleadoPretenso4">
+    <void property="cuenta">
+     <object class="entidades.Cuenta">
+      <void property="contrasena">
+       <string>hola</string>
+      </void>
+      <void property="tipoUsuario">
+       <string>EmpleadoPretenso</string>
+      </void>
+      <void property="usuario">
+       <string>hola</string>
+      </void>
+     </object>
+    </void>
+    <void property="edad">
+     <int>25</int>
+    </void>
+    <void property="nya">
+     <string>valen</string>
+    </void>
+    <void property="telefono">
+     <string>12355</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="entidades.Persona_EmpleadoPretenso">
+    <void property="cuenta">
+     <object class="entidades.Cuenta">
+      <void property="contrasena">
+       <string>val</string>
+      </void>
+      <void property="tipoUsuario">
+       <string>EmpleadoPretenso</string>
+      </void>
+      <void property="usuario">
+       <string>valen</string>
+      </void>
+     </object>
+    </void>
+    <void property="edad">
+     <int>25</int>
+    </void>
+    <void property="nya">
+     <string>valen</string>
+    </void>
+    <void property="telefono">
+     <string>12356</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="entidades.Persona_EmpleadoPretenso" id="Persona_EmpleadoPretenso5">
+    <void property="cuenta">
+     <object class="entidades.Cuenta">
+      <void property="contrasena">
+       <string>xd</string>
+      </void>
+      <void property="tipoUsuario">
+       <string>EmpleadoPretenso</string>
+      </void>
+      <void property="usuario">
+       <string>marti</string>
+      </void>
+     </object>
+    </void>
+    <void property="edad">
+     <int>20</int>
+    </void>
+    <void property="nya">
+     <string>martiniano</string>
+    </void>
+    <void property="telefono">
+     <string>12345</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="entidades.Persona_EmpleadoPretenso">
+    <void property="cuenta">
+     <object class="entidades.Cuenta">
+      <void property="contrasena">
+       <string>juan</string>
+      </void>
+      <void property="tipoUsuario">
+       <string>EmpleadoPretenso</string>
+      </void>
+      <void property="usuario">
+       <string>juan</string>
+      </void>
+     </object>
+    </void>
+    <void property="edad">
+     <int>20</int>
+    </void>
+    <void property="nya">
+     <string>juan</string>
+    </void>
+    <void property="telefono">
+     <string>131341</string>
+    </void>
+   </object>
+  </void>
+ </object>
+ <object class="java.util.ArrayList"/>
+ <object class="java.util.HashMap">
+  <void method="put">
+   <string>franco_sosa</string>
+   <object idref="Persona_EmpleadoPretenso1"/>
+  </void>
+  <void method="put">
+   <string>valen</string>
+   <object idref="Persona_EmpleadoPretenso3"/>
+  </void>
+  <void method="put">
+   <string>arcoss</string>
+   <object idref="Persona_Empleador2"/>
+  </void>
+  <void method="put">
+   <string>emp</string>
+   <object idref="Persona_Empleador3"/>
+  </void>
+  <void method="put">
+   <string>pablo_gimenez</string>
+   <object idref="Persona_EmpleadoPretenso0"/>
+  </void>
+  <void method="put">
+   <string>carrefour</string>
+   <object idref="Persona_Empleador1"/>
+  </void>
+  <void method="put">
+   <string>microsoft</string>
+   <object idref="Persona_Empleador0"/>
+  </void>
+  <void method="put">
+   <string>hola</string>
+   <object idref="Persona_EmpleadoPretenso4"/>
+  </void>
+  <void method="put">
+   <string>marti</string>
+   <object idref="Persona_EmpleadoPretenso5"/>
+  </void>
+  <void method="put">
+   <string>franco_palmeiras</string>
+   <object idref="Persona_EmpleadoPretenso2"/>
+  </void>
+ </object>
+</java>
