@@ -18,8 +18,8 @@ public interface IState
 	void cancelar()throws CambioDeEstadoFallidoException;
 	void finalizar();
 	void modificarTicket_Formulario(FormularioDeBusqueda form)throws ModificacionTicketInvalidaException;
-	void comparaFormularioEmpleador(Persona_Empleador empleador,Persona_EmpleadoPretenso empleadoP,GregorianCalendar fecha,ArrayList<Persona_EmpleadoPretenso>empleadosPretensos);
-	void comparaFormularioEmpleadoPretenso(Persona_EmpleadoPretenso empleadoP,Persona_Empleador empleador);
+	void generaListaDeAsignacion(Persona_Empleador empleador,Persona_EmpleadoPretenso empleadoP,GregorianCalendar fecha,ArrayList<Persona_EmpleadoPretenso>empleadosPretensos);
+	void comparaFormularios(Persona_EmpleadoPretenso empleadoP,Persona_Empleador empleador);
 	void seteaResultado(Persona_EmpleadoPretenso empleadoPretenso);
 	String visualizarCostoServicio(Persona persona);
 	String visualizaResultado(Usuario usuario);

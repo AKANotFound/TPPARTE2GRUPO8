@@ -1,12 +1,2 @@
-/controlador/
-/entidades/
-/excepciones/
 /patronState/
-/persistencia/
-/prueba/
-/sistema/
-/tablas/
-/uml/
-/util/
-/vista/
-/simulacion/
+/entidades/
