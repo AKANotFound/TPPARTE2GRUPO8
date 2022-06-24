@@ -1,5 +1,6 @@
 package sistema;
 
+import entidades.Agencia;
 import entidades.Cuenta;
 import entidades.IRubro;
 import entidades.Persona;
@@ -26,7 +27,7 @@ public abstract class PersonaFactory {
 		Persona persona = null;
 		Cuenta cuenta = null;
 		
-		cuenta = new Cuenta(usuario, contrasena, "empleador");
+		cuenta = new Cuenta(usuario, contrasena, Agencia.EMPLEADOR);
 		persona = new Persona_Empleador(cuenta,razonSocial,tipoPersona,rubro,puntajeAspectos);
 		
 		return persona;
@@ -45,7 +46,7 @@ public abstract class PersonaFactory {
 		Persona persona = null;
 		Cuenta cuenta = null;
 		
-		cuenta = new Cuenta(usuario, contrasena, "empleadoPretenso");
+		cuenta = new Cuenta(usuario, contrasena, Agencia.EMPLEADO_PRETENSO);
 		persona = new Persona_EmpleadoPretenso(cuenta,nya,telefono,edad);
 		
 		return persona;

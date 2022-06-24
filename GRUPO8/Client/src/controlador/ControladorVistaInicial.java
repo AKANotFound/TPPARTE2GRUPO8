@@ -56,28 +56,25 @@ public class ControladorVistaInicial implements ActionListener {
 			break;
 		case INICIAR_SESION:
 			
-//<<<<<<< HEAD
 			try {
 				Persiste.getInstancia().leer();
 			} catch (IOException e3) {
 				// TODO Auto-generated catch block
 				e3.printStackTrace();
 			}
-/*=======
-			Persiste.getInstancia().leer();
->>>>>>> branch 'master' of https://github.com/AKANotFound/TPPARTE2GRUPO8.git*/
 			
 			if (!Agencia.getInstancia().getUsuarios().containsKey(this.vista.getUsuario()))
 				this.vista.ventanaEmergente("No existe la cuenta. Intente registrarse.");
 			else
 			{
 				String tipoUsuario = Agencia.getInstancia().getUsuarios().get(this.vista.getUsuario()).getCuenta().getTipoUsuario();
+				System.out.println("esta");
 				switch(tipoUsuario)
 				{
 				  case Agencia.ADMINISTRADOR:Agencia.getInstancia().setTipoUsuarioActual(Agencia.ADMINISTRADOR);
-				  	FuncionalidadAdministrador loginAdministrador = null;
 				  	try {
-						loginAdministrador = Sistema.loginAdministrador(vista.getUsuario(), vista.getContrasena());
+				  		Agencia.getInstancia().setFuncAdministradorActual(Sistema.loginAdministrador(vista.getUsuario(), vista.getContrasena()));
+				  		cl.show(contentPane, ventana.getVistaFuncionalidadesAdministrador());
 					} catch (ErrorContrasenaException e2) {
 						vista.ventanaEmergente("Contrase�a err�nea");
 						vista.limpiarVista();
@@ -87,14 +84,13 @@ public class ControladorVistaInicial implements ActionListener {
 						vista.limpiarVista();
 						e2.printStackTrace();
 					}
-					cl.show(contentPane, ventana.getVistaFuncionalidadesAdministrador());
-					Agencia.getInstancia().setFuncAdministradorActual(loginAdministrador);
+					
 					break;
 					
 				  case Agencia.EMPLEADOR:Agencia.getInstancia().setTipoUsuarioActual(Agencia.EMPLEADOR);
-				  	FuncionalidadEmpleador loginEmpleador = null;
 				  	try {
-						loginEmpleador = Sistema.loginEmpleador(vista.getUsuario(), vista.getContrasena());
+				  		Agencia.getInstancia().setFuncEmpleadorActual(Sistema.loginEmpleador(vista.getUsuario(), vista.getContrasena()));
+				  		cl.show(contentPane, ventana.getVistaFuncionalidadesPersona());
 					} catch (ErrorContrasenaException e1) {
 						vista.ventanaEmergente("Contrase�a err�nea");
 						vista.limpiarVista();
@@ -104,14 +100,13 @@ public class ControladorVistaInicial implements ActionListener {
 						vista.limpiarVista();
 						e1.printStackTrace();
 					}
-					cl.show(contentPane, ventana.getVistaFuncionalidadesPersona());
-					Agencia.getInstancia().setFuncEmpleadorActual(loginEmpleador);
+					
 				    break;
 				    
 				  case Agencia.EMPLEADO_PRETENSO:Agencia.getInstancia().setTipoUsuarioActual(Agencia.EMPLEADO_PRETENSO);
-				  	FuncionalidadEmpleadoPretenso loginEmpleadoPretenso = null;
 				  	try {
-						loginEmpleadoPretenso = Sistema.loginEmpleadoPretenso(vista.getUsuario(), vista.getContrasena());
+				  		Agencia.getInstancia().setFuncEmpleadoPretensoActual(Sistema.loginEmpleadoPretenso(vista.getUsuario(), vista.getContrasena()));
+				  		cl.show(contentPane, ventana.getVistaFuncionalidadesPersona());		
 					} catch (ErrorContrasenaException e1) {
 						vista.ventanaEmergente("Contrase�a err�nea");
 						vista.limpiarVista();
@@ -121,8 +116,6 @@ public class ControladorVistaInicial implements ActionListener {
 						vista.limpiarVista();
 						e1.printStackTrace();
 					}
-				  	Agencia.getInstancia().setFuncEmpleadoPretensoActual(loginEmpleadoPretenso);
-					cl.show(contentPane, ventana.getVistaFuncionalidadesPersona());		
 				  	break;
 
 				}

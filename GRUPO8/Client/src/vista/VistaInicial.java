@@ -217,7 +217,7 @@ public class VistaInicial extends JPanel implements IVistaInicial, KeyListener {
 		this.rdbtn_Empleador.setSelected(false);
 		this.textField_Usuario.setText("");
 		this.textField_Contrasena.setText("");
-		
+		this.btn_Login.setEnabled(false);
 	}
 
 	@Override

@@ -28,7 +28,7 @@ public class Administrador extends Usuario{
 
 	public void setCuenta(String usuario,String contrasena)
 	{
-		this.cuenta=new Cuenta(usuario,contrasena,"administrador");
+		this.cuenta=new Cuenta(usuario,contrasena,Agencia.ADMINISTRADOR);
 	}
 	
 }
