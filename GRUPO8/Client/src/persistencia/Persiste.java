@@ -4,11 +4,14 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import entidades.Administrador;
 import entidades.Agencia;
 import entidades.Contrato;
 import entidades.Persona_EmpleadoPretenso;
 import entidades.Persona_Empleador;
 import entidades.Usuario;
+import excepciones.ErrorCodigoException;
+import sistema.Sistema;
 
 public class Persiste {
 	
@@ -26,7 +29,8 @@ public class Persiste {
 		try {
 			persistencia.abrirOutput("Prueba.xml");
 			System.out.println("Crea archivo de escritura");
-
+			
+			persistencia.escribir(UtilAdministrador.AdministradorDtoFromAdministrador(Administrador.getInstancia()));	// patron DTO
 			persistencia.escribir(Agencia.getInstancia().getEmpleadores());
 			persistencia.escribir(Agencia.getInstancia().getEmpleadosPretensos());
 			persistencia.escribir(Agencia.getInstancia().getContratos());
@@ -39,14 +43,17 @@ public class Persiste {
 		}
 	}	
 	
-	public void leer() {
+	public void leer() throws IOException {
 		ArrayList<Persona_Empleador> lista = null; 
 		ArrayList<Persona_EmpleadoPretenso> listaEmpleados = null;
 		ArrayList<Contrato> listaContratos = new ArrayList<Contrato>();
 		HashMap <String, Usuario> usuarios = new HashMap <>(); 
+		AdministradorDto adminDto = null;
 		
 		try {
 			persistencia.abrirInput("Prueba.xml");
+			
+			adminDto = (AdministradorDto) persistencia.leer();
 			lista = (ArrayList<Persona_Empleador>) persistencia.leer();
 			listaEmpleados = (ArrayList<Persona_EmpleadoPretenso>) persistencia.leer();
 			listaContratos = (ArrayList<Contrato>) persistencia.leer();
@@ -57,17 +64,25 @@ public class Persiste {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} 
-		catch (IOException e) {
+		/*catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		}*/
 		
-		//System.out.println(Agencia.getInstancia().getUsuarios());
-		System.out.println(usuarios);
+		
+		Administrador admin = UtilAdministrador.AdministradorFromAdministradorDto(adminDto);
+		
 		Agencia.getInstancia().setEmpleadores(lista);
 		Agencia.getInstancia().setEmpleadosPretensos(listaEmpleados);
 		Agencia.getInstancia().setContratos(listaContratos);
 		Agencia.getInstancia().setUsuarios(usuarios);
+		
+		try {
+			Sistema.registrarAdministrador(admin);
+		} catch (ErrorCodigoException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 	}
 }

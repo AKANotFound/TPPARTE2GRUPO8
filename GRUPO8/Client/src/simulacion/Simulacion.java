@@ -90,7 +90,10 @@ public class Simulacion {
 		
 	}
 	
-	
+	public void iniciar() 
+	{
+		BolsaDeTrabajo.getInstancia().iniciaSimulacion();
+	}
 	
 	public void detener ()
 	{

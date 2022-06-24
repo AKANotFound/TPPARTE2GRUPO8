@@ -8,6 +8,8 @@ public class TicketSimplificado
 	private IRubro rubro;
 	private Simulacion_Empleador empleador=null;
 	
+	public TicketSimplificado() {}
+	
 	public TicketSimplificado(ILocacion locacion, IRubro rubro, Simulacion_Empleador empleador)
 	{
 		super();
@@ -28,7 +30,18 @@ public class TicketSimplificado
 	{
 		return empleador;
 	}
-	
+
+	public void setLocacion(ILocacion locacion) {
+		this.locacion = locacion;
+	}
+
+	public void setRubro(IRubro rubro) {
+		this.rubro = rubro;
+	}
+
+	public void setEmpleador(Simulacion_Empleador empleador) {
+		this.empleador = empleador;
+	}
 	
 
 }

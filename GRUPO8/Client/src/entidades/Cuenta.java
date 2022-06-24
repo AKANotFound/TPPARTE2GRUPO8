@@ -8,9 +8,7 @@ public class Cuenta {
 	private String contrasena;
 	private String tipoUsuario;
 	
-	public Cuenta() {
-		
-	}
+	public Cuenta() {}
 	
 	public Cuenta(String usuario, String contrasena, String tipoUsuario) {
 		super();

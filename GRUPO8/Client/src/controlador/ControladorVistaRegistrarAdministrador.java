@@ -7,6 +7,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JPanel;
 
 import excepciones.ErrorCodigoException;
+import persistencia.Persiste;
 import sistema.Sistema;
 import vista.IVentana;
 import vista.IVistaRegistrarAdministrador;
@@ -41,9 +42,10 @@ public class ControladorVistaRegistrarAdministrador implements ActionListener {
 			{	
 				Sistema.registrarAdministrador(vista.getUsuario(), vista.getContrasena(), 
 						vista.getCodigoAdministrador());
+				Persiste.getInstancia().persistir();
 				cl.show(contentPane, ventana.getVistaInicial());
 				
-			} catch (ErrorCodigoException e1)
+			} catch (ErrorCodigoException e1) 
 			{
 				vista.ventanaEmergente("C�digo �rroneo");
 				e1.printStackTrace();

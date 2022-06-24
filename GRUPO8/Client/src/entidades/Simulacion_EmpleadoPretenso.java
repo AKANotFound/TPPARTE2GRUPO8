@@ -14,6 +14,8 @@ public class Simulacion_EmpleadoPretenso extends Persona_EmpleadoPretenso implem
 	private IRubro rubroElegido;
 	private String estado = null;
 	
+	public Simulacion_EmpleadoPretenso() {}
+	
 	public Simulacion_EmpleadoPretenso(String nya, ILocacion locacionElegida, IRubro rubroElegido) {
 		super(null, nya, null, 0);
 		this.locacionElegida = locacionElegida;

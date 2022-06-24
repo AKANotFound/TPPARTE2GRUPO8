@@ -39,7 +39,8 @@ public class PruebaSimulacion
 		Simulacion_Empleador e3=new Simulacion_Empleador("Musimundo");
 		Simulacion_Empleador e4=new Simulacion_Empleador("Disco");	
 		
-		ControladorVistaSimulacion c = new ControladorVistaSimulacion();
+		/*ControladorVistaSimulacion c = new ControladorVistaSimulacion();
+		
 		c.agregarObservable(ep1);
 		c.agregarObservable(ep2);
 		c.agregarObservable(ep3);
@@ -50,7 +51,7 @@ public class PruebaSimulacion
 		c.agregarObservable(e1);
 		c.agregarObservable(e2);
 		c.agregarObservable(e3);
-		c.agregarObservable(e4);
+		c.agregarObservable(e4);*/
 		
 		Thread t1=new Thread(ep1);
 		Thread t2=new Thread(ep2);

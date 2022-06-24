@@ -5,7 +5,8 @@ public class Administrador extends Usuario{
      * @aggregation composite
      */
     private static Administrador instancia = null;
-
+    private String codigoAdministrador;
+    
 	private Administrador() {
 		super(new Cuenta(null,null,null));
 	}
@@ -17,6 +18,14 @@ public class Administrador extends Usuario{
 		return instancia;
 	}	
 	
+	public String getCodigoAdministrador() {
+		return codigoAdministrador;
+	}
+
+	public void setCodigoAdministrador(String codigoAdministrador) {
+		this.codigoAdministrador = codigoAdministrador;
+	}
+
 	public void setCuenta(String usuario,String contrasena)
 	{
 		this.cuenta=new Cuenta(usuario,contrasena,"administrador");

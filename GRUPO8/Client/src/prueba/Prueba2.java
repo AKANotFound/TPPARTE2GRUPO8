@@ -1,13 +1,9 @@
 package prueba;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 import entidades.Agencia;
-import entidades.Contrato;
 import entidades.FormularioDeBusqueda;
-import entidades.Persona_EmpleadoPretenso;
-import entidades.Persona_Empleador;
 import entidades.Rubro_ComercioInternacional;
 import entidades.Rubro_ComercioLocal;
 import entidades.Rubro_Salud;
@@ -17,9 +13,7 @@ import excepciones.ErrorContrasenaException;
 import excepciones.ErrorUsuarioException;
 import excepciones.ListaNoGeneradaException;
 import excepciones.TipoPersonaInvalidoException;
-import persistencia.IPersistencia;
 import persistencia.Persiste;
-import persistencia.PersistenciaXML;
 import sistema.FuncionalidadAdministrador;
 import sistema.FuncionalidadEmpleadoPretenso;
 import sistema.FuncionalidadEmpleador;
@@ -47,10 +41,8 @@ public class Prueba2 {
 
 	public static void main(String[] args) {
 
-		Persiste persiste = new Persiste();
-	
 		try {
-			persiste.leer();
+			Persiste.getInstancia().leer();
 		} catch (IOException e2) {
 
 			e2.printStackTrace();
@@ -264,7 +256,8 @@ public class Prueba2 {
 			microsoft.iniciarRondaEleccion();
 			carrefour.iniciarRondaEleccion();
 
-			System.out.println("\nUNA VEZ FINALIZADA LA RONDA DE ELECCIONES, LOS USUARIOS ELIGEN VER SUS ELECCIONES \n");
+			System.out
+					.println("\nUNA VEZ FINALIZADA LA RONDA DE ELECCIONES, LOS USUARIOS ELIGEN VER SUS ELECCIONES \n");
 			System.out.println(jorge.visualizarPersonasElegidas());
 			System.out.println(pablo.visualizarPersonasElegidas());
 			System.out.println(francoS.visualizarPersonasElegidas());
@@ -294,15 +287,15 @@ public class Prueba2 {
 			System.out.println(carrefour.getRazonSocial() + ": " + carrefour.visualizarCostoServicio());
 
 			// Persistencia
-			persiste.persistir();
+			Persiste.getInstancia().persistir();
 			try {
-				persiste.leer();
+				Persiste.getInstancia().leer();
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
-		
+
 		System.out.println(Agencia.getInstancia().getEmpleadores());
 		System.out.println(Agencia.getInstancia().getEmpleadosPretensos());
 		System.out.println(Agencia.getInstancia().getContratos());

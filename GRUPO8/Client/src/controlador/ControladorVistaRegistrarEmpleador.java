@@ -11,6 +11,7 @@ import entidades.Rubro_ComercioInternacional;
 import entidades.Rubro_ComercioLocal;
 import entidades.Rubro_Salud;
 import excepciones.TipoPersonaInvalidoException;
+import persistencia.Persiste;
 import sistema.Sistema;
 import vista.IVentana;
 import vista.IVistaRegistrarEmpleador;
@@ -66,6 +67,7 @@ public class ControladorVistaRegistrarEmpleador implements ActionListener
 				
 				Sistema.registrarEmpleador(vista.getUsuario(),vista.getContrasena()
 						,vista.getRazonSocial(),vista.getTipoPersona(), rubro, puntajeAspectos);
+				Persiste.getInstancia().persistir();
 				cl.show(contentPane, ventana.getVistaInicial());
 			} catch (TipoPersonaInvalidoException e1)
 			{

@@ -3,6 +3,7 @@ package controlador;
 import java.awt.CardLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
 import javax.swing.JPanel;
 
@@ -55,8 +56,12 @@ public class ControladorVistaInicial implements ActionListener {
 			break;
 		case INICIAR_SESION:
 			
-			Persiste.getInstancia().leer();
-			System.out.println(Agencia.getInstancia().getUsuarios().get("tuvi"));
+			try {
+				Persiste.getInstancia().leer();
+			} catch (IOException e3) {
+				// TODO Auto-generated catch block
+				e3.printStackTrace();
+			}
 			
 			if (!Agencia.getInstancia().getUsuarios().containsKey(this.vista.getUsuario()))
 				this.vista.ventanaEmergente("No existe la cuenta. Intente registrarse.");
