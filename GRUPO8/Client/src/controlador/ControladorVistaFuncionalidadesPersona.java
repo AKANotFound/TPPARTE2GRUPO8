@@ -60,12 +60,15 @@ public class ControladorVistaFuncionalidadesPersona implements ActionListener {
 				empleador.setEmpleadosElegidos(personasElegidas);
 				break;
 			case Agencia.EMPLEADO_PRETENSO:
-				if(personasElegidas.size() > 1)
-					this.vista.ventanaEmergente("Solo puede elegir un empleador");
-				else {
-					PersonaElegida personaElegida = personasElegidas.get(0);
-					Persona_EmpleadoPretenso empleadoPretenso = (Persona_EmpleadoPretenso) Agencia.getInstancia().getFuncEmpleadoPretensoActual().getUsuario();
-					empleadoPretenso.setEmpleadorElegido(personaElegida);
+				if(personasElegidas!=null)
+				{
+					if(personasElegidas.size() > 1)
+						this.vista.ventanaEmergente("Solo puede elegir un empleador");
+					else {
+						PersonaElegida personaElegida = personasElegidas.get(0);
+						Persona_EmpleadoPretenso empleadoPretenso = (Persona_EmpleadoPretenso) Agencia.getInstancia().getFuncEmpleadoPretensoActual().getUsuario();
+						empleadoPretenso.setEmpleadorElegido(personaElegida);
+					}
 				}
 			}
 			//NO SE USA LA CLASE INICIAR RONDA DE ELECCIONES
@@ -88,10 +91,22 @@ public class ControladorVistaFuncionalidadesPersona implements ActionListener {
 		case INICIAR_RONDA_DE_ELECCION:
 			switch(Agencia.getInstancia().getTipoUsuarioActual()) {
 			case Agencia.EMPLEADOR:
-				vista.visualizarListaDeAsignacion(Agencia.getInstancia().getFuncEmpleadorActual().getListaDeAsignacion());
+				try
+				{
+					vista.visualizarListaDeAsignacion(Agencia.getInstancia().getFuncEmpleadorActual().getListaDeAsignacion());
+				} catch (ListaNoGeneradaException e1)
+				{
+					this.vista.ventanaEmergente(e1.getMessage());
+				}
 				break;
 			case Agencia.EMPLEADO_PRETENSO:
-				vista.visualizarListaDeAsignacion(Agencia.getInstancia().getFuncEmpleadoPretensoActual().getListaDeAsignacion());
+				try
+				{
+					vista.visualizarListaDeAsignacion(Agencia.getInstancia().getFuncEmpleadoPretensoActual().getListaDeAsignacion());
+				} catch (ListaNoGeneradaException e1)
+				{
+					this.vista.ventanaEmergente(e1.getMessage());
+				}
 				break;
 			}
 			break;

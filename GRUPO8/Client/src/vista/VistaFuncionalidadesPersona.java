@@ -180,8 +180,11 @@ public class VistaFuncionalidadesPersona extends JPanel implements IVistaFuncion
 	}
 
 	@Override
-	public void visualizarListaDeAsignacion(ListaDeAsignacion listaDeAsignacion)
+	public void visualizarListaDeAsignacion(ListaDeAsignacion listaDeAsignacion) throws ListaNoGeneradaException
 	{
+		if (listaDeAsignacion==null)
+			throw new ListaNoGeneradaException();
+		
 		ArrayList<PersonaElegida>lista=listaDeAsignacion.getLista();
 		
 		for (int i=0;i<lista.size();i++)
@@ -195,7 +198,8 @@ public class VistaFuncionalidadesPersona extends JPanel implements IVistaFuncion
 	public ArrayList<PersonaElegida> getPersonasElegidas() throws ListaNoGeneradaException 
 	{
 		ArrayList<PersonaElegida>personasElegidas=null;
-		
+		if (this.list_ListaDeAsignacion.getSelectedValuesList().isEmpty())
+			throw new ListaNoGeneradaException();
 		personasElegidas=(ArrayList<PersonaElegida>) this.list_ListaDeAsignacion.getSelectedValuesList();
 		
 		return personasElegidas;
