@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import entidades.ListaDeAsignacion;
 import entidades.PersonaElegida;
+import excepciones.ListaNoGeneradaException;
 
 public interface IVistaFuncionalidadesPersona {
 	void setActionListener(ActionListener actionListener);
@@ -12,5 +13,5 @@ public interface IVistaFuncionalidadesPersona {
 	int ventanaEmergenteConfirmar(String mensaje);
 	void ventanaEmergente(String mensaje);
 	void visualizarListaDeAsignacion(ListaDeAsignacion listaDeAsignacion);
-	ArrayList<PersonaElegida> getPersonasElegidas();
+	ArrayList<PersonaElegida> getPersonasElegidas() throws ListaNoGeneradaException ;
 }

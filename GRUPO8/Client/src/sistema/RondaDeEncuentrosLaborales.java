@@ -28,15 +28,7 @@ protected static void iniciaRondaDeEncuentrosLaborales ()
 		for (int i=0; i<empleadores.size(); i++)
 		{
 			empleador = empleadores.get(i);
-			empleador.getTicket().comparaFormularioEmpleador(empleador,empleadoP,fecha,empleadosPretensos);//REEMPLAZA IF
-			Collections.sort(empleador.getListaDeAsignacion().getLista());//si es null se rompe? habra que ver 	
-			empleadoP = (Persona_EmpleadoPretenso) empleador.getListaDeAsignacion().getLista().get(0).getPersona();
-			Sistema.puntajePrimero(empleadoP);
-			empleadoP = (Persona_EmpleadoPretenso) empleador.getListaDeAsignacion().getLista().get(empleador.getListaDeAsignacion().getLista().size()-1).getPersona();
-			Sistema.puntajeUltimo(empleadoP);
-				
-				
-			
+			empleador.getTicket().comparaFormularioEmpleador(empleador,empleadoP,fecha,empleadosPretensos);	
 		}
 		for (int i=0;i<empleadosPretensos.size();i++)
 		{

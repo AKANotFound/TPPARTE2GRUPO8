@@ -6,15 +6,20 @@ import java.awt.GridLayout;
 import java.awt.event.ActionListener;
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JComboBox;
 import javax.swing.JTextField;
 import javax.swing.border.TitledBorder;
+import javax.swing.ButtonGroup;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import java.awt.event.KeyListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.ItemListener;
 import java.awt.event.ItemEvent;
+import javax.swing.JRadioButton;
+import javax.swing.border.EtchedBorder;
+import java.awt.Color;
 
 public class VistaFormularioDeBusquedaEmpleador extends JPanel implements IVistaFormularioDeBusquedaEmpleador, KeyListener, ItemListener
 {
@@ -64,6 +69,7 @@ public class VistaFormularioDeBusquedaEmpleador extends JPanel implements IVista
 	private JPanel panel_comboBox_EstudiosCursados;
 	private JPanel panel_lbl_CantidadDeEmpleadosSolicitados;
 	private JPanel panel_comboBox_CantidadDeEmpleadosSolicitados;
+	private ButtonGroup rdbtn_Group=new ButtonGroup();
 	private ActionListener actionListener;//controlador
 	
 	private final String SELECCIONE="(Seleccione)";
@@ -88,6 +94,10 @@ public class VistaFormularioDeBusquedaEmpleador extends JPanel implements IVista
 	private final String ESTUDIOS_CURSADOS_PRIMARIO="Primario";
 	private final String ESTUDIOS_CURSADOS_SECUNDARIO="Secundario";
 	private final String ESTUDIOS_CURSADOS_TERCIARIO="Terciario";
+	private JRadioButton rdbtn_Crear;
+	private JRadioButton rdbtn_Modificar;
+	private JPanel panel_rdbtn_Crear;
+	private JPanel panel_rdbtn_Modificar;
 	
 	/**
 	 * Create the panel.
@@ -114,12 +124,12 @@ public class VistaFormularioDeBusquedaEmpleador extends JPanel implements IVista
 		this.panel_Aceptar.add(this.btn_Aceptar);
 		
 		this.panel_Centro_Border = new JPanel();
-		this.panel_Centro_Border.setBorder(new TitledBorder(null, "Creaci\u00F3n de ticket empleador", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		this.panel_Centro_Border.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), "Creaci\u00F3n/Modificaci\u00F3n de ticket empleador", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
 		add(this.panel_Centro_Border, BorderLayout.CENTER);
 		
 		this.panel_Centro = new JPanel();
 		this.panel_Centro_Border.add(this.panel_Centro);
-		this.panel_Centro.setLayout(new GridLayout(0, 2, 0, 0));
+		this.panel_Centro.setLayout(new GridLayout(9, 2, 0, 0));
 		
 		this.panel_lbl_Locacion = new JPanel();
 		this.panel_Centro.add(this.panel_lbl_Locacion);
@@ -267,6 +277,21 @@ public class VistaFormularioDeBusquedaEmpleador extends JPanel implements IVista
 		this.textField_CantidadEmpleadosSolicitados.addKeyListener(this);
 		this.panel_comboBox_CantidadDeEmpleadosSolicitados.add(this.textField_CantidadEmpleadosSolicitados);
 		this.textField_CantidadEmpleadosSolicitados.setColumns(10);
+		
+		this.panel_rdbtn_Crear = new JPanel();
+		this.panel_Centro.add(this.panel_rdbtn_Crear);
+		
+		this.rdbtn_Crear = new JRadioButton("Crear");
+		this.rdbtn_Group.add(rdbtn_Crear);
+		this.rdbtn_Crear.setSelected(true);
+		this.panel_rdbtn_Crear.add(this.rdbtn_Crear);
+		
+		this.panel_rdbtn_Modificar = new JPanel();
+		this.panel_Centro.add(this.panel_rdbtn_Modificar);
+		
+		this.rdbtn_Modificar = new JRadioButton("Modificar");
+		this.rdbtn_Group.add(rdbtn_Modificar);
+		this.panel_rdbtn_Modificar.add(this.rdbtn_Modificar);
 
 	}
 
@@ -289,22 +314,32 @@ public class VistaFormularioDeBusquedaEmpleador extends JPanel implements IVista
 		}
 		catch(NumberFormatException exception)
 		{
-			
 		}
 		
-		if (cantEmpleadosSolicitados!=0 && this.comboBox_Locacion.getSelectedItem()!=SELECCIONE
+		if (this.comboBox_Locacion.getSelectedItem()!=SELECCIONE
 				&& this.comboBox_Remuneracion.getSelectedItem()!=SELECCIONE
 				&& this.comboBox_CargaHoraria.getSelectedItem()!=SELECCIONE
 				&& this.comboBox_TipoDePuesto.getSelectedItem()!=SELECCIONE
 				&& this.comboBox_RangoEtario.getSelectedItem()!=SELECCIONE
 				&& this.comboBox_ExperienciaPrevia.getSelectedItem()!=SELECCIONE
-				&& this.comboBox_EstudiosCursados.getSelectedItem()!=SELECCIONE)
+				&& this.comboBox_EstudiosCursados.getSelectedItem()!=SELECCIONE
+				)
 		{
-			this.btn_Aceptar.setEnabled(true);
+			if (this.rdbtn_Crear.isSelected())
+			{
+				if (cantEmpleadosSolicitados!=0)
+					this.btn_Aceptar.setEnabled(true);
+				else
+					this.btn_Aceptar.setEnabled(false);
+			}
+			else
+				if (cantEmpleadosSolicitados!=0)
+					this.btn_Aceptar.setEnabled(false);
+				else
+					this.btn_Aceptar.setEnabled(true);
+			
 		}
-		else
-			this.btn_Aceptar.setEnabled(false);
-		
+
 	}
 	public void keyTyped(KeyEvent e) {
 	}
@@ -399,6 +434,21 @@ public class VistaFormularioDeBusquedaEmpleador extends JPanel implements IVista
 		this.comboBox_ExperienciaPrevia.setSelectedItem(SELECCIONE);
 		this.comboBox_EstudiosCursados.setSelectedItem(SELECCIONE);
 		this.comboBox_TipoDePuesto.setSelectedItem(SELECCIONE);
+		this.rdbtn_Crear.setSelected(true);
+		
+		
+	}
+
+	@Override
+	public boolean CrearTicket()
+	{
+		return this.rdbtn_Crear.isSelected();
+	}
+
+	@Override
+	public void ventanaEmergente(String mensaje)
+	{
+		JOptionPane.showMessageDialog(null,mensaje);
 		
 	}
 }

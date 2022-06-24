@@ -39,16 +39,5 @@ abstract class RondaDeElecciones {
 		
 	} 
 	
-	//dejamos esta funcion para lo VISUAL
-	private static String visualizarListaAsignacion(Persona persona) throws ListaNoGeneradaException
-	{
-		String string=null;
-		if(persona.getListaDeAsignacion() != null)
-			string=""+persona.getListaDeAsignacion();
-			
-		else
-			throw new ListaNoGeneradaException();
-		return string;
-	}
 }
  

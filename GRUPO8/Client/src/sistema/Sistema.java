@@ -310,12 +310,17 @@ public abstract class Sistema {
 	static void puntajeCancelar(Persona_EmpleadoPretenso empleadoPretenso) {
 		empleadoPretenso.setPuntaje(empleadoPretenso.getPuntaje() - 1);
 	}
+/*<<<<<<< HEAD
 
 	static void puntajeUltimo(Persona_EmpleadoPretenso empleadoPretenso) {
+=======*/
+	
+	public static void puntajeUltimo(Persona_EmpleadoPretenso empleadoPretenso) {
+//>>>>>>> branch 'master' of https://github.com/AKANotFound/TPPARTE2GRUPO8.git
 		empleadoPretenso.setPuntaje(empleadoPretenso.getPuntaje() - 5);
 	}
 
-	static void puntajePrimero(Persona_EmpleadoPretenso empleadoPretenso) {
+	public static void puntajePrimero(Persona_EmpleadoPretenso empleadoPretenso) {
 		empleadoPretenso.setPuntaje(empleadoPretenso.getPuntaje() + 5);
 	}
 

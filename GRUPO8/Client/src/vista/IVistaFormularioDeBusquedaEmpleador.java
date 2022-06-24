@@ -14,4 +14,6 @@ public interface IVistaFormularioDeBusquedaEmpleador
 	String getExperienciaPrevia();
 	String getEstudiosCursados();
 	int getCantidadEmpleadosSolicitados();
+	boolean CrearTicket();
+	void ventanaEmergente(String mensaje);
 }

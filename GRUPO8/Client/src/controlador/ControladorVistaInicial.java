@@ -56,18 +56,23 @@ public class ControladorVistaInicial implements ActionListener {
 			break;
 		case INICIAR_SESION:
 			
+//<<<<<<< HEAD
 			try {
 				Persiste.getInstancia().leer();
 			} catch (IOException e3) {
 				// TODO Auto-generated catch block
 				e3.printStackTrace();
 			}
+/*=======
+			Persiste.getInstancia().leer();
+>>>>>>> branch 'master' of https://github.com/AKANotFound/TPPARTE2GRUPO8.git*/
 			
 			if (!Agencia.getInstancia().getUsuarios().containsKey(this.vista.getUsuario()))
 				this.vista.ventanaEmergente("No existe la cuenta. Intente registrarse.");
 			else
 			{
-				switch(this.vista.getTipoUsuario())
+				String tipoUsuario = Agencia.getInstancia().getUsuarios().get(this.vista.getUsuario()).getCuenta().getTipoUsuario();
+				switch(tipoUsuario)
 				{
 				  case Agencia.ADMINISTRADOR:Agencia.getInstancia().setTipoUsuarioActual(Agencia.ADMINISTRADOR);
 				  	FuncionalidadAdministrador loginAdministrador = null;

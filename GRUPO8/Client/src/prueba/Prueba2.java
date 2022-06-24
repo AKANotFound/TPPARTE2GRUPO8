@@ -46,6 +46,7 @@ public class Prueba2 {
 		} catch (IOException e2) {
 
 			e2.printStackTrace();
+		}
 
 			Rubro_ComercioLocal rubro_ComercioLocal = new Rubro_ComercioLocal();
 			Rubro_ComercioInternacional rubro_ComercioInternacional = new Rubro_ComercioInternacional();
@@ -288,14 +289,14 @@ public class Prueba2 {
 
 			// Persistencia
 			Persiste.getInstancia().persistir();
-			try {
+			try 
+			{
 				Persiste.getInstancia().leer();
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		}
-
+		
 		System.out.println(Agencia.getInstancia().getEmpleadores());
 		System.out.println(Agencia.getInstancia().getEmpleadosPretensos());
 		System.out.println(Agencia.getInstancia().getContratos());
