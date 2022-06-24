@@ -22,6 +22,7 @@ import excepciones.ErrorCodigoException;
 import excepciones.ErrorContrasenaException;
 import excepciones.ErrorUsuarioException;
 import excepciones.TipoPersonaInvalidoException;
+import excepciones.UsuarioYaRegistradoException;
 import persistencia.Persiste;
 import sistema.FuncionalidadAdministrador;
 import sistema.FuncionalidadEmpleadoPretenso;
@@ -129,6 +130,8 @@ public class PruebaVista {
 			} catch (ErrorCodigoException e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
+			} catch (UsuarioYaRegistradoException e) {
+				System.out.println(e.getMessage());
 			}
 
 			try {
@@ -136,12 +139,16 @@ public class PruebaVista {
 			} catch (EdadInvalidaException e) {
 				System.out.println(e.getMessage());
 				e.printStackTrace();
+			} catch (UsuarioYaRegistradoException e) {
+				System.out.println(e.getMessage());
 			}
 			try {
 				Sistema.registrarEmpleadoPretenso("pablo_gimenez", "abc123", "Pablo Alberto Gimenez", "2232222222", 24);
 			} catch (EdadInvalidaException e) {
 				System.out.println(e.getMessage());
 				e.printStackTrace();
+			} catch (UsuarioYaRegistradoException e) {
+				System.out.println(e.getMessage());
 			}
 
 			try {
@@ -149,6 +156,8 @@ public class PruebaVista {
 			} catch (EdadInvalidaException e) {
 				System.out.println(e.getMessage());
 				e.printStackTrace();
+			} catch (UsuarioYaRegistradoException e) {
+				System.out.println(e.getMessage());
 			}
 
 			try {
@@ -156,6 +165,8 @@ public class PruebaVista {
 			} catch (EdadInvalidaException e) {
 				System.out.println(e.getMessage());
 				e.printStackTrace();
+			} catch (UsuarioYaRegistradoException e) {
+				System.out.println(e.getMessage());
 			}
 
 			try {
@@ -164,6 +175,8 @@ public class PruebaVista {
 			} catch (TipoPersonaInvalidoException e) {
 				System.out.println(e.getMessage());
 				e.printStackTrace();
+			} catch (UsuarioYaRegistradoException e) {
+				System.out.println(e.getMessage());
 			}
 
 			try {
@@ -172,6 +185,8 @@ public class PruebaVista {
 			} catch (TipoPersonaInvalidoException e) {
 				System.out.println(e.getMessage());
 				e.printStackTrace();
+			} catch (UsuarioYaRegistradoException e) {
+				System.out.println(e.getMessage());
 			}
 
 			// LOGEO DE USUARIOS
@@ -181,6 +196,8 @@ public class PruebaVista {
 			} catch (ErrorContrasenaException | ErrorUsuarioException e) {
 				System.out.println(e.getMessage());
 				e.printStackTrace();
+			} catch (UsuarioYaRegistradoException e) {
+				System.out.println(e.getMessage());
 			}
 
 			try {
@@ -258,7 +275,7 @@ public class PruebaVista {
 
 		// **************************************************************************************************************
 
-		System.out.println("Esta admin : "+Agencia.getInstancia().getUsuarios().containsKey("admin"));
+		//System.out.println("Esta admin : "+Agencia.getInstancia().getUsuarios().containsKey("admin"));
 		
 		System.out.println(Agencia.getInstancia().getUsuarios());
 		// Persiste.getInstancia().leer();

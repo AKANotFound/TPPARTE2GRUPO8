@@ -6,6 +6,7 @@ import java.awt.GridLayout;
 import java.awt.event.ActionListener;
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.border.TitledBorder;
 import javax.swing.BoxLayout;
@@ -241,4 +242,10 @@ public class VistaRegistrarEmpleadoPretenso extends JPanel implements IVistaRegi
 		this.textField_Contrasena.setText("");
 		
 	}
+
+	@Override
+	public void ventanaEmergente(String mensaje) {
+		JOptionPane.showMessageDialog(null,mensaje);
+	}
+	
 }

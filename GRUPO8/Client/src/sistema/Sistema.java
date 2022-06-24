@@ -20,6 +20,7 @@ import excepciones.ErrorContrasenaException;
 import excepciones.ErrorUsuarioException;
 import excepciones.ListaNoGeneradaException;
 import excepciones.TipoPersonaInvalidoException;
+import excepciones.UsuarioYaRegistradoException;
 import patronState.FinalizadoState;
 import persistencia.Persiste;
 
@@ -95,7 +96,7 @@ public abstract class Sistema {
 	}
 
 	public static void registrarEmpleador(String usuario, String contrasena, String razonSocial, String tipoPersona,
-			IRubro rubro, double[] puntajeAspectos) throws TipoPersonaInvalidoException {
+			IRubro rubro, double[] puntajeAspectos) throws TipoPersonaInvalidoException, UsuarioYaRegistradoException {
 		if (!tipoPersona.equalsIgnoreCase("fisica") && !tipoPersona.equalsIgnoreCase("juridica"))
 			throw new TipoPersonaInvalidoException(tipoPersona);
 		Persona_Empleador empleador = (Persona_Empleador) PersonaFactory.getEmpleador(usuario, contrasena, razonSocial,
@@ -105,7 +106,7 @@ public abstract class Sistema {
 	}
 
 	public static void registrarEmpleadoPretenso(String usuario, String contrasena, String nya, String telefono,
-			int edad) throws EdadInvalidaException {
+			int edad) throws EdadInvalidaException, UsuarioYaRegistradoException {
 		if (edad < 16)
 			throw new EdadInvalidaException(Integer.toString(edad));
 		Persona_EmpleadoPretenso empleadoPretenso = (Persona_EmpleadoPretenso) PersonaFactory
@@ -115,7 +116,7 @@ public abstract class Sistema {
 	}
 
 	public static void registrarAdministrador(String usuario, String contrasena, String codigoAdministrador)
-			throws ErrorCodigoException {
+			throws ErrorCodigoException, UsuarioYaRegistradoException {
 
 		if (!codigoAdministrador.equals(Agencia.getInstancia().getCodigoAdministrador()))
 			throw new ErrorCodigoException("codigo erroneo", codigoAdministrador);
@@ -125,7 +126,7 @@ public abstract class Sistema {
 		Sistema.agregarUsuario(administrador);
 	}
 
-	public static void registrarAdministrador(Administrador admin) throws ErrorCodigoException {
+	public static void registrarAdministrador(Administrador admin) throws ErrorCodigoException, UsuarioYaRegistradoException {
 
 		if (!admin.getCodigoAdministrador().equals(Agencia.getInstancia().getCodigoAdministrador()))
 			throw new ErrorCodigoException("codigo erroneo", admin.getCodigoAdministrador());
@@ -196,8 +197,8 @@ public abstract class Sistema {
 	}
 
 	public static FuncionalidadAdministrador loginAdministrador(String nombreUsuario, String contrasena)
-			throws ErrorContrasenaException, ErrorUsuarioException {
-		Sistema.agregarUsuario(Administrador.getInstancia());
+			throws ErrorContrasenaException, ErrorUsuarioException, UsuarioYaRegistradoException {
+		//Sistema.agregarUsuario(Administrador.getInstancia());
 		Usuario usuario = usuarios.get(nombreUsuario);
 		Cuenta cuenta = usuario.getCuenta();
 		FuncionalidadAdministrador funcionalidadAdministrador = null;
@@ -218,9 +219,12 @@ public abstract class Sistema {
 		contratos.add(new Contrato(empleador, empleadosPretensos, fechaDeCreacion));
 	}
 
-	private static void agregarUsuario(Usuario usuario) {
-		if (usuarios.putIfAbsent(usuario.getCuenta().getUsuario(), usuario) == null)
-			usuarios.put(usuario.getCuenta().getUsuario(), usuario);
+	private static void agregarUsuario(Usuario usuario) throws UsuarioYaRegistradoException{ //tirar excepcion si no es null
+		//System.out.println("llegue");
+		if (usuarios.putIfAbsent(usuario.getCuenta().getUsuario(), usuario) != null)
+			throw new UsuarioYaRegistradoException(usuario.getCuenta().getUsuario());
+		
+		//System.out.println("Se agreggo " +usuarios.get(usuario.getCuenta().getUsuario()));
 	}
 
 	/**

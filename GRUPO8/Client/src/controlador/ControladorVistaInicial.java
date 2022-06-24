@@ -10,6 +10,7 @@ import javax.swing.JPanel;
 import entidades.Agencia;
 import excepciones.ErrorContrasenaException;
 import excepciones.ErrorUsuarioException;
+import excepciones.UsuarioYaRegistradoException;
 import persistencia.Persiste;
 import sistema.FuncionalidadAdministrador;
 import sistema.FuncionalidadEmpleadoPretenso;
@@ -56,19 +57,17 @@ public class ControladorVistaInicial implements ActionListener {
 			break;
 		case INICIAR_SESION:
 			
-			try {
+			/*try {
 				Persiste.getInstancia().leer();
 			} catch (IOException e3) {
-				// TODO Auto-generated catch block
 				e3.printStackTrace();
-			}
+			}*/
 			
-			if (!Agencia.getInstancia().getUsuarios().containsKey(this.vista.getUsuario()))
+			if (Agencia.getInstancia().getUsuarios().containsKey(this.vista.getUsuario()) == false)
 				this.vista.ventanaEmergente("No existe la cuenta. Intente registrarse.");
 			else
 			{
 				String tipoUsuario = Agencia.getInstancia().getUsuarios().get(this.vista.getUsuario()).getCuenta().getTipoUsuario();
-				System.out.println("esta");
 				switch(tipoUsuario)
 				{
 				  case Agencia.ADMINISTRADOR:Agencia.getInstancia().setTipoUsuarioActual(Agencia.ADMINISTRADOR);
@@ -83,6 +82,8 @@ public class ControladorVistaInicial implements ActionListener {
 						vista.ventanaEmergente("Usuario err�neo");
 						vista.limpiarVista();
 						e2.printStackTrace();
+					} catch (UsuarioYaRegistradoException e1) {
+						vista.ventanaEmergente(e1.getMessage());
 					}
 					
 					break;

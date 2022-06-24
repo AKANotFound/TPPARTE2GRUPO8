@@ -11,6 +11,7 @@ import entidades.Persona_EmpleadoPretenso;
 import entidades.Persona_Empleador;
 import entidades.Usuario;
 import excepciones.ErrorCodigoException;
+import excepciones.UsuarioYaRegistradoException;
 import sistema.Sistema;
 
 public class Persiste {
@@ -30,17 +31,20 @@ public class Persiste {
 			persistencia.abrirOutput("Prueba.xml");
 			System.out.println("Crea archivo de escritura");
 			
-			persistencia.escribir(UtilAdministrador.AdministradorDtoFromAdministrador(Administrador.getInstancia()));	// patron DTO
+            persistencia.escribir(UtilAdministrador.AdministradorDtoFromAdministrador(Administrador.getInstancia()));	// patron DTO
 			persistencia.escribir(Agencia.getInstancia().getEmpleadores());
 			persistencia.escribir(Agencia.getInstancia().getEmpleadosPretensos());
 			persistencia.escribir(Agencia.getInstancia().getContratos());
-			persistencia.escribir(Agencia.getInstancia().getUsuarios());
+			Agencia.getInstancia().getUsuarios().remove(Administrador.getInstancia());
+            persistencia.escribir(Agencia.getInstancia().getUsuarios());
+            Agencia.getInstancia().getUsuarios().put(Administrador.getInstancia().getCuenta().getUsuario(), Administrador.getInstancia());
 			
 			System.out.println("Escribe");
 			persistencia.cerrarOutput();
 		} catch (IOException e) {
 			System.out.println(e.getLocalizedMessage());
 		}
+		
 	}	
 	
 	public void leer() throws IOException {
@@ -82,6 +86,8 @@ public class Persiste {
 		} catch (ErrorCodigoException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} catch (UsuarioYaRegistradoException e1) {
+			System.out.println(e1.getMessage());
 		}
 		
 	}

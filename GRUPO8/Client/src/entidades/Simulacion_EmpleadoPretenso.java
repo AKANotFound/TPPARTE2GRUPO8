@@ -56,8 +56,6 @@ public class Simulacion_EmpleadoPretenso extends Persona_EmpleadoPretenso implem
 		this.estado = estado;
 	}
 	
-	
-	
 	@Override
 	public String toString() {
 		

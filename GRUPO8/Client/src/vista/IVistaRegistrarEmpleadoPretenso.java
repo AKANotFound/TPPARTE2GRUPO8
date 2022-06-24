@@ -10,4 +10,5 @@ public interface IVistaRegistrarEmpleadoPretenso {
 	String getUsuario();
 	String getContrasena();
 	void limpiarVentana();
+	void ventanaEmergente(String mensaje);
 }

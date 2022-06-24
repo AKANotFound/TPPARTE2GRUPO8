@@ -6,6 +6,7 @@ import java.awt.GridLayout;
 import java.awt.event.ActionListener;
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
 import javax.swing.border.TitledBorder;
@@ -520,49 +521,49 @@ public class VistaRegistrarEmpleador extends JPanel implements IVistaRegistrarEm
 	public double getPuntajeLocacion()
 	{
 		
-		return Integer.parseInt(this.textField_Locacion.getText());
+		return Double.parseDouble(this.textField_Locacion.getText());
 	}
 
 	@Override
 	public double getPuntajeCargaHoraria()
 	{
 		
-		return Integer.parseInt(this.textField_CargaHoraria.getText());
+		return Double.parseDouble(this.textField_CargaHoraria.getText());
 	}
 
 	@Override
 	public double getPuntajeEstudiosCursados()
 	{
 		
-		return Integer.parseInt(this.textField_EstudiosCursados.getText());
+		return Double.parseDouble(this.textField_EstudiosCursados.getText());
 	}
 
 	@Override
 	public double getPuntajeExperienciaPrevia()
 	{
 		
-		return Integer.parseInt(this.textField_ExperienciaPrevia.getText());
+		return Double.parseDouble(this.textField_ExperienciaPrevia.getText());
 	}
 
 	@Override
 	public double getPuntajeRangoEtario()
 	{
 		
-		return Integer.parseInt(this.textField_RangoEtario.getText());
+		return Double.parseDouble(this.textField_RangoEtario.getText());
 	}
 
 	@Override
 	public double getPuntajeRemuneracion()
 	{
 		
-		return Integer.parseInt(this.textField_Remuneracion.getText());
+		return Double.parseDouble(this.textField_Remuneracion.getText());
 	}
 
 	@Override
 	public double getPuntajeTipoDePuesto()
 	{
 		
-		return Integer.parseInt(this.textField_TipoPuesto.getText());
+		return Double.parseDouble(this.textField_TipoPuesto.getText());
 	}
 
 	@Override
@@ -594,5 +595,12 @@ public class VistaRegistrarEmpleador extends JPanel implements IVistaRegistrarEm
 		this.textField_TipoPuesto.setText("");
 		this.textField_Usuario.setText("");
 		this.textField_Contrasena.setText("");
+	}
+
+	@Override
+	public void ventanaEmergente(String mensaje) {
+		JOptionPane.showMessageDialog(null,mensaje);
+
+		
 	}
 }

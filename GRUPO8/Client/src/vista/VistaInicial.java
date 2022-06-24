@@ -19,6 +19,7 @@ import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import java.awt.event.KeyListener;
 import java.awt.event.KeyEvent;
+import java.awt.FlowLayout;
 
 public class VistaInicial extends JPanel implements IVistaInicial, KeyListener {
 	private JPanel panel_Centro;
@@ -123,6 +124,7 @@ public class VistaInicial extends JPanel implements IVistaInicial, KeyListener {
 		this.panel_Sur = new JPanel();
 		this.panel_Sur.setBorder(new TitledBorder(null, "Iniciar simulaci\u00F3n", TitledBorder.LEADING, TitledBorder.TOP, null, null));
 		add(this.panel_Sur, BorderLayout.SOUTH);
+		panel_Sur.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
 		
 		this.btn_Simulacion = new JButton("Simulaci\u00F3n");
 		this.btn_Simulacion.setActionCommand("Simulacion");

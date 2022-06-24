@@ -30,5 +30,11 @@ public class Administrador extends Usuario{
 	{
 		this.cuenta=new Cuenta(usuario,contrasena,Agencia.ADMINISTRADOR);
 	}
+
+	@Override
+	public String toString() {
+		return "Administrador";
+	}
+	
 	
 }

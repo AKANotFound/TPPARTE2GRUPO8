@@ -18,4 +18,5 @@ public interface IVistaRegistrarEmpleador
 	String getUsuario();
 	String getContrasena();
 	void limpiarVista();
+	void ventanaEmergente(String mensaje);
 }

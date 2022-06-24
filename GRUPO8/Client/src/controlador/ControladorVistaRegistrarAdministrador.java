@@ -7,6 +7,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JPanel;
 
 import excepciones.ErrorCodigoException;
+import excepciones.UsuarioYaRegistradoException;
 import persistencia.Persiste;
 import sistema.Sistema;
 import vista.IVentana;
@@ -40,6 +41,7 @@ public class ControladorVistaRegistrarAdministrador implements ActionListener {
 		case REGISTRAR:
 			try
 			{	
+				//System.out.println ("Usuario admin: "+vista.getUsuario());
 				Sistema.registrarAdministrador(vista.getUsuario(), vista.getContrasena(), 
 						vista.getCodigoAdministrador());
 				Persiste.getInstancia().persistir();
@@ -49,6 +51,8 @@ public class ControladorVistaRegistrarAdministrador implements ActionListener {
 			{
 				vista.ventanaEmergente("C�digo �rroneo");
 				e1.printStackTrace();
+			} catch (UsuarioYaRegistradoException e1) {
+				vista.ventanaEmergente(e1.getMessage());
 			}			
 		}
 		

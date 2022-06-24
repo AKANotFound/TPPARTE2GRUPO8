@@ -11,6 +11,7 @@ import entidades.Rubro_ComercioInternacional;
 import entidades.Rubro_ComercioLocal;
 import entidades.Rubro_Salud;
 import excepciones.TipoPersonaInvalidoException;
+import excepciones.UsuarioYaRegistradoException;
 import persistencia.Persiste;
 import sistema.Sistema;
 import vista.IVentana;
@@ -73,6 +74,8 @@ public class ControladorVistaRegistrarEmpleador implements ActionListener
 			{
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
+			} catch (UsuarioYaRegistradoException e1) {
+				vista.ventanaEmergente(e1.getMessage());
 			}
 		}
 		

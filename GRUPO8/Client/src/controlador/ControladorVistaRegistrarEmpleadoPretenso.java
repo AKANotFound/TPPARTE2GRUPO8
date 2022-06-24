@@ -7,6 +7,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JPanel;
 
 import excepciones.EdadInvalidaException;
+import excepciones.UsuarioYaRegistradoException;
 import persistencia.Persiste;
 import sistema.Sistema;
 import vista.IVentana;
@@ -47,6 +48,8 @@ public class ControladorVistaRegistrarEmpleadoPretenso implements ActionListener
 			} catch (EdadInvalidaException e1)
 			{
 				e1.printStackTrace();
+			} catch (UsuarioYaRegistradoException e1) {
+				vista.ventanaEmergente(e1.getMessage());
 			}
 			break;
 		}

@@ -69,7 +69,7 @@ public class CanceladoState implements IState
 	}
 
 	@Override
-	public void generaListaDeAsignacion(Persona_Empleador empleador, Persona_EmpleadoPretenso empleadoP,
+	public void comparaFormularioEmpleador(Persona_Empleador empleador, Persona_EmpleadoPretenso empleadoP,
 			GregorianCalendar fecha, ArrayList<Persona_EmpleadoPretenso> empleadosPretensos)
 	{
 		// TODO Auto-generated method stub
@@ -77,7 +77,7 @@ public class CanceladoState implements IState
 	}
 
 	@Override
-	public void comparaFormularios(Persona_EmpleadoPretenso empleadoP, Persona_Empleador empleador)
+	public void comparaFormularioEmpleadoPretenso(Persona_EmpleadoPretenso empleadoP, Persona_Empleador empleador)
 	{
 		// TODO Auto-generated method stub
 		
