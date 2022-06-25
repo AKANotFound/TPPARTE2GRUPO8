@@ -52,7 +52,7 @@ public class VistaSimulacion extends JPanel implements IVistaSimulacion
 		
 		this.panel_1 = new JPanel();
 		this.panel_Centro.add(this.panel_1);
-		this.panel_1.setLayout(new GridLayout(2, 0, 0, 0));
+		this.panel_1.setLayout(new GridLayout(2, 1, 0, 0));
 		
 		this.panel_border_Empleadores = new JPanel();
 		this.panel_border_Empleadores.setBorder(new TitledBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(255, 255, 255), new Color(160, 160, 160)), "Empleadores", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
