@@ -15,6 +15,7 @@ public class ControladorVistaGestionTicketPersona implements ActionListener {
 	private IVistaGestionTicketPersona vista = null;
 	private IVentana ventana = null;
 	private JPanel contentPane = null;
+	private String tipoUsuarioActual = Agencia.getInstancia().getCuentaActual().getTipoUsuario();
 	
 	private final String CREAR = "Crear";
 	private final String ACTIVAR = "Activar";
@@ -37,7 +38,7 @@ public class ControladorVistaGestionTicketPersona implements ActionListener {
 		
 		switch(comando) {
 		case ACTIVAR:
-			switch(Agencia.getInstancia().getTipoUsuarioActual()) 
+			switch(tipoUsuarioActual) 
 			{
 			 case Agencia.EMPLEADOR:
 				try
@@ -64,7 +65,7 @@ public class ControladorVistaGestionTicketPersona implements ActionListener {
 
 			break;
 		case CANCELAR:
-			switch(Agencia.getInstancia().getTipoUsuarioActual()) 
+			switch(tipoUsuarioActual) 
 			{
 			 case Agencia.EMPLEADOR:
 				try
@@ -89,15 +90,17 @@ public class ControladorVistaGestionTicketPersona implements ActionListener {
 			}
 			break;
 		case CREAR:
-			if(Agencia.getInstancia().getTipoUsuarioActual().equals(Agencia.EMPLEADOR)) {
+			switch(tipoUsuarioActual) {
+			case Agencia.EMPLEADOR:
 				cl.show(contentPane, ventana.getVistaFormularioDeBusquedaEmpleador());				
-			}
-			else if(Agencia.getInstancia().getTipoUsuarioActual().equals(Agencia.EMPLEADO_PRETENSO)){
+				break;
+			case Agencia.EMPLEADO_PRETENSO:
 				cl.show(contentPane, ventana.getVistaFormularioDeBusquedaEmpleadoPretenso());				
+				break;
 			}
 			break;
 		case SUSPENDER:
-			switch(Agencia.getInstancia().getTipoUsuarioActual()) 
+			switch(tipoUsuarioActual) 
 			{
 			 case Agencia.EMPLEADOR:
 				try

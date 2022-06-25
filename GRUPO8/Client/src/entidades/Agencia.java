@@ -20,11 +20,10 @@ public class Agencia {
     private ArrayList<Ticket_Empleador> ticketsEmpleadores = new ArrayList<Ticket_Empleador>();
 	private HashMap <String, Usuario> usuarios = new HashMap <>(); 
     private ArrayList<Contrato> contratos = new ArrayList<Contrato>();
-    private String tipoUsuarioActual = null;
     private FuncionalidadAdministrador funcAdministradorActual = null;
     private FuncionalidadEmpleador funcEmpleadorActual = null;
     private FuncionalidadEmpleadoPretenso funcEmpleadoPretensoActual = null;
-    
+    private Cuenta cuentaActual = null;
     
     public final static String ADMINISTRADOR = "Administrador";
 	public final static String EMPLEADOR = "Empleador";
@@ -67,19 +66,9 @@ public class Agencia {
 	public void setFuncEmpleadoPretensoActual(FuncionalidadEmpleadoPretenso funcEmpleadoPretensoActual) {
 		this.funcEmpleadoPretensoActual = funcEmpleadoPretensoActual;
 	}
-
-
-
-	public String getTipoUsuarioActual() {
-		return tipoUsuarioActual;
-	}
 	
 	public void setUsuarios(HashMap<String, Usuario> usuarios) {
 		this.usuarios = usuarios;
-	}
-
-	public void setTipoUsuarioActual(String tipoUsuarioActual) {
-		this.tipoUsuarioActual = tipoUsuarioActual;
 	}
 
 	public ArrayList<Persona_Empleador> getEmpleadores() {
@@ -118,7 +107,11 @@ public class Agencia {
 		this.contratos = contratos;
 	}
 
+	public Cuenta getCuentaActual() {
+		return cuentaActual;
+	}
 
-	
-	
+	public void setCuentaActual(Cuenta cuentaActual) {
+		this.cuentaActual = cuentaActual;
+	}
 }

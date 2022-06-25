@@ -22,7 +22,6 @@ import excepciones.ListaNoGeneradaException;
 import excepciones.TipoPersonaInvalidoException;
 import excepciones.UsuarioYaRegistradoException;
 import patronState.FinalizadoState;
-import persistencia.Persiste;
 
 /**
  * 
@@ -61,29 +60,27 @@ public abstract class Sistema {
 
 	public static void borrarCuenta() {
 		String usuario = null;
+		usuario = Agencia.getInstancia().getCuentaActual().getUsuario();
+		Agencia.getInstancia().getUsuarios().remove(usuario);
+		Agencia.getInstancia().setCuentaActual(null);
 
-		switch (Agencia.getInstancia().getTipoUsuarioActual()) {
+		switch (Agencia.getInstancia().getCuentaActual().getTipoUsuario()) {
 		case Agencia.ADMINISTRADOR:
-			usuario = Agencia.getInstancia().getFuncAdministradorActual().getUsuario().getCuenta().getUsuario();
 			Agencia.getInstancia().setFuncAdministradorActual(null);
 			break;
 		case Agencia.EMPLEADOR:
-			usuario = Agencia.getInstancia().getFuncEmpleadorActual().getUsuario().getCuenta().getUsuario();
 			Agencia.getInstancia().setFuncEmpleadorActual(null);
 			break;
 		case Agencia.EMPLEADO_PRETENSO:
-			usuario = Agencia.getInstancia().getFuncEmpleadoPretensoActual().getUsuario().getCuenta().getUsuario();
 			Agencia.getInstancia().setFuncEmpleadoPretensoActual(null);
 			break;
 		}
-		Agencia.getInstancia().getUsuarios().remove(usuario);
-		Agencia.getInstancia().setTipoUsuarioActual(null);
-		System.out.println("borra Cuenta");
-		System.out.println(Agencia.getInstancia().getUsuarios());
 	}
 
 	public static void cerrarSesion() {
-		switch (Agencia.getInstancia().getTipoUsuarioActual()) {
+		Agencia.getInstancia().setCuentaActual(null);
+		
+		switch (Agencia.getInstancia().getCuentaActual().getTipoUsuario()) {
 		case Agencia.ADMINISTRADOR:
 			Agencia.getInstancia().setFuncAdministradorActual(null);
 			break;
@@ -94,7 +91,6 @@ public abstract class Sistema {
 			Agencia.getInstancia().setFuncEmpleadoPretensoActual(null);
 			break;
 		}
-		Agencia.getInstancia().setTipoUsuarioActual(null);
 	}
 
 	public static void registrarEmpleador(String usuario, String contrasena, String razonSocial, String tipoPersona,
@@ -131,7 +127,7 @@ public abstract class Sistema {
 	public static void registrarAdministrador(Administrador admin) throws ErrorCodigoException, UsuarioYaRegistradoException {
 
 		if (!admin.getCodigoAdministrador().equals(Agencia.getInstancia().getCodigoAdministrador()))
-			throw new ErrorCodigoException("codigo erroneo", admin.getCodigoAdministrador());
+			throw new ErrorCodigoException("Código erróneo", admin.getCodigoAdministrador());
 		else
 			Sistema.agregarUsuario(admin);
 	}
