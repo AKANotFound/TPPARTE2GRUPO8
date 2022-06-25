@@ -14,8 +14,9 @@ public class FuncionalidadEmpleador extends FuncionalidadPersona {
 
 	public void crearTicket(FormularioDeBusqueda formulario, int cantEmpleadosSolicitados) {
 		((Persona) usuario).setTicket(TicketFactory.crearTicket((Persona_Empleador) usuario, formulario, cantEmpleadosSolicitados));
-		
+		Sistema.agregarTicketEmpleador(((Persona) usuario).getTicket());
 	}
+	
 	
 	@Override
 	public void iniciarRondaEleccion() {

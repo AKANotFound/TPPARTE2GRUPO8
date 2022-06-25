@@ -12,7 +12,9 @@ import entidades.IRubro;
 import entidades.Persona;
 import entidades.Persona_EmpleadoPretenso;
 import entidades.Persona_Empleador;
+import entidades.Ticket;
 import entidades.Ticket_EmpleadoPretenso;
+import entidades.Ticket_Empleador;
 import entidades.Usuario;
 import excepciones.EdadInvalidaException;
 import excepciones.ErrorCodigoException;
@@ -38,7 +40,21 @@ public abstract class Sistema {
 	private static ArrayList<Contrato> contratos = Agencia.getInstancia().getContratos();
 	private static HashMap<String, Usuario> usuarios = Agencia.getInstancia().getUsuarios();
 	private static boolean InicioRondaEncuentrosLaborales = false;
-
+	private static ArrayList<Ticket> ticketsEmpleadosPretensos = Agencia.getInstancia().getTicketsEmpleadosPretensos();
+    private static ArrayList<Ticket> ticketsEmpleadores = Agencia.getInstancia().getTicketsEmpleadores();
+    
+    
+    
+    
+    public static void agregarTicketEmpleado(Ticket ticket) 
+    {
+    	ticketsEmpleadosPretensos.add(ticket);
+    }
+    
+    public static void agregarTicketEmpleador(Ticket ticket) 
+    {
+    	ticketsEmpleadores.add(ticket);
+    }
 	/**
 	 * Crea un empleador y su cuenta, lo agrega en la lista donde se preservan a
 	 * todos los empleadores. Se llama el metodo que agrega la cuenta al hashmap de
@@ -76,9 +92,9 @@ public abstract class Sistema {
 			break;
 		}
 	}
-
+ 
+	
 	public static void cerrarSesion() {
-		Agencia.getInstancia().setCuentaActual(null);
 		
 		switch (Agencia.getInstancia().getCuentaActual().getTipoUsuario()) {
 		case Agencia.ADMINISTRADOR:
@@ -91,6 +107,7 @@ public abstract class Sistema {
 			Agencia.getInstancia().setFuncEmpleadoPretensoActual(null);
 			break;
 		}
+		Agencia.getInstancia().setCuentaActual(null);
 	}
 
 	public static void registrarEmpleador(String usuario, String contrasena, String razonSocial, String tipoPersona,
@@ -127,7 +144,7 @@ public abstract class Sistema {
 	public static void registrarAdministrador(Administrador admin) throws ErrorCodigoException, UsuarioYaRegistradoException {
 
 		if (!admin.getCodigoAdministrador().equals(Agencia.getInstancia().getCodigoAdministrador()))
-			throw new ErrorCodigoException("Código erróneo", admin.getCodigoAdministrador());
+			throw new ErrorCodigoException("Cï¿½digo errï¿½neo", admin.getCodigoAdministrador());
 		else
 			Sistema.agregarUsuario(admin);
 	}

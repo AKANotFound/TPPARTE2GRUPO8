@@ -16,14 +16,15 @@ public class Agencia {
     
     private ArrayList<Persona_Empleador> empleadores = new ArrayList<Persona_Empleador>();
     private ArrayList<Persona_EmpleadoPretenso> empleadosPretensos = new ArrayList<Persona_EmpleadoPretenso>();
-    private ArrayList<Ticket_EmpleadoPretenso> ticketsEmpleadosPretensos = new ArrayList<Ticket_EmpleadoPretenso>();
-    private ArrayList<Ticket_Empleador> ticketsEmpleadores = new ArrayList<Ticket_Empleador>();
+    private ArrayList<Ticket> ticketsEmpleadosPretensos = new ArrayList<Ticket>();
+    private ArrayList<Ticket> ticketsEmpleadores = new ArrayList<Ticket>();
 	private HashMap <String, Usuario> usuarios = new HashMap <>(); 
     private ArrayList<Contrato> contratos = new ArrayList<Contrato>();
     private FuncionalidadAdministrador funcAdministradorActual = null;
     private FuncionalidadEmpleador funcEmpleadorActual = null;
     private FuncionalidadEmpleadoPretenso funcEmpleadoPretensoActual = null;
     private Cuenta cuentaActual = null;
+    
     
     public final static String ADMINISTRADOR = "Administrador";
 	public final static String EMPLEADOR = "Empleador";
@@ -77,10 +78,10 @@ public class Agencia {
 	public ArrayList<Persona_EmpleadoPretenso> getEmpleadosPretensos() {
 		return empleadosPretensos;
 	}
-	public ArrayList<Ticket_EmpleadoPretenso> getTicketsEmpleadosPretensos() {
+	public ArrayList<Ticket> getTicketsEmpleadosPretensos() {
 		return ticketsEmpleadosPretensos;
 	}
-	public ArrayList<Ticket_Empleador> getTicketsEmpleadores() {
+	public ArrayList<Ticket> getTicketsEmpleadores() {
 		return ticketsEmpleadores;
 	}
 	public HashMap<String, Usuario> getUsuarios() {

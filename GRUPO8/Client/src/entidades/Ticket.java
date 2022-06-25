@@ -100,13 +100,11 @@ public abstract class Ticket {
 		this.formularioDeBusqueda = formularioDeBusqueda;
 	}
 
-	
-
 	@SuppressWarnings("deprecation")
 	@Override
 	public String toString() {
-		return " [Fecha de alta = " + fechaAlta.getTime().toLocaleString() + ", estado=" + estado + ", formulario de busqueda="
-				+ formularioDeBusqueda+ "]";
+		return " Fecha de alta = " + fechaAlta.getTime().toLocaleString() + ", estado=" + estado + ", formulario de busqueda="
+				+ formularioDeBusqueda+ "\n";
 	}
 	
 	

@@ -106,7 +106,6 @@ public class PruebaVista {
 		} catch (IOException e2) {
 			e2.printStackTrace();
 
-			System.out.println("Harcodea");
 			Rubro_ComercioLocal rubro_ComercioLocal = new Rubro_ComercioLocal();
 			Rubro_ComercioInternacional rubro_ComercioInternacional = new Rubro_ComercioInternacional();
 			Rubro_Salud rubro_Salud = new Rubro_Salud();

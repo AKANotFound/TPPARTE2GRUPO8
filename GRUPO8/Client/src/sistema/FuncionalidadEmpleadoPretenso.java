@@ -1,5 +1,6 @@
 package sistema;
 
+import entidades.Agencia;
 import entidades.FormularioDeBusqueda;
 import entidades.Persona;
 import entidades.Persona_EmpleadoPretenso;
@@ -12,10 +13,13 @@ public class FuncionalidadEmpleadoPretenso extends FuncionalidadPersona {
 		super(empleado);
 	}
 
-	public void crearTicket(FormularioDeBusqueda formulario)  {
+	public void crearTicket(FormularioDeBusqueda formulario)  
+	{
 		((Persona) usuario).setTicket(TicketFactory.crearTicket((Persona_EmpleadoPretenso) usuario, formulario));
-		
+		Sistema.agregarTicketEmpleado(((Persona) usuario).getTicket());
 	}
+	
+	
 	
 	@Override
 	public void cancelarTicket() throws CambioDeEstadoFallidoException {
