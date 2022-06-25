@@ -173,7 +173,7 @@ public class VistaRegistrarEmpleadoPretenso extends JPanel implements IVistaRegi
 	}
 	public void keyReleased(KeyEvent e) {
 		int edad = 0;
-		int telefono = 0;
+		long telefono = 0;
 		
 		try {
 			edad = Integer.parseInt(this.textField_Edad.getText());			
@@ -182,7 +182,7 @@ public class VistaRegistrarEmpleadoPretenso extends JPanel implements IVistaRegi
 		}
 		
 		try {
-			telefono = Integer.parseInt(this.textField_Telefono.getText());			
+			telefono = Long.parseLong(this.textField_Telefono.getText());		
 		}
 		catch(NumberFormatException exception) {
 		}

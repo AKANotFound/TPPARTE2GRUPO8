@@ -56,7 +56,7 @@ public class Ventana extends JFrame implements IVentana {
 		
 		this.setVisible(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(posicion, posicion, 300, 350);
+		setBounds(posicion, posicion, 325, 400);
 		this.contentPane = new JPanel();
 		this.contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(this.contentPane);
@@ -121,7 +121,7 @@ public class Ventana extends JFrame implements IVentana {
 
 	@Override
 	public String getID_VistaInicial() {
-		this.setSize(posicion + 200,posicion + 300);
+		this.setSize(posicion + 225,posicion + 300);
 		return VISTA_INICIAL;
 	}
 
@@ -163,7 +163,7 @@ public class Ventana extends JFrame implements IVentana {
 
 	@Override
 	public String getID_VistaFormularioDeBusquedaEmpleador() {
-		this.setSize(posicion + 280,posicion + 360);
+		this.setSize(posicion + 280,posicion + 400);
 		return VISTA_FORMULARIO_DE_BUSQUEDA_EMPLEADOR;
 	}
 

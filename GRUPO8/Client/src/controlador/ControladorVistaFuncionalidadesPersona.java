@@ -12,6 +12,7 @@ import entidades.PersonaElegida;
 import entidades.Persona_EmpleadoPretenso;
 import entidades.Persona_Empleador;
 import excepciones.ListaNoGeneradaException;
+import excepciones.TicketNullException;
 import persistencia.Persiste;
 import sistema.Sistema;
 import vista.IVentana;
@@ -128,7 +129,11 @@ public class ControladorVistaFuncionalidadesPersona implements ActionListener {
 				vista.setTextVista(Agencia.getInstancia().getFuncEmpleadorActual().visualizaResultado());
 				break;
 			case Agencia.EMPLEADO_PRETENSO:
-				vista.setTextVista(Agencia.getInstancia().getFuncEmpleadoPretensoActual().visualizaResultado());
+				try {
+					vista.setTextVista(Agencia.getInstancia().getFuncEmpleadoPretensoActual().visualizaResultado());
+				} catch (TicketNullException e1) {
+					vista.ventanaEmergente(e1.getMessage());
+				}
 				break;
 			}
 			break;

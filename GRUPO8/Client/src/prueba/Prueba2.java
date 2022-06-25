@@ -12,6 +12,7 @@ import excepciones.ErrorCodigoException;
 import excepciones.ErrorContrasenaException;
 import excepciones.ErrorUsuarioException;
 import excepciones.ListaNoGeneradaException;
+import excepciones.TicketNullException;
 import excepciones.TipoPersonaInvalidoException;
 import excepciones.UsuarioYaRegistradoException;
 import persistencia.Persiste;
@@ -313,10 +314,30 @@ public class Prueba2 {
 			System.out.println(Sistema.visualizarContratos());
 
 			System.out.println("\nVISUALIZACION DE RESULTADOS\n");
-			System.out.println(jorge.visualizaResultado());
-			System.out.println(pablo.visualizaResultado());
-			System.out.println(francoS.visualizaResultado());
-			System.out.println(francoP.visualizaResultado());
+			try {
+				System.out.println(jorge.visualizaResultado());
+			} catch (TicketNullException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			try {
+				System.out.println(pablo.visualizaResultado());
+			} catch (TicketNullException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			try {
+				System.out.println(francoS.visualizaResultado());
+			} catch (TicketNullException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			try {
+				System.out.println(francoP.visualizaResultado());
+			} catch (TicketNullException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 			System.out.println(microsoft.visualizaResultado());
 			System.out.println(carrefour.visualizaResultado());
 

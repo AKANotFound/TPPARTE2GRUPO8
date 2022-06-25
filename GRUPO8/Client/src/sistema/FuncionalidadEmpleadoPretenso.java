@@ -6,6 +6,7 @@ import entidades.Persona;
 import entidades.Persona_EmpleadoPretenso;
 import excepciones.CambioDeEstadoFallidoException;
 import excepciones.ModificacionTicketInvalidaException;
+import excepciones.TicketNullException;
 
 public class FuncionalidadEmpleadoPretenso extends FuncionalidadPersona {
 	
@@ -33,7 +34,9 @@ public class FuncionalidadEmpleadoPretenso extends FuncionalidadPersona {
 	}
 	
 	@Override
-	public String visualizaResultado() {
+	public String visualizaResultado() throws TicketNullException {
+		if(((Persona_EmpleadoPretenso)usuario).getTicket() == null)
+			throw new TicketNullException("No se puede visualizar resultado si no se tiene un ticket");
 		return ((Persona_EmpleadoPretenso)usuario).getTicket().visualizaResultado(usuario);
 	}
 

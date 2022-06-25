@@ -7,6 +7,7 @@ import entidades.Ticket;
 import excepciones.CambioDeEstadoFallidoException;
 import excepciones.ListaNoGeneradaException;
 import excepciones.ModificacionTicketInvalidaException;
+import excepciones.TicketNullException;
 
 public abstract class FuncionalidadPersona extends FuncionalidadUsuario{
 
@@ -60,6 +61,6 @@ public abstract class FuncionalidadPersona extends FuncionalidadUsuario{
 		return persona.getTicket().visualizarCostoServicio(persona);
 	}
 	
-	public abstract String visualizaResultado();
+	public abstract String visualizaResultado() throws TicketNullException;
 	public abstract String visualizarPersonasElegidas();
 } 

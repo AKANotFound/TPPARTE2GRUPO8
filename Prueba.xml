@@ -733,6 +733,32 @@
     </void>
    </object>
   </void>
+  <void method="add">
+   <object class="entidades.Persona_EmpleadoPretenso" id="Persona_EmpleadoPretenso4">
+    <void property="cuenta">
+     <object class="entidades.Cuenta">
+      <void property="contrasena">
+       <string>tomi123</string>
+      </void>
+      <void property="tipoUsuario">
+       <string>EmpleadoPretenso</string>
+      </void>
+      <void property="usuario">
+       <string>tomi_palmitano</string>
+      </void>
+     </object>
+    </void>
+    <void property="edad">
+     <int>26</int>
+    </void>
+    <void property="nya">
+     <string>Tomás Palmitano</string>
+    </void>
+    <void property="telefono">
+     <string>2231591599</string>
+    </void>
+   </object>
+  </void>
  </object>
  <object class="java.util.ArrayList"/>
  <object class="java.util.HashMap">
@@ -767,6 +793,10 @@
   <void method="put">
    <string>franco_palmeiras</string>
    <object idref="Persona_EmpleadoPretenso1"/>
+  </void>
+  <void method="put">
+   <string>tomi_palmitano</string>
+   <object idref="Persona_EmpleadoPretenso4"/>
   </void>
  </object>
 </java>
