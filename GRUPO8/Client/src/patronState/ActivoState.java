@@ -81,7 +81,7 @@ public class ActivoState implements IState
 
 
 	@Override
-	public void comparaFormularioEmpleador(Persona_Empleador empleador,Persona_EmpleadoPretenso empleadoP,GregorianCalendar fecha,ArrayList<Persona_EmpleadoPretenso>empleadosPretensos)
+	public void generaListaDeAsignacion(Persona_Empleador empleador,Persona_EmpleadoPretenso empleadoP,GregorianCalendar fecha,ArrayList<Persona_EmpleadoPretenso>empleadosPretensos)
 	{
 		
 		
@@ -101,11 +101,16 @@ public class ActivoState implements IState
 			empleadoP.getTicket().comparaFormularioEmpleadoPretenso(empleadoP,empleador);
 			
 		}
+		Collections.sort(empleador.getListaDeAsignacion().getLista()); 	
+		empleadoP = (Persona_EmpleadoPretenso) empleador.getListaDeAsignacion().getLista().get(0).getPersona();
+		Sistema.puntajePrimero(empleadoP);
+		empleadoP = (Persona_EmpleadoPretenso) empleador.getListaDeAsignacion().getLista().get(empleador.getListaDeAsignacion().getLista().size()-1).getPersona();
+		Sistema.puntajeUltimo(empleadoP);
 	}
 
 
 	@Override
-	public void comparaFormularioEmpleadoPretenso(Persona_EmpleadoPretenso empleadoP,Persona_Empleador empleador)
+	public void comparaFormularios(Persona_EmpleadoPretenso empleadoP,Persona_Empleador empleador)
 	{
 		FormularioDeBusqueda formularioEmpleadoP;
 		FormularioDeBusqueda formularioEmpleador;
@@ -121,14 +126,7 @@ public class ActivoState implements IState
 					+empleador.getPuntajeAspectos()[6]*formularioEmpleador.getEstudiosCursados().comparaCon(formularioEmpleadoP.getEstudiosCursados());
 		
 		empleador.getListaDeAsignacion().getLista().add(new PersonaElegida(empleadoP,puntajeDeContratacion));
-		empleadoP.getListaDeAsignacion().getLista().add(new PersonaElegida(empleador,puntajeDeContratacion));
-	
-		Collections.sort(empleador.getListaDeAsignacion().getLista()); 	
-		empleadoP = (Persona_EmpleadoPretenso) empleador.getListaDeAsignacion().getLista().get(0).getPersona();
-		Sistema.puntajePrimero(empleadoP);
-		empleadoP = (Persona_EmpleadoPretenso) empleador.getListaDeAsignacion().getLista().get(empleador.getListaDeAsignacion().getLista().size()-1).getPersona();
-		Sistema.puntajeUltimo(empleadoP);
-		
+		empleadoP.getListaDeAsignacion().getLista().add(new PersonaElegida(empleador,puntajeDeContratacion));		
 	}
 
 
