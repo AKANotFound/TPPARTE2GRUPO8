@@ -69,10 +69,10 @@ public class ControladorVistaFormularioDeBusquedaEmpleador implements ActionList
 	
 	
 	
-	public ControladorVistaFormularioDeBusquedaEmpleador(IVentana ventana,IVistaFormularioDeBusquedaEmpleador vista)
+	public ControladorVistaFormularioDeBusquedaEmpleador(IVentana ventana)
 	{
 		super();
-		this.vista = vista;
+		this.vista = ventana.getVistaFormularioDeBusquedaEmpleador();
 		this.ventana = ventana;
 		this.contentPane = ventana.getContentPane();
 		this.vista.setActionListener(this);
@@ -194,11 +194,11 @@ public class ControladorVistaFormularioDeBusquedaEmpleador implements ActionList
 					
 					this.vista.ventanaEmergente(e1.getMessage());
 				}
-			cl.show(contentPane, ventana.getVistaGestionTicketPersona());
+			cl.show(contentPane, ventana.getID_VistaGestionTicketPersona());
 			
 			break;
 		case CANCELAR:
-			cl.show(contentPane, ventana.getVistaGestionTicketPersona());
+			cl.show(contentPane, ventana.getID_VistaGestionTicketPersona());
 			break;
 		}
 

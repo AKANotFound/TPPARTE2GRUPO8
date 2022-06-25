@@ -64,19 +64,14 @@ public class ControladorVistaFormularioDeBusquedaEmpleadoPretenso implements Act
 	private final String ESTUDIOS_CURSADOS_SECUNDARIO="Secundario";
 	private final String ESTUDIOS_CURSADOS_TERCIARIO="Terciario";
 	
-	
-	
-	public ControladorVistaFormularioDeBusquedaEmpleadoPretenso(IVentana ventana,IVistaFormularioDeBusquedaEmpleadoPretenso vista)
+	public ControladorVistaFormularioDeBusquedaEmpleadoPretenso(IVentana ventana)
 	{
 		super();
-		this.vista = vista;
+		this.vista = ventana.getVistaFormularioDeBusquedaEmpleadoPretenso();
 		this.ventana = ventana;
 		this.contentPane = ventana.getContentPane();
 		this.vista.setActionListener(this);
 	}
-
-
-
 
 	@Override
 	public void actionPerformed(ActionEvent e)
@@ -183,11 +178,11 @@ public class ControladorVistaFormularioDeBusquedaEmpleadoPretenso implements Act
 					cargaHoraria,tipoDePuesto,rangoEtario,experienciaPrevia,estudiosCursados);
 			
 			Agencia.getInstancia().getFuncEmpleadoPretensoActual().crearTicket(form);
-			cl.show(contentPane, ventana.getVistaGestionTicketPersona());
+			cl.show(contentPane, ventana.getID_VistaGestionTicketPersona());
 			break;
 			
 		case CANCELAR:	
-			cl.show(contentPane, ventana.getVistaGestionTicketPersona());
+			cl.show(contentPane, ventana.getID_VistaGestionTicketPersona());
 			break;
 		}
 		

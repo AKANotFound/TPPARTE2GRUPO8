@@ -34,9 +34,9 @@ public class ControladorVistaFuncionalidadesAdministrador implements ActionListe
 	private final String CERRAR_SESION = "CerrarSesion";
 	private final String BORRAR_CUENTA = "BorrarCuenta";
 	
-	public ControladorVistaFuncionalidadesAdministrador(IVentana ventana,IVistaFuncionalidadesAdministrador vista)
+	public ControladorVistaFuncionalidadesAdministrador(IVentana ventana)
 	{
-		this.vista = vista;
+		this.vista = ventana.getVistaFuncionalidadesAdministrador();
 		this.ventana = ventana;
 		this.contentPane = ventana.getContentPane();
 		this.vista.setActionListener(this);
@@ -52,7 +52,7 @@ public class ControladorVistaFuncionalidadesAdministrador implements ActionListe
 		switch(comando) {
 		case CERRAR_SESION:
 			Sistema.cerrarSesion();
-			cl.show(contentPane, ventana.getVistaInicial());
+			cl.show(contentPane, ventana.getID_VistaInicial());
 			break;
 		case BORRAR_CUENTA:
 			result =this.vista.ventanaEmergenteConfirmar("�Est�s seguro de que deseas eliminar tu cuenta?"); 
@@ -60,7 +60,7 @@ public class ControladorVistaFuncionalidadesAdministrador implements ActionListe
 	        {
 	        	Sistema.borrarCuenta();
 	        	Persiste.getInstancia().persistir();
-	        	cl.show(contentPane, ventana.getVistaInicial());
+	        	cl.show(contentPane, ventana.getID_VistaInicial());
 	        }
 			break;
 		case INICIAR_RONDA_DE_ENCUENTROS_LABORALES:

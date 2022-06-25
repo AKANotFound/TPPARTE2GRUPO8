@@ -31,9 +31,9 @@ public class ControladorVistaFuncionalidadesPersona implements ActionListener {
 	private final String BORRAR_CUENTA = "BorrarCuenta";
 	
 	
-	public ControladorVistaFuncionalidadesPersona(IVentana ventana,IVistaFuncionalidadesPersona vista) {
+	public ControladorVistaFuncionalidadesPersona(IVentana ventana) {
 		super();
-		this.vista = vista;
+		this.vista = ventana.getVistaFuncionalidadesPersona();
 		this.ventana = ventana;
 		this.vista.setActionListener(this);
 		this.contentPane = ventana.getContentPane();
@@ -80,15 +80,15 @@ public class ControladorVistaFuncionalidadesPersona implements ActionListener {
 	        {
 	        	Sistema.borrarCuenta();
 	        	Persiste.getInstancia().persistir();
-	        	cl.show(contentPane, ventana.getVistaInicial());
+	        	cl.show(contentPane, ventana.getID_VistaInicial());
 	        }
 	        break;
 		case CERRAR_SESION:
 			Sistema.cerrarSesion();
-			cl.show(contentPane, ventana.getVistaInicial());
+			cl.show(contentPane, ventana.getID_VistaInicial());
 			break;
 		case GESTION_DE_TICKET:
-			cl.show(contentPane, ventana.getVistaGestionTicketPersona());
+			cl.show(contentPane, ventana.getID_VistaGestionTicketPersona());
 			break;
 		case INICIAR_RONDA_DE_ELECCION:
 			switch(Agencia.getInstancia().getCuentaActual().getTipoUsuario()) {

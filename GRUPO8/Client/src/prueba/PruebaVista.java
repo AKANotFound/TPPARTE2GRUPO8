@@ -78,25 +78,16 @@ public class PruebaVista {
 				vistaFormularioDeBusquedaEmpleadoPretenso, vistaFormularioDeBusquedaEmpleador,
 				vistaGestionTicketPersona, vistaSimulacion);
 
-		ControladorVistaInicial controladorVistaInicial = new ControladorVistaInicial(ventana, vistaInicial);
-		ControladorVistaRegistrarAdministrador controladorVistaRegistrarAdministrador = new ControladorVistaRegistrarAdministrador(
-				ventana, vistaRegistrarAdministrador);
-		ControladorVistaRegistrarEmpleadoPretenso controladorVistaRegistrarEmpleadoPretenso = new ControladorVistaRegistrarEmpleadoPretenso(
-				ventana, vistaRegistrarEmpleadoPretenso);
-		ControladorVistaRegistrarEmpleador controladorVistaRegistrarEmpleador = new ControladorVistaRegistrarEmpleador(
-				ventana, vistaRegistrarEmpleador);
-		ControladorVistaSimulacion controladorVistaSimulacion = new ControladorVistaSimulacion(ventana,
-				vistaSimulacion);
-		ControladorVistaFuncionalidadesAdministrador controladorVistaFuncionalidadesAdministrador = new ControladorVistaFuncionalidadesAdministrador(
-				ventana, vistaFuncionalidadesAdministrador);
-		ControladorVistaFuncionalidadesPersona controladorVistaFuncionalidadesPersona = new ControladorVistaFuncionalidadesPersona(
-				ventana, vistaFuncionalidadesPersona);
-		ControladorVistaFormularioDeBusquedaEmpleador controladorVistaFormularioDeBusquedaEmpleador = new ControladorVistaFormularioDeBusquedaEmpleador(
-				ventana, vistaFormularioDeBusquedaEmpleador);
-		ControladorVistaFormularioDeBusquedaEmpleadoPretenso controladorVistaFormularioDeBusquedaEmpleadoPretenso = new ControladorVistaFormularioDeBusquedaEmpleadoPretenso(
-				ventana, vistaFormularioDeBusquedaEmpleadoPretenso);
-		ControladorVistaGestionTicketPersona controladoVistaGestionTicketPersona = new ControladorVistaGestionTicketPersona(
-				ventana, vistaGestionTicketPersona);
+		ControladorVistaInicial controladorVistaInicial = new ControladorVistaInicial(ventana);
+		ControladorVistaRegistrarAdministrador controladorVistaRegistrarAdministrador = new ControladorVistaRegistrarAdministrador(ventana);
+		ControladorVistaRegistrarEmpleadoPretenso controladorVistaRegistrarEmpleadoPretenso = new ControladorVistaRegistrarEmpleadoPretenso(ventana);
+		ControladorVistaRegistrarEmpleador controladorVistaRegistrarEmpleador = new ControladorVistaRegistrarEmpleador(ventana);
+		ControladorVistaSimulacion controladorVistaSimulacion = new ControladorVistaSimulacion(ventana);
+		ControladorVistaFuncionalidadesAdministrador controladorVistaFuncionalidadesAdministrador = new ControladorVistaFuncionalidadesAdministrador(ventana);
+		ControladorVistaFuncionalidadesPersona controladorVistaFuncionalidadesPersona = new ControladorVistaFuncionalidadesPersona(ventana);
+		ControladorVistaFormularioDeBusquedaEmpleador controladorVistaFormularioDeBusquedaEmpleador = new ControladorVistaFormularioDeBusquedaEmpleador(ventana);
+		ControladorVistaFormularioDeBusquedaEmpleadoPretenso controladorVistaFormularioDeBusquedaEmpleadoPretenso = new ControladorVistaFormularioDeBusquedaEmpleadoPretenso(ventana);
+		ControladorVistaGestionTicketPersona controladoVistaGestionTicketPersona = new ControladorVistaGestionTicketPersona(ventana);
 
 		// *************************************************************************************************************
 

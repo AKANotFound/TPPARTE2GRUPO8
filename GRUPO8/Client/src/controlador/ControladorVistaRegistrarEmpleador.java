@@ -28,9 +28,9 @@ public class ControladorVistaRegistrarEmpleador implements ActionListener
 	private final String VOLVER = "Volver";
 	private final String REGISTRAR = "Registrar";
 	
-	public ControladorVistaRegistrarEmpleador(IVentana ventana,IVistaRegistrarEmpleador vista)
+	public ControladorVistaRegistrarEmpleador(IVentana ventana)
 	{
-		this.vista = vista;
+		this.vista = ventana.getVistaRegistrarEmpleador();
 		this.ventana = ventana;
 		this.vista.setActionListener(this);
 		this.contentPane=ventana.getContentPane();
@@ -46,7 +46,7 @@ public class ControladorVistaRegistrarEmpleador implements ActionListener
 		
 		switch(comando) {
 		case VOLVER:
-			cl.show(contentPane, ventana.getVistaInicial());
+			cl.show(contentPane, ventana.getID_VistaInicial());
 			break;
 		case REGISTRAR:
 			try
@@ -69,7 +69,7 @@ public class ControladorVistaRegistrarEmpleador implements ActionListener
 				Sistema.registrarEmpleador(vista.getUsuario(),vista.getContrasena()
 						,vista.getRazonSocial(),vista.getTipoPersona(), rubro, puntajeAspectos);
 				Persiste.getInstancia().persistir();
-				cl.show(contentPane, ventana.getVistaInicial());
+				cl.show(contentPane, ventana.getID_VistaInicial());
 			} catch (TipoPersonaInvalidoException e1)
 			{
 				// TODO Auto-generated catch block

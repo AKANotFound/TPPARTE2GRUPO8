@@ -21,9 +21,9 @@ public class ControladorVistaRegistrarEmpleadoPretenso implements ActionListener
 	private final String VOLVER = "Volver";
 	private final String REGISTRAR = "Registrar";
 	
-	public ControladorVistaRegistrarEmpleadoPretenso(IVentana ventana,IVistaRegistrarEmpleadoPretenso vista) {
+	public ControladorVistaRegistrarEmpleadoPretenso(IVentana ventana) {
 		super();
-		this.vista = vista;
+		this.vista = ventana.getVistaRegistrarEmpleadoPretenso();
 		this.ventana = ventana;
 		this.vista.setActionListener(this);
 		this.contentPane = ventana.getContentPane();
@@ -36,7 +36,7 @@ public class ControladorVistaRegistrarEmpleadoPretenso implements ActionListener
 		
 		switch(comando) {
 		case VOLVER:
-			cl.show(contentPane, ventana.getVistaInicial());
+			cl.show(contentPane, ventana.getID_VistaInicial());
 			break;
 		case REGISTRAR:
 			try
@@ -44,7 +44,7 @@ public class ControladorVistaRegistrarEmpleadoPretenso implements ActionListener
 				Sistema.registrarEmpleadoPretenso(vista.getUsuario(),vista.getContrasena(),vista.getNya()
 						,vista.getTelefono(),vista.getEdad());
 				Persiste.getInstancia().persistir();
-				cl.show(contentPane, ventana.getVistaInicial());
+				cl.show(contentPane, ventana.getID_VistaInicial());
 			} catch (EdadInvalidaException e1)
 			{
 				e1.printStackTrace();

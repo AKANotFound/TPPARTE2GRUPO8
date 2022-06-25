@@ -38,8 +38,8 @@ public class ControladorVistaSimulacion extends JFrame implements ActionListener
 	protected ArrayList<Simulacion_EmpleadoPretenso> empleadosObservados = new ArrayList<Simulacion_EmpleadoPretenso>();
 	protected ArrayList<Simulacion_Empleador> empleadoresObservados = new ArrayList<Simulacion_Empleador>();
 	
-	public ControladorVistaSimulacion(IVentana ventana, IVistaSimulacion vistaSimulacion) {
-		this.vista = vistaSimulacion;
+	public ControladorVistaSimulacion(IVentana ventana) {
+		this.vista = ventana.getVistaSimulacion();
 		this.ventana = ventana;
 		this.vista.setActionListener(this);
 		this.contentPane = ventana.getContentPane();
@@ -52,7 +52,7 @@ public class ControladorVistaSimulacion extends JFrame implements ActionListener
 		
 		switch(comando) {
 		case VOLVER:
-			cl.show(contentPane, ventana.getVistaInicial());
+			cl.show(contentPane, ventana.getID_VistaInicial());
 			break;
 		case INICIAR:
 			vista.setIniciarDisabled();

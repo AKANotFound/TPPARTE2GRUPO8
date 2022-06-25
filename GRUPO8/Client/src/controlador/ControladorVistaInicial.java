@@ -28,9 +28,9 @@ public class ControladorVistaInicial implements ActionListener {
 	private final String SIMULACION = "Simulacion";
 	private final String INICIAR_SESION = "IniciarSesion";
 
-	public ControladorVistaInicial(IVentana ventana, IVistaInicial vista) {
+	public ControladorVistaInicial(IVentana ventana) {
 		super();
-		this.vista = vista;
+		this.vista = ventana.getVistaInicial();
 		this.ventana = ventana;
 		this.vista.setActionListener(this);
 		this.contentPane = ventana.getContentPane();
@@ -45,13 +45,13 @@ public class ControladorVistaInicial implements ActionListener {
 		case CREAR_CUENTA:
 			switch (this.vista.getTipoUsuario()) {
 			case Agencia.ADMINISTRADOR:
-				cl.show(contentPane, ventana.getVistaRegistrarAdministrador());
+				cl.show(contentPane, ventana.getID_VistaRegistrarAdministrador());
 				break;
 			case Agencia.EMPLEADOR:
-				cl.show(contentPane, ventana.getVistaRegistrarEmpleador());
+				cl.show(contentPane, ventana.getID_VistaRegistrarEmpleador());
 				break;
 			case Agencia.EMPLEADO_PRETENSO:
-				cl.show(contentPane, ventana.getVistaRegistrarEmpleadoPretenso());
+				cl.show(contentPane, ventana.getID_VistaRegistrarEmpleadoPretenso());
 				break;
 			}
 			break;
@@ -67,7 +67,7 @@ public class ControladorVistaInicial implements ActionListener {
 				  case Agencia.ADMINISTRADOR:
 				  	try {
 				  		Agencia.getInstancia().setFuncAdministradorActual(Sistema.loginAdministrador(vista.getUsuario(), vista.getContrasena()));
-				  		cl.show(contentPane, ventana.getVistaFuncionalidadesAdministrador());
+				  		cl.show(contentPane, ventana.getID_VistaFuncionalidadesAdministrador());
 					} catch (ErrorContrasenaException e2) {
 						vista.ventanaEmergente("Contrase�a err�nea");
 						vista.limpiarVista();
@@ -85,7 +85,7 @@ public class ControladorVistaInicial implements ActionListener {
 				  case Agencia.EMPLEADOR:
 				  	try {
 				  		Agencia.getInstancia().setFuncEmpleadorActual(Sistema.loginEmpleador(vista.getUsuario(), vista.getContrasena()));
-				  		cl.show(contentPane, ventana.getVistaFuncionalidadesPersona());
+				  		cl.show(contentPane, ventana.getID_VistaFuncionalidadesPersona());
 					} catch (ErrorContrasenaException e1) {
 						vista.ventanaEmergente("Contrase�a err�nea");
 						vista.limpiarVista();
@@ -101,7 +101,7 @@ public class ControladorVistaInicial implements ActionListener {
 				  case Agencia.EMPLEADO_PRETENSO:
 				  	try {
 				  		Agencia.getInstancia().setFuncEmpleadoPretensoActual(Sistema.loginEmpleadoPretenso(vista.getUsuario(), vista.getContrasena()));
-				  		cl.show(contentPane, ventana.getVistaFuncionalidadesPersona());		
+				  		cl.show(contentPane, ventana.getID_VistaFuncionalidadesPersona());		
 					} catch (ErrorContrasenaException e1) {
 						vista.ventanaEmergente("Contrase�a err�nea");
 						vista.limpiarVista();
@@ -117,7 +117,7 @@ public class ControladorVistaInicial implements ActionListener {
 			}
 			break;
 		case SIMULACION:
-			cl.show(contentPane, ventana.getVistaSimulacion());			
+			cl.show(contentPane, ventana.getID_VistaSimulacion());			
 		}
 		
 		this.vista.limpiarVista();

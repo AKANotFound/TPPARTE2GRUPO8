@@ -21,9 +21,9 @@ public class ControladorVistaRegistrarAdministrador implements ActionListener {
 	private final String VOLVER = "Volver";
 	private final String REGISTRAR = "Registrar";
 	
-	public ControladorVistaRegistrarAdministrador(IVentana ventana,IVistaRegistrarAdministrador vista) {
+	public ControladorVistaRegistrarAdministrador(IVentana ventana) {
 		super();
-		this.vista = vista;
+		this.vista = ventana.getVistaRegistrarAdministrador();
 		this.ventana = ventana;
 		this.vista.setActionListener(this);
 		this.contentPane = ventana.getContentPane();
@@ -36,7 +36,7 @@ public class ControladorVistaRegistrarAdministrador implements ActionListener {
 		
 		switch(comando) {
 		case VOLVER:
-			cl.show(contentPane, ventana.getVistaInicial());
+			cl.show(contentPane, ventana.getID_VistaInicial());
 			break;
 		case REGISTRAR:
 			try
@@ -45,7 +45,7 @@ public class ControladorVistaRegistrarAdministrador implements ActionListener {
 				Sistema.registrarAdministrador(vista.getUsuario(), vista.getContrasena(), 
 						vista.getCodigoAdministrador());
 				Persiste.getInstancia().persistir();
-				cl.show(contentPane, ventana.getVistaInicial());
+				cl.show(contentPane, ventana.getID_VistaInicial());
 				
 			} catch (ErrorCodigoException e1) 
 			{

@@ -22,9 +22,9 @@ public class ControladorVistaGestionTicketPersona implements ActionListener {
 	private final String CANCELAR = "Cancelar";
 	private final String VOLVER = "Volver";
 	
-	public ControladorVistaGestionTicketPersona(IVentana ventana,IVistaGestionTicketPersona vista) {
+	public ControladorVistaGestionTicketPersona(IVentana ventana) {
 		super();
-		this.vista = vista;
+		this.vista = ventana.getVistaGestionTicketPersona();
 		this.ventana = ventana;
 		this.vista.setActionListener(this);
 		this.contentPane = ventana.getContentPane();
@@ -91,10 +91,10 @@ public class ControladorVistaGestionTicketPersona implements ActionListener {
 		case CREAR:
 			switch(Agencia.getInstancia().getCuentaActual().getTipoUsuario()) {
 			case Agencia.EMPLEADOR:
-				cl.show(contentPane, ventana.getVistaFormularioDeBusquedaEmpleador());				
+				cl.show(contentPane, ventana.getID_VistaFormularioDeBusquedaEmpleador());				
 				break;
 			case Agencia.EMPLEADO_PRETENSO:
-				cl.show(contentPane, ventana.getVistaFormularioDeBusquedaEmpleadoPretenso());				
+				cl.show(contentPane, ventana.getID_VistaFormularioDeBusquedaEmpleadoPretenso());				
 				break;
 			}
 			break;
@@ -125,7 +125,7 @@ public class ControladorVistaGestionTicketPersona implements ActionListener {
 			}
 			break;
 		case VOLVER:
-			cl.show(contentPane, ventana.getVistaFuncionalidadesPersona());	
+			cl.show(contentPane, ventana.getID_VistaFuncionalidadesPersona());	
 			break;
 		}
 	}

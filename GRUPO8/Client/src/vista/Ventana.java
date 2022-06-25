@@ -78,63 +78,103 @@ public class Ventana extends JFrame implements IVentana {
 	public JPanel getContentPane() {
 		return contentPane;
 	}
+	
+	public VistaInicial getVistaInicial() {
+		return vistaInicial;
+	}
+
+	public VistaRegistrarAdministrador getVistaRegistrarAdministrador() {
+		return vistaRegistrarAdministrador;
+	}
+
+	public VistaRegistrarEmpleadoPretenso getVistaRegistrarEmpleadoPretenso() {
+		return vistaRegistrarEmpleadoPretenso;
+	}
+
+	public VistaRegistrarEmpleador getVistaRegistrarEmpleador() {
+		return vistaRegistrarEmpleador;
+	}
+
+	public VistaFuncionalidadesAdministrador getVistaFuncionalidadesAdministrador() {
+		return vistaFuncionalidadesAdministrador;
+	}
+
+	public VistaFuncionalidadesPersona getVistaFuncionalidadesPersona() {
+		return vistaFuncionalidadesPersona;
+	}
+
+	public VistaFormularioDeBusquedaEmpleadoPretenso getVistaFormularioDeBusquedaEmpleadoPretenso() {
+		return vistaFormularioDeBusquedaEmpleadoPretenso;
+	}
+
+	public VistaFormularioDeBusquedaEmpleador getVistaFormularioDeBusquedaEmpleador() {
+		return vistaFormularioDeBusquedaEmpleador;
+	}
+
+	public VistaGestionTicketPersona getVistaGestionTicketPersona() {
+		return vistaGestionTicketPersona;
+	}
+
+	public VistaSimulacion getVistaSimulacion() {
+		return vistaSimulacion;
+	}
 
 	@Override
-	public String getVistaInicial() {
-		this.setSize(posicion + 200,posicion + 250);
+	public String getID_VistaInicial() {
+		this.setSize(posicion + 200,posicion + 300);
 		return VISTA_INICIAL;
 	}
 
 	@Override
-	public String getVistaRegistrarAdministrador() {
+	public String getID_VistaRegistrarAdministrador() {
 		this.setSize(posicion + 255,posicion + 120);
 		return VISTA_REGISTRAR_ADMINISTRADOR;
 	}
 
 	@Override
-	public String getVistaRegistrarEmpleadoPretenso() {
+	public String getID_VistaRegistrarEmpleadoPretenso() {
 		this.setSize(posicion + 200,posicion + 200);
 		return VISTA_REGISTRAR_EMPLEADO_PRETENSO;
 	}
 
 	@Override
-	public String getVistaRegistrarEmpleador() {
+	public String getID_VistaRegistrarEmpleador() {
 		this.setSize(posicion + 280,posicion + 470);
 		return VISTA_REGISTRAR_EMPLEADOR;
 	}
 
 	@Override
-	public String getVistaFuncionalidadesAdministrador() {
+	public String getID_VistaFuncionalidadesAdministrador() {
 		this.setSize(posicion + 450,posicion + 400);
 		return VISTA_FUNCIONALIDADES_ADMINISTRADOR;
 	}
 
 	@Override
-	public String getVistaFuncionalidadesPersona() {
+	public String getID_VistaFuncionalidadesPersona() {
 		this.setSize(posicion + 400,posicion + 400);
 		return VISTA_FUNCIONALIDADES_PERSONA;
 	}
 
 	@Override
-	public String getVistaFormularioDeBusquedaEmpleadoPretenso() {
+	public String getID_VistaFormularioDeBusquedaEmpleadoPretenso() {
 		this.setSize(posicion + 250,posicion + 260);
 		return VISTA_FORMULARIO_DE_BUSQUEDA_EMPLEADO_PRETENSO;
 	}
 
 	@Override
-	public String getVistaFormularioDeBusquedaEmpleador() {
+	public String getID_VistaFormularioDeBusquedaEmpleador() {
 		this.setSize(posicion + 280,posicion + 360);
 		return VISTA_FORMULARIO_DE_BUSQUEDA_EMPLEADOR;
 	}
 
 	@Override
-	public String getVistaGestionTicketPersona() {
+	public String getID_VistaGestionTicketPersona() {
 		this.setSize(posicion + 135,posicion + 230);
 		return VISTA_GESTION_TICKET_PERSONA;
 	}
 
 	@Override
-	public String getVistaSimulacion() {
+	public String getID_VistaSimulacion() {
 		this.setSize(posicion + 450,posicion + 400);
 		return VISTA_SIMULACION;
 	}
@@ -143,5 +183,4 @@ public class Ventana extends JFrame implements IVentana {
 	public String toString() {
 		return "Ventana []";
 	}
-	
 }
