@@ -1,6 +1,5 @@
 package prueba;
 
-import controlador.ControladorVistaSimulacion;
 import entidades.Rubro_ComercioInternacional;
 import entidades.Rubro_ComercioLocal;
 import entidades.Rubro_Salud;

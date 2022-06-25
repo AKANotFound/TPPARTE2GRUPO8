@@ -7,7 +7,6 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JLabel;
 import javax.swing.JComboBox;
-import javax.swing.JTextField;
 import javax.swing.border.TitledBorder;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
@@ -62,7 +61,6 @@ public class VistaFormularioDeBusquedaEmpleadoPretenso extends JPanel implements
 	private JPanel panel_comboBox_ExperienciaPrevia;
 	private JPanel panel_lbl_EstudiosCursados;
 	private JPanel panel_comboBox_EstudiosCursados;
-	private ActionListener actionListener;//controlador
 	
 	private final String SELECCIONE="(Seleccione)";
 	private final String LOCACION_INDIFERENTE="Indiferente";
@@ -258,9 +256,7 @@ public class VistaFormularioDeBusquedaEmpleadoPretenso extends JPanel implements
 	public void setActionListener(ActionListener actionListener)
 	{
 		this.btn_Aceptar.addActionListener(actionListener);
-		this.btn_Cancelar.addActionListener(actionListener);
-		this.actionListener=actionListener;
-		
+		this.btn_Cancelar.addActionListener(actionListener);		
 	}
 
 	public void keyPressed(KeyEvent e) {

@@ -9,7 +9,6 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JButton;
-import javax.swing.JDialog;
 
 import java.awt.FlowLayout;
 import javax.swing.border.TitledBorder;
@@ -39,7 +38,6 @@ public class VistaRegistrarAdministrador extends JPanel implements IVistaRegistr
 	private JButton btn_Volver;
 	private JPanel panel_Volver_Border;
 	private JPanel panel_Registrar_Border;
-	private ActionListener actionListener;//controlador
 
 	/**
 	 * Create the panel.
@@ -124,7 +122,6 @@ public class VistaRegistrarAdministrador extends JPanel implements IVistaRegistr
 	public void setActionListener(ActionListener actionListener) {
 		this.btn_Registrar.addActionListener(actionListener);
 		this.btn_Volver.addActionListener(actionListener);
-		this.actionListener=actionListener;
 	}
 	public void keyPressed(KeyEvent e) {
 	}

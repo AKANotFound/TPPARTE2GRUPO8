@@ -3,7 +3,6 @@ package prueba;
 import entidades.Agencia;
 import entidades.Cuenta;
 import entidades.Usuario;
-import persistencia.Persiste;
 
 public class Prueba {
 

@@ -6,8 +6,6 @@ import java.util.GregorianCalendar;
 
 import entidades.Agencia;
 import entidades.FormularioDeBusqueda;
-import entidades.ListaDeAsignacion;
-import entidades.PersonaElegida;
 import entidades.Persona_EmpleadoPretenso;
 import entidades.Persona_Empleador;
 

@@ -30,7 +30,6 @@ public class VistaInicial extends JPanel implements IVistaInicial, KeyListener {
 	private JButton btn_Simulacion;
 	private JPanel panel_Login_Border;
 	private ButtonGroup tipoUsuarioRadioButtonGroup;
-	private ActionListener actionListener;//controlador
 	private JPanel panel_Login_Centro;
 	private JPanel panel_lbl_Usuario_Border;
 	private JLabel lbl_Usuario;
@@ -164,7 +163,6 @@ public class VistaInicial extends JPanel implements IVistaInicial, KeyListener {
 		this.btn_CrearCuenta.addActionListener(actionListener);
 		this.btn_Login.addActionListener(actionListener);
 		this.btn_Simulacion.addActionListener(actionListener);
-		this.actionListener=actionListener;
 	}
 
 	

@@ -8,7 +8,6 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.border.TitledBorder;
-import java.awt.FlowLayout;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.border.EtchedBorder;
@@ -42,7 +41,6 @@ public class VistaFuncionalidadesAdministrador extends JPanel implements IVistaF
 	private JPanel panel_Visualizar_Sur;
 	private JButton btn_VisualizarCuentas;
 	private JButton btn_Contratos;
-	private ActionListener actionListener;//controlador
 
 	/**
 	 * Create the panel.
@@ -165,9 +163,7 @@ public class VistaFuncionalidadesAdministrador extends JPanel implements IVistaF
 		this.btn_VisualizarEmpleadores.addActionListener(actionListener);
 		this.btn_VisualizarEmpleadosPretensos.addActionListener(actionListener);
 		this.btn_VisualizarTicketsEmpleadores.addActionListener(actionListener);
-		this.btn_VisualizarTicketsEmpleadosPretensos.addActionListener(actionListener);
-		this.actionListener=actionListener;
-		
+		this.btn_VisualizarTicketsEmpleadosPretensos.addActionListener(actionListener);		
 	}
 
 	@Override

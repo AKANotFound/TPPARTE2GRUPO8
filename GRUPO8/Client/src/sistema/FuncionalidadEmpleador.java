@@ -4,8 +4,6 @@ import entidades.FormularioDeBusqueda;
 import entidades.Persona;
 import entidades.Persona_Empleador;
 import excepciones.CambioDeEstadoFallidoException;
-import excepciones.ModificacionTicketInvalidaException;
-import excepciones.TicketNullException;
 
 public class FuncionalidadEmpleador extends FuncionalidadPersona {	
 	

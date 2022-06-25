@@ -1,10 +1,8 @@
 package sistema;
 
-import entidades.Persona;
 import entidades.Persona_EmpleadoPretenso;
 import entidades.Persona_Empleador;
 import entidades.Ticket_Empleador;
-import excepciones.ListaNoGeneradaException;
 
 abstract class RondaDeElecciones {	
 	

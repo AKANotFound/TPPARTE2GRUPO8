@@ -1,11 +1,9 @@
 package sistema;
 
-import entidades.Agencia;
 import entidades.FormularioDeBusqueda;
 import entidades.Persona;
 import entidades.Persona_EmpleadoPretenso;
 import excepciones.CambioDeEstadoFallidoException;
-import excepciones.ModificacionTicketInvalidaException;
 import excepciones.TicketNullException;
 
 public class FuncionalidadEmpleadoPretenso extends FuncionalidadPersona {

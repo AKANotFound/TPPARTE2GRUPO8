@@ -1,7 +1,5 @@
 package entidades;
 
-import java.io.Serializable;
-
 /**
  * Clase abstracta que representa una Persona, solo guarda informacion acerca de ella.<br>
  * @author Grupo 8 <br>

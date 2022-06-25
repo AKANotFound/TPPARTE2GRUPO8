@@ -2,8 +2,6 @@ package vista;
 
 import java.awt.event.ActionListener;
 
-import javax.swing.JTextArea;
-
 public interface IVistaSimulacion
 {
 	void setActionListener(ActionListener actionListener);

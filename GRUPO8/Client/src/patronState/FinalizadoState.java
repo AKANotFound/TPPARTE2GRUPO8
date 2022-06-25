@@ -3,7 +3,6 @@ package patronState;
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
 
-import entidades.Agencia;
 import entidades.FormularioDeBusqueda;
 import entidades.Persona;
 import entidades.Persona_EmpleadoPretenso;

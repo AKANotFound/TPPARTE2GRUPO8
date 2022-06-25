@@ -70,7 +70,6 @@ public class VistaFormularioDeBusquedaEmpleador extends JPanel implements IVista
 	private JPanel panel_lbl_CantidadDeEmpleadosSolicitados;
 	private JPanel panel_comboBox_CantidadDeEmpleadosSolicitados;
 	private ButtonGroup rdbtn_Group=new ButtonGroup();
-	private ActionListener actionListener;//controlador
 	
 	private final String SELECCIONE="(Seleccione)";
 	private final String LOCACION_INDIFERENTE="Indiferente";
@@ -301,9 +300,7 @@ public class VistaFormularioDeBusquedaEmpleador extends JPanel implements IVista
 	public void setActionListener(ActionListener actionListener)
 	{
 		this.btn_Aceptar.addActionListener(actionListener);
-		this.btn_Cancelar.addActionListener(actionListener);
-		this.actionListener=actionListener;
-		
+		this.btn_Cancelar.addActionListener(actionListener);		
 	}
 
 	public void keyPressed(KeyEvent e) {

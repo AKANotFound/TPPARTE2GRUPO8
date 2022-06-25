@@ -2,7 +2,6 @@ package sistema;
 
 import entidades.Agencia;
 import entidades.Usuario;
-import excepciones.RondaDeEncuentrosLaboralesNoIniciadaException;
 
 public class FuncionalidadAdministrador extends FuncionalidadUsuario{
 	

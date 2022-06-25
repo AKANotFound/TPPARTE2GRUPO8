@@ -1,7 +1,5 @@
 package simulacion;
 
-import java.util.ArrayList;
-
 import controlador.ControladorVistaSimulacion;
 import entidades.BolsaDeTrabajo;
 import entidades.Rubro_ComercioInternacional;

@@ -1,7 +1,5 @@
 package entidades;
 
-import java.io.Serializable;
-
 public class Cuenta {
 
 	private String usuario;

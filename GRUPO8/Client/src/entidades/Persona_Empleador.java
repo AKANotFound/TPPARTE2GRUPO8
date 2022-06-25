@@ -1,12 +1,6 @@
 package entidades;
 
-import java.io.Serializable;
 import java.util.ArrayList;
-
-import tablas.ILocacion;
-import tablas.Locacion_HomeOffice;
-import tablas.Locacion_Indistinto;
-import tablas.Locacion_Presencial;
 
 public class Persona_Empleador extends Persona {
 

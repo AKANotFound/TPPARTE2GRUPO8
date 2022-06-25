@@ -52,8 +52,6 @@ public class Contrato {
 		return empleadosPretensos;
 	}
 
-	
-	@SuppressWarnings("deprecation")
 	@Override
 	public String toString() {
 		return empleador + " contrato a "+ empleadosPretensos ;

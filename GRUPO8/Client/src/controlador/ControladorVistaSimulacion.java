@@ -1,7 +1,6 @@
 package controlador;
 
 import java.awt.CardLayout;
-import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -10,21 +9,12 @@ import java.util.Observer;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
 
-import entidades.Rubro_ComercioInternacional;
-import entidades.Rubro_ComercioLocal;
-import entidades.Rubro_Salud;
 import entidades.Simulacion_EmpleadoPretenso;
 import entidades.Simulacion_Empleador;
 import simulacion.Simulacion;
-import tablas.Locacion_HomeOffice;
-import tablas.Locacion_Indistinto;
-import tablas.Locacion_Presencial;
 import vista.IVentana;
 import vista.IVistaSimulacion;
-import vista.VistaSimulacion;
 
 public class ControladorVistaSimulacion extends JFrame implements ActionListener, Observer {
 	

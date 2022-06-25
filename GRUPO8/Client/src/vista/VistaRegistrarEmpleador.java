@@ -83,7 +83,6 @@ public class VistaRegistrarEmpleador extends JPanel implements IVistaRegistrarEm
 	private JButton btn_Registrar;
 	private JPanel panel_Volver;
 	private JPanel panel_Registrar;
-	private ActionListener actionListener;//controlador
 	
 	private final String PERSONA_FISICA="Fisica";
 	private final String PERSONA_JURIDICA="Juridica";
@@ -327,8 +326,6 @@ public class VistaRegistrarEmpleador extends JPanel implements IVistaRegistrarEm
 	{
 		this.btn_Volver.addActionListener(actionListener);
 		this.btn_Registrar.addActionListener(actionListener);
-		this.actionListener=actionListener;
-		
 	}
 
 	

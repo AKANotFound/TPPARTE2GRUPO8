@@ -14,7 +14,6 @@ import entidades.Persona_EmpleadoPretenso;
 import entidades.Persona_Empleador;
 import entidades.Ticket;
 import entidades.Ticket_EmpleadoPretenso;
-import entidades.Ticket_Empleador;
 import entidades.Usuario;
 import excepciones.EdadInvalidaException;
 import excepciones.ErrorCodigoException;

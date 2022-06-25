@@ -3,7 +3,6 @@ package controlador;
 import java.awt.CardLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.IOException;
 
 import javax.swing.JPanel;
 
@@ -11,10 +10,6 @@ import entidades.Agencia;
 import excepciones.ErrorContrasenaException;
 import excepciones.ErrorUsuarioException;
 import excepciones.UsuarioYaRegistradoException;
-import persistencia.Persiste;
-import sistema.FuncionalidadAdministrador;
-import sistema.FuncionalidadEmpleadoPretenso;
-import sistema.FuncionalidadEmpleador;
 import sistema.Sistema;
 import vista.IVentana;
 import vista.IVistaInicial;

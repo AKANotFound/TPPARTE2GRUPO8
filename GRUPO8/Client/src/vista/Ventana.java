@@ -1,7 +1,5 @@
 package vista;
 
-import java.awt.event.ActionListener;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -9,7 +7,6 @@ import java.awt.CardLayout;
 
 public class Ventana extends JFrame implements IVentana {
 
-	private ActionListener actionListener; //controlador
 	private JPanel contentPane;
 	
 	private VistaInicial vistaInicial;

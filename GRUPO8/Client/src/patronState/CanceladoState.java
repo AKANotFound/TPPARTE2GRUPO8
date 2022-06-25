@@ -3,7 +3,6 @@ package patronState;
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
 
-import entidades.Agencia;
 import entidades.FormularioDeBusqueda;
 import entidades.Persona;
 import entidades.Persona_EmpleadoPretenso;
@@ -12,7 +11,6 @@ import entidades.Ticket;
 import entidades.Usuario;
 import excepciones.CambioDeEstadoFallidoException;
 import excepciones.ModificacionTicketInvalidaException;
-import sistema.Sistema;
 
 public class CanceladoState implements IState
 {

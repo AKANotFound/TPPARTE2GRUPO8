@@ -3,7 +3,6 @@ package sistema;
 import entidades.FormularioDeBusqueda;
 import entidades.ListaDeAsignacion;
 import entidades.Persona;
-import entidades.Ticket;
 import excepciones.CambioDeEstadoFallidoException;
 import excepciones.ListaNoGeneradaException;
 import excepciones.ModificacionTicketInvalidaException;

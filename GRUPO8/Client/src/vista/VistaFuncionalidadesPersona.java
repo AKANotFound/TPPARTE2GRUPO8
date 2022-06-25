@@ -2,7 +2,6 @@ package vista;
 
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
-import java.awt.PopupMenu;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
@@ -14,7 +13,6 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
-import javax.swing.ListSelectionModel;
 import javax.swing.border.TitledBorder;
 
 import entidades.ListaDeAsignacion;
@@ -48,7 +46,6 @@ public class VistaFuncionalidadesPersona extends JPanel implements IVistaFuncion
 	private JPanel panel_Eleccion_Border;
 	private JScrollPane scrollPane_Consola;
 	private JTextArea textArea_Consola;
-	private ActionListener actionListener;//controlador
 	private JFrame jFrame;
     
 
@@ -165,7 +162,6 @@ public class VistaFuncionalidadesPersona extends JPanel implements IVistaFuncion
 		this.btn_VisualizarPersonasElegidas.addActionListener(actionListener);
 		this.btn_VisualizarResultado.addActionListener(actionListener);
 		this.btn_GestionDeTicket.addActionListener(actionListener);
-		this.actionListener=actionListener;
 	}
 	
 	@Override
