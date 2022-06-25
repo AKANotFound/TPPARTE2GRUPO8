@@ -21,7 +21,6 @@ public class ControladorVistaFuncionalidadesPersona implements ActionListener {
 	private IVistaFuncionalidadesPersona vista = null;
 	private IVentana ventana = null;
 	private JPanel contentPane = null;
-	private String tipoUsuarioActual = Agencia.getInstancia().getCuentaActual().getTipoUsuario();
 	
 	private final String GESTION_DE_TICKET = "GestionDeTicket";
 	private final String INICIAR_RONDA_DE_ELECCION = "IniciarRondaDeEleccion";
@@ -57,7 +56,7 @@ public class ControladorVistaFuncionalidadesPersona implements ActionListener {
 			{
 				this.vista.ventanaEmergente(exception.getMessage());
 			}
-			switch(tipoUsuarioActual) {
+			switch(Agencia.getInstancia().getCuentaActual().getTipoUsuario()) {
 			case Agencia.EMPLEADOR:
 				Persona_Empleador empleador = (Persona_Empleador) Agencia.getInstancia().getFuncEmpleadorActual().getUsuario();
 				empleador.setEmpleadosElegidos(personasElegidas);
@@ -74,7 +73,6 @@ public class ControladorVistaFuncionalidadesPersona implements ActionListener {
 					}
 				}
 			}
-			//NO SE USA LA CLASE INICIAR RONDA DE ELECCIONES
 			break;
 		case BORRAR_CUENTA:
 			int result =this.vista.ventanaEmergenteConfirmar("�Est�s seguro de que deseas eliminar tu cuenta?");
@@ -93,7 +91,7 @@ public class ControladorVistaFuncionalidadesPersona implements ActionListener {
 			cl.show(contentPane, ventana.getVistaGestionTicketPersona());
 			break;
 		case INICIAR_RONDA_DE_ELECCION:
-			switch(tipoUsuarioActual) {
+			switch(Agencia.getInstancia().getCuentaActual().getTipoUsuario()) {
 			case Agencia.EMPLEADOR:
 				try
 				{
@@ -115,7 +113,7 @@ public class ControladorVistaFuncionalidadesPersona implements ActionListener {
 			}
 			break;
 		case VISUALIZAR_PERSONAS_ELEGIDAS:
-			switch(tipoUsuarioActual) {
+			switch(Agencia.getInstancia().getCuentaActual().getTipoUsuario()) {
 			case Agencia.EMPLEADOR:
 				vista.setTextVista(Agencia.getInstancia().getFuncEmpleadorActual().visualizarPersonasElegidas());
 				break;
@@ -125,7 +123,7 @@ public class ControladorVistaFuncionalidadesPersona implements ActionListener {
 			}
 			break;
 		case VISUALIZAR_RESULTADO:
-			switch(tipoUsuarioActual) {
+			switch(Agencia.getInstancia().getCuentaActual().getTipoUsuario()) {
 			case Agencia.EMPLEADOR:
 				vista.setTextVista(Agencia.getInstancia().getFuncEmpleadorActual().visualizaResultado());
 				break;

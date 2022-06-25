@@ -55,22 +55,16 @@ public class ControladorVistaInicial implements ActionListener {
 				break;
 			}
 			break;
-		case INICIAR_SESION:
-			
-			/*try {
-				Persiste.getInstancia().leer();
-			} catch (IOException e3) {
-				e3.printStackTrace();
-			}*/
-			
+		case INICIAR_SESION:			
 			if (Agencia.getInstancia().getUsuarios().containsKey(this.vista.getUsuario()) == false)
 				this.vista.ventanaEmergente("No existe la cuenta. Intente registrarse.");
 			else
 			{
-				String tipoUsuario = Agencia.getInstancia().getUsuarios().get(this.vista.getUsuario()).getCuenta().getTipoUsuario();
+				Agencia.getInstancia().setCuentaActual(Agencia.getInstancia().getUsuarios().get(this.vista.getUsuario()).getCuenta());
+				String tipoUsuario = Agencia.getInstancia().getCuentaActual().getTipoUsuario();
 				switch(tipoUsuario)
 				{
-				  case Agencia.ADMINISTRADOR:Agencia.getInstancia().setTipoUsuarioActual(Agencia.ADMINISTRADOR);
+				  case Agencia.ADMINISTRADOR:
 				  	try {
 				  		Agencia.getInstancia().setFuncAdministradorActual(Sistema.loginAdministrador(vista.getUsuario(), vista.getContrasena()));
 				  		cl.show(contentPane, ventana.getVistaFuncionalidadesAdministrador());
@@ -88,7 +82,7 @@ public class ControladorVistaInicial implements ActionListener {
 					
 					break;
 					
-				  case Agencia.EMPLEADOR:Agencia.getInstancia().setTipoUsuarioActual(Agencia.EMPLEADOR);
+				  case Agencia.EMPLEADOR:
 				  	try {
 				  		Agencia.getInstancia().setFuncEmpleadorActual(Sistema.loginEmpleador(vista.getUsuario(), vista.getContrasena()));
 				  		cl.show(contentPane, ventana.getVistaFuncionalidadesPersona());
@@ -104,7 +98,7 @@ public class ControladorVistaInicial implements ActionListener {
 					
 				    break;
 				    
-				  case Agencia.EMPLEADO_PRETENSO:Agencia.getInstancia().setTipoUsuarioActual(Agencia.EMPLEADO_PRETENSO);
+				  case Agencia.EMPLEADO_PRETENSO:
 				  	try {
 				  		Agencia.getInstancia().setFuncEmpleadoPretensoActual(Sistema.loginEmpleadoPretenso(vista.getUsuario(), vista.getContrasena()));
 				  		cl.show(contentPane, ventana.getVistaFuncionalidadesPersona());		
