@@ -1,1 +1,0 @@
-typeSearchIndex = [{"p":"entidades","l":"Agencia"},{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"sistema","l":"PersonaFactory"}];updateSearchResults();
