@@ -136,6 +136,11 @@ public class VistaSimulacion extends JPanel implements IVistaSimulacion
 		this.textArea_Consola.append(textArea_Consola);
 		//this.textArea_Consola.setText(textArea_Consola); 
 	}
+	
+	public JTextArea getTextArea_Consola() {
+		return textArea_Consola;
+	}
+
 
 	public void setTextArea_Empleadores(String textArea_Empleadores) {
 		this.textArea_Empleadores.append(textArea_Empleadores);
@@ -144,6 +149,8 @@ public class VistaSimulacion extends JPanel implements IVistaSimulacion
 	public void setTextArea_EmpleadosPretensos(String textArea_EmpleadosPretensos) {
 		this.textArea_EmpleadosPretensos.append(textArea_EmpleadosPretensos);
 	}
+	
+	
 
 	@Override
 	public void setActionListener(ActionListener actionListener)

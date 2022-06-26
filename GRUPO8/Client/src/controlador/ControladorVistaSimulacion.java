@@ -46,6 +46,7 @@ public class ControladorVistaSimulacion extends JFrame implements ActionListener
 			break;
 		case INICIAR:
 			vista.setIniciarDisabled();
+			this.vista.getTextArea_Consola().setText("");
 			Simulacion.getInstancia().simulacion(this);
 			this.vista.setTextArea_Empleadores(this.empleadoresObservados.toString());
 			this.vista.setTextArea_EmpleadosPretensos(this.empleadosObservados.toString());

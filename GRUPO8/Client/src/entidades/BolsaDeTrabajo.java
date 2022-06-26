@@ -20,7 +20,8 @@ public class BolsaDeTrabajo {
 		return simulacionFinalizada;
 	}
 	
-	public void iniciaSimulacion() {
+	public void iniciaSimulacion() 
+	{
 		simulacionFinalizada = false;
 	}
 	

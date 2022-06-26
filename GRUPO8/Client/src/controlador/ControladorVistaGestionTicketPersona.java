@@ -8,6 +8,7 @@ import javax.swing.JPanel;
 
 import entidades.Agencia;
 import excepciones.CambioDeEstadoFallidoException;
+import persistencia.Persiste;
 import vista.IVentana;
 import vista.IVistaGestionTicketPersona;
 
@@ -125,6 +126,7 @@ public class ControladorVistaGestionTicketPersona implements ActionListener {
 			}
 			break;
 		case VOLVER:
+			Persiste.getInstancia().persistir();
 			cl.show(contentPane, ventana.getID_VistaFuncionalidadesPersona());	
 			break;
 		}

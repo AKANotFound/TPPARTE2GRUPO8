@@ -12,18 +12,27 @@ import tablas.Locacion_Indistinto;
 import tablas.Locacion_Presencial;
 
 public class Simulacion {
-	
+
 	private static Simulacion instancia = null;
-	
-	
+	private Thread t1;
+	private Thread t2;
+	private Thread t3;
+	private Thread t4;
+	private Thread t5;
+	private Thread t6;
+	private Thread t7;
+	private Thread t8;
+	private Thread t9;
+	private Thread t10;
+
 	public static Simulacion getInstancia() {
-    	if (instancia == null)
-    		instancia = new Simulacion();
-    	return instancia;
-    }
+		if (instancia == null)
+			instancia = new Simulacion();
+		return instancia;
+	}
 
 	public void simulacion(ControladorVistaSimulacion c) {
-		
+
 		Rubro_ComercioLocal rubro_ComercioLocal = new Rubro_ComercioLocal();
 		Rubro_ComercioInternacional rubro_ComercioInternacional = new Rubro_ComercioInternacional();
 		Rubro_Salud rubro_Salud = new Rubro_Salud();
@@ -49,8 +58,7 @@ public class Simulacion {
 		Simulacion_Empleador e2 = new Simulacion_Empleador("Farmacity");
 		Simulacion_Empleador e3 = new Simulacion_Empleador("Musimundo");
 		Simulacion_Empleador e4 = new Simulacion_Empleador("Disco");
-		
-		
+
 		c.agregarObservable(ep1);
 		c.agregarObservable(ep2);
 		c.agregarObservable(ep3);
@@ -63,16 +71,18 @@ public class Simulacion {
 		c.agregarObservable(e3);
 		c.agregarObservable(e4);
 
-		Thread t1 = new Thread(ep1);
-		Thread t2 = new Thread(ep2);
-		Thread t3 = new Thread(ep3);
-		Thread t4 = new Thread(ep4);
-		Thread t5 = new Thread(ep5);
-		Thread t6 = new Thread(ep6);
-		Thread t7 = new Thread(e1);
-		Thread t8 = new Thread(e2);
-		Thread t9 = new Thread(e3);
-		Thread t10 = new Thread(e4);
+		BolsaDeTrabajo.getInstancia().iniciaSimulacion();
+
+		t1 = new Thread(ep1);
+		t2 = new Thread(ep2);
+		t3 = new Thread(ep3);
+		t4 = new Thread(ep4);
+		t5 = new Thread(ep5);
+		t6 = new Thread(ep6);
+		t7 = new Thread(e1);
+		t8 = new Thread(e2);
+		t9 = new Thread(e3);
+		t10 = new Thread(e4);
 
 		t1.start();
 		t2.start();
@@ -84,17 +94,26 @@ public class Simulacion {
 		t8.start();
 		t9.start();
 		t10.start();
-		
-		
+
 	}
-	
+
 	public void iniciar() 
 	{
 		BolsaDeTrabajo.getInstancia().iniciaSimulacion();
 	}
-	
-	public void detener ()
+
+	public void detener() 
 	{
 		BolsaDeTrabajo.getInstancia().finalizarSimulacion();
+		t1.stop();
+		t2.stop();
+		t3.stop();
+		t4.stop();
+		t5.stop();
+		t6.stop();
+		t7.stop();
+		t8.stop();
+		t9.stop();
+		t10.stop();
 	}
 }
