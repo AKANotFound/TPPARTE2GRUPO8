@@ -3,6 +3,7 @@ package sistema;
 import entidades.FormularioDeBusqueda;
 import entidades.Persona;
 import entidades.Persona_EmpleadoPretenso;
+import entidades.Ticket_EmpleadoPretenso;
 import excepciones.CambioDeEstadoFallidoException;
 import excepciones.TicketNullException;
 
@@ -14,8 +15,9 @@ public class FuncionalidadEmpleadoPretenso extends FuncionalidadPersona {
 
 	public void crearTicket(FormularioDeBusqueda formulario)  
 	{
-		((Persona) usuario).setTicket(TicketFactory.crearTicket((Persona_EmpleadoPretenso) usuario, formulario));
-		Sistema.agregarTicketEmpleado(((Persona) usuario).getTicket());
+		Ticket_EmpleadoPretenso ticket= (Ticket_EmpleadoPretenso) TicketFactory.crearTicket((Persona_EmpleadoPretenso) usuario, formulario);
+		((Persona) usuario).setTicket(ticket);
+		Sistema.agregarTicketEmpleado(ticket);
 	}
 	
 	

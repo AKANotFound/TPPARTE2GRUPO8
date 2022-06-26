@@ -87,18 +87,8 @@ public class ControladorVistaSimulacion extends JFrame implements ActionListener
 	}
 
 	@Override
-	public void update(Observable o, Object arg) {
-	
-		if(o.getClass() == Simulacion_Empleador.class) 
-		{
-			Simulacion_Empleador empleador = (Simulacion_Empleador) o;
-			//this.vista.setTextArea_Empleadores((String)arg+"\n");
-		}else
-			if(o.getClass() == Simulacion_EmpleadoPretenso.class) 
-			{
-				Simulacion_EmpleadoPretenso empleado = (Simulacion_EmpleadoPretenso) o;
-				//this.vista.setTextArea_EmpleadosPretensos((String)arg+"\n");
-			}
+	public void update(Observable o, Object arg) 
+	{
 		this.vista.setTextArea_Consola((String) arg+"\n");
 	}
 	

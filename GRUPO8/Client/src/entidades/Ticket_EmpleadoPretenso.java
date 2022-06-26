@@ -5,7 +5,6 @@ public class Ticket_EmpleadoPretenso extends Ticket {
 	
 	public Ticket_EmpleadoPretenso() {}
 	
-	
 	public Ticket_EmpleadoPretenso(FormularioDeBusqueda formularioDeBusqueda) {
 		super(formularioDeBusqueda);
 		this.resultado="en proceso";
@@ -18,6 +17,13 @@ public class Ticket_EmpleadoPretenso extends Ticket {
 	public String getResultado() {
 		return resultado;
 	}
+
+	@Override
+	public String toString() 
+	{
+		return "Resultado: " + this.resultado + super.toString();
+	}
+	
 	
 	
 }

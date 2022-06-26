@@ -8,6 +8,7 @@ import entidades.Agencia;
 import entidades.FormularioDeBusqueda;
 import entidades.Persona_EmpleadoPretenso;
 import entidades.Persona_Empleador;
+import patronState.ActivoState;
 
 abstract class RondaDeEncuentrosLaborales {
 
@@ -23,10 +24,13 @@ protected static void iniciaRondaDeEncuentrosLaborales ()
 		FormularioDeBusqueda formularioEmpleador=null;
 		FormularioDeBusqueda formularioEmpleadoP=null;
 		
+		
 		for (int i=0; i<empleadores.size(); i++)
 		{
+			
 			empleador = empleadores.get(i);
-			empleador.getTicket().comparaFormularioEmpleador(empleador,empleadoP,fecha,empleadosPretensos);	
+			if(empleador.getTicket().getEstado().getClass() == ActivoState.class)
+				empleador.getTicket().comparaFormularioEmpleador(empleador,empleadoP,fecha,empleadosPretensos);	
 		}
 		for (int i=0;i<empleadosPretensos.size();i++)
 		{

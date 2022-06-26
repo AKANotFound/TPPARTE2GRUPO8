@@ -9,6 +9,9 @@ import entidades.Agencia;
 import entidades.Contrato;
 import entidades.Persona_EmpleadoPretenso;
 import entidades.Persona_Empleador;
+import entidades.Ticket;
+import entidades.Ticket_EmpleadoPretenso;
+import entidades.Ticket_Empleador;
 import entidades.Usuario;
 import excepciones.ErrorCodigoException;
 import excepciones.UsuarioYaRegistradoException;
@@ -38,6 +41,8 @@ public class Persiste {
 			//Agencia.getInstancia().getUsuarios().remove(Administrador.getInstancia());
             persistencia.escribir(Agencia.getInstancia().getUsuarios());
             //Agencia.getInstancia().getUsuarios().put(Administrador.getInstancia().getCuenta().getUsuario(), Administrador.getInstancia());
+			persistencia.escribir(Agencia.getInstancia().getTicketsEmpleadores());
+			persistencia.escribir(Agencia.getInstancia().getTicketsEmpleadosPretensos());
 			
 			System.out.println("Escribe");
 			persistencia.cerrarOutput();
@@ -64,7 +69,8 @@ public class Persiste {
 			listaEmpleados = (ArrayList<Persona_EmpleadoPretenso>) persistencia.leer();
 			listaContratos = (ArrayList<Contrato>) persistencia.leer();
 			usuarios = (HashMap<String, Usuario>) persistencia.leer();
-			
+			Agencia.getInstancia().setTicketsEmpleadores( (ArrayList<Ticket_Empleador>) persistencia.leer());
+			Agencia.getInstancia().setTicketsEmpleadosPretensos( (ArrayList<Ticket_EmpleadoPretenso>) persistencia.leer());
 			persistencia.cerrarInput();
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block

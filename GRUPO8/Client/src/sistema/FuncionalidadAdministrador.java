@@ -42,6 +42,7 @@ public class FuncionalidadAdministrador extends FuncionalidadUsuario{
 	}
 	
 	public String visualizarTicketsEmpleadosPretensos() {
+		
 		return ""+Agencia.getInstancia().getTicketsEmpleadosPretensos();
 	}
 	

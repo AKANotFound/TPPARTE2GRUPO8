@@ -28,7 +28,11 @@ public class Ticket_Empleador extends Ticket {
 	public void setCantEmpleadosObtenidos(int cantEmpleadosObtenidos) {
 		this.cantEmpleadosObtenidos = cantEmpleadosObtenidos;
 	}
-    
-	
+
+	@Override
+	public String toString() {
+		return " Cantidad de empleados solicitados: "+this.cantEmpleadosSolicitados + "Cantidad de empleados obtenidos: " + this.cantEmpleadosObtenidos + super.toString();
+	}
+		
     
 }

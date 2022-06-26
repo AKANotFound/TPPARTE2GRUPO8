@@ -12,8 +12,8 @@ import entidades.IRubro;
 import entidades.Persona;
 import entidades.Persona_EmpleadoPretenso;
 import entidades.Persona_Empleador;
-import entidades.Ticket;
 import entidades.Ticket_EmpleadoPretenso;
+import entidades.Ticket_Empleador;
 import entidades.Usuario;
 import excepciones.EdadInvalidaException;
 import excepciones.ErrorCodigoException;
@@ -39,18 +39,18 @@ public abstract class Sistema {
 	private static ArrayList<Contrato> contratos = Agencia.getInstancia().getContratos();
 	private static HashMap<String, Usuario> usuarios = Agencia.getInstancia().getUsuarios();
 	private static boolean InicioRondaEncuentrosLaborales = false;
-	private static ArrayList<Ticket> ticketsEmpleadosPretensos = Agencia.getInstancia().getTicketsEmpleadosPretensos();
-    private static ArrayList<Ticket> ticketsEmpleadores = Agencia.getInstancia().getTicketsEmpleadores();
+	private static ArrayList<Ticket_EmpleadoPretenso> ticketsEmpleadosPretensos = Agencia.getInstancia().getTicketsEmpleadosPretensos();
+    private static ArrayList<Ticket_Empleador> ticketsEmpleadores = Agencia.getInstancia().getTicketsEmpleadores();
     
     
     
     
-    public static void agregarTicketEmpleado(Ticket ticket) 
+    public static void agregarTicketEmpleado(Ticket_EmpleadoPretenso ticket) 
     {
     	ticketsEmpleadosPretensos.add(ticket);
     }
     
-    public static void agregarTicketEmpleador(Ticket ticket) 
+    public static void agregarTicketEmpleador(Ticket_Empleador ticket) 
     {
     	ticketsEmpleadores.add(ticket);
     }

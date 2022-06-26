@@ -16,9 +16,7 @@ public abstract class Ticket {
      * @aggregation shared
      */
     
-    public Ticket() {
-    	
-    }
+    public Ticket() {}
     
     public GregorianCalendar getFechaAlta() {
 		return fechaAlta;
