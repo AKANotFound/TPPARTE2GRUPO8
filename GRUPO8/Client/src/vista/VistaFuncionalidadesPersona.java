@@ -189,6 +189,11 @@ public class VistaFuncionalidadesPersona extends JPanel implements IVistaFuncion
 			
 		}
 	}
+	
+	@Override
+	public JList<PersonaElegida> getList_ListaDeAsignacion() {
+		return list_ListaDeAsignacion;
+	}
 
 	@Override
 	public ArrayList<PersonaElegida> getPersonasElegidas() throws ListaNoGeneradaException 
@@ -204,5 +209,10 @@ public class VistaFuncionalidadesPersona extends JPanel implements IVistaFuncion
 	@Override
 	public void ventanaEmergente(String mensaje) {
 		JOptionPane.showMessageDialog(null,mensaje);
+	}
+
+	@Override
+	public void limpiarVista() {
+		this.list_ListaDeAsignacion.removeAll();
 	}
 }

@@ -22,6 +22,7 @@ public class ControladorVistaFuncionalidadesPersona implements ActionListener {
 	private IVistaFuncionalidadesPersona vista = null;
 	private IVentana ventana = null;
 	private JPanel contentPane = null;
+	private boolean rondaEleccionActivada = false;
 	
 	private final String GESTION_DE_TICKET = "GestionDeTicket";
 	private final String INICIAR_RONDA_DE_ELECCION = "IniciarRondaDeEleccion";
@@ -76,42 +77,50 @@ public class ControladorVistaFuncionalidadesPersona implements ActionListener {
 			}
 			break;
 		case BORRAR_CUENTA:
-			int result =this.vista.ventanaEmergenteConfirmar("�Est�s seguro de que deseas eliminar tu cuenta?");
+			int result =this.vista.ventanaEmergenteConfirmar("Estas seguro de que deseas eliminar tu cuenta?");
 	        if (result == 0) 
 	        {
 	        	Sistema.borrarCuenta();
 	        	Persiste.getInstancia().persistir();
+	        	this.vista.ventanaEmergente("Cuenta borrada exitosamente");
 	        	cl.show(contentPane, ventana.getID_VistaInicial());
+	        	this.vista.limpiarVista();
 	        }
 	        break;
 		case CERRAR_SESION:
 			Sistema.cerrarSesion();
 			cl.show(contentPane, ventana.getID_VistaInicial());
+			this.vista.limpiarVista();
 			break;
 		case GESTION_DE_TICKET:
 			cl.show(contentPane, ventana.getID_VistaGestionTicketPersona());
 			break;
 		case INICIAR_RONDA_DE_ELECCION:
-			switch(Agencia.getInstancia().getCuentaActual().getTipoUsuario()) {
-			case Agencia.EMPLEADOR:
-				try
-				{
-					vista.visualizarListaDeAsignacion(Agencia.getInstancia().getFuncEmpleadorActual().getListaDeAsignacion());
-				} catch (ListaNoGeneradaException e1)
-				{
-					this.vista.ventanaEmergente(e1.getMessage());
+			if(this.rondaEleccionActivada == false) {
+				this.rondaEleccionActivada = true;
+				switch(Agencia.getInstancia().getCuentaActual().getTipoUsuario()) {
+				case Agencia.EMPLEADOR:
+					try
+					{
+						vista.visualizarListaDeAsignacion(Agencia.getInstancia().getFuncEmpleadorActual().getListaDeAsignacion());
+					} catch (ListaNoGeneradaException e1)
+					{
+						this.vista.ventanaEmergente(e1.getMessage());
+					}
+					break;
+				case Agencia.EMPLEADO_PRETENSO:
+					try
+					{
+						vista.visualizarListaDeAsignacion(Agencia.getInstancia().getFuncEmpleadoPretensoActual().getListaDeAsignacion());
+					} catch (ListaNoGeneradaException e1)
+					{
+						this.vista.ventanaEmergente(e1.getMessage());
+					}
+					break;
 				}
-				break;
-			case Agencia.EMPLEADO_PRETENSO:
-				try
-				{
-					vista.visualizarListaDeAsignacion(Agencia.getInstancia().getFuncEmpleadoPretensoActual().getListaDeAsignacion());
-				} catch (ListaNoGeneradaException e1)
-				{
-					this.vista.ventanaEmergente(e1.getMessage());
-				}
-				break;
 			}
+			else
+				this.vista.ventanaEmergente("Ronda de eleccion ya ha sido activada");
 			break;
 		case VISUALIZAR_PERSONAS_ELEGIDAS:
 			switch(Agencia.getInstancia().getCuentaActual().getTipoUsuario()) {
