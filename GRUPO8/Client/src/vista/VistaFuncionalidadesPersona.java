@@ -209,4 +209,8 @@ public class VistaFuncionalidadesPersona extends JPanel implements IVistaFuncion
 	public void ventanaEmergente(String mensaje) {
 		JOptionPane.showMessageDialog(null,mensaje);
 	}
+
+	@Override
+	public void limpiarVista() {
+	}
 }

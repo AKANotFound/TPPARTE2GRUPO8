@@ -14,4 +14,5 @@ public interface IVistaFuncionalidadesPersona {
 	void ventanaEmergente(String mensaje);
 	void visualizarListaDeAsignacion(ListaDeAsignacion listaDeAsignacion) throws ListaNoGeneradaException;
 	ArrayList<PersonaElegida> getPersonasElegidas() throws ListaNoGeneradaException ;
+	void limpiarVista();
 }
