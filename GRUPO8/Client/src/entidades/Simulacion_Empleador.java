@@ -40,7 +40,7 @@ public class Simulacion_Empleador extends Persona_Empleador implements Runnable 
 		int opcion = 0;
 		TicketSimplificado ticketSimplificado=null;
 		int i = 0;
-		
+		Util.espera(10000);
 		while( i < 3 && bolsaDeTrabajo.isSimulacionFinalizada() == false) {
 			opcion = (int)(Math.random()*3+1);
 			
@@ -69,7 +69,7 @@ public class Simulacion_Empleador extends Persona_Empleador implements Runnable 
 			
 			this.setChanged();
 		    this.notifyObservers(this.estado);
-		    Util.espera(2000);
+		    Util.espera(7500);
 		    i++;
 		}
 	}

@@ -1,4 +1,5 @@
 /excepciones/
+<<<<<<< HEAD
 /controlador/
 /entidades/
 /patronState/
@@ -10,3 +11,6 @@
 /uml/
 /util/
 /vista/
+=======
+/entidades/
+>>>>>>> branch 'ramaDePrueba' of https://github.com/AKANotFound/TPPARTE2GRUPO8.git

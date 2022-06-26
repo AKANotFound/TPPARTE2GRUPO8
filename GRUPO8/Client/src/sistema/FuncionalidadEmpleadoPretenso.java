@@ -27,6 +27,7 @@ public class FuncionalidadEmpleadoPretenso extends FuncionalidadPersona {
 		super.cancelarTicket();
 		Sistema.puntajeCancelar((Persona_EmpleadoPretenso) usuario);
 	}
+	
 
 	@Override
 	public void iniciarRondaEleccion() {
