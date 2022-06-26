@@ -4,7 +4,6 @@ import entidades.FormularioDeBusqueda;
 import entidades.Persona;
 import entidades.Persona_EmpleadoPretenso;
 import excepciones.CambioDeEstadoFallidoException;
-import excepciones.ModificacionTicketInvalidaException;
 
 public class FuncionalidadEmpleadoPretenso extends FuncionalidadPersona {
 	
@@ -21,11 +20,6 @@ public class FuncionalidadEmpleadoPretenso extends FuncionalidadPersona {
 	public void cancelarTicket() throws CambioDeEstadoFallidoException {
 		super.cancelarTicket();
 		Sistema.puntajeCancelar((Persona_EmpleadoPretenso) usuario);
-	}
-
-	@Override
-	public void iniciarRondaEleccion() {
-		RondaDeElecciones.iniciaRondaDeEleccionEmpleadoPretenso((Persona_EmpleadoPretenso) usuario);
 	}
 	
 	@Override
