@@ -67,10 +67,11 @@ public class Simulacion_EmpleadoPretenso extends Persona_EmpleadoPretenso implem
 		int i = 0;
 		while(i < 10 && ticketSimplificado == null && bolsaDeTrabajo.isSimulacionFinalizada() == false)
 		{
+			Util.espera(7500);
 			bolsaDeTrabajo.sacaTicketSimplificado(this);
 			this.setChanged();
 		    this.notifyObservers(this.estado);
-		    Util.espera(3000);
+		    Util.espera(7500);
 			if(ticketSimplificado != null)
 				bolsaDeTrabajo.analizaTicketSimplificado(this);
 			this.setChanged();
