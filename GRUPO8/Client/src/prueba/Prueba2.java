@@ -250,13 +250,6 @@ public class Prueba2 {
 				e.printStackTrace();
 			}
 
-			jorge.iniciarRondaEleccion();
-			pablo.iniciarRondaEleccion();
-			francoS.iniciarRondaEleccion();
-			francoP.iniciarRondaEleccion();
-			microsoft.iniciarRondaEleccion();
-			carrefour.iniciarRondaEleccion();
-
 			System.out
 					.println("\nUNA VEZ FINALIZADA LA RONDA DE ELECCIONES, LOS USUARIOS ELIGEN VER SUS ELECCIONES \n");
 			System.out.println(jorge.visualizarPersonasElegidas());
