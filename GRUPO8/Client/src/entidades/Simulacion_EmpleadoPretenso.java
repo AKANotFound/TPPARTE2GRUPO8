@@ -68,8 +68,6 @@ public class Simulacion_EmpleadoPretenso extends Persona_EmpleadoPretenso implem
 		while(i < 10 && ticketSimplificado == null && bolsaDeTrabajo.isSimulacionFinalizada() == false)
 		{
 			bolsaDeTrabajo.sacaTicketSimplificado(this);
-			//Util.espera(3000);
-			
 			this.setChanged();
 		    this.notifyObservers(this.estado);
 		    Util.espera(3000);
