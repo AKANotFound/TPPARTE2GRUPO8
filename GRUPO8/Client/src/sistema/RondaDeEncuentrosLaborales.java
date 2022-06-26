@@ -18,19 +18,16 @@ protected static void iniciaRondaDeEncuentrosLaborales ()
 		GregorianCalendar fecha = new GregorianCalendar();
 		ArrayList <Persona_Empleador> empleadores = Agencia.getInstancia().getEmpleadores();
 		ArrayList <Persona_EmpleadoPretenso> empleadosPretensos = Agencia.getInstancia().getEmpleadosPretensos();
-		double puntajeDeContratacion = 0;
 		Persona_Empleador empleador = null;
 		Persona_EmpleadoPretenso empleadoP=null;
-		FormularioDeBusqueda formularioEmpleador=null;
-		FormularioDeBusqueda formularioEmpleadoP=null;
 		
 		
 		for (int i=0; i<empleadores.size(); i++)
 		{
 			
 			empleador = empleadores.get(i);
-			if(empleador.getTicket().getEstado().getClass() == ActivoState.class)
-				empleador.getTicket().comparaFormularioEmpleador(empleador,empleadoP,fecha,empleadosPretensos);	
+			if(empleador.getTicket()!=null)
+				empleador.getTicket().generaListaDeAsignacion(empleador,empleadoP,fecha,empleadosPretensos);	
 		}
 		for (int i=0;i<empleadosPretensos.size();i++)
 		{
