@@ -62,21 +62,31 @@ public class ControladorVistaFuncionalidadesAdministrador implements ActionListe
 	        }
 			break;
 		case INICIAR_RONDA_DE_ENCUENTROS_LABORALES:
-			
-			result =this.vista.ventanaEmergenteConfirmar("¿Estás seguro de que deseas iniciar la ronda de encuentros laborales?"); 
-	        if (result == 0) 
-	        {
-	        	Agencia.getInstancia().getFuncAdministradorActual().iniciaRondaEncuentrosLaborales();
-	        	this.vista.ventanaEmergente("Ronda de encuentros laborales iniciada exitosamente");
-	        }
+			if(Agencia.getInstancia().getTicketsEmpleadores().size() == 0 && Agencia.getInstancia().getTicketsEmpleadosPretensos().size() == 0)
+				this.vista.ventanaEmergente("No se puede iniciar la ronda porque no existen tickets de empladores ni de empleados pretensos");
+			else if(Agencia.getInstancia().getTicketsEmpleadores().size() == 0)
+				this.vista.ventanaEmergente("No se puede iniciar la ronda porque no existen tickets de empladores");
+			else if(Agencia.getInstancia().getTicketsEmpleadosPretensos().size() == 0)
+				this.vista.ventanaEmergente("No se puede iniciar la ronda porque no existen tickets de empleados pretensos");
+			else {
+				result =this.vista.ventanaEmergenteConfirmar("Estas seguro de que deseas iniciar la ronda de encuentros laborales?"); 
+				if (result == 0) 
+				{
+					Agencia.getInstancia().getFuncAdministradorActual().iniciaRondaEncuentrosLaborales();
+					this.vista.ventanaEmergente("Ronda de encuentros laborales iniciada exitosamente");
+				}				
+			}
 	        break;
 		case INICIAR_RONDA_DE_CONTRATACION:
-			result =this.vista.ventanaEmergenteConfirmar("¿Estás seguro de que deseas iniciar la ronda de contratación?"); 
-	        if (result == 0) 
-	        {
-	        	Agencia.getInstancia().getFuncAdministradorActual().iniciaRondaContratacion();
-	        	
-	        }
+			if(!Sistema.isInicioRondaEncuentrosLaborales())
+				this.vista.ventanaEmergente("No se puede iniciar la ronda de contratacion hasta que se haya iniciado la ronda de encuentros laborales");
+			else {
+				result =this.vista.ventanaEmergenteConfirmar("Estas seguro de que deseas iniciar la ronda de contratacion?"); 
+				if (result == 0) 
+				{
+					Agencia.getInstancia().getFuncAdministradorActual().iniciaRondaContratacion();
+				}				
+			}
 	        break;
 		case VISUALIZAR_EMPLEADOS_PRETENSOS:
 			this.vista.setTextVista(Agencia.getInstancia().getFuncAdministradorActual().visualizarEmpleadosPretensos());
