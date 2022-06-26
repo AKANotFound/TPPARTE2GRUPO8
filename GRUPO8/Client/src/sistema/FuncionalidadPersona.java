@@ -35,9 +35,6 @@ public abstract class FuncionalidadPersona extends FuncionalidadUsuario{
 		persona.getTicket().activar();
 	}
 	
-	
-	public abstract void iniciarRondaEleccion();
-	
 	public String visualizarListaAsignacion() throws ListaNoGeneradaException {
 		String str = null;
 		

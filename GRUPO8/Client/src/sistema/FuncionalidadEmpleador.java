@@ -18,12 +18,6 @@ public class FuncionalidadEmpleador extends FuncionalidadPersona {
 		((Persona) usuario).setTicket(ticket);
 		Sistema.agregarTicketEmpleador(ticket);
 	}
-	
-	
-	@Override
-	public void iniciarRondaEleccion() {
-		RondaDeElecciones.iniciaRondaDeEleccionEmpleador((Persona_Empleador) usuario);
-	}
 
 	@Override
 	public String visualizaResultado() {

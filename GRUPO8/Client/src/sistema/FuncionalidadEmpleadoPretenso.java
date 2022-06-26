@@ -28,12 +28,6 @@ public class FuncionalidadEmpleadoPretenso extends FuncionalidadPersona {
 		Sistema.puntajeCancelar((Persona_EmpleadoPretenso) usuario);
 	}
 	
-
-	@Override
-	public void iniciarRondaEleccion() {
-		RondaDeElecciones.iniciaRondaDeEleccionEmpleadoPretenso((Persona_EmpleadoPretenso) usuario);
-	}
-	
 	@Override
 	public String visualizaResultado() throws TicketNullException {
 		if(((Persona_EmpleadoPretenso)usuario).getTicket() == null)
