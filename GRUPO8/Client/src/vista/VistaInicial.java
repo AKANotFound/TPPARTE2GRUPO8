@@ -223,6 +223,5 @@ public class VistaInicial extends JPanel implements IVistaInicial, KeyListener {
 	@Override
 	public void ventanaEmergente(String mensaje) {
 		JOptionPane.showMessageDialog(null,mensaje );
-		
 	}
 }

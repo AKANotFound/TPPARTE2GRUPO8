@@ -62,10 +62,12 @@ public class ControladorVistaFuncionalidadesAdministrador implements ActionListe
 	        }
 			break;
 		case INICIAR_RONDA_DE_ENCUENTROS_LABORALES:
+			
 			result =this.vista.ventanaEmergenteConfirmar("¿Estás seguro de que deseas iniciar la ronda de encuentros laborales?"); 
 	        if (result == 0) 
 	        {
 	        	Agencia.getInstancia().getFuncAdministradorActual().iniciaRondaEncuentrosLaborales();
+	        	this.vista.ventanaEmergente("Ronda de encuentros laborales iniciada exitosamente");
 	        }
 	        break;
 		case INICIAR_RONDA_DE_CONTRATACION:

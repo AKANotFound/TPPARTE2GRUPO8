@@ -97,8 +97,8 @@ public class ActivoState implements IState
 				empleadoP.getListaDeAsignacion().setLista(new ArrayList<PersonaElegida>());
 				empleadoP.getListaDeAsignacion().setFechaDeCreacion(fecha);
 			}
-			empleadoP.getTicket().comparaFormularios(empleadoP,empleador);
-			
+			if(empleadoP.getTicket() != null)
+				empleadoP.getTicket().comparaFormularios(empleadoP,empleador);
 		}
 		Collections.sort(empleador.getListaDeAsignacion().getLista()); 	
 		empleadoP = (Persona_EmpleadoPretenso) empleador.getListaDeAsignacion().getLista().get(0).getPersona();
