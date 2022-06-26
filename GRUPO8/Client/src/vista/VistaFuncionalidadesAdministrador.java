@@ -178,5 +178,8 @@ public class VistaFuncionalidadesAdministrador extends JPanel implements IVistaF
 		
 	}
 
-
+	@Override
+	public void ventanaEmergente(String mensaje) {
+		JOptionPane.showMessageDialog(null,mensaje );
+	}
 }
