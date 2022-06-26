@@ -28,7 +28,7 @@ protected static void iniciaRondaDeEncuentrosLaborales ()
 		for (int i=0; i<empleadores.size(); i++)
 		{
 			empleador = empleadores.get(i);
-			empleador.getTicket().comparaFormularioEmpleador(empleador,empleadoP,fecha,empleadosPretensos);	
+			empleador.getTicket().generaListaDeAsignacion(empleador,empleadoP,fecha,empleadosPretensos);	
 		}
 		for (int i=0;i<empleadosPretensos.size();i++)
 		{

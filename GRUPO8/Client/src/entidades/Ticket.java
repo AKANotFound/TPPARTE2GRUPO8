@@ -48,13 +48,13 @@ public abstract class Ticket {
 	   }
  
 	   
-	public void comparaFormularioEmpleador(Persona_Empleador empleador,Persona_EmpleadoPretenso empleadoP,GregorianCalendar fecha,ArrayList<Persona_EmpleadoPretenso>empleadosPretensos)
+	public void generaListaDeAsignacion(Persona_Empleador empleador,Persona_EmpleadoPretenso empleadoP,GregorianCalendar fecha,ArrayList<Persona_EmpleadoPretenso>empleadosPretensos)
 	{
 		this.estado.generaListaDeAsignacion(empleador,empleadoP, fecha, empleadosPretensos);
 			
 	}
 	
-	public void comparaFormularioEmpleadoPretenso(Persona_EmpleadoPretenso empleadoP,Persona_Empleador empleador)
+	public void comparaFormularios(Persona_EmpleadoPretenso empleadoP,Persona_Empleador empleador)
 	{
 		this.estado.comparaFormularios(empleadoP, empleador);	
 	}
