@@ -41,5 +41,13 @@ public class Cuenta {
 
 	public boolean confirmaContrasena(String constrasena) {
         return this.contrasena.equals(constrasena);
-    } 
+    }
+
+	@Override
+	public String toString()
+	{
+		return "[" + usuario + "] \n ";
+	} 
+	
+	
 }

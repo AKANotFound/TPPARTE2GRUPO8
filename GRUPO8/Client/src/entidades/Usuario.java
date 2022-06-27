@@ -24,6 +24,13 @@ public abstract class Usuario extends Observable{
 	public void setCuenta(Cuenta cuenta) {
 		this.cuenta = cuenta;
 	}
+
+	@Override
+	public String toString()
+	{
+		return  cuenta +"";
+	}
+	
 	
 	
 }

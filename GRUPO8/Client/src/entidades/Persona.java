@@ -74,7 +74,7 @@ public abstract class Persona extends Usuario {
 
 	@Override
 	public String toString() {
-		return ", puntajeDeUsuario=" + puntaje;
+		return ", puntajeDeUsuario=" + puntaje+"\n";
 	}
 
 }
